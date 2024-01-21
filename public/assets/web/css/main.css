@@ -547,3 +547,23 @@ iframe {
     opacity: 1;
   }
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+  background-color: black;
+
+}
+
+.content {
+  width: 85%;
+  height: fit-content;
+  background-color: rgb(31, 31, 31);
+  border-radius: 10px;
+}
+
+.heading {
+  text-align: center;
+}

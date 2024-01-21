@@ -4,69 +4,48 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\UserModel;
 
 class Login extends BaseController
 {
+    private $userModel;
 
-        public function index()
-        {
-            // Load the login view
-            return view('app/login/login2');
-            
-           
-
-        }
-    
-        public function create()
-        {
-            // Load necessary helpers
-            helper(['form']);
-    
-            // Get input data from the form
-            $data = [
-                'name'          => $this->request->getPost('name'),
-                'college_name'  => $this->request->getPost('college_name'),
-                'phone_number'  => $this->request->getPost('phone_number'),
-                'email'         => $this->request->getPost('email'),
-                'password'      => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-                'user_type'     => $this->request->getPost('user_type'),
-                'created_at'    => date('Y-m-d H:i:s'),
-                'updated_at'    => date('Y-m-d H:i:s'),
-            ];
-    
-            // Simple validation
-            $validationRules = [
-                'name'          => 'required|min_length[3]|max_length[50]',
-                'college_name'  => 'required|min_length[3]|max_length[50]',
-                'phone_number'  => 'required|numeric|exact_length[10]',
-                'email'         => 'required|valid_email',
-                'password'      => 'required|min_length[8]',
-                'user_type'     => 'required|in_list[admin,user]',
-            ];
-    
-            if (!$this->validate($validationRules)) {
-                // If validation fails, return to the login view with validation errors
-                return view('login/login', ['validation' => $this->validator]);
-            }
-    
-            // Insert data into the database
-            $model = new \App\Models\LoginModel(); // Replace with your actual model name
-            $model->insert($data);
-    
-            // Redirect to the login page or wherever you want
-            return redirect()->to('/login');
-        }
-    
-        public function read()
-        {
-            // Load the model
-            $model = new \App\Models\LoginModel(); // Replace with your actual model name
-    
-            // Fetch all records from the database
-            $data['users'] = $model->findAll();
-    
-            // Pass the data to the view
-            return view('login/read', $data);
-        }
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
     }
 
+    public function index()
+    {
+        return view('app/login/login2');
+    }
+
+    public function authenticate()
+    {
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        // Validate email and password
+        // $validation = $this->validate([
+        //     'email' => 'required|valid_email',
+        //     'password' => 'required'
+        // ]);
+
+        // if (!$validation) {
+        //     return redirect()->to('app/login/login2')->withInput()->with('validation', $this->validator);
+        // }
+
+        // Check if the user exists
+        $user = $this->userModel->where('email', $email)->first();
+
+        if ($user && password_verify($password, $user['password'])) {
+            // Login successful
+            // You can set session variables or perform other actions as needed
+
+            return redirect()->to('/landingpage/landing-page'); // Redirect to the dashboard or any other page
+        } else {
+            // Login failed
+            return redirect()->to('/')->withInput()->with('error', 'Invalid email or password');
+        }
+    }
+}
