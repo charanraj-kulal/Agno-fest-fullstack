@@ -38,9 +38,9 @@
 
 </head>
     <body>
-        <div id="particles-js">
+        
         <div class="limiter">
-            <div class="container-login100">
+            <div id="particles-js">
                 <div class="wrap-login100">
                     <form class="login100-form validate-form" action="<?= base_url('login/authenticate') ?>" method="post">
                         <span class="login100-form-title p-b-26">
@@ -84,7 +84,6 @@
                     </form>
                 </div>
             </div>
-        </div>
         </div>
     
         <div id="dropDownSelect1"></div>
