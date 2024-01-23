@@ -11,10 +11,8 @@ class Login extends BaseController
         public function index()
         {
             // Load the login view
-            return view('app/login/login2');
+            return view('app/global/header').('app/login/login2');
             
-           
-
         }
     
         public function create()
