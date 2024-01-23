@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\UserModel;
+use Kreait\Firebase\Auth;
+use Firebase\JWT\JWT;
 
 class Login extends BaseController
 {
@@ -25,27 +27,36 @@ class Login extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        // Validate email and password
-        // $validation = $this->validate([
-        //     'email' => 'required|valid_email',
-        //     'password' => 'required'
-        // ]);
+        // Authenticate the user using Firebase Authentication
+        try {
+            $auth = new Auth();
+            $user = $auth->verifyPassword($email, $password);
 
-        // if (!$validation) {
-        //     return redirect()->to('app/login/login2')->withInput()->with('validation', $this->validator);
-        // }
+            // Get the user ID from the Firebase Authentication response
+            $firebaseUserId = $user->uid;
 
-        // Check if the user exists
-        $user = $this->userModel->where('email', $email)->first();
+            // Assuming successful Firebase Authentication, create a JWT token
+            $firebaseSecretKey = 'your_firebase_secret_key';
+            $jwtPayload = [
+                'uid' => $firebaseUserId,
+                'email' => $email,
+                // Add any additional claims you need
+            ];
 
-        if ($user && password_verify($password, $user['password'])) {
-            // Login successful
-            // You can set session variables or perform other actions as needed
+            $jwtToken = JWT::encode($jwtPayload, $firebaseSecretKey, 'HS256');
 
-            return redirect()->to('/landingpage/landing-page'); // Redirect to the dashboard or any other page
-        } else {
-            // Login failed
+            // Store the JWT token in a secure manner (e.g., database, secure cookie, etc.)
+            // Here, we are using a session for simplicity, but it's not recommended in a real-world scenario
+            session()->set('firebase_jwt_token', $jwtToken);
+
+            // Redirect to the dashboard or any other page
+            return redirect()->to('/landingpage/landing-page');
+        } catch (\Kreait\Firebase\Exception\Auth\InvalidPassword $e) {
+            // Handle invalid password exception
             return redirect()->to('/')->withInput()->with('error', 'Invalid email or password');
+        } catch (\Exception $e) {
+            // Handle other authentication exceptions
+            return redirect()->to('/')->withInput()->with('error', 'Authentication error');
         }
     }
 }

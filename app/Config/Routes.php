@@ -8,11 +8,17 @@ use CodeIgniter\Router\RouteCollection;
 
 
 
-//user routes
+//login routes
 $routes->get('/', 'Login::index');
 $routes->post('login/authenticate', 'Login::authenticate');
+
+//register routes
 $routes->get('register', 'User::index');
 $routes->post('register/create', 'User::create');
 $routes->get('register/success', 'User::success');
-$routes->get('landingpage/landing-page', 'User::success'); // Add a success route if needed
+$routes->get('landingpage/landing-page', 'User::success'); 
+
+//email routes
+$routes->get('email', 'EmailController::index');
+$routes->post('email', 'EmailController::sendMail');
 
