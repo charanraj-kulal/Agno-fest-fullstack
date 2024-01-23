@@ -3,26 +3,23 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf');
+  src: url("../fonts/poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf');
+  src: url("../fonts/poppins/Poppins-Medium.ttf");
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf');
+  src: url("../fonts/poppins/Poppins-Bold.ttf");
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+  src: url("../fonts/poppins/Poppins-SemiBold.ttf");
 }
-
-
-
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -59,13 +56,11 @@ a:focus {
 a:hover {
   text-decoration: none;
   color: #6a7dfe;
-  color: -webkit-linear-gradient(left, #fd2121, #0a0a0a, );
+  color: -webkit-linear-gradient(left, #fd2121, #0a0a0a);
   color: -o-linear-gradient(left, #fd2121, #0a0a0a);
   color: -moz-linear-gradient(left, #fd2121, #0a0a0a);
   color: linear-gradient(left, #fd2121, #0a0a0a);
 }
-
-
 
 /*---------------------------------------------*/
 h1,
@@ -90,7 +85,6 @@ li {
   margin: 0px;
   list-style-type: none;
 }
-
 
 /*---------------------------------------------*/
 input {
@@ -187,7 +181,6 @@ iframe {
   border: none !important;
 }
 
-
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
@@ -208,28 +201,32 @@ iframe {
 [ login ]*/
 
 .limiter {
+  z-index: 1;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
 }
 
 #particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #f01322;
-  background-image: url('');
+  background-image: url("");
   justify-content: center;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   padding: 15px;
-
+  z-index: -1;
 }
 
 /* .container-login100 {
@@ -246,21 +243,24 @@ iframe {
   padding: 15px;
   background: #f2f2f2;
 } */
-
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   overflow: hidden;
-  padding: 77px 55px 33px 55px;
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
-
 
 /*------------------------------------------------------------------
 [ Form ]*/
@@ -357,19 +357,19 @@ iframe {
   transition: all 0.4s;
 }
 
-.input100:focus+.focus-input100::after {
+.input100:focus + .focus-input100::after {
   top: -15px;
 }
 
-.input100:focus+.focus-input100::before {
+.input100:focus + .focus-input100::before {
   width: 100%;
 }
 
-.has-val.input100+.focus-input100::after {
+.has-val.input100 + .focus-input100::after {
   top: -15px;
 }
 
-.has-val.input100+.focus-input100::before {
+.has-val.input100 + .focus-input100::before {
   width: 100%;
 }
 
@@ -412,8 +412,6 @@ iframe {
   color: linear-gradient(left, #fd2121, #0a0a0a);
 }
 
-
-
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
@@ -443,7 +441,13 @@ iframe {
   width: 300%;
   height: 100%;
   background: #f51b1b;
-  background: -webkit-linear-gradient(right, #fd2121, #0a0a0a, #fd2121, #0a0a0a);
+  background: -webkit-linear-gradient(
+    right,
+    #fd2121,
+    #0a0a0a,
+    #fd2121,
+    #0a0a0a
+  );
   background: -o-linear-gradient(right, #fd2121, #0a0a0a, #fd2121, #0a0a0a);
   background: -moz-linear-gradient(right, #fd2121, #0a0a0a, #fd2121, #0a0a0a);
   background: linear-gradient(right, #fd2121, #0a0a0a, #fd2121, #0a0a0a);
@@ -479,7 +483,6 @@ iframe {
   left: 0;
 }
 
-
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
@@ -488,8 +491,6 @@ iframe {
     padding: 77px 15px 33px 15px;
   }
 }
-
-
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -566,7 +567,6 @@ body::-webkit-scrollbar {
 
 .main {
   background-color: black;
-
 }
 
 .content {
