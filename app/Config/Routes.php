@@ -5,8 +5,21 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
 
 
-//user routes
-$routes->get('login', 'Login::index');
+
+//login routes
+$routes->get('/', 'Login::index');
+$routes->post('login/authenticate', 'Login::authenticate');
+$routes->post('login/register', 'Login::register');
+
+//register routes
+$routes->get('register', 'Register::index');
+$routes->post('register/create', 'Register::create');
+$routes->get('register/success', 'Register::success');
+$routes->get('landingpage/landing-page', 'Register::success'); 
+
+//email routes
+$routes->get('email', 'EmailController::index');
+$routes->post('email', 'EmailController::sendMail');
+

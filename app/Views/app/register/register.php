@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V2</title>
+    <title>Registration V2</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,24 +37,40 @@
     <link rel="stylesheet"  href="<?= base_url('assets/web/css/main.css') ?>">
 
 </head>
-    <body>
-        
+<body>
+    
         <div class="limiter">
             <div id="particles-js">
+            
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form" action="<?= base_url('login/authenticate') ?>" method="post">
+                    <form class="login100-form validate-form" action="<?= base_url('register/create') ?>" method="post">
                         <span class="login100-form-title p-b-26">
-                            Welcome
+                            Register
                         </span>
                         <span class="login100-form-title p-b-48">
-                            <i class="zmdi zmdi-font"></i>
+                            <i class="zmdi zmdi-account"></i>
                         </span>
-    
-                        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter your name">
+                            <input class="input100" type="text" name="name">
+                            <span class="focus-input100" data-placeholder="Name"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter your college name">
+                            <input class="input100" type="text" name="college_name">
+                            <span class="focus-input100" data-placeholder="College Name"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter your phone number">
+                            <input class="input100" type="text" name="phone_number">
+                            <span class="focus-input100" data-placeholder="Phone Number"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
                             <input class="input100" type="text" name="email">
                             <span class="focus-input100" data-placeholder="Email"></span>
                         </div>
-    
+
                         <div class="wrap-input100 validate-input" data-validate="Enter password">
                             <span class="btn-show-pass">
                                 <i class="zmdi zmdi-eye"></i>
@@ -62,32 +78,33 @@
                             <input class="input100" type="password" name="pass">
                             <span class="focus-input100" data-placeholder="Password"></span>
                         </div>
-    
+
                         <div class="container-login100-form-btn">
                             <div class="wrap-login100-form-btn">
                                 <div class="login100-form-bgbtn"></div>
                                 <button class="login100-form-btn">
-                                    Login
+                                    Register
                                 </button>
                             </div>
                         </div>
-    
+
                         <div class="text-center p-t-115">
                             <span class="txt1">
-                                Don’t have an account?
+                                Already have an account?
                             </span>
-    
-                            <a class="txt2" href="<?= base_url('/register') ?>">
-                                Sign Up
+
+                            <a class="txt2" href="<?= base_url('/') ?>">
+                                Login
                             </a>
                         </div>
                     </form>
                 </div>
-            </div>
+            
         </div>
-    
-        <div id="dropDownSelect1"></div>
-        
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
     <!-- jQuery -->
     <script src="<?= base_url('vendor/jquery/jquery-3.2.1.min.js') ?>"></script>
 
@@ -106,7 +123,7 @@
     <script src="<?= base_url('vendor/daterangepicker/daterangepicker.js') ?>"></script>
 
     <!-- Your Custom JS File -->
-    <script src="<?= base_url('js/main.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/main.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/particles.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/app.js') ?>"></script>
 
