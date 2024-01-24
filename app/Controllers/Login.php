@@ -12,15 +12,6 @@ class Login extends BaseController
 {
     private $userModel;
 
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-    }
-
-    public function index()
-    {
-        return view('app/login/login2');
-    }
     public function authenticate()
     {
         $email = $this->request->getPost('email');
