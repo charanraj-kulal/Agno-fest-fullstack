@@ -11,12 +11,13 @@ use CodeIgniter\Router\RouteCollection;
 //login routes
 $routes->get('/', 'Login::index');
 $routes->post('login/authenticate', 'Login::authenticate');
+$routes->post('login/register', 'Login::register');
 
 //register routes
-$routes->get('register', 'User::index');
-$routes->post('register/create', 'User::create');
-$routes->get('register/success', 'User::success');
-$routes->get('landingpage/landing-page', 'User::success'); 
+$routes->get('register', 'Register::index');
+$routes->post('register/create', 'Register::create');
+$routes->get('register/success', 'Register::success');
+$routes->get('landingpage/landing-page', 'Register::success'); 
 
 //email routes
 $routes->get('email', 'EmailController::index');

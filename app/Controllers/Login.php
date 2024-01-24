@@ -21,42 +21,32 @@ class Login extends BaseController
     {
         return view('app/login/login2');
     }
-
     public function authenticate()
     {
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        // Authenticate the user using Firebase Authentication
-        try {
-            $auth = new Auth();
-            $user = $auth->verifyPassword($email, $password);
+        // Validate email and password
+        // $validation = $this->validate([
+        //     'email' => 'required|valid_email',
+        //     'password' => 'required'
+        // ]);
 
-            // Get the user ID from the Firebase Authentication response
-            $firebaseUserId = $user->uid;
+        // if (!$validation) {
+        //     return redirect()->to('app/login/login2')->withInput()->with('validation', $this->validator);
+        // }
 
-            // Assuming successful Firebase Authentication, create a JWT token
-            $firebaseSecretKey = 'your_firebase_secret_key';
-            $jwtPayload = [
-                'uid' => $firebaseUserId,
-                'email' => $email,
-                // Add any additional claims you need
-            ];
+        // Check if the user exists
+        $user = $this->userModel->where('email', $email)->first();
 
-            $jwtToken = JWT::encode($jwtPayload, $firebaseSecretKey, 'HS256');
+        if ($user && password_verify($password, $user['password'])) {
+            // Login successful
+            // You can set session variables or perform other actions as needed
 
-            // Store the JWT token in a secure manner (e.g., database, secure cookie, etc.)
-            // Here, we are using a session for simplicity, but it's not recommended in a real-world scenario
-            session()->set('firebase_jwt_token', $jwtToken);
-
-            // Redirect to the dashboard or any other page
-            return redirect()->to('/landingpage/landing-page');
-        } catch (\Kreait\Firebase\Exception\Auth\InvalidPassword $e) {
-            // Handle invalid password exception
+            return redirect()->to('/landingpage/landing-page'); // Redirect to the dashboard or any other page
+        } else {
+            // Login failed
             return redirect()->to('/')->withInput()->with('error', 'Invalid email or password');
-        } catch (\Exception $e) {
-            // Handle other authentication exceptions
-            return redirect()->to('/')->withInput()->with('error', 'Authentication error');
         }
     }
-}
+    }

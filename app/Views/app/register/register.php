@@ -38,9 +38,10 @@
 
 </head>
 <body>
-    <div id="particles-js">
+    
         <div class="limiter">
-            <div class="container-login100">
+            <div id="particles-js">
+            
                 <div class="wrap-login100">
                     <form class="login100-form validate-form" action="<?= base_url('register/create') ?>" method="post">
                         <span class="login100-form-title p-b-26">
@@ -98,7 +99,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            
         </div>
     </div>
 
@@ -122,7 +123,7 @@
     <script src="<?= base_url('vendor/daterangepicker/daterangepicker.js') ?>"></script>
 
     <!-- Your Custom JS File -->
-    <script src="<?= base_url('js/main.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/main.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/particles.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/app.js') ?>"></script>
 
