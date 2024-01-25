@@ -70,6 +70,10 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
     <script src="<?= base_url('assets/web/vendors/wow/wow.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/vendors/easing/easing.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/vendors/waypoints/waypoints.min.js') ?>"></script>
@@ -79,8 +83,9 @@
     <script src="<?= base_url('assets/web/vendors/tempusdominus/js/moment-timezone.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/vendors/tempusdominus/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+   
+    <script src="<?= base_url('assets/web/js/landingpage.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/countdown1.js') ?>"></script>
 </body>
 
 </html>

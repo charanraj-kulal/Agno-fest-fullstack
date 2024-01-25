@@ -1,14 +1,50 @@
-
+<div class="container-fluid py-5 bg-dark hero-header mb-5">
+                <div class="container my-5 py-5">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h1 class="display-1 text-white animated slideInLeft"><strong>Agnisia</strong></h1>
+                            <p class="text-white animated slideInLeft  mb-4 pb-2">Where Talent Meets Opportunity!</p>
+                            <p class="text-white animated slideInLeft mb-4 pb-2">National Level IT & Management Fest</p>
+                            <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>
+                            <!-- Counter Section Begin  **edited-->
+                    
+                            
+                                <div class="main-example text-center text-lg-start">
+                                <h1 class="display-1 text-white animated slideInLeft"><strong>The Event Starts In.</strong></h1>
+                                <h1 class="display-5 text-white animated slideInLeft"><strong>Every Second Counts...</strong></h1>
+                                    <div class="countdown-container" data-timer="2024/02/15" id="main-example"></div>
+                                    </div>
+                                    <script type="text/template" id="main-example-template">
+                                    <div class="time <%= label %>">
+                                    <span class="count curr top"><%= curr %></span>
+                                    <span class="count next top"><%= next %></span>
+                                    <span class="count next bottom"><%= next %></span>
+                                    <span class="count curr bottom"><%= curr %></span>
+                                    <span class="label"><%= label.length < 6 ? label : label.substr(0, 3)  %></span>
+                                    </div>
+                                    </script>
+                            <!-- Counter Section End -->
+ 
+                            </div>
+                        <div class="col-lg-6 text-center text-lg-end ">
+                            <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-1.png') ?>" alt="">
+                        
+                            <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-2.png') ?>" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Service Start -->
-        <div class="container-xxl py-5">
+        <div class="container-fluid py-5">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
-                                <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                                <h5>Master Chefs</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <i class="fa-solid fa-3x fa-calendar-days text-primary mb-4"></i>
+                                <h5>Events</h5>
+                                <p>It’s time to get your game face on</p>
                             </div>
                         </div>
                     </div>
@@ -46,7 +82,7 @@
 
 
         <!-- About Start -->
-        <div class="container-xxl py-5">
+        <div class="container-fluid py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
@@ -65,32 +101,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="section col-lg-6">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Restoran</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
+                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Agnisia</h1>
+                        <p class="mb-4">We are .</p>
                         <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1><p>+</p>
                                     <div class="ps-4">
-                                        <p class="mb-0">Years of</p>
-                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                        <p class="mb-0">Events to</p>
+                                        <h6 class="text-uppercase mb-0">Participate</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">30</h1><p>+</p>
                                     <div class="ps-4">
-                                        <p class="mb-0">Popular</p>
-                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                        <p class="mb-0">Trophies to</p>
+                                        <h6 class="text-uppercase mb-0">Win</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Register</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +135,7 @@
 
 
         <!-- Menu Start -->
-        <div class="container-xxl py-5">
+        <div class="container-fluid py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
@@ -444,7 +480,7 @@
 
 
         <!-- Reservation Start -->
-        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-fluid py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
             <div class="row g-0">
                 <div class="col-md-6">
                     <div class="video">
@@ -524,7 +560,7 @@
 
 
         <!-- Team Start -->
-        <div class="container-xxl pt-5 pb-3">
+        <div class="container-fluid pt-5 pb-3">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
@@ -594,7 +630,7 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
                 <div class="text-center">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
@@ -627,7 +663,7 @@
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="<?= base_url('assets/web/imgs/img/testimonial-3.jpg') ?>" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h5 class="mb-1">Client Name</h5>
                                 <small>Profession</small>

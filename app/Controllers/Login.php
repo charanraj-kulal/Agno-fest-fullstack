@@ -5,12 +5,22 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\UserModel;
-use Kreait\Firebase\Auth;
-use Firebase\JWT\JWT;
+
 
 class Login extends BaseController
 {
-    private $userModel;
+    
+    private $user;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+    public function index()
+    {
+        
+        return view('app/login/login2');
+    }
 
     public function authenticate()
     {

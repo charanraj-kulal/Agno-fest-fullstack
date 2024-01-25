@@ -23,3 +23,8 @@ $routes->get('landingpage/landing-page', 'LandingPage::index');
 $routes->get('email', 'EmailController::index');
 $routes->post('email', 'EmailController::sendMail');
 
+//404 route
+$routes->set404Override(function(){
+    return view('app/common/404');
+});
+
