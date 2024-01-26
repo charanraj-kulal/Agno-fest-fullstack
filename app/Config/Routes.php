@@ -17,7 +17,9 @@ $routes->post('login/register', 'Login::register');
 $routes->get('register', 'Register::index');
 $routes->post('register/create', 'Register::create');
 $routes->get('register/success', 'Register::success');
-$routes->get('landingpage/landing-page', 'LandingPage::index'); 
+$routes->get('landingpage/landing-page', 'LandingPage::index');
+$routes->get('dashboard', 'Dashboard::index');
+
 
 //email routes
 $routes->get('email', 'EmailController::index');
