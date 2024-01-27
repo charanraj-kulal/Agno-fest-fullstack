@@ -44,7 +44,7 @@
                 <div class="wrap-login100">
                     <form class="login100-form validate-form" action="<?= base_url('login/authenticate') ?>" method="post">
                         <span class="login100-form-title p-b-26">
-                            Welcome
+                            Welcome 
                         </span>
                         <span class="login100-form-title p-b-48">
                             <i class="zmdi zmdi-font"></i>

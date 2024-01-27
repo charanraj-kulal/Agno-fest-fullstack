@@ -2,10 +2,13 @@
                 <div class="container my-5 py-5">
                     <div class="row align-items-center g-5">
                         <div class="col-lg-6 text-center text-lg-start">
+                            <?php
+                            echo session('name');
+                            ?>
                             <h1 class="display-1 text-white animated slideInLeft"><strong>Agnisia</strong></h1>
                             <p class="text-white animated slideInLeft  mb-4 pb-2">Where Talent Meets Opportunity!</p>
                             <p class="text-white animated slideInLeft mb-4 pb-2">National Level IT & Management Fest</p>
-                            <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>
+                            <a href="<?= base_url('dashboard') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>
                             <!-- Counter Section Begin  **edited-->
                     
                             

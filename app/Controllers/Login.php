@@ -11,10 +11,12 @@ class Login extends BaseController
 {
     
     private $user;
-
+    public $session;
+   
     public function __construct()
     {
         $this->userModel = new UserModel();
+        
     }
     public function index()
     {
@@ -22,11 +24,13 @@ class Login extends BaseController
         return view('app/login/login2');
     }
 
+    
     public function authenticate()
     {
+        
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-
+        $this->session->set($email);
         // Validate email and password
         // $validation = $this->validate([
         //     'email' => 'required|valid_email',
@@ -43,11 +47,15 @@ class Login extends BaseController
         if ($user && password_verify($password, $user['password'])) {
             // Login successful
             // You can set session variables or perform other actions as needed
-
-            return redirect()->to('/landingpage/landing-page'); // Redirect to the dashboard or any other page
+            $data=[
+                'email'
+            ]
+            isLoggedIN
+            return redirect()->to('/dashboard'); // Redirect to the dashboard or any other page
         } else {
             // Login failed
-            return redirect()->to('/')->withInput()->with('error', 'Invalid email or password');
+            return redirect()->to('login')->withInput()->with('error', 'Invalid email or password');
         }
     }
+   
     }

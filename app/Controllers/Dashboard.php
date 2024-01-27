@@ -9,6 +9,10 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        return view('app/global/sidebar');
+        return view('app/global/admin_dashboard');
+    }
+    public function logout(){
+        session()->destroy();
+        return view('app/login/login2');
     }
 }

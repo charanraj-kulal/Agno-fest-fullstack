@@ -61,7 +61,7 @@
                         <a href="menu.html" class="nav-item nav-link">Events</a>
                         <a href="contact.html" class="nav-item nav-link">Rules</a>
                     </div>
-                    <a href="" class="btn btn-primary rounded-pill py-2 px-4">Event registration</a>
+                    <a href="<?= base_url('register') ?>" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
                     
                 </div>
             </nav>
