@@ -107,7 +107,7 @@ class Register extends BaseController
 
         if ($userId) {
             $user['id'] = $userId;
-            return redirect()->to('dashboard'); 
+            return redirect()->to('login'); 
         }
 
         return redirect()->back()->with('error', 'Sorry! User not created');

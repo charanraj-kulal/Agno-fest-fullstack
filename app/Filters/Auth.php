@@ -25,11 +25,8 @@ class Auth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(!session()->get('email')){
-            return redirect() -> to("/login");
-        }
-        else{
-            return redirect() -> to("dashboard");
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to(site_url('login'));
         }
     }
     

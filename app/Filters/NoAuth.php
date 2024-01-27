@@ -25,8 +25,15 @@ class NoAuth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(session()->get('id')){
-            return redirect() -> to("/dashboard");
+        if (session()->get('isLoggedIn')) {
+
+			if (session()->get('role') == "admin") {
+				return redirect()->to(base_url('admin'));
+			}
+
+			if (session()->get('role') == "editor") {
+				return redirect()->to(base_url('editor'));
+			}
         }
     }
 

@@ -27,32 +27,54 @@ class Login extends BaseController
     
     public function authenticate()
     {
+        $data = [];
+
+        // if ($this->request->getMethod() == 'post') {
+
+        //     $rules = [
+        //         'email' => 'required|min_length[6]|max_length[50]|valid_email',
+        //         'password' => 'required|min_length[8]|max_length[255]|validateUser[email,password]',
+        //     ];
+
+        //     $errors = [
+        //         'password' => [
+        //             'validateUser' => "Email or Password didn't match",
+        //         ],
+        //     ];
+
         
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $this->session->set($email);
-        // Validate email and password
-        // $validation = $this->validate([
-        //     'email' => 'required|valid_email',
-        //     'password' => 'required'
-        // ]);
-
-        // if (!$validation) {
-        //     return redirect()->to('app/login/login2')->withInput()->with('validation', $this->validator);
-        // }
-
+        
+        
         // Check if the user exists
         $user = $this->userModel->where('email', $email)->first();
+        
+        //storing session values
+        $this->setUserSession($user);
 
-        if ($user && password_verify($password, $user['password'])) {
-            // Login successful
-            // You can set session variables or perform other actions as needed
-           
-            return redirect()->to('/dashboard'); // Redirect to the dashboard or any other page
-        } else {
-            // Login failed
-            return redirect()->to('login')->withInput()->with('error', 'Invalid email or password');
+        if($user['user_type']=="2"){
+            return redirect()->to(base_url('admin'));
         }
+        elseif($user['user_type'] == "1"){
+
+            return redirect()->to(base_url('student'));
+        }
+        
+    }
+    private function setUserSession($user)
+    {
+        $data = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'phone_number' => $user['phone_number'],
+            'email' => $user['email'],
+            'isLoggedIn' => true,
+            "user_type" => $user['user_type'],
+        ];
+
+        session()->set($data);
+        return true;
     }
    
     }

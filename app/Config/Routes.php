@@ -33,7 +33,20 @@ $routes->get('/', 'LandingPage::index');
 //     // Add more routes as needed
 // });
 
-$$routes->get('dashboard', 'Dashboard::index');
+$routes->match(['get', 'post'],'login','Login::index', ["filter" => "noauth"]);
+
+$routes->group("admin", ["filter" => "auth"], function ($routes) {
+    $routes->get("/", "AdminController::index");
+});
+
+$routes->group("dashboard", ["filter" => "auth"], function ($routes) {
+    $routes->get("/", "Dahsboard::index");
+});
+
+$routes->group("student", ["filter" => "auth"], function ($routes) {
+    $routes->get("/", "StudentController::index");
+});
+
 $routes->get('logout', 'Dashboard::logout');
 
 

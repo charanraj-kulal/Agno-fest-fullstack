@@ -32,7 +32,7 @@
 				<h1>404</h1>
 				<h2>Page not found</h2>
 			</div>
-			<a href="<?= base_url('/landingpage/landing-page') ?>">Homepage</a>
+			<a href="<?= base_url('/') ?>">Homepage</a>
 		</div>
 	</div>
 
