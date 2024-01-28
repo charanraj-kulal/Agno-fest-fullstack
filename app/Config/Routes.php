@@ -20,18 +20,9 @@ $routes->get('register/success', 'Register::success');
 
 //landing page routes
 $routes->get('/', 'LandingPage::index');
+$routes->get('/about-us', 'LandingPage::aboutus');
 
-//dashboard routes
-// $routes->group('dashboard', function ($routes) {
-    // Your dashboard routes go here
-    // $routes->get('/', 'Dashboard::index',['filter' => 'auth']);
-    // Add more routes as needed
-// });
-// $routes->group('dashboard', ['filter' => 'noauth'], function ($routes) {
-//     // Your dashboard routes go here
-//     $routes->get('/', 'Dashboard::index');
-//     // Add more routes as needed
-// });
+
 
 $routes->match(['get', 'post'],'login','Login::index', ["filter" => "noauth"]);
 
