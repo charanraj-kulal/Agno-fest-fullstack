@@ -1,0 +1,56 @@
+body {
+    background-image: url('https:body-background.jpg');
+    /* Replace 'body-background.jpg' with your actual image URL */
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+header {
+    background-image: url('header-background.jpg');
+    /* Replace 'header-background.jpg' with your actual image URL */
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.fest-info {
+    margin-bottom: 50px;
+}
+
+.fest-info h2 {
+    color: #ff0000;
+    /* Red color for side heading */
+}
+
+.events {
+    margin-top: 30px;
+}
+
+.event-category h3 {
+    color: #ff0000;
+    /* Red color for side heading */
+}
+
+.event-card {
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #000000;
+    /* Black background for cards */
+    color: #ffffff;
+}
+
+footer {
+    background-image: url('footer-background.jpg');
+    /* Replace 'footer-background.jpg' with your actual image URL */
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}

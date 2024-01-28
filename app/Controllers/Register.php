@@ -11,10 +11,13 @@ class Register extends BaseController
 {
     use ResponseTrait;
     private $user;
+    public $session;
 
     public function __construct()
     {
+        $session = \Config\Services::session();
         $this->user = new UserModel();
+        
     }
 
     public function success()
@@ -26,7 +29,7 @@ class Register extends BaseController
     // Read all users
     public function index()
     {
-        
+       
         return view('app/register/register');
         // header('Access-Control-Allow-Origin: *');
         // header('Content-Type: application/json');
@@ -87,8 +90,8 @@ class Register extends BaseController
         //     return redirect()->back()->withInput()->with('validation', $this->validator);
         
         // }
-
-        $user = [
+         
+        $this->session->set($user = [
             'name' => $this->request->getVar('name'),
             'college_name' => $this->request->getVar('college_name'),
             'phone_number' => $this->request->getVar('phone_number'),
@@ -97,13 +100,14 @@ class Register extends BaseController
             'user_type' => 1,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
-        ];
+        ]);
+        
 
         $userId = $this->user->insert($user);
 
         if ($userId) {
             $user['id'] = $userId;
-            return redirect()->to('/landingpage/landing-page'); 
+            return redirect()->to('login'); 
         }
 
         return redirect()->back()->with('error', 'Sorry! User not created');

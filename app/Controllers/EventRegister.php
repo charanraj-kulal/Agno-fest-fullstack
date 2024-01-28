@@ -9,6 +9,6 @@ class EventRegister extends BaseController
 {
     public function index()
     {
-        //
+        return view("app/global/admin_dashboard");
     }
 }

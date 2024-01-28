@@ -93,7 +93,7 @@
                                 Already have an account?
                             </span>
 
-                            <a class="txt2" href="<?= base_url('/') ?>">
+                            <a class="txt2" href="<?= base_url('login') ?>">
                                 Login
                             </a>
                         </div>
