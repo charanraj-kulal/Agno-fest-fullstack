@@ -20,6 +20,8 @@ $routes->get('register/success', 'Register::success');
 
 //landing page routes
 $routes->get('/', 'LandingPage::index');
+$routes->get('/about-us', 'LandingPage::aboutus');
+
 
 //dashboard routes
 // $routes->group('dashboard', function ($routes) {
@@ -33,7 +35,7 @@ $routes->get('/', 'LandingPage::index');
 //     // Add more routes as needed
 // });
 
-$$routes->get('dashboard', 'Dashboard::index');
+$routes->get('dashboard', 'Dashboard::index');
 $routes->get('logout', 'Dashboard::logout');
 
 

@@ -47,10 +47,7 @@ class Login extends BaseController
         if ($user && password_verify($password, $user['password'])) {
             // Login successful
             // You can set session variables or perform other actions as needed
-            $data=[
-                'email'
-            ]
-            isLoggedIN
+          
             return redirect()->to('/dashboard'); // Redirect to the dashboard or any other page
         } else {
             // Login failed
