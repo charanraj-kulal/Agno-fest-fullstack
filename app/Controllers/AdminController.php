@@ -9,7 +9,7 @@ class AdminController extends BaseController
 {   public function __construct()
     {
         if (session()->get('user_type') != "2") {
-            echo 'Access denied';
+            echo view('app/common/access_denied');
             exit;
         }
     }

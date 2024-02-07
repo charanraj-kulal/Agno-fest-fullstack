@@ -49,7 +49,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Agnisia</h1>
+                    <h1 class="sanskrit-name text-primary m-0"><img src="<?= base_url('assets/web/imgs/favicon.png') ?>" alt="logo">Agnisia</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -62,7 +62,15 @@
                         <a href="menu.html" class="nav-item nav-link">Events</a>
                         <a href="contact.html" class="nav-item nav-link">Rules</a>
                     </div>
-                    <a href="<?= base_url('register') ?>" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                    <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
+                        {
+                        ?>
+                            <a href="<?= base_url('dashboard') ?>" class="btn btn-primary rounded-pill py-2 px-4">Dashboard</a>
+                        <?php }else{ ?>
+                            <a href="<?= base_url('login') ?>" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+                            
+                        <?php } ?>
+                    
                     
                 </div>
             </nav>

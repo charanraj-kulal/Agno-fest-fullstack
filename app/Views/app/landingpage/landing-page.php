@@ -5,10 +5,19 @@
                             <?php
                             echo session('name');
                             ?>
-                            <h1 class="display-1 text-white animated slideInLeft"><strong>Agnisia</strong></h1>
-                            <p class="text-white animated slideInLeft  mb-4 pb-2">Where Talent Meets Opportunity!</p>
+                            <h1 class=" display-1 text-white animated slideInLeft "><strong>Agnisia</strong></h1>
+                            <p class=" text-white animated slideInLeft  mb-4 pb-2">Where Talent Meets Opportunity!</p>
+                            
                             <p class="text-white animated slideInLeft mb-4 pb-2">National Level IT & Management Fest</p>
-                            <a href="<?= base_url('dashboard') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>
+                            <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
+                            {
+                            ?>
+                                <a href="<?= base_url('dashboard') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Dashboard</a>
+                            <?php }else{ ?>
+                                <a href="<?= base_url('login') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Login</a>
+                                
+                            <?php } ?>
+                            
                             <!-- Counter Section Begin  **edited-->
                     
                             

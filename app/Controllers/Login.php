@@ -53,13 +53,8 @@ class Login extends BaseController
         //storing session values
         $this->setUserSession($user);
 
-        if($user['user_type']=="2"){
-            return redirect()->to(base_url('admin'));
-        }
-        elseif($user['user_type'] == "1"){
-
-            return redirect()->to(base_url('student'));
-        }
+        return redirect()->to(base_url('dashboard'));
+        
         
     }
     private function setUserSession($user)

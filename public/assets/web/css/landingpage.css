@@ -1,3 +1,9 @@
+@font-face {
+    font-family: Samarkan;
+    src: url('../fonts/samarkan/SAMAN___.TTF');
+}
+
+
 :root {
     --primary: #f00000;
     --light: #F1F8FF;
@@ -37,6 +43,15 @@
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
+}
+
+.sanskrit-name {
+    font-family: 'Samarkan';
+    font-size: 1.3vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
 }
 
 

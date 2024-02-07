@@ -11,7 +11,9 @@ class StudentController extends BaseController
     public function __construct()
     {
         if (session()->get('user_type') != "1") {
-            echo 'Access denied';
+            echo view('app/common/access_denied');
+            // return view("app/common/access_denied");
+            
             exit;
         }
     }

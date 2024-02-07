@@ -9,7 +9,13 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        return view('app/global/admin_dashboard');
+        if($_SESSION['user_type']=="2"){
+            return redirect()->to(base_url('admin'));
+        }
+        elseif($_SESSION['user_type'] == "1"){
+
+            return redirect()->to(base_url('student'));
+        }
     }
     public function logout(){
         session()->destroy();

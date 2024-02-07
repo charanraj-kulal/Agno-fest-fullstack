@@ -23,21 +23,19 @@ $routes->get('/', 'LandingPage::index');
 $routes->get('/about-us', 'LandingPage::aboutus');
 
 
-
+//auth routes
 $routes->match(['get', 'post'],'login','Login::index', ["filter" => "noauth"]);
-
+$routes->group("dashboard", ["filter" => "auth"], function ($routes) {
+    $routes->get("/", "Dashboard::index");
+});
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "AdminController::index");
 });
-
-$routes->group("dashboard", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "Dahsboard::index");
-});
-
 $routes->group("student", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "StudentController::index");
 });
 
+//logout routes
 $routes->get('logout', 'Dashboard::logout');
 
 
