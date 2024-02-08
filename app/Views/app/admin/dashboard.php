@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+  <title>Dashboard - Agnisia</title>
   <!-- loader-->
   <link href="<?= base_url('assets/web/css/pace.min.css') ?>" rel="stylesheet"/>
   <script src="<?= base_url('assets/web/js/pace.min.js') ?>"></script>
@@ -37,70 +37,278 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="<?= base_url('index.html') ?>">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Dashtreme Admin</h5>
+      <a href="<?= base_url('/') ?>">
+       <img src="assets/web/imgs/favicon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">  Dashboard</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
       <li>
-        <a href="<?= base_url('index.html') ?>">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Enroll</span>
+        <a href="#enroll-section-id">
+          <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
         </a>
       </li>
 
       <li>
         <a href="icons.html">
-          <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+          <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="icons.html">
+          <i class="zmdi zmdi-hotel"></i> <span>Accomodation</span>
         </a>
       </li>
 
       <li>
         <a href="forms.html">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
         </a>
       </li>
 
       <li>
         <a href="tables.html">
-          <i class="zmdi zmdi-grid"></i> <span>Tables</span>
+          <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
         </a>
       </li>
-
       <li>
-        <a href="calendar.html">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
+        <a href="icons.html">
+          <i class="zmdi zmdi-chart"></i> <span>Reports</span>
         </a>
       </li>
 
-      <li>
-        <a href="profile.html">
-          <i class="zmdi zmdi-face"></i> <span>Profile</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="login.html" target="_blank">
-          <i class="zmdi zmdi-lock"></i> <span>Login</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="register.html" target="_blank">
-          <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
-        </a>
-      </li>
-
-      <li class="sidebar-header">LABELS</li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+      
 
     </ul>
    
    </div>
+
+   <div class="clearfix"></div>
+	
+    <div class="content-wrapper">
+      <div class="container-fluid">
+      <!-- enroll starts -->
+      <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+        <div class="enroll-section" id="enroll-section-id">
+
+                <div id="loader-lottie-div" class="loader">
+                    <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
+                        src="/assets/icon/loader-yellow.lottie" style="width: 70px;height:70px;"></dotlottie-player>
+                </div>
+
+                <div class="section-heading">
+                    <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
+                </div>
+
+                <div class="forms-events">
+
+                    <div class="event">
+
+                        <div class="event-name">
+                            <p class="sanskrit-name">lipth lekhan</p>
+                            <p class="normal-name">(CODING)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="coding-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="coding-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 4</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="dance-mem4" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="dance-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="dance-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="dance-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 5</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="dance-mem5" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="dance-tmem5-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="dance-mem5-con5" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="dance-con5-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 6</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="dance-mem6" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="dance-tmem6-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="dance-mem6-con6" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="dance-con6-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 7</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="dance-mem7" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="dance-tmem7-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="dance-mem7-con7" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="dance-con7-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="enroll-footer">
+                        <div class="scrolling-container">
+                            <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
+                                events. You can check out the rules for more details.</p>
+                        </div>
+                        <button id="enroll-save-btn" class="animated-button">
+                            <span>SAVE</span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
    <!--End sidebar-wrapper-->
 
 <!--Start topbar header-->
@@ -148,7 +356,7 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+            <h6 class="mt-2 user-title"><?php echo session('name'); ?></h6>
             <p class="user-subtitle">mccoy@example.com</p>
             </div>
            </div>
@@ -169,14 +377,7 @@
 </header>
 <!--End topbar header-->
 
-<div class="clearfix"></div>
-	
-  <div class="content-wrapper">
-    <div class="container-fluid">
 
- 
-
-      <!--End Dashboard Content-->
 	  
 	<!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
