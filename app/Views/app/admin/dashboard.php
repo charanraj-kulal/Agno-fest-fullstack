@@ -1,209 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="<?= base_url('assets/web/css/dashboard.css') ?>">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+  <!-- loader-->
+  <link href="<?= base_url('assets/web/css/pace.min.css') ?>" rel="stylesheet"/>
+  <script src="<?= base_url('assets/web/js/pace.min.js') ?>"></script>
+  <!--favicon-->
+  <link rel="icon" href="<?= base_url('assets/web/images/favicon.ico') ?>" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="<?= base_url('assets/web/plugins/vectormap/jquery-jvectormap-2.0.2.css') ?>" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="<?= base_url('assets/web/plugins/simplebar/css/simplebar.css') ?>" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="<?= base_url('assets/web/css/bootstrap.min.css') ?>" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="<?= base_url('assets/web/css/animate.css') ?>" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="<?= base_url('assets/web/css/icons.css') ?>" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="<?= base_url('assets/web/css/sidebar-menu.css') ?>" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="<?= base_url('assets/web/css/app-style.css') ?>" rel="stylesheet"/>
+  
 </head>
 
-<body>
-  <nav class="navbar">
-    <ul class="navbar-nav">
-      <li class="logo">
-        <a href="#" class="nav-link">
-          <span class="link-text logo-text">Agno-fest</span>
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="angle-double-right"
-            role="img"
-            viewBox="0 0 448 512"
-            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-        </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" >
-         
-             <svg xmlns="http://www.w3.org/2000/svg" 
-             viewBox="0 0 576 512">
-                
-      <g class="fa-group">
-             <path
-                 fill="currentColor"
-        class="fa-secondary"
-              d="M512 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H512zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM208 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H304c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H176zM376 144c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z"/>
-</g>
-            </svg>
-            <span class="link-text">Event Registrations</span>
-          </a>
-        </li>
-    
-<li class="nav-item">
-  <a href="#" class="nav-link">
-    <svg
-      aria-hidden="true"
-      focusable="false"
-      data-prefix="fad"
-      data-icon="user"
-      role="img" 
-    xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 448 512">
-     
-      <g class="fa-group">
-    <path 
-      fill="currentColor"
-      class="fa-secondary" 
-      d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
-        
-      </g>
-    </svg>
-    <span class="link-text">Edit User</span>
-  </a>
-</li>
-
-          <li class="nav-item">
-                <a href="#" class="nav-link">
-        <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 512 512">
-        <g class="fa-group">
-        <path
-           fill="currentColor"
-            class="fa-secondary"
-        d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/>
-     
-</g>
-      </svg>
-          <span class="link-text">Reports</span>
-                </a>
-              </li>
-
-
-
-      <li class="nav-item" id="themeButton">
-        <a href="#" class="nav-link">
-          <svg
-            class="theme-icon"
-            id="lightIcon"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="moon-stars"
-            role="img"
-            viewBox="0 0 512 512"
-            class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-          <svg
-            class="theme-icon"
-            id="solarIcon"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="sun"
-            role="img"
-            viewBox="0 0 512 512"
-            class="svg-inline--fa fa-sun fa-w-16 fa-7x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M502.42 240.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.41-94.8a17.31 17.31 0 0 0-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4a17.31 17.31 0 0 0 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.41-33.5 47.3 94.7a17.31 17.31 0 0 0 31 0l47.31-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3a17.33 17.33 0 0 0 .2-31.1zm-155.9 106c-49.91 49.9-131.11 49.9-181 0a128.13 128.13 0 0 1 0-181c49.9-49.9 131.1-49.9 181 0a128.13 128.13 0 0 1 0 181z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M352 256a96 96 0 1 1-96-96 96.15 96.15 0 0 1 96 96z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-          <svg
-            class="theme-icon"
-            id="darkIcon"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="sunglasses"
-            role="img"
-           
-            viewBox="0 0 576 512"
-            class="svg-inline--fa fa-sunglasses fa-w-18 fa-7x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M574.09 280.38L528.75 98.66a87.94 87.94 0 0 0-113.19-62.14l-15.25 5.08a16 16 0 0 0-10.12 20.25L395.25 77a16 16 0 0 0 20.22 10.13l13.19-4.39c10.87-3.63 23-3.57 33.15 1.73a39.59 39.59 0 0 1 20.38 25.81l38.47 153.83a276.7 276.7 0 0 0-81.22-12.47c-34.75 0-74 7-114.85 26.75h-73.18c-40.85-19.75-80.07-26.75-114.85-26.75a276.75 276.75 0 0 0-81.22 12.45l38.47-153.8a39.61 39.61 0 0 1 20.38-25.82c10.15-5.29 22.28-5.34 33.15-1.73l13.16 4.39A16 16 0 0 0 180.75 77l5.06-15.19a16 16 0 0 0-10.12-20.21l-15.25-5.08A87.95 87.95 0 0 0 47.25 98.65L1.91 280.38A75.35 75.35 0 0 0 0 295.86v70.25C0 429 51.59 480 115.19 480h37.12c60.28 0 110.38-45.94 114.88-105.37l2.93-38.63h35.76l2.93 38.63c4.5 59.43 54.6 105.37 114.88 105.37h37.12C524.41 480 576 429 576 366.13v-70.25a62.67 62.67 0 0 0-1.91-15.5zM203.38 369.8c-2 25.9-24.41 46.2-51.07 46.2h-37.12C87 416 64 393.63 64 366.11v-37.55a217.35 217.35 0 0 1 72.59-12.9 196.51 196.51 0 0 1 69.91 12.9zM512 366.13c0 27.5-23 49.87-51.19 49.87h-37.12c-26.69 0-49.1-20.3-51.07-46.2l-3.12-41.24a196.55 196.55 0 0 1 69.94-12.9A217.41 217.41 0 0 1 512 328.58z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M64.19 367.9c0-.61-.19-1.18-.19-1.8 0 27.53 23 49.9 51.19 49.9h37.12c26.66 0 49.1-20.3 51.07-46.2l3.12-41.24c-14-5.29-28.31-8.38-42.78-10.42zm404-50l-95.83 47.91.3 4c2 25.9 24.38 46.2 51.07 46.2h37.12C489 416 512 393.63 512 366.13v-37.55a227.76 227.76 0 0 0-43.85-10.66z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-          <span class="link-text">Mode</span>
+<body class="bg-theme bg-theme1">
+ 
+<!-- Start wrapper-->
+ <div id="wrapper">
+ 
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="<?= base_url('index.html') ?>">
+       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">Dashtreme Admin</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li>
+        <a href="<?= base_url('index.html') ?>">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Enroll</span>
         </a>
       </li>
+
+      <li>
+        <a href="icons.html">
+          <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="forms.html">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="tables.html">
+          <i class="zmdi zmdi-grid"></i> <span>Tables</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="calendar.html">
+          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
+          <small class="badge float-right badge-light">New</small>
+        </a>
+      </li>
+
+      <li>
+        <a href="profile.html">
+          <i class="zmdi zmdi-face"></i> <span>Profile</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="login.html" target="_blank">
+          <i class="zmdi zmdi-lock"></i> <span>Login</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="register.html" target="_blank">
+          <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
+        </a>
+      </li>
+
+      <li class="sidebar-header">LABELS</li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+
     </ul>
-  </nav>
+   
+   </div>
+   <!--End sidebar-wrapper-->
 
-  <main>
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+     
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li>
+    <li class="nav-item language">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+        </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+            <p class="user-subtitle">mccoy@example.com</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<!--End topbar header-->
+
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+ 
+
+      <!--End Dashboard Content-->
+	  
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+		
+    </div>
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+	<!--Start footer-->
+	<footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Copyright © 2018 Dashtreme Admin
+        </div>
+      </div>
+    </footer>
+	<!--End footer-->
+	
+  <!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+		<li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+      
+     </div>
+   </div>
+  <!--end color switcher-->
+   
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="<?= base_url('assets/web/js/jquery.min.js') ?>"></script>
+  <script src="<?= base_url('assets/web/js/popper.min.js') ?>"></script>
+  <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
+	
+ <!-- simplebar js -->
+  <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
+  <!-- sidebar-menu js -->
+  <script src="<?= base_url('assets/web/js/sidebar-menu.js') ?>"></script>
+  <!-- loader scripts -->
+  <script src="<?= base_url('assets/web/js/jquery.loading-indicator.js') ?>"></script>
+  <!-- Custom scripts -->
+  <script src="<?= base_url('assets/web/js/app-script.js') ?>"></script>
+  <!-- Chart js -->
   
-  <a href="<?= base_url('logout') ?>">logout</a>
+  <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>
+ 
+  <!-- Index js -->
+  <script src="<?= base_url('assets/web/js/index.js') ?>"></script>
+
   
-  </main>
-  <script>
-    const themeMap = {
-  dark: "light",
-  light: "solar",
-  solar: "dark"
-};
-
-const theme = localStorage.getItem('theme')
-  || (tmp = Object.keys(themeMap)[0],
-      localStorage.setItem('theme', tmp),
-      tmp);
-const bodyClass = document.body.classList;
-bodyClass.add(theme);
-
-function toggleTheme() {
-  const current = localStorage.getItem('theme');
-  const next = themeMap[current];
-
-  bodyClass.replace(current, next);
-  localStorage.setItem('theme', next);
-}
-
-document.getElementById('themeButton').onclick = toggleTheme;
-  </script>
 </body>
+</html>
