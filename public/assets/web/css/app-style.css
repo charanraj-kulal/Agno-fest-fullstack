@@ -36,6 +36,20 @@ File: app-style
 /* Google Font*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
+@font-face {
+    font-family: Samarkan;
+    src: url('../fonts/samarkan/SAMAN___.TTF');
+}
+
+.sanskrit-name {
+    font-family: 'Samarkan';
+    font-size: 1.3vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
 /* General */
 html {
     font-family: 'Roboto', sans-serif;
@@ -557,7 +571,7 @@ small {
 }
 
 body.bg-theme1 {
-    background-image: url(../imgs/bg-themes/1.png);
+    background-image: url(../imgs/bg-themes/6.png);
 }
 
 body.bg-theme2 {
@@ -577,7 +591,7 @@ body.bg-theme5 {
 }
 
 body.bg-theme6 {
-    background-image: url(../imgs/bg-themes/6.png);
+    background-image: url(../imgs/bg-themes/1.png);
 }
 
 body.bg-theme7 {
@@ -4229,4 +4243,318 @@ table.grid td {
     }
 
 
+}
+
+/* Section 1-Enroll */
+
+.section-heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+
+    padding-top: 5rem;
+
+}
+
+.enroll-title {
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+
+.Btn {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #0A579B;
+    --white: #ffffff;
+    --af-white: #ffffff;
+    --ch-white: #e1e1e1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 3vw;
+    height: 3vw;
+    border: none;
+    border-radius: 17px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: var(--af-white);
+
+}
+
+/* plus sign */
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign svg {
+    width: 17px;
+}
+
+.sign svg path {
+    fill: var(--night-rider);
+}
+
+
+.text {
+    position: absolute;
+    font-family: 'IBM';
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: black;
+    font-size: 1vw;
+    font-weight: 400;
+    transition-duration: .3s;
+}
+
+
+.Btn:hover {
+    width: 8vw;
+    border-radius: 17px;
+    transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+    width: 40%;
+    transition-duration: .3s;
+    padding-left: 20px;
+}
+
+
+.Btn:hover .text {
+    opacity: 1;
+    width: 60%;
+    transition-duration: .3s;
+    padding-right: 10px;
+}
+
+
+.Btn:active {
+    transform: translate(2px, 2px);
+}
+
+/* Section forms */
+
+.scrolling-container {
+    max-width: 75%;
+    overflow: hidden;
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+    font-weight: 100;
+    color: rgba(67, 67, 67, 0.8);
+    width: 100%;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-152%);
+    }
+}
+
+
+.forms-events {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event {
+    border-radius: 17px;
+    border: 1px solid #fa0230;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    height: auto;
+    width: 80%;
+    margin: 1vw 0;
+    padding: 2vh 1.5vw;
+    transition: all 0.2s ease-in-out;
+}
+
+.event-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sanskrit-name {
+    font-family: 'Samarkan';
+    font-size: 1.3vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.normal-name {
+    margin-left: 0.5vw;
+    font-size: 1.2vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+
+.member {
+    display: flex;
+    flex-direction: row;
+    margin: 2vh 0;
+}
+
+.member-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-contact {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2vw;
+}
+
+
+.input-title-name {
+    font-family: 'IBM';
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+
+.form-inputbox {
+    border: 1px solid #0A579B;
+    border-radius: 17px;
+    padding: 1.5vh 1vw;
+    margin: 1vh 0;
+
+}
+
+.memname {
+    width: 20vw;
+}
+
+input {
+    font-family: 'IBM';
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.input-title-contact {
+    font-family: 'IBM';
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 0.2vh;
+    margin-left: 0.2vh;
+    font-size: 0.8vw;
+}
+
+
+
+
+.animated-button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1vw;
+    background-color: inherit;
+    border-radius: 17px;
+    font-family: 'IBM';
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #fff;
+    box-shadow: 0 0 0 2px #fa0230;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fa0230;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.animated-button span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.animated-button:hover {
+    box-shadow: 0 0 0 5px #fa0230;
+    color: #ffffff;
+}
+
+.animated-button:active {
+    scale: 0.95;
+}
+
+.animated-button:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+}
+
+
+.enroll-lst-item {
+    margin-bottom: 11vh;
+}
+
+
+.forallsec {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5vw;
+    /* justify-content: center; */
+    /* border: 1px solid; */
+}
+
+.hide {
+    display: none;
 }
