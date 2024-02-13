@@ -52,7 +52,6 @@ class Login extends BaseController
         
         //storing session values
         $this->setUserSession($user);
-
         return redirect()->to(base_url('dashboard'));
         
         
@@ -69,6 +68,9 @@ class Login extends BaseController
         ];
 
         session()->set($data);
+        $session = session();
+        $session->setFlashdata('success', 'Login Successful!');
+
         return true;
     }
    

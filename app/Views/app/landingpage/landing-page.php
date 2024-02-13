@@ -41,7 +41,7 @@
                         <div class="col-lg-6 text-center text-lg-end ">
                             <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-1.png') ?>" alt="">
                         
-                            <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-2.png') ?>" alt="">
+                            <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
                         </div>
                     </div>
                 </div>

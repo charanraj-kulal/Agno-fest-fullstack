@@ -51,7 +51,7 @@
       </li>
 
       <li>
-        <a href="icons.html">
+        <a href="#manageuser-section-id">
           <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
         </a>
       </li>
@@ -737,6 +737,82 @@
             </div>
    <!--End sidebar-wrapper-->
 
+   <!-- start of edit user -->
+   <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+        <div class="enroll-section" id="#manageuser-section-id">
+
+                <div id="loader-lottie-div" class="loader">
+                    <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
+                        src="/assets/icon/loader-yellow.lottie" style="width: 70px;height:70px;"></dotlottie-player>
+                </div>
+
+                <div class="section-heading">
+                    <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
+                </div>
+
+                <div class="forms-events">
+                <!-- edit user table  -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sl. No</th>
+                                <th>Name</th>
+                                <th>College Name</th>
+                                <th>Email</th>
+                                <th>User Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if(isset($data) && is_array($data)): ?>
+                                <?php foreach ($data as $user): ?>
+                                    <tr>
+                                        <td><?php echo $user['slno']; ?></td>
+                                        <td><?php echo $user['name']; ?></td>
+                                        <td><?php echo $user['college_name']; ?></td>
+                                        <td><?php echo $user['email']; ?></td>
+                                        <td>
+                                            <form method="post" action="<?php echo base_url('admin/updateUserRole'); ?>">
+                                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                                <select name="user_role">
+                                                    <option value="admin" <?php echo ($user['user_type'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                                                    <option value="student" <?php echo ($user['user_type'] == 'student') ? 'selected' : ''; ?>>Student</option>
+                                                </select>
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="6">No data available</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+                                        
+
+                    <div class="enroll-footer">
+                        <!-- <div class="scrolling-container">
+                            <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
+                                events. You can check out the rules for more details.</p>
+                        </div> -->
+                        <button id="enroll-save-btn" class="animated-button">
+                            <span>ENROLL</span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+   <!-- end of edit user  -->
 <!--Start topbar header-->
 <header class="topbar-nav">
  <nav class="navbar navbar-expand fixed-top">

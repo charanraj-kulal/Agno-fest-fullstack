@@ -152,7 +152,7 @@ $(function () {
 
   // sidebar sections
   const enrollSec = document.querySelector("#enroll-section-id");
-  const paymentSec = document.querySelector("#payment-section-id");
+  const manageuserSec = document.querySelector("#manageuser-section-id");
   const accomodationSec = document.querySelector("#accomodation-section-id");
   const settingSec = document.querySelector("#settings-section-id");
   const contactSec = document.querySelector("#contactus-section-id");
@@ -166,7 +166,7 @@ $(function () {
   const showSection = (section) => {
     const sections = [
       enrollSec,
-      paymentSec,
+      manageuserSec,
       accomodationSec,
       settingSec,
       contactSec,
