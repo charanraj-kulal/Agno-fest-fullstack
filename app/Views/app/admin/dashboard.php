@@ -51,9 +51,9 @@
       </li>
 
       <li>
-        <a href="#manageuser-section-id">
+        <div class="links" onclick="handleClick('payment-nav')"><a  href="#manageuser-section-id"  id="payment-nav">
           <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
-        </a>
+        </a></div>
       </li>
 
       <li>

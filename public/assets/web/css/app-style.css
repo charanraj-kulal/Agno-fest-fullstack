@@ -831,7 +831,11 @@ body.bg-theme15 {
     padding: 0;
     background-color: transparent;
 }
-
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .sidebar-menu li a i:first-child {
     margin-right: 10px;
     font-size: 18px;

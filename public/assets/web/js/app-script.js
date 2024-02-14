@@ -1,4 +1,5 @@
 
+
 $(function () {
   "use strict";
 
@@ -189,7 +190,7 @@ $(function () {
   };
 
   paymentBtn.onclick = () => {
-    showSection(paymentSec);
+    showSection(manageuserSec);
     hideHambergerMenu()
   };
 
