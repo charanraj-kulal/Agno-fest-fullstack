@@ -757,7 +757,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Sl. No</th>
+                                
                                 <th>Name</th>
                                 <th>College Name</th>
                                 <th>Email</th>
@@ -769,7 +769,7 @@
                             <?php if(isset($data) && is_array($data)): ?>
                                 <?php foreach ($data as $user): ?>
                                     <tr>
-                                        <td><?php echo $user['slno']; ?></td>
+                                        
                                         <td><?php echo $user['name']; ?></td>
                                         <td><?php echo $user['college_name']; ?></td>
                                         <td><?php echo $user['email']; ?></td>

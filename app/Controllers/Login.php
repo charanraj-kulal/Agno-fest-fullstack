@@ -22,12 +22,25 @@ class Login extends BaseController
     {
         
         return view('app/login/login2');
+        $data = [];
+        
+        foreach ($users as $user) {
+            $data[] = array(
+                "id" => $user['id'],
+                "name" => $user['name'],
+                "college_name" => $user['college_name'],
+                "phone_number" => $user['phone_number'],
+                "email" => $user['email'],
+                "user_type" => $user['user_type'],
+                
+            );
+        }
     }
 
     
     public function authenticate()
     {
-        $data = [];
+        
 
         // if ($this->request->getMethod() == 'post') {
 
@@ -58,7 +71,7 @@ class Login extends BaseController
     }
     private function setUserSession($user)
     {
-        $data = [
+        $users = [
             'id' => $user['id'],
             'name' => $user['name'],
             'phone_number' => $user['phone_number'],
@@ -67,7 +80,7 @@ class Login extends BaseController
             "user_type" => $user['user_type'],
         ];
 
-        session()->set($data);
+        session()->set($users);
         $session = session();
         $session->setFlashdata('success', 'Login Successful!');
 
