@@ -1,209 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="<?= base_url('assets/web/css/dashboard.css') ?>">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Dashboard - Agnisia</title>
+  <!-- loader-->
+  <link href="<?= base_url('assets/web/css/pace.min.css') ?>" rel="stylesheet"/>
+  <script src="<?= base_url('assets/web/js/pace.min.js') ?>"></script>
+  <!--favicon-->
+  <link rel="icon" href="<?= base_url('assets/web/images/favicon.ico') ?>" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="<?= base_url('assets/web/plugins/vectormap/jquery-jvectormap-2.0.2.css') ?>" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="<?= base_url('assets/web/plugins/simplebar/css/simplebar.css') ?>" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="<?= base_url('assets/web/css/bootstrap.min.css') ?>" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="<?= base_url('assets/web/css/animate.css') ?>" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="<?= base_url('assets/web/css/icons.css') ?>" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="<?= base_url('assets/web/css/sidebar-menu.css') ?>" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="<?= base_url('assets/web/css/app-style.css') ?>" rel="stylesheet"/>
+  
 </head>
 
-<body>
-  <nav class="navbar">
-    <ul class="navbar-nav">
-      <li class="logo">
-        <a href="#" class="nav-link">
-          <span class="link-text logo-text">Agno-fest</span>
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="angle-double-right"
-            role="img"
-            viewBox="0 0 448 512"
-            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-        </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" >
-         
-             <svg xmlns="http://www.w3.org/2000/svg" 
-             viewBox="0 0 576 512">
-                
-      <g class="fa-group">
-             <path
-                 fill="currentColor"
-        class="fa-secondary"
-              d="M512 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H512zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM208 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H304c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H176zM376 144c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z"/>
-</g>
-            </svg>
-            <span class="link-text">Event Registrations</span>
-          </a>
-        </li>
-    
-<li class="nav-item">
-  <a href="#" class="nav-link">
-    <svg
-      aria-hidden="true"
-      focusable="false"
-      data-prefix="fad"
-      data-icon="user"
-      role="img" 
-    xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 448 512">
-     
-      <g class="fa-group">
-    <path 
-      fill="currentColor"
-      class="fa-secondary" 
-      d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
-        
-      </g>
-    </svg>
-    <span class="link-text">Edit User</span>
-  </a>
-</li>
-
-          <li class="nav-item">
-                <a href="#" class="nav-link">
-        <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 512 512">
-        <g class="fa-group">
-        <path
-           fill="currentColor"
-            class="fa-secondary"
-        d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/>
-     
-</g>
-      </svg>
-          <span class="link-text">Reports</span>
-                </a>
-              </li>
-
-
-
-      <li class="nav-item" id="themeButton">
-        <a href="#" class="nav-link">
-          <svg
-            class="theme-icon"
-            id="lightIcon"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="moon-stars"
-            role="img"
-            viewBox="0 0 512 512"
-            class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-          <svg
-            class="theme-icon"
-            id="solarIcon"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="sun"
-            role="img"
-            viewBox="0 0 512 512"
-            class="svg-inline--fa fa-sun fa-w-16 fa-7x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M502.42 240.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.41-94.8a17.31 17.31 0 0 0-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4a17.31 17.31 0 0 0 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.41-33.5 47.3 94.7a17.31 17.31 0 0 0 31 0l47.31-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3a17.33 17.33 0 0 0 .2-31.1zm-155.9 106c-49.91 49.9-131.11 49.9-181 0a128.13 128.13 0 0 1 0-181c49.9-49.9 131.1-49.9 181 0a128.13 128.13 0 0 1 0 181z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M352 256a96 96 0 1 1-96-96 96.15 96.15 0 0 1 96 96z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-          <svg
-            class="theme-icon"
-            id="darkIcon"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fad"
-            data-icon="sunglasses"
-            role="img"
-           
-            viewBox="0 0 576 512"
-            class="svg-inline--fa fa-sunglasses fa-w-18 fa-7x"
-          >
-            <g class="fa-group">
-              <path
-                fill="currentColor"
-                d="M574.09 280.38L528.75 98.66a87.94 87.94 0 0 0-113.19-62.14l-15.25 5.08a16 16 0 0 0-10.12 20.25L395.25 77a16 16 0 0 0 20.22 10.13l13.19-4.39c10.87-3.63 23-3.57 33.15 1.73a39.59 39.59 0 0 1 20.38 25.81l38.47 153.83a276.7 276.7 0 0 0-81.22-12.47c-34.75 0-74 7-114.85 26.75h-73.18c-40.85-19.75-80.07-26.75-114.85-26.75a276.75 276.75 0 0 0-81.22 12.45l38.47-153.8a39.61 39.61 0 0 1 20.38-25.82c10.15-5.29 22.28-5.34 33.15-1.73l13.16 4.39A16 16 0 0 0 180.75 77l5.06-15.19a16 16 0 0 0-10.12-20.21l-15.25-5.08A87.95 87.95 0 0 0 47.25 98.65L1.91 280.38A75.35 75.35 0 0 0 0 295.86v70.25C0 429 51.59 480 115.19 480h37.12c60.28 0 110.38-45.94 114.88-105.37l2.93-38.63h35.76l2.93 38.63c4.5 59.43 54.6 105.37 114.88 105.37h37.12C524.41 480 576 429 576 366.13v-70.25a62.67 62.67 0 0 0-1.91-15.5zM203.38 369.8c-2 25.9-24.41 46.2-51.07 46.2h-37.12C87 416 64 393.63 64 366.11v-37.55a217.35 217.35 0 0 1 72.59-12.9 196.51 196.51 0 0 1 69.91 12.9zM512 366.13c0 27.5-23 49.87-51.19 49.87h-37.12c-26.69 0-49.1-20.3-51.07-46.2l-3.12-41.24a196.55 196.55 0 0 1 69.94-12.9A217.41 217.41 0 0 1 512 328.58z"
-                class="fa-secondary"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M64.19 367.9c0-.61-.19-1.18-.19-1.8 0 27.53 23 49.9 51.19 49.9h37.12c26.66 0 49.1-20.3 51.07-46.2l3.12-41.24c-14-5.29-28.31-8.38-42.78-10.42zm404-50l-95.83 47.91.3 4c2 25.9 24.38 46.2 51.07 46.2h37.12C489 416 512 393.63 512 366.13v-37.55a227.76 227.76 0 0 0-43.85-10.66z"
-                class="fa-primary"
-              ></path>
-            </g>
-          </svg>
-          <span class="link-text">Mode</span>
+<body class="bg-theme bg-theme1">
+ 
+<!-- Start wrapper-->
+ <div id="wrapper">
+ 
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="<?= base_url('/') ?>">
+       <img src="assets/web/imgs/favicon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">  Dashboard</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li>
+        <a href="#enroll-section-id">
+          <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
         </a>
       </li>
+
+      <li>
+        <div class="links" onclick="handleClick('payment-nav')"><a  href="#manageuser-section-id"  id="payment-nav">
+          <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
+        </a></div>
+      </li>
+
+      <li>
+        <a href="icons.html">
+          <i class="zmdi zmdi-hotel"></i> <span>Accomodation</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="forms.html">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="tables.html">
+          <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+        </a>
+      </li>
+      <li>
+        <a href="icons.html">
+          <i class="zmdi zmdi-chart"></i> <span>Reports</span>
+        </a>
+      </li>
+
+      
+
     </ul>
-  </nav>
+   
+   </div>
 
-  <main>
+   <div class="clearfix"></div>
+	
+    <div class="content-wrapper">
+      <div class="container-fluid">
+      <!-- enroll starts -->
+      <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+        <div class="enroll-section" id="enroll-section-id">
+
+                <div id="loader-lottie-div" class="loader">
+                    <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
+                        src="/assets/icon/loader-yellow.lottie" style="width: 70px;height:70px;"></dotlottie-player>
+                </div>
+
+                <div class="section-heading">
+                    <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
+                </div>
+
+                <div class="forms-events">
+                  <!-- coding -->
+                    <div class="event">
+
+                        <div class="event-name">
+                            <p class="sanskrit-name">Kodhasangam</p>
+                            <p class="normal-name">(CODING)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="coding-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="coding-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 2</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="dance-mem2" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="dance-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="dance-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="dance-con4-err">Contact number is required!</p>
+                            </div>
+                      </div>
+
+
+                    </div>
+                    <!-- IT quiz -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Gyanvedha</p>
+                            <p class="normal-name">(IT Quiz)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="quiz-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="quiz-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="quiz-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 2</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="quiz-mem2" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="quiz-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="quiz-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="quiz-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- web design -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Rachana Sutra</p>
+                            <p class="normal-name">(Web Design)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="web-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="web-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="web-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="web-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 2</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="web-mem2" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="web-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="web-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="web-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- Gaming -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Kurukshetra</p>
+                            <p class="normal-name">(Gaming)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="gaming-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="gaming-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 2</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="gaming-mem2" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="gaming-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 3</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="gaming-mem3" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-tmem3-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="gaming-mem3-con3" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-con3-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 4</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="gaming-mem4" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="gaming-mem4-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- IT manager -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Shreshta Nirvahak</p>
+                            <p class="normal-name">(IT Manager)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="quiz-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="quiz-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="quiz-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- Photography -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Rasadarpana</p>
+                            <p class="normal-name">(Photography)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="photo-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="photo-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="photo-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="photo-con1-err">Contact number is required!</p>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <!-- videography -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Tattva Chitram</p>
+                            <p class="normal-name">(Videography)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="video-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="video-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="video-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="video-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 2</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="video-mem2" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="video-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="video-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="video-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- Treasure hunt -->
+                    <div class="event">
+                        <div class="event-name">
+                            <p class="sanskrit-name">Anveshana</p>
+                            <p class="normal-name">(Trasure Hunt)</p>
+                        </div>
+
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 1</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="hunt-mem1" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="hunt-tmem1-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="hunt-mem1-con1" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="hunt-con1-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+
+                       
+                        <div class="member">
+                            <div class="member-name">
+                                <div class="member-title">
+
+                                    <p class="input-title-name">Team Member 2</p>
+
+                                </div>
+                                <div class="member-input">
+
+                                    <input class="form-inputbox memname" id="hunt-mem2" type="text" placeholder="N/A">
+
+                                </div>
+                                <p class="error-msg" id="hunt-tmem4-err">Name is required!</p>
+                            </div>
+
+                            <div class="member-contact">
+                                <div class="contact-title">
+
+                                    <p class="input-title-contact">Contact Number</p>
+
+                                </div>
+                                <div class="contact-input">
+
+                                    <input class="form-inputbox" id="hunt-mem4-con4" type="tel" inputmode="numeric"
+                                        pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)"
+                                        placeholder="N/A">
+
+
+                                </div>
+                                <p class="error-msg" id="hunt-con4-err">Contact number is required!</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    
+
+                    <div class="enroll-footer">
+                        <!-- <div class="scrolling-container">
+                            <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
+                                events. You can check out the rules for more details.</p>
+                        </div> -->
+                        <button id="enroll-save-btn" class="animated-button">
+                            <span>ENROLL</span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+   <!--End sidebar-wrapper-->
+
+   <!-- start of edit user -->
+   <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+        <div class="enroll-section" id="#manageuser-section-id">
+
+                <div id="loader-lottie-div" class="loader">
+                    <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
+                        src="/assets/icon/loader-yellow.lottie" style="width: 70px;height:70px;"></dotlottie-player>
+                </div>
+
+                <div class="section-heading">
+                    <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
+                </div>
+
+                <div class="forms-events">
+                <!-- edit user table  -->
+                    <table>
+                        <thead>
+                            <tr>
+                                
+                                <th>Name</th>
+                                <th>College Name</th>
+                                <th>Email</th>
+                                <th>User Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if(isset($data) && is_array($data)): ?>
+                                <?php foreach ($data as $user): ?>
+                                    <tr>
+                                        
+                                        <td><?php echo $user['name']; ?></td>
+                                        <td><?php echo $user['college_name']; ?></td>
+                                        <td><?php echo $user['email']; ?></td>
+                                        <td>
+                                            <form method="post" action="<?php echo base_url('admin/updateUserRole'); ?>">
+                                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                                <select name="user_role">
+                                                    <option value="admin" <?php echo ($user['user_type'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                                                    <option value="student" <?php echo ($user['user_type'] == 'student') ? 'selected' : ''; ?>>Student</option>
+                                                </select>
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="6">No data available</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+                                        
+
+                    <div class="enroll-footer">
+                        <!-- <div class="scrolling-container">
+                            <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
+                                events. You can check out the rules for more details.</p>
+                        </div> -->
+                        <button id="enroll-save-btn" class="animated-button">
+                            <span>ENROLL</span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+   <!-- end of edit user  -->
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+     
+  <ul class="navbar-nav align-items-center right-nav-link">
+    
+    
+    
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="<?= base_url('assets/web/imgs/user.jpg')?>" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title"><?php echo session('name'); ?></h6>
+            <p class="user-subtitle"><?php echo session('email'); ?></p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<!--End topbar header-->
+
+
+	  
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+		
+    </div>
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+	<!--Start footer-->
+	<footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Copyright © 2018 Dashtreme Admin
+        </div>
+      </div>
+    </footer>
+	<!--End footer-->
+	
+  <!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+      
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+		<li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+      
+     </div>
+   </div>
+  <!--end color switcher-->
+   
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="<?= base_url('assets/web/js/jquery.min.js') ?>"></script>
+  <script src="<?= base_url('assets/web/js/popper.min.js') ?>"></script>
+  <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
+	
+ <!-- simplebar js -->
+  <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
+  <!-- sidebar-menu js -->
+  <script src="<?= base_url('assets/web/js/sidebar-menu.js') ?>"></script>
+  <!-- loader scripts -->
+  <script src="<?= base_url('assets/web/js/jquery.loading-indicator.js') ?>"></script>
+  <!-- Custom scripts -->
+  <script src="<?= base_url('assets/web/js/app-script.js') ?>"></script>
+  <!-- Chart js -->
   
-  <a href="<?= base_url('logout') ?>">logout</a>
+  <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>
+ 
+  <!-- Index js -->
+  <script src="<?= base_url('assets/web/js/index.js') ?>"></script>
+
   
-  </main>
-  <script>
-    const themeMap = {
-  dark: "light",
-  light: "solar",
-  solar: "dark"
-};
-
-const theme = localStorage.getItem('theme')
-  || (tmp = Object.keys(themeMap)[0],
-      localStorage.setItem('theme', tmp),
-      tmp);
-const bodyClass = document.body.classList;
-bodyClass.add(theme);
-
-function toggleTheme() {
-  const current = localStorage.getItem('theme');
-  const next = themeMap[current];
-
-  bodyClass.replace(current, next);
-  localStorage.setItem('theme', next);
-}
-
-document.getElementById('themeButton').onclick = toggleTheme;
-  </script>
 </body>
+</html>
