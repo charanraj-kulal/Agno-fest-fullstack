@@ -30,6 +30,7 @@
 </head>
 
 <body class="bg-theme bg-theme1">
+<?php $userid= session('id'); ?>
  
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -752,48 +753,60 @@
                     <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                 </div>
 
-                <div class="forms-events">
+        <div class="forms-events">
                 <!-- edit user table  -->
-                    <table>
-                        <thead>
-                            <tr>
-                                
-                                <th>Name</th>
-                                <th>College Name</th>
-                                <th>Email</th>
-                                <th>User Type</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if(isset($data) && is_array($data)): ?>
-                                <?php foreach ($data as $user): ?>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $userid ?></h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        
-                                        <td><?php echo $user['name']; ?></td>
-                                        <td><?php echo $user['college_name']; ?></td>
-                                        <td><?php echo $user['email']; ?></td>
-                                        <td>
-                                            <form method="post" action="<?php echo base_url('admin/updateUserRole'); ?>">
-                                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                                <select name="user_role">
-                                                    <option value="admin" <?php echo ($user['user_type'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
-                                                    <option value="student" <?php echo ($user['user_type'] == 'student') ? 'selected' : ''; ?>>Student</option>
-                                                </select>
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        </td>
+                                        <th>Name</th>
+                                        <th>College Name</th>
+                                        <th>Email</th>
+                                        <th>edit</th>
+                                        <th>delete</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <tr>
-                                    <td colspan="6">No data available</td>
-                                </tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+                                <?php if(isset($users) && is_array($users)): ?>
+                                        <?php foreach ($users as $user): ?>
+                                            <tr>
+                                                
+                                                <td><?=  $user['name']; ?></td>
+                                                <td><?=  $user['college_name']; ?></td>
+                                                <td><?=  $user['email']; ?></td>
+                                                <td>
+                                                    <form method="post" action="<?php echo base_url('admin/updateUserRole/'.$user['id']); ?>">
+                                                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                                        <select class="btn btn-light " name="user_role">
+                                                            <option class="option-1" value="2" <?php echo ($user['user_type'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                                                            <option class="option-2" value="1" <?php echo ($user['user_type'] == 'student') ? 'selected' : ''; ?>>Student</option>
+                                                        </select>
+                                                        <button type="submit" class="btn btn-light">Update</button>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form method="get" action="<?php echo base_url('admin/deleteUser/'.$user['id']); ?>">
+                                                    <button type="submit" class="btn btn-light">Delete</button>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="6">No data available</td>
+                                            </tr>
+                                    <?php endif; ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                                        
+            </div>
+        </div>         
 
                     <div class="enroll-footer">
                         <!-- <div class="scrolling-container">

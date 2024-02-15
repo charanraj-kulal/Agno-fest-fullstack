@@ -831,11 +831,13 @@ body.bg-theme15 {
     padding: 0;
     background-color: transparent;
 }
+
 .links {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .sidebar-menu li a i:first-child {
     margin-right: 10px;
     font-size: 18px;
@@ -2158,6 +2160,7 @@ table.grid {
     width: 100%;
     border: none;
     background-color: transparent;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     padding: 0px;
 }
 
@@ -2168,6 +2171,9 @@ table.grid td {
 
 .card .table {
     margin-bottom: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card .table td,
@@ -4393,6 +4399,13 @@ table.grid td {
     padding: 2vh 1.5vw;
     transition: all 0.2s ease-in-out;
 }
+
+.option-1 .option-2 {
+
+    border-radius: 15px;
+    background-color: red;
+}
+
 
 .event-name {
     display: flex;

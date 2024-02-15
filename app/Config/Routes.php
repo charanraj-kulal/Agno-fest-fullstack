@@ -30,7 +30,13 @@ $routes->group("dashboard", ["filter" => "auth"], function ($routes) {
 });
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "AdminController::index");
+    
+    
+    
 });
+$routes->post("admin/updateUserRole/(:num)", "AdminController::update/$1");
+$routes->get("admin/deleteUser/(:num)", "AdminController::delete/$1");
+
 $routes->group("student", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "StudentController::index");
 });
@@ -48,7 +54,7 @@ $routes->post('email', 'EmailController::sendMail');
 
 
 //404 route
-$routes->set404Override(function(){
-    return view('app/common/404');
-});
+// $routes->set404Override(function(){
+//     return view('app/common/404');
+// });
 
