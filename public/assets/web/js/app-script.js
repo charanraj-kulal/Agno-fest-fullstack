@@ -152,6 +152,7 @@ $(function () {
 
 
   // sidebar sections
+  const navLinks = document.querySelector(".left-fixed-nav");
   const enrollSec = document.querySelector("#enroll-section-id");
   const manageuserSec = document.querySelector("#manageuser-section-id");
   const accomodationSec = document.querySelector("#accomodation-section-id");
@@ -159,7 +160,7 @@ $(function () {
   const contactSec = document.querySelector("#contactus-section-id");
 
   const enrollBtn = document.querySelector("#enroll-nav");
-  const paymentBtn = document.querySelector("#payment-nav");
+  const manageuserBtn = document.querySelector("#manage_user_nav");
   const accomodationBtn = document.querySelector("#accomodation-nav");
   const settingBtn = document.querySelector("#settings-nav");
   const contactBtn = document.querySelector("#contactus-nav");
@@ -189,7 +190,7 @@ $(function () {
 
   };
 
-  paymentBtn.onclick = () => {
+  manageuserBtn.onclick = () => {
     showSection(manageuserSec);
     hideHambergerMenu()
   };

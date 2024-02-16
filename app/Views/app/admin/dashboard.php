@@ -36,6 +36,7 @@
  <div id="wrapper">
  
   <!--Start sidebar-wrapper-->
+  <section class="left-fixed-nav">
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="<?= base_url('/') ?>">
@@ -52,7 +53,7 @@
       </li>
 
       <li>
-        <div class="links" onclick="handleClick('payment-nav')"><a  href="#manageuser-section-id"  id="payment-nav">
+        <div class="links" onclick="handleClick('manage_user_nav')"><a  href="#manageuser-section-id"  id="manage_user_nav">
           <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
         </a></div>
       </li>
@@ -823,8 +824,9 @@
                 </div>
               </div>
             </div>
+        </section>
 
-            </div>
+    </div>
    <!-- end of edit user  -->
 <!--Start topbar header-->
 <header class="topbar-nav">

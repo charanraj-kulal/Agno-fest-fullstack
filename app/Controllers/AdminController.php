@@ -74,7 +74,7 @@ class AdminController extends BaseController
             $response = $this->user->delete($id);
 
             return redirect()->to(base_url('dashboard'));
-            return $this->fail('Sorry! Not deleted');
+            
         }
 
         
