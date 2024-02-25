@@ -30,12 +30,12 @@ $routes->group("dashboard", ["filter" => "auth"], function ($routes) {
 });
 $routes->group("admin", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "AdminController::index");
-    
+    $routes->post("updateUserRole/(:num)", "AdminController::update/$1");
+    $routes->get("deleteUser/(:num)", "AdminController::delete/$1");
     
     
 });
-$routes->post("admin/updateUserRole/(:num)", "AdminController::update/$1");
-$routes->get("admin/deleteUser/(:num)", "AdminController::delete/$1");
+
 
 $routes->group("student", ["filter" => "auth"], function ($routes) {
     $routes->get("/", "StudentController::index");
