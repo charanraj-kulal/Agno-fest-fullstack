@@ -34,9 +34,9 @@ $(function () {
     $(document).ready(function () {
       $(window).on("scroll", function () {
         if ($(this).scrollTop() > 60) {
-          $(".topbar-nav .navbar").addClass("bg-dark");
+          $(".topbar-nav .navbar").addClass("shadow-sm");
         } else {
-          $(".topbar-nav .navbar").removeClass("bg-dark");
+          $(".topbar-nav .navbar").removeClass("shadow-sm");
         }
       });
     });

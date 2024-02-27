@@ -20,10 +20,6 @@ class EventReg extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'college_name' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
             'coding_mem_1' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -151,6 +147,16 @@ class EventReg extends Migration
             'thunt_mem_contact_2' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+            ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'default' => null,
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'default' => null,
             ],
         ]);
 

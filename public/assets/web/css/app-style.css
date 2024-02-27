@@ -900,7 +900,7 @@ body.bg-theme15 {
 }
 
 .row.row-group > div:last-child {
-  border-right: none;
+  border: none;
 }
 
 /*Cards */
@@ -909,6 +909,7 @@ body.bg-theme15 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border: none;
   background-color: rgba(0, 0, 0, 0.2);
+  max-width: 100%;
 }
 
 .card-header {
@@ -4567,7 +4568,23 @@ table.grid td {
 
 .event {
   border-radius: 17px;
-  border: 1px solid #fa0230;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  height: auto;
+  width: 80%;
+  margin: 1vw 0;
+  padding: 2vh 1.5vw;
+  transition: all 0.2s ease-in-out;
+}
+.event:hover {
+  border: 3px solid red;
+  box-sizing: border-box;
+}
+
+.dashboard-cards {
+  border-radius: 17px;
+  border: 1px red;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   height: auto;
@@ -4577,6 +4594,13 @@ table.grid td {
   transition: all 0.2s ease-in-out;
 }
 
+.dashboard-cards:hover {
+  border: 3px solid red;
+  box-sizing: border-box;
+}
+.dashboard-cards:active {
+  transform: scale(1) rotateZ(0.7deg);
+}
 .option-1 .option-2 {
   border-radius: 15px;
   background-color: red;
