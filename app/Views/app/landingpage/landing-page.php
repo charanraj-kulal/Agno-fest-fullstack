@@ -1,20 +1,18 @@
 <div class="container-fluid py-5 bg-dark hero-header mb-5">
                 <div class="container my-5 py-5">
-                    <div class="row align-items-center g-5">
+                    <div class="row  g-5">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <?php
-                            echo session('name');
-                            ?>
-                            <h1 class=" display-1 text-white animated slideInLeft "><strong>Agnisia</strong></h1>
-                            <p class=" text-white animated slideInLeft  mb-4 pb-2">Where Talent Meets Opportunity!</p>
+                            
+                            
+                            <h1 class="motivation animated slideInLeft  mb-4 pb-2">Where <span class="talent"> Talent</span> Meets Opportunity!</h1>
                             
                             <p class="text-white animated slideInLeft mb-4 pb-2">National Level IT & Management Fest</p>
                             <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
                             {
                             ?>
-                                <a href="<?= base_url('dashboard') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Dashboard</a>
+                                <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
                             <?php }else{ ?>
-                                <a href="<?= base_url('login') ?>" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Login</a>
+                                <a href="<?= base_url('login') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
                                 
                             <?php } ?>
                             
@@ -24,7 +22,7 @@
                                 <div class="main-example text-center text-lg-start">
                                 <h1 class="display-1 text-white animated slideInLeft"><strong>The Event Starts In.</strong></h1>
                                 <h1 class="display-5 text-white animated slideInLeft"><strong>Every Second Counts...</strong></h1>
-                                    <div class="countdown-container" data-timer="2024/02/15" id="main-example"></div>
+                                    <div class="countdown-container" data-timer="2024/04/15" id="main-example"></div>
                                     </div>
                                     <script type="text/template" id="main-example-template">
                                     <div class="time <%= label %>">
@@ -39,9 +37,9 @@
  
                             </div>
                         <div class="col-lg-6 text-center text-lg-end ">
-                            <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-1.png') ?>" alt="">
+                            <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
                         
-                            <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
+                            <!-- <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt=""> -->
                         </div>
                     </div>
                 </div>
