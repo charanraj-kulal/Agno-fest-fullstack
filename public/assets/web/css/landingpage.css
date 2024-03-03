@@ -14,13 +14,63 @@
   font-family: IBM437;
   src: url("../fonts/custom/Flexi_IBM_VGA_False_437.ttf");
 }
+@font-face {
+  font-family: aesthico;
+  src: url("../fonts/custom/Aesthico\(Demo\)-Regular.ttf");
+}
+@font-face {
+  font-family: lt_regular;
+  src: url("../fonts/custom/lt_seada/LTSaeada-Regular.otf");
+}
+@font-face {
+  font-family: lt_bold;
+  src: url("../fonts/custom/lt_seada/LTSaeada-Bold.otf");
+}
+@font-face {
+  font-family: lt_thin;
+  src: url("../fonts/custom/lt_seada/LTSaeada-Thin.otf");
+}
 :root {
   --primary: #fe0000;
   --light: #f1f8ff;
-  --dark: #000000;
+  --dark: #251c1c;
   --clr: #fe0000;
 }
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
 
+*::-webkit-scrollbar-track {
+  background: rgb(58, 58, 58);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+.txt-shadow-black {
+  text-shadow: 5px 5px 12px black;
+}
+.txt-shadow-white {
+  text-shadow: 5px 5px 12px white;
+}
+
+.main-contents {
+  background: rgb(232, 0, 20);
+  background: linear-gradient(
+    90deg,
+    rgba(232, 0, 20, 1) 0%,
+    rgba(155, 1, 23, 1) 32%,
+    rgba(0, 0, 0, 1) 76%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .ff-secondary {
   font-family: "Pacifico", cursive;
 }
@@ -139,27 +189,26 @@
 }
 .nav-btn {
   position: relative;
-  background: transparent;
+  background: #fc0000;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   border: none;
   letter-spacing: 0.1rem;
   font-size: 1rem;
-
   padding: 1rem 3rem;
   transition: 0.2s;
-  font-family: IBM;
+  border-radius: 5px;
   margin-left: 100px;
+  font-family: IBM;
 }
-
 .nav-btn:hover {
   letter-spacing: 0.2rem;
   padding: 1.1rem 3.1rem;
   background: var(--clr);
   color: var(--clr);
-  box-shadow: 0 0 45px var(--clr);
-
+  border-radius: 5px;
+  /* box-shadow: 0 0 35px var(--clr); */
   animation: box 3s infinite;
 }
 
@@ -167,13 +216,14 @@
   content: "";
   position: absolute;
   inset: 2px;
-  background: #272822;
+  background: #1d1b1b;
+  border-radius: 5px;
 }
 
 .nav-btn span {
   position: relative;
   z-index: 1;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .nav-btn i {
   position: absolute;
@@ -190,6 +240,7 @@
   top: -2px;
   border: 2px solid var(--clr);
   background: #272822;
+
   transition: 0.2s;
 }
 
@@ -207,7 +258,7 @@
   left: 20%;
   bottom: -2px;
   border: 2px solid var(--clr);
-  background: #272822;
+  background: #fdfdfd;
   transition: 0.2s;
 }
 
@@ -302,7 +353,7 @@
 }
 .lan-btn {
   position: relative;
-  background: #444;
+  background: var(--light);
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -312,13 +363,13 @@
   padding: 1rem 3rem;
   transition: 0.2s;
   border-radius: 5px;
+  font-family: aesthico;
 }
-
 .lan-btn:hover {
   letter-spacing: 0.2rem;
   padding: 1.1rem 3.1rem;
   background: var(--clr);
-  color: var(--clr);
+  color: var(--primary);
   border-radius: 5px;
   /* box-shadow: 0 0 35px var(--clr); */
   animation: box 3s infinite;
@@ -328,7 +379,7 @@
   content: "";
   position: absolute;
   inset: 2px;
-  background: #272822;
+  background: #1d1b1b;
   border-radius: 5px;
 }
 
@@ -350,7 +401,7 @@
   height: 2px;
   left: 80%;
   top: -2px;
-  border: 2px solid var(--clr);
+  border: 2px solid var(--primary);
   background: #272822;
 
   transition: 0.2s;
@@ -369,8 +420,8 @@
   height: 2px;
   left: 20%;
   bottom: -2px;
-  border: 2px solid var(--clr);
-  background: #272822;
+  border: 2px solid var(--primary);
+  background: #df0909;
   transition: 0.2s;
 }
 
@@ -403,8 +454,522 @@
     box-shadow: #27272c;
   }
 }
-.motivation {
+
+.underlined {
+  /*   background: red; */
+  position: relative;
 }
+.underline-clip:after {
+  content: "";
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid hsl(0, 0%, 0%);
+  /* Use a clip-path to hide and show the bits you want */
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+}
+.motivation {
+  text-shadow: 5px 5px 12px black;
+  font-size: 35px;
+  font-family: lt_regular;
+  text-transform: capitalize;
+}
+.motivation-sub {
+  text-shadow: 5px 5px 12px black;
+  font-size: 25px;
+  font-family: lt_regular;
+}
+.hero-container {
+  position: relative;
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* .environment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  filter: blur(5px);
+} */
+.hero {
+  font-size: clamp(40px, 10vw, 100px);
+  line-height: 1;
+  display: inline-block;
+  color: #fff;
+  z-index: 2;
+  letter-spacing: 10px;
+
+  /* Bright things in dark environments usually cast that light, giving off a glow */
+  filter: drop-shadow(0 1px 3px);
+}
+
+.demo {
+  height: 100px;
+  background: #fff;
+}
+
+.layers {
+  position: relative;
+}
+
+.layers::before,
+.layers::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 110%;
+  z-index: -1;
+}
+
+.layers::before {
+  top: 10px;
+  left: 15px;
+  color: #e0287d;
+}
+
+.layers::after {
+  top: 5px;
+  left: -10px;
+  color: #1bc7fb;
+}
+
+.single-path {
+  clip-path: polygon(
+    0% 12%,
+    53% 12%,
+    53% 26%,
+    25% 26%,
+    25% 86%,
+    31% 86%,
+    31% 0%,
+    53% 0%,
+    53% 84%,
+    92% 84%,
+    92% 82%,
+    70% 82%,
+    70% 29%,
+    78% 29%,
+    78% 65%,
+    69% 65%,
+    69% 66%,
+    77% 66%,
+    77% 45%,
+    85% 45%,
+    85% 26%,
+    97% 26%,
+    97% 28%,
+    84% 28%,
+    84% 34%,
+    54% 34%,
+    54% 89%,
+    30% 89%,
+    30% 58%,
+    83% 58%,
+    83% 5%,
+    68% 5%,
+    68% 36%,
+    62% 36%,
+    62% 1%,
+    12% 1%,
+    12% 34%,
+    60% 34%,
+    60% 57%,
+    98% 57%,
+    98% 83%,
+    1% 83%,
+    1% 53%,
+    91% 53%,
+    91% 84%,
+    8% 84%,
+    8% 83%,
+    4% 83%
+  );
+}
+
+.paths {
+  animation: paths 5s step-end infinite;
+}
+
+@keyframes paths {
+  0% {
+    clip-path: polygon(
+      0% 43%,
+      83% 43%,
+      83% 22%,
+      23% 22%,
+      23% 24%,
+      91% 24%,
+      91% 26%,
+      18% 26%,
+      18% 83%,
+      29% 83%,
+      29% 17%,
+      41% 17%,
+      41% 39%,
+      18% 39%,
+      18% 82%,
+      54% 82%,
+      54% 88%,
+      19% 88%,
+      19% 4%,
+      39% 4%,
+      39% 14%,
+      76% 14%,
+      76% 52%,
+      23% 52%,
+      23% 35%,
+      19% 35%,
+      19% 8%,
+      36% 8%,
+      36% 31%,
+      73% 31%,
+      73% 16%,
+      1% 16%,
+      1% 56%,
+      50% 56%,
+      50% 8%
+    );
+  }
+
+  5% {
+    clip-path: polygon(
+      0% 29%,
+      44% 29%,
+      44% 83%,
+      94% 83%,
+      94% 56%,
+      11% 56%,
+      11% 64%,
+      94% 64%,
+      94% 70%,
+      88% 70%,
+      88% 32%,
+      18% 32%,
+      18% 96%,
+      10% 96%,
+      10% 62%,
+      9% 62%,
+      9% 84%,
+      68% 84%,
+      68% 50%,
+      52% 50%,
+      52% 55%,
+      35% 55%,
+      35% 87%,
+      25% 87%,
+      25% 39%,
+      15% 39%,
+      15% 88%,
+      52% 88%
+    );
+  }
+
+  30% {
+    clip-path: polygon(
+      0% 53%,
+      93% 53%,
+      93% 62%,
+      68% 62%,
+      68% 37%,
+      97% 37%,
+      97% 89%,
+      13% 89%,
+      13% 45%,
+      51% 45%,
+      51% 88%,
+      17% 88%,
+      17% 54%,
+      81% 54%,
+      81% 75%,
+      79% 75%,
+      79% 76%,
+      38% 76%,
+      38% 28%,
+      61% 28%,
+      61% 12%,
+      55% 12%,
+      55% 62%,
+      68% 62%,
+      68% 51%,
+      0% 51%,
+      0% 92%,
+      63% 92%,
+      63% 4%,
+      65% 4%
+    );
+  }
+
+  45% {
+    clip-path: polygon(
+      0% 33%,
+      2% 33%,
+      2% 69%,
+      58% 69%,
+      58% 94%,
+      55% 94%,
+      55% 25%,
+      33% 25%,
+      33% 85%,
+      16% 85%,
+      16% 19%,
+      5% 19%,
+      5% 20%,
+      79% 20%,
+      79% 96%,
+      93% 96%,
+      93% 50%,
+      5% 50%,
+      5% 74%,
+      55% 74%,
+      55% 57%,
+      96% 57%,
+      96% 59%,
+      87% 59%,
+      87% 65%,
+      82% 65%,
+      82% 39%,
+      63% 39%,
+      63% 92%,
+      4% 92%,
+      4% 36%,
+      24% 36%,
+      24% 70%,
+      1% 70%,
+      1% 43%,
+      15% 43%,
+      15% 28%,
+      23% 28%,
+      23% 71%,
+      90% 71%,
+      90% 86%,
+      97% 86%,
+      97% 1%,
+      60% 1%,
+      60% 67%,
+      71% 67%,
+      71% 91%,
+      17% 91%,
+      17% 14%,
+      39% 14%,
+      39% 30%,
+      58% 30%,
+      58% 11%,
+      52% 11%,
+      52% 83%,
+      68% 83%
+    );
+  }
+
+  76% {
+    clip-path: polygon(
+      0% 26%,
+      15% 26%,
+      15% 73%,
+      72% 73%,
+      72% 70%,
+      77% 70%,
+      77% 75%,
+      8% 75%,
+      8% 42%,
+      4% 42%,
+      4% 61%,
+      17% 61%,
+      17% 12%,
+      26% 12%,
+      26% 63%,
+      73% 63%,
+      73% 43%,
+      90% 43%,
+      90% 67%,
+      50% 67%,
+      50% 41%,
+      42% 41%,
+      42% 46%,
+      50% 46%,
+      50% 84%,
+      96% 84%,
+      96% 78%,
+      49% 78%,
+      49% 25%,
+      63% 25%,
+      63% 14%
+    );
+  }
+
+  90% {
+    clip-path: polygon(
+      0% 41%,
+      13% 41%,
+      13% 6%,
+      87% 6%,
+      87% 93%,
+      10% 93%,
+      10% 13%,
+      89% 13%,
+      89% 6%,
+      3% 6%,
+      3% 8%,
+      16% 8%,
+      16% 79%,
+      0% 79%,
+      0% 99%,
+      92% 99%,
+      92% 90%,
+      5% 90%,
+      5% 60%,
+      0% 60%,
+      0% 48%,
+      89% 48%,
+      89% 13%,
+      80% 13%,
+      80% 43%,
+      95% 43%,
+      95% 19%,
+      80% 19%,
+      80% 85%,
+      38% 85%,
+      38% 62%
+    );
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    clip-path: none;
+  }
+}
+
+.movement {
+  /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
+  position: relative;
+  animation: movement 8s step-end infinite;
+}
+
+@keyframes movement {
+  0% {
+    top: 0px;
+    left: -20px;
+  }
+
+  15% {
+    top: 10px;
+    left: 10px;
+  }
+
+  60% {
+    top: 5px;
+    left: -10px;
+  }
+
+  75% {
+    top: -5px;
+    left: 20px;
+  }
+
+  100% {
+    top: 10px;
+    left: 5px;
+  }
+}
+
+.opacity {
+  animation: opacity 5s step-end infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.1;
+  }
+
+  5% {
+    opacity: 0.7;
+  }
+
+  30% {
+    opacity: 0.4;
+  }
+
+  45% {
+    opacity: 0.6;
+  }
+
+  76% {
+    opacity: 0.4;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    opacity: 0;
+  }
+}
+
+.font {
+  animation: font 7s step-end infinite;
+}
+
+@keyframes font {
+  0% {
+    font-weight: 100;
+    color: #e0287d;
+    filter: blur(3px);
+  }
+
+  20% {
+    font-weight: 500;
+    color: #fff;
+    filter: blur(0);
+  }
+
+  50% {
+    font-weight: 300;
+    color: #1bc7fb;
+    filter: blur(2px);
+  }
+
+  60% {
+    font-weight: 700;
+    color: #fff;
+    filter: blur(0);
+  }
+
+  90% {
+    font-weight: 500;
+    color: #e0287d;
+    filter: blur(6px);
+  }
+}
+
+.glitch span {
+  animation: paths 5s step-end infinite;
+}
+
+.glitch::before {
+  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+    font 8s step-end infinite, movement 10s step-end infinite;
+}
+
+.glitch::after {
+  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+    font 7s step-end infinite, movement 8s step-end infinite;
+}
+
 .hero-header {
   background: rgb(232, 0, 20);
   background: linear-gradient(
@@ -481,29 +1046,132 @@
 .mandal-1 {
   opacity: 1;
 }
-
-/*** Service ***/
-.service-item {
-  color: var(--light);
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-  transition: 0.5s;
+/* counter  */
+.counter {
+  font-family: IBM;
 }
 
-.service-item:hover {
-  background: var(--primary);
+/* about us  */
+.sanskrit-name-abt {
+  font-family: "Samarkan";
+  /* font-size: 1.3vw; */
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  font-size: 45px;
+}
+.abt-btn {
+  position: relative;
+  background: var(--light);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+  transition: 0.2s;
+  border-radius: 5px;
+  font-family: aesthico;
+}
+.abt-btn:hover {
+  letter-spacing: 0.2rem;
+  padding: 1.1rem 3.1rem;
+  background: var(--clr);
+  color: var(--primary);
+  border-radius: 5px;
+  /* box-shadow: 0 0 35px var(--clr); */
+  animation: box 3s infinite;
 }
 
-.service-item * {
-  transition: 0.5s;
+.abt-btn::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #1d1b1b;
+  border-radius: 5px;
 }
 
-.service-item:hover * {
-  color: var(--dark) !important;
+.abt-btn span {
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+}
+.abt-btn i {
+  position: absolute;
+  inset: 0;
+  display: block;
 }
 
-/*** Food Menu ***/
-.nav-pills .nav-item .active {
-  border-bottom: 2px solid var(--primary);
+.abt-btn i::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 80%;
+  top: -2px;
+  border: 2px solid var(--primary);
+  background: #272822;
+
+  transition: 0.2s;
+}
+
+.abt-btn:hover i::before {
+  width: 15px;
+  left: 20%;
+  animation: move 3s infinite;
+}
+
+.abt-btn i::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 20%;
+  bottom: -2px;
+  border: 2px solid var(--primary);
+  background: #df0909;
+  transition: 0.2s;
+}
+
+.abt-btn:hover i::after {
+  width: 15px;
+  left: 80%;
+  animation: move 3s infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes box {
+  0% {
+    box-shadow: #27272c;
+  }
+  50% {
+    box-shadow: 0 0 25px var(--clr);
+  }
+  100% {
+    box-shadow: #27272c;
+  }
+}
+.abt-header {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+}
+.abt-sub {
+  font-family: lt_regular;
 }
 
 /*** Youtube Video ***/
@@ -625,8 +1293,20 @@
 }
 
 /*** Team ***/
+.staff-container {
+  display: flex;
+  width: 800px;
+}
+.staff-item {
+  margin-left: 30px;
+}
+.committee-header {
+  font-family: IBM;
+}
 .team-item {
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+  background: rgba(54, 54, 54, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 10px 5px 12px rgb(255, 255, 255, 0.5);
   height: calc(100% - 38px);
   transition: 0.5s;
 }
@@ -645,6 +1325,47 @@
 
 .team-item .btn {
   border-radius: 38px 38px 0 0;
+}
+.staff-2 {
+  align-items: center;
+}
+/* for smaller screen  */
+@media (max-width: 800px) {
+  .staff-container {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .staff-item {
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+
+  .committee-header {
+    font-size: 1.5rem;
+  }
+
+  .team-item {
+    height: auto;
+  }
+
+  .team-item img {
+    transform: none;
+  }
+
+  .team-item .btn {
+    border-radius: 0;
+  }
+
+  .staff-2 {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .committee-header {
+    font-size: 1.2rem;
+  }
 }
 
 /*** Testimonial ***/
@@ -686,6 +1407,17 @@
 }
 
 /*** Footer ***/
+#waterdrop {
+  height: 30px;
+  color: #1d1b1b;
+}
+
+#waterdrop canvas {
+  bottom: -70px !important;
+}
+.footer-container {
+  background: rgb(36, 36, 36);
+}
 .footer .btn.btn-social {
   margin-right: 5px;
   width: 35px;

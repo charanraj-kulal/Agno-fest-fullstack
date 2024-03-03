@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <div class="container-fluid bg-dark p-0">
+    <div class=" container-fluid bg-dark p-0 main-contents">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -57,10 +57,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="<?= base_url('about-us')?>" class="nav-item nav-link">About</a>
-                        <a href="menu.html" class="nav-item nav-link">Events</a>
-                        <a href="contact.html" class="nav-item nav-link">Rules</a>
+                        <a href="<?= base_url('/')?>" class="nav-item nav-link active">Home</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a href="#events" class="nav-item nav-link">Events</a>
+                        <a href="#rules" class="nav-item nav-link">Rules</a>
                     </div>
                     <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
                         {
