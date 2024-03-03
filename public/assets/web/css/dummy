@@ -1,0 +1,79 @@
+.abt-btn {
+  position: relative;
+  background: var(--light);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+  transition: 0.2s;
+  border-radius: 5px;
+  font-family: aesthico;
+}
+.abt-btn:hover {
+  letter-spacing: 0.2rem;
+  padding: 1.1rem 3.1rem;
+  background: var(--clr);
+  color: var(--primary);
+  border-radius: 5px;
+  /* box-shadow: 0 0 35px var(--clr); */
+  animation: box 3s infinite;
+}
+
+.abt-btn::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #1d1b1b;
+  border-radius: 5px;
+}
+
+.abt-btn span {
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+}
+.abt-btn i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.abt-btn i::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 80%;
+  top: -2px;
+  border: 2px solid var(--primary);
+  background: #272822;
+
+  transition: 0.2s;
+}
+
+.abt-btn:hover i::before {
+  width: 15px;
+  left: 20%;
+  animation: move 3s infinite;
+}
+
+.abt-btn i::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 20%;
+  bottom: -2px;
+  border: 2px solid var(--primary);
+  background: #df0909;
+  transition: 0.2s;
+}
+
+.abt-btn:hover i::after {
+  width: 15px;
+  left: 80%;
+  animation: move 3s infinite;
+}

@@ -1,0 +1,35 @@
+//FOR REGISTRATION POPUP
+const overlayPopUp = document.querySelector('.overlay-popup')
+const popupContainer = document.querySelector(".popup-container-main")
+
+function showPopup() {
+  const delay = 12000;
+
+  setTimeout(() => {
+    popupContainer.classList.remove('hide')
+    overlayPopUp.classList.remove('hide')
+
+  }, delay);
+}
+closePopup()
+showPopup()
+
+function closePopup() {
+  popupContainer.classList.add('hide')
+  overlayPopUp.classList.add('hide')
+}
+
+ <!-- REG POPUP -->
+ <div class="overlay overlay-popup" onclick="closePopup()"></div>
+    <div class="popup-container-main">
+        <div id="popup-container" class="popup-container">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <div class="popup-content">
+                <p class="pop-txt1">Hurry! Registration for Aantarya closes on
+                    <br><br> <b>2<span>4</span>th<span> F</span>ebruary 20<span>24</span></b>
+                </p>
+                <p class="pop-txt2">Take advantage of this chance to be a part of something truly remarkable. <br>Enroll
+                    right away to start your innovative, educational, and enjoyable journey!</p>
+        </div>
+    </div>
+    </div>

@@ -24,17 +24,17 @@ class Login extends BaseController
         return view('app/login/login2');
         $data = [];
         
-        foreach ($users as $user) {
-            $data[] = array(
-                "id" => $user['id'],
-                "name" => $user['name'],
-                "college_name" => $user['college_name'],
-                "phone_number" => $user['phone_number'],
-                "email" => $user['email'],
-                "user_type" => $user['user_type'],
+        // foreach ($users as $user) {
+        //     $data[] = array(
+        //         "id" => $user['id'],
+        //         "name" => $user['name'],
+        //         "college_name" => $user['college_name'],
+        //         "phone_number" => $user['phone_number'],
+        //         "email" => $user['email'],
+        //         "user_type" => $user['user_type'],
                 
-            );
-        }
+        //     );
+        // }
     }
 
     

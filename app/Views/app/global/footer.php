@@ -1,4 +1,7 @@
-<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div id="waterdrop"></div>
+    
+        <footer>
+        <div class="footer-container container-fluid text-light footer pt-3 mt-3 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
@@ -42,25 +45,18 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="#">Agnisia</a>, All Right Reserved. <br> 
 							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br><br>
-                            Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+							Designed By <a class="border-bottom" href="<?= base_url('/') ?>">charanraj</a><br><br>
+                            Distributed By <a class="border-bottom" href="<?= base_url('/') ?>" target="_blank">MCA UNited</a>
                         </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+    </footer>
+    <!-- Footer End -->
 
 
         <!-- Back to Top -->
@@ -90,6 +86,21 @@
    
     <script src="<?= base_url('assets/web/js/landingpage.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/countdown1.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/jquery-ui.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/jquery-3.4.1.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/raindrops.js') ?>"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+
+ <script> 
+        <script> jQuery('#waterdrop').raindrops({
+            color:'rgb(36, 36, 36)', 
+            canvasHeight:150, 
+            density: 0.1, 
+            frequency: 20});
+        </script>
 </body>
 
 </html>
