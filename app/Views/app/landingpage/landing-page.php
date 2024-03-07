@@ -11,10 +11,11 @@
                             <h1 class="motivation animated slideInLeft  mb-5 pb-2">WHERE <span class="underlined underline-clip"> TALENT</span> MEETS OPPORTUNITY!!</h1>
                             
                             <p class="motivation-sub text-white  animated slideInLeft mb-5 pb-2">National Level IT & Management Fest</p>
-                            <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
+                            <?php 
+                            if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
                             {
                             ?>
-                                <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
+                                <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Dashboard</span><i></i></a>
                             <?php }else{ ?>
                                 <a href="<?= base_url('login') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
                                 
@@ -164,12 +165,145 @@
         </section>
         <!-- About End -->
 
-
+         <!-- Event  Start -->
+        <section id="events"></section>
+            <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="text-center">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Events</h5>
+                        <h1 class="mb-5">Events to register!!!</h1>
+                    </div>
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/coding2-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">khodhasangam</h3>
+                                <h3 class="text-center">CODING</h3>
+                            </div>
+                            <div class="d-flex align-items-center" >
+                            
+                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
+                                    <button class="button-card-inside">
+                                        Read More
+                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                                            <path clip-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                                fill-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                                </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/Quiz-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">Gyanvedha</h3>
+                                <h3 class="text-center">IT QUIZ</h3>
+                            </div>
+                            <div class="d-flex align-items-center" >
+                            
+                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
+                                    <button class="button-card-inside">
+                                        Read More
+                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                                            <path clip-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                                fill-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/videography-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">Tattva Chitram</h3>
+                                <h3 class="text-center">VIDEOGRAPHY</h3>
+                            </div>
+                            <div class="d-flex align-items-center" >
+                            
+                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
+                                    <button class="button-card-inside">
+                                        Read More
+                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                                            <path clip-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                                fill-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/photography-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">Rasadarpana</h3>
+                                <h3 class="text-center">PHOTOGRAPHY</h3>
+                            </div>
+                            <div class="d-flex align-items-center" >
+                            
+                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
+                                    <button class="button-card-inside">
+                                        Read More
+                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                                            <path clip-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                                fill-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/It manager-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">Shreshta Nirvahak</h3>
+                                <h3 class="text-center">IT MANAGER</h3>
+                            </div>
+                            <div class="d-flex align-items-center" >
+                            
+                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
+                                    <button class="button-card-inside">
+                                        Read More
+                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                                            <path clip-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                                fill-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/gaming2-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">Kurukshetra</h3>
+                                <h3 class="text-center">GAMING</h3>
+                            </div>
+                            <div class="d-flex align-items-center" >
+                            
+                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
+                                    <button class="button-card-inside">
+                                        Read More
+                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                                            <path clip-rule="evenodd"
+                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                                fill-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- EVENT End -->
        
 
 
         <!-- Video starts-->
-        <div class="container-fluid py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+        <!-- <div class="container-fluid py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
             <div class="row g-0">
                 <div class="col-lg-12 col-md-6">
                     <div class="video">
@@ -180,9 +314,9 @@
                 </div>
                 
             </div>
-        </div>
+        </div> -->
 
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
@@ -191,294 +325,244 @@
                     </div>
                     <div class="modal-body">
                         <!-- 16:9 aspect ratio -->
-                        <div class="ratio ratio-16x9">
+                        <!--<div class="ratio ratio-16x9">
                             <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
                                 allow="autoplay"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Video ends -->
 
 
         <!-- Team Start -->
-        <div class="container-fluid pt-5 pb-3">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class=" section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
-                    <h1 class="committee-header mb-5">ORGANIZING COMMITTEE</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/principal2.jpg') ?>">
+        <section id="teams"></section>
+            <div class="container-fluid pt-5 pb-3">
+                <div class="container">
+                    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <h5 class=" section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
+                        <h1 class="committee-header mb-5">ORGANIZING COMMITTEE</h1>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/principal2.jpg') ?>">
+                                </div>
+                                <h5 class="mb-0">Sr Dr M. Venissa A. C.</h5>
+                                <small>Principal</small>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
-                            <h5 class="mb-0">Sr Dr M. Venissa A. C.</h5>
-                            <small>Principal</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.jpg') ?>">
+                                </div>
+                                <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
+                                <small>Vice Principal</small>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/pgco2.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
+                                <small>Administrator</small>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/admin2.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Sr Dr M. Vinora A. C.</h5>
+                                <small>PG Co-ordinator</small>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.jpg') ?>">
-                            </div>
-                            <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
-                            <small>Vice Principal</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+
+                    <!-- faculty coordinators -->
+                    <div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
+                        
+                        <h1 class="committee-header mb-5">STAFF COORDINATORS</h1>
+                    </div>
+                    <div class="g-4 staff-container ">
+                        <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
+                                <small>HOD & Assistant Professor</small>
+                                <div class="mt-4 d-flex justify-content-center ">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/pgco2.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
-                            <small>Administrator</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/admin2.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Sr Dr M. Vinora A. C.</h5>
-                            <small>PG Co-ordinator</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshatha-mam.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Mrs Akshatha Shetty</h5>
+                                <small>Assistant Professor</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
-                    
-                    <h1 class="committee-header mb-5">STAFF COORDINATORS</h1>
-                </div>
-                <div class="g-4 staff-container ">
-                    <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
-                            <small>HOD & Assistant Professor</small>
-                            <div class="mt-4 d-flex justify-content-center ">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid rounded-circle" src="<?= base_url('assets/web/imgs/committee/Raina-mam.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Mrs Baji Raina Banu</h5>
+                                <small>Assistant Professor</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshatha-mam.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Mrs Akshatha Shetty</h5>
-                            <small>Assistant Professor</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid rounded-circle" src="<?= base_url('assets/web/imgs/committee/Raina-mam.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Mrs Baji Raina Banu</h5>
-                            <small>Assistant Professor</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshitha.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Ms Akshitha Menon</h5>
+                                <small>Assistant Professor</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshitha.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Ms Akshitha Menon</h5>
-                            <small>Assistant Professor</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ramya.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Ms Ramya Balyaya</h5>
-                            <small>Assistant Professor</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ramya.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Ms Ramya Balyaya</h5>
+                                <small>Assistant Professor</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
-                    
-                </div>
-                <!-- student coordinators  -->
-                <div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
-                    
-                    <h1 class="committee-header mb-5">STUDENT COORDINATORs</h1>
-                </div>
-                <div class="g-4 staff-container ">
-                    <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/susan.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Mr Sushan Roy Pinto</h5>
-                            <small>President</small>
-                            <div class="mt-5 d-flex justify-content-center ">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                    <!-- student coordinators  -->
+                    <div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
+                        
+                        <h1 class="committee-header mb-5">STUDENT COORDINATORS</h1>
+                    </div>
+                    <div class="g-4 staff-container ">
+                        <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/susan.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Mr Sushan Roy Pinto</h5>
+                                <small>President</small>
+                                <div class="mt-5 d-flex justify-content-center ">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/dev.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Dev Kiran Nayak</h5>
-                            <small>Class Representative</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid rounded-circle" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
-                            <small>Class Representative</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/dev.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Dev Kiran Nayak</h5>
+                                <small>Class Representative</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthi.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Mr Karthi Shettygar</h5>
-                            <small>II MCA</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ganesh.jpg') ?>" alt="">
-                            </div>
-                            <h5 class="mb-0">Mr Ganesh Nayak</h5>
-                            <small>II MCA</small>
-                            <div class="mt-5 d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid rounded-circle" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
+                                <small>Class Representative</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthi.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Mr Karthi Shettygar</h5>
+                                <small>II MCA</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ganesh.jpg') ?>" alt="">
+                                </div>
+                                <h5 class="mb-0">Mr Ganesh Nayak</h5>
+                                <small>II MCA</small>
+                                <div class="mt-5 d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                    
                 </div>
             </div>
-        </div>
+        </section>
         <!-- Team End -->
 
 
-        <!-- Testimonial Start -->
-        <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="text-center">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Events</h5>
-                    <h1 class="mb-5">Events to register!!!</h1>
-                </div>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="<?= base_url('assets/web/imgs/img/testimonial-3.jpg') ?>" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div></div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
+       

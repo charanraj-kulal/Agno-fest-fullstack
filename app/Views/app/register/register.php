@@ -97,10 +97,10 @@
                             <a class="txt2" href="<?= base_url('login') ?>">
                                 Login
                             </a>
-                        </div> -->
+                        </div> 
                     <!-- </form>
                 </div>
-                <!-- <div class="card card-authentication1 mx-5 my-4 ">
+                <div class="card card-authentication1 mx-5 my-4 ">
             <div class="card-body">
             <div class="card-content p-2">
                 <div class="text-center">
@@ -155,7 +155,7 @@
             </div> -->
         
         <!--Start Back To Top Button-->
-        <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!-- <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a> -->
         <!--End Back To Top Button-->
             
         </div>

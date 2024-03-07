@@ -19,7 +19,7 @@ class Dashboard extends BaseController
         }
         elseif($_SESSION['user_type'] == "1"){
 
-            return redirect()->to(base_url('student'));
+            return redirect()->to(base_url('admin'));
         }
     }
     public function logout(){

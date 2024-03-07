@@ -40,8 +40,9 @@
   <!--Start sidebar-wrapper-->
     
     <div class="main-contents">
+
         <section class="left-fixed-nav">
-            <div class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+            <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
                 <div class="brand-logo">
                     <a href="<?= base_url('/') ?>">
                         <img src="assets/web/imgs/favicon.png" class="logo-icon" alt="logo icon">
@@ -91,17 +92,17 @@
                 </ul>
             
     
-            </div>
+            </nav>
             <div class="clearfix"></div>
         
             <div class="content-wrapper">
                 <div class="container-fluid">
         
                     <!-- enroll starts -->
-                    <div class="card mt-3 dashboard-cards">
+                    <div class="card mt-3 dashboard-cards" id="enroll-section-id">
                         <div cass="card-content">
                             <div class="row row-group m-0">
-                                <div class="enroll-section" id="enroll-section-id">
+                                <div class="enroll-section" >
 
                                     <div id="loader-lottie-div" class="loader">
                                         <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
@@ -165,6 +166,7 @@
                                             </div>
                                         </div>
 
+                                        
                                         <!-- Gaming -->
                                         <div class="event">
                                             <div class="event-name">
@@ -431,6 +433,7 @@
                                             <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
                                                 events. You can check out the rules for more details.</p>
                                         </div> -->
+
                                             <button id="enroll-save-btn" class="animated-button">
                                                 <span>ENROLL</span>
                                                 <span></span>
@@ -444,25 +447,19 @@
                     <!-- end of enroll  -->
 
                     <!-- start of edit user -->
-                    <div class="card mt-3 dashboard-cards">
-                        <div class="card-content">
+                    <div class="card mt-3 dashboard-cards forallsec hide " id="manageuser-section-id">
+                        <div class="card-content ">
                             <div class="row row-group m-0">
-                                <div class="manageuser-section foreallsec hide" id="#manageuser-section-id">
-                                    <div id="loader-lottie-div" class="loader">
-                                        <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
-                                            src="/assets/icon/loader-yellow.lottie" style="width: 70px;height:70px;"></dotlottie-player>
-                                    </div>
-
+                                <div class="manageuser-section" >
                                     <div class="section-heading">
                                         <p class="enroll-title">USERS</p>
                                     </div>
-
                                     <div class="forms-events">
-                                        <!-- edit user table  -->
-                                        <div class="col-lg-12">
+                                        
+                                        <div class="col-lg-12 col-md-6 col-sm-3">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><?php echo $userid ?></h5>
+                                                    <h5 class="card-title">Edit Users</h5>
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered">
                                                             <thead>
@@ -486,8 +483,8 @@
                                                                                 <form method="post" action="<?php echo base_url('admin/updateUserRole/'.$user['id']); ?>">
                                                                                     <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
                                                                                     <select class="btn btn-light " name="user_role">
-                                                                                        <option class="option-1" value="2" <?php echo ($user['user_type'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
-                                                                                        <option class="option-2" value="1" <?php echo ($user['user_type'] == 'student') ? 'selected' : ''; ?>>Student</option>
+                                                                                        <option class="option-1" value="2" <?php echo ($user['user_type'] == '2') ? 'selected' : ''; ?>>Admin</option>
+                                                                                        <option class="option-2" value="1" <?php echo ($user['user_type'] == '1') ? 'selected' : ''; ?>>Student</option>
                                                                                     </select>
                                                                                     <button type="submit" class="btn btn-light">Update</button>
                                                                                 </form>
@@ -515,16 +512,17 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- end of edit user  -->
                    
-
+                    
 
                     <!-- start of accomodation -->
                     
-                    <div class="card mt-3 dashboard-cards ">
-                        <div class="card-content ">
+                    <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
+                        <!-- <div class="card-content "> -->
                             <div class="row row-group m-0">
-                                 <div class="accomodation-section forallsec hide" id="accomodation-section-id">
+                                 <div class="accomodation-section ">
                                     <div class="section-heading">
                                         <p class="enroll-title">ACCOMMODATION</p>
                                     </div>
@@ -563,12 +561,12 @@
 
                                     <div class="acc-contacts">
                                         <div class="acc-con">
-                                            <p class="acc-con-name">Mahadev Reddy</p>
-                                            <p class="acc-con-number">+91 6360097559</p>
+                                            <p class="acc-con-name">XXX</p>
+                                            <p class="acc-con-number">+91 00000000</p>
                                         </div>
                                         <div class="acc-con">
-                                            <p class="acc-con-name">Sharanya T J</p>
-                                            <p class="acc-con-number">+91 9148952471</p>
+                                            <p class="acc-con-name">YYYY</p>
+                                            <p class="acc-con-number">+91 0000000000</p>
                                         </div>
                                     </div>
 
@@ -578,17 +576,17 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
                     <!-- end of accomodation   -->
 
                      
 
                     <!-- start of rules -->
-                    <div class="card mt-6 dashboard-cards">
+                    <div class="card mt-6 dashboard-cards  forallsec hide" id="rules-section-id">
                         <div class="card-content">
                             <div class="row row-group m-0">
-                                <div class="rules-section forallsec hide" id="rules-section-id">
+                                <div class="rules-section ">
                                     <div class="d-flex justify-content-center main" >
                                         <div class="content mt-5 mb-5 text-light">
                                             <h1 class="h1 mt-1  heading">Privacy and Policy</h1>
@@ -651,22 +649,42 @@
                     <header class="topbar-nav">
                         <nav class="navbar navbar-expand fixed-top">
                             <ul class="navbar-nav mr-auto align-items-center">
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                 <a class="nav-link toggle-menu" href="javascript:void();">
                                 <i class="icon-menu menu-icon"></i>
                                 </a>
-                                </li>
+                                </li> <!-- 
                                 <li class="nav-item">
                                 <form class="search-bar">
                                     <input type="text" class="form-control" placeholder="Enter keywords">
                                     <a href="javascript:void();"><i class="icon-magnifier"></i></a>
                                 </form>
                                 </li> -->
+                                
                             </ul>
-                            
+
                             <ul class="navbar-nav align-items-center right-nav-link">
                                 <p class="team-name mt-2">Welcome!.. <?php echo session('name'); ?></p>
                                 <li class="nav-item">
+                                    <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-item user-details">
+                                            <a href="javaScript:void();">
+                                                <div class="media">
+                                                    <div class="avatar"><img class="align-self-start mr-3" src="<?= base_url('assets/web/imgs/user.jpg')?>" alt="user avatar"></div>
+                                                    <div class="media-body">
+                                                        <h6 class="mt-2 user-title"><?php echo session('name'); ?></h6>
+                                                        <p class="user-subtitle"><?php echo session('email'); ?></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+                                    </ul> -->
+                                     
                                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
                                         <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
                                     </a>
@@ -683,9 +701,12 @@
                                             </a>
                                         </li>
                                         <li class="dropdown-divider"></li>
-                                
-                                        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
-                                            
+                                        <!-- <a href="<?= base_url('logout') ?>"class='glowing-btn'><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></a> -->
+
+                                        <a href="<?= base_url('logout') ?>">
+                                        
+                                        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> 
+                                        </a> 
                                     </ul>
                                 </li>
                             </ul>
@@ -761,9 +782,15 @@
 </div><!--End wrapper-->
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?= base_url('assets/web/js/jquery.min.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/popper.min.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
+<!-- jQuery library -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Bootstrap JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
 
 <!-- simplebar js -->
 <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
@@ -780,6 +807,8 @@
 
 <!-- Index js -->
 <script src="<?= base_url('assets/web/js/index.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/imagekit.js') ?>"></script>
 
   
 </body>

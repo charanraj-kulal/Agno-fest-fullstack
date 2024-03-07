@@ -60,7 +60,7 @@
                         <a href="<?= base_url('/')?>" class="nav-item nav-link active">Home</a>
                         <a href="#about" class="nav-item nav-link">About</a>
                         <a href="#events" class="nav-item nav-link">Events</a>
-                        <a href="#rules" class="nav-item nav-link">Rules</a>
+                        <a href="#teams" class="nav-item nav-link">Rules</a>
                     </div>
                     <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
                         {
