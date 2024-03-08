@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V2</title>
+    <title>Login-AAVIRBHAV</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,46 +42,50 @@
         <div class="limiter">
             <div id="particles-js">
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form" action="<?= base_url('login/authenticate') ?>" method="post">
-                        <span class="login100-form-title p-b-26">
-                            Welcome 
-                        </span>
-                        <span class="login100-form-title p-b-48">
-                            <i class="zmdi zmdi-font"></i>
-                        </span>
-    
-                        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                            <input class="input100" type="text" name="email">
-                            <span class="focus-input100" data-placeholder="Email"></span>
-                        </div>
-    
-                        <div class="wrap-input100 validate-input" data-validate="Enter password">
-                            <span class="btn-show-pass">
-                                <i class="zmdi zmdi-eye"></i>
+                    <div class="login100-form">
+                        <form class="validate-form" action="<?= base_url('jwtlogin/auth') ?>" method="post">
+                        <!-- <form class="validate-form" action="<?= base_url('login/authenticate') ?>" method="post"> -->
+                            <span class="login100-form-title p-b-10">
+                                Welcome to AGNISIA
                             </span>
-                            <input class="input100" type="password" name="pass">
-                            <span class="focus-input100" data-placeholder="Password"></span>
-                        </div>
-    
-                        <div class="container-login100-form-btn">
-                            <div class="wrap-login100-form-btn">
-                                <div class="login100-form-bgbtn"></div>
-                                <button class="login100-form-btn">
-                                    Login
-                                </button>
+                            <span class="login100-form-title p-b-15">
+                                <i class="zmdi zmdi-font"></i>
+                            </span>
+        
+                            <div class="wrap-input100 validate-input" data-validate = "Enter valid email">
+                                <input class="input100" type="text" name="email">
+                                <span class="focus-input100" data-placeholder="Email"></span>
                             </div>
-                        </div>
-    
-                        <div class="text-center p-t-115">
-                            <span class="txt1">
-                                Don’t have an account?
-                            </span>
-    
-                            <a class="txt2" href="<?= base_url('/register') ?>">
-                                Sign Up
-                            </a>
-                        </div>
-                    </form>
+        
+                            <div class="wrap-input100 validate-input" data-validate="Enter password">
+                                <span class="btn-show-pass">
+                                    <i class="zmdi zmdi-eye" id="togglePassword"></i>
+                                </span>
+                                <input class="input100" type="password" name="password" id="passwordField">
+                                <span class="focus-input100" data-placeholder="Password"></span>
+                            </div>
+
+        
+                            <div class="container-login100-form-btn">
+                                <div class="wrap-login100-form-btn">
+                                    <div class="login100-form-bgbtn"></div>
+                                    <button class="login100-form-btn" onclick="validateForm()">
+                                        Login
+                                    </button>
+                                </div>
+                            </div>
+        
+                            <div class="text-center p-t-30">
+                                <span class="txt1">
+                                    Don’t have an account?
+                                </span>
+        
+                                <a class="txt2"  href="<?= base_url('/register') ?>">
+                                    Sign Up
+                                </a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,24 +93,23 @@
         <div id="dropDownSelect1"></div>
         
     <!-- jQuery -->
-    <script src="<?= base_url('vendor/jquery/jquery-3.2.1.min.js') ?>"></script>
-
+    <script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
     <!-- Animsition JS -->
-    <script src="<?= base_url('vendor/animsition/js/animsition.min.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/animsition.min.js') ?>"></script>
 
     <!-- Popper.js and Bootstrap JS -->
-    <script src="<?= base_url('vendor/bootstrap/js/popper.js') ?>"></script>
-    <script src="<?= base_url('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/popper-2.11.8.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
 
     <!-- Select2 JS -->
-    <script src="<?= base_url('vendor/select2/select2.min.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/select2.min.js') ?>"></script>
 
     <!-- Date Range Picker JS -->
-    <script src="<?= base_url('vendor/daterangepicker/moment.min.js') ?>"></script>
-    <script src="<?= base_url('vendor/daterangepicker/daterangepicker.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/moment.min.js') ?>"></script>
+    <!-- <script src="<?= base_url('assets/web/js/daterangepicker.js') ?>"></script> -->
 
     <!-- Your Custom JS File -->
-    <script src="<?= base_url('js/main.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/main.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/particles.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/app.js') ?>"></script>
 

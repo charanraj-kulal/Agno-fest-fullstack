@@ -6,6 +6,16 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+// jwt register routes 
+
+$routes->get('jwtregister', 'User::register');
+$routes->post('/jwtregister/create', 'User::create');
+
+
+// jwt login routes 
+$routes->post('/jwtlogin/auth', 'User::login');
+$routes->get('jwtlogin', 'User::login_view');
+$routes->get('/jwtread', 'User::readUser', ['filter' => 'auth']);
 
 
 //login routes
@@ -23,23 +33,24 @@ $routes->get('/', 'LandingPage::index');
 $routes->get('/about-us', 'LandingPage::aboutus');
 
 
-//auth routes
-$routes->match(['get', 'post'],'login','Login::index', ["filter" => "noauth"]);
-$routes->group("dashboard", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "Dashboard::index");
-});
-$routes->group("admin", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "AdminController::index");
-    $routes->post("updateUserRole/(:num)", "AdminController::update/$1");
-    $routes->get("deleteUser/(:num)", "AdminController::delete/$1");
-    
-    
+
+// Auth routes
+$routes->match(['get', 'post'], 'login', 'Login::index', ['filter' => 'noAuth']);
+
+$routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
+    $routes->get('/', 'Dashboard::index');
 });
 
-
-$routes->group("student", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "StudentController::index");
+$routes->group('admin', ['filter' => 'Auth'], function ($routes) {
+    $routes->get('/', 'AdminController::index');
+    $routes->post('updateUserRole/(:num)', 'AdminController::update/$1');
+    $routes->get('deleteUser/(:num)', 'AdminController::delete/$1');
 });
+
+$routes->group('student', ['filter' => 'Auth'], function ($routes) {
+    $routes->get('/', 'StudentController::index');
+});
+
 
 //logout routes
 $routes->get('logout', 'Dashboard::logout');
