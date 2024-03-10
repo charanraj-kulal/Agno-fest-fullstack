@@ -44,7 +44,7 @@ class Login extends BaseController
     $users = new UserModel();
     $email = $this->request->getVar('email');
     $password = $this->request->getVar('password');
-
+    
     // Check if the user exists
     $user = $users->where('email', $email)->first();
     

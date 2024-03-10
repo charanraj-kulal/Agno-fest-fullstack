@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Eventreg extends Model
+class EventregModel extends Model
 {
-    protected $table            = 'eventregs';
+    protected $table            = 'event_registration';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -14,7 +14,6 @@ class Eventreg extends Model
     protected $protectFields    = true;
     protected $allowedFields = [
         'user_id',
-        'college_name',
         'coding_mem_1',
         'coding_mem_contact_1',
         'coding_mem_2',
@@ -47,6 +46,8 @@ class Eventreg extends Model
         'thunt_mem_contact_1',
         'thunt_mem_2',
         'thunt_mem_contact_2',
+        'created_at',
+        'updated_at'
     ];
 
 

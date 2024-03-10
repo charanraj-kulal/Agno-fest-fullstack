@@ -113,333 +113,442 @@
                                         <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                                     </div>
 
-                                    <div class="forms-events">
-                                        <!-- coding -->
-                                        <div class="event">
-                                            <div class="event-name">
-                                                <p class="sanskrit-name">Kodhasangam</p>
-                                                <p class="normal-name">(CODING)</p>
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 1</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="coding-mem1" name="coding-mem1" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
+                                    <form action="<?= base_url('admin/event-register') ?>" method="post">
+                                        <div class="forms-events">
+                                            <!-- coding -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Kodhasangam</p>
+                                                    <p class="normal-name">(CODING)</p>
                                                 </div>
 
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="coding-mem1" name="coding-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
                                                     </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
-                                                </div>
-                                            </div>
 
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 2</p>
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
                                                     </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="coding-mem2" name="coding-mem2" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="coding-tmem2-err">Name is required!</p>
-                                                </div>
-
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
-                                                    </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
-                                        <!-- Gaming -->
-                                        <div class="event">
-                                            <div class="event-name">
-                                                <p class="sanskrit-name">Kurukshetra</p>
-                                                <p class="normal-name">(Gaming)</p>
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 1</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="gaming-mem1" name="gaming-mem1" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="gaming-tmem1-err">Name is required!</p>
                                                 </div>
 
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 2</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="coding-mem2" name="coding-mem2" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="coding-tmem2-err">Name is required!</p>
                                                     </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
                                                     </div>
-                                                    <p class="error-msg" id="gaming-con1-err">Contact number is required!</p>
                                                 </div>
                                             </div>
 
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 2</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="gaming-mem2" name="gaming-mem2" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="gaming-tmem2-err">Name is required!</p>
+                                            
+                                            <!-- Gaming -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Kurukshetra</p>
+                                                    <p class="normal-name">(Gaming)</p>
                                                 </div>
 
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="gaming-mem1" name="gaming-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-tmem1-err">Name is required!</p>
                                                     </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-con1-err">Contact number is required!</p>
                                                     </div>
-                                                    <p class="error-msg" id="gaming-con2-err">Contact number is required!</p>
-                                                </div>
-                                            </div>
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 3</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="gaming-mem3" name="gaming-mem3" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="gaming-tmem3-err">Name is required!</p>
                                                 </div>
 
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 2</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="gaming-mem2" name="gaming-mem2" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-tmem2-err">Name is required!</p>
                                                     </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="gaming-con3-err">Contact number is required!</p>
-                                                </div>
-                                            </div>
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 4</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="gaming-mem4" name="gaming-mem4" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="gaming-tmem4-err">Name is required!</p>
-                                                </div>
 
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-con2-err">Contact number is required!</p>
                                                     </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- IT manager -->
-                                        <div class="event">
-                                            <div class="event-name">
-                                                <p class="sanskrit-name">Shreshta Nirvahak</p>
-                                                <p class="normal-name">(IT Manager)</p>
-                                            </div>
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 3</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="gaming-mem3" name="gaming-mem3" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-tmem3-err">Name is required!</p>
+                                                    </div>
 
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 1</p>
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-con3-err">Contact number is required!</p>
                                                     </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="quiz-mem1" name="quiz-mem1" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="quiz-tmem1-err">Name is required!</p>
                                                 </div>
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 4</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="gaming-mem4" name="gaming-mem4" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-tmem4-err">Name is required!</p>
+                                                    </div>
 
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
                                                     </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- Photography -->
-                                        <div class="event">
-                                            <div class="event-name">
-                                                <p class="sanskrit-name">Rasadarpana</p>
-                                                <p class="normal-name">(Photography)</p>
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 1</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="photo-mem1" name="photo-mem1" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="photo-tmem1-err">Name is required!</p>
-                                                </div>
-
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
-                                                    </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="photo-con1-err">Contact number is required!</p>
-                                                </div>
-
                                             </div>
                                             
+                                            <!-- IT manager -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Shreshta Nirvahak</p>
+                                                    <p class="normal-name">(IT Manager)</p>
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="it-mem1" name="it-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="it-tmem1-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="it-con1-err">Contact number is required!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Photography -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Rasadarpana</p>
+                                                    <p class="normal-name">(Photography)</p>
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="photo-mem1" name="photo-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="photo-tmem1-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="photo-con1-err">Contact number is required!</p>
+                                                    </div>
+
+                                                </div>
+                                                
+                                            </div>
+                                            <!-- videography -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Tattva Chitram</p>
+                                                    <p class="normal-name">(Videography)</p>
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="video-mem1" name="video-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="video-tmem1-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="video-con1-err">Contact number is required!</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 2</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="video-mem2" name="video-mem2" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="video-tmem2-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="video-con2-err">Contact number is required!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- IT Quiz -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Gyanvedh</p>
+                                                    <p class="normal-name">(IT Quiz)</p>
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="quiz-mem1" name="quiz-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="quiz-tmem1-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 2</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="quiz-mem2" name="quiz-mem2" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="quiz-tmem2-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="quiz-con2-err">Contact number is required!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Web design -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Parikalpana</p>
+                                                    <p class="normal-name">(Web Design)</p>
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="web-mem1" name="web-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="web-tmem1-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="web-con1-err">Contact number is required!</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 2</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="web-mem2" name="web-mem2" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="web-tmem2-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="web-con2-err">Contact number is required!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Treasure hunt -->
+                                            <div class="event">
+                                                <div class="event-name">
+                                                    <p class="sanskrit-name">Anveshana</p>
+                                                    <p class="normal-name">(Trasure Hunt)</p>
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 1</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="hunt-mem1" name="hunt-mem1" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="hunt-tmem1-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="hunt-con1-err">Contact number is required!</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="member">
+                                                    <div class="member-name">
+                                                        <div class="member-title">
+                                                            <p class="input-title-name">Team Member 2</p>
+                                                        </div>
+                                                        <div class="member-input">
+                                                            <input class="form-inputbox memname" id="hunt-mem2" name="hunt-mem2" type="text" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="hunt-tmem2-err">Name is required!</p>
+                                                    </div>
+
+                                                    <div class="member-contact">
+                                                        <div class="contact-title">
+                                                            <p class="input-title-contact">Contact Number</p>
+                                                        </div>
+                                                        <div class="contact-input">
+                                                            <input class="form-inputbox" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                        </div>
+                                                        <p class="error-msg" id="hunt-con2-err">Contact number is required!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        
+                                            <div class="enroll-footer">
+                                            <!-- <div class="scrolling-container">
+                                                <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
+                                                    events. You can check out the rules for more details.</p>
+                                            </div> -->
+
+                                                <button id="enroll-save-btn" class="animated-button" type="submit">
+                                                    <span>ENROLL</span>
+                                                    <span></span>
+                                                </button>
+                                            </div>
                                         </div>
-                                        <!-- videography -->
-                                        <div class="event">
-                                            <div class="event-name">
-                                                <p class="sanskrit-name">Tattva Chitram</p>
-                                                <p class="normal-name">(Videography)</p>
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 1</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="video-mem1" name="video-mem1" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="video-tmem1-err">Name is required!</p>
-                                                </div>
-
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
-                                                    </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="video-con1-err">Contact number is required!</p>
-                                                </div>
-
-
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 2</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="video-mem2" name="video-mem2" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="video-tmem2-err">Name is required!</p>
-                                                </div>
-
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
-                                                    </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="video-con2-err">Contact number is required!</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Treasure hunt -->
-                                        <div class="event">
-                                            <div class="event-name">
-                                                <p class="sanskrit-name">Anveshana</p>
-                                                <p class="normal-name">(Trasure Hunt)</p>
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 1</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="hunt-mem1" name="hunt-mem1" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="hunt-tmem1-err">Name is required!</p>
-                                                </div>
-
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
-                                                    </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="hunt-con1-err">Contact number is required!</p>
-                                                </div>
-
-
-                                            </div>
-
-                                            <div class="member">
-                                                <div class="member-name">
-                                                    <div class="member-title">
-                                                        <p class="input-title-name">Team Member 2</p>
-                                                    </div>
-                                                    <div class="member-input">
-                                                        <input class="form-inputbox memname" id="hunt-mem2" name="hunt-mem2" type="text" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="hunt-tmem2-err">Name is required!</p>
-                                                </div>
-
-                                                <div class="member-contact">
-                                                    <div class="contact-title">
-                                                        <p class="input-title-contact">Contact Number</p>
-                                                    </div>
-                                                    <div class="contact-input">
-                                                        <input class="form-inputbox" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                    </div>
-                                                    <p class="error-msg" id="hunt-con2-err">Contact number is required!</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    
-                                        <div class="enroll-footer">
-                                        <!-- <div class="scrolling-container">
-                                            <p class="scrolling-text">Note: Participants of Coding, Web Designing, Photography, IT Manager cannot participate in any other 
-                                                events. You can check out the rules for more details.</p>
-                                        </div> -->
-
-                                            <button id="enroll-save-btn" class="animated-button">
-                                                <span>ENROLL</span>
-                                                <span></span>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -783,6 +892,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/jquery-3.4.1.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/popper.min.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
 <!-- jQuery library -->
@@ -801,6 +911,7 @@
 <!-- Custom scripts -->
 <script src="<?= base_url('assets/web/js/app-script.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/preventlinks.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
 <!-- Chart js -->
 
 <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>
