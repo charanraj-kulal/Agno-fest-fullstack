@@ -10,12 +10,12 @@ use App\Models\UserModel;
 class Login extends BaseController
 {
     
-    private $user;
+    
     public $session;
    
     public function __construct()
     {
-        $this->userModel = new UserModel();
+        
         
     }
     public function index()
@@ -39,36 +39,33 @@ class Login extends BaseController
 
     
     public function authenticate()
-    {
-        
+{
+    $session = session();
+    $users = new UserModel();
+    $email = $this->request->getVar('email');
+    $password = $this->request->getVar('password');
 
-        // if ($this->request->getMethod() == 'post') {
-
-        //     $rules = [
-        //         'email' => 'required|min_length[6]|max_length[50]|valid_email',
-        //         'password' => 'required|min_length[8]|max_length[255]|validateUser[email,password]',
-        //     ];
-
-        //     $errors = [
-        //         'password' => [
-        //             'validateUser' => "Email or Password didn't match",
-        //         ],
-        //     ];
-
-        
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-        
-        
-        // Check if the user exists
-        $user = $this->userModel->where('email', $email)->first();
-        
-        //storing session values
-        $this->setUserSession($user);
-        return redirect()->to(base_url('dashboard'));
-        
-        
+    // Check if the user exists
+    $user = $users->where('email', $email)->first();
+    
+    if ($user ){
+        echo($password);
+        echo($user['password']);
+        if(!password_verify($password, $user['password'])) {
+            
+            
+            // Password is correct, set user session
+            $this->setUserSession($user);
+            return redirect()->to(base_url('dashboard'));
+            
+        } else {
+            // Incorrect email or password
+            echo("Invalid");
+            // return redirect()->back()->withInput()->with('error', 'Invalid email or password.');
+        }
     }
+}
+
     private function setUserSession($user)
     {
         $users = [
@@ -76,7 +73,7 @@ class Login extends BaseController
             'name' => $user['name'],
             'phone_number' => $user['phone_number'],
             'email' => $user['email'],
-            'isLoggedIn' => true,
+            'isLoggedIn' => TRUE,
             "user_type" => $user['user_type'],
         ];
 

@@ -32,7 +32,7 @@ class NoAuth implements FilterInterface
 			}
 
 			if (session()->get('user_type') == "1") {
-				return redirect()->to(base_url('admin'));
+				return redirect()->to(base_url('student'));
 			}
             
         }

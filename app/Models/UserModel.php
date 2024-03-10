@@ -37,4 +37,12 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    // Inside your UserModel class
+public function findUserByEmailAddress($email)
+{
+    // Assuming your password column is named 'password'
+    return $this->where('email', $email)->first();
 }
+}
+

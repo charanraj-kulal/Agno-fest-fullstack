@@ -42,6 +42,7 @@
     <div class="limiter">
         <div id="particles-js">
             <div class="wrap-login100">
+                <!-- <form class="login100-form validate-form" action="<?= base_url('register/create') ?>" method="post"> -->
                 <form class="login100-form validate-form" action="<?= base_url('jwtregister/create') ?>" method="post">
                     <span class="login100-form-title p-b-16">
                         Register

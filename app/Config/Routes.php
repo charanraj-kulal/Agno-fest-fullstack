@@ -7,7 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 // jwt register routes 
-
 $routes->get('jwtregister', 'User::register');
 $routes->post('/jwtregister/create', 'User::create');
 

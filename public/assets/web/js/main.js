@@ -118,9 +118,10 @@
       });
       if (!check) {
         event.preventDefault();
-      } else {
-        // Validation succeeded, redirect to the desired page
-        window.location.href = '<?= site_url("login/authenticate") ?>';
+        // } else {
+        //   // Validation succeeded, redirect to the desired page
+        //   window.location.href = '<?= site_url("login/authenticate") ?>';
+        // }
       }
     });
   });
