@@ -1,6 +1,6 @@
 // fetching data from enroll section
 // declaring variables
-
+const enrollbtn = document.getElementById("enroll-save-btn");
 // coding
 const codingMem1 = document.getElementById("coding-mem1");
 const codingMemCon1 = document.getElementById("coding-mem1-con1");

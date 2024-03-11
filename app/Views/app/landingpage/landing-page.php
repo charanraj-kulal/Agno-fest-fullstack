@@ -1,29 +1,30 @@
-<div class="container-fluid py-5 bg-dark hero-header mb-5">
-                <div class="container my-5 py-5">
-                    <div class="row  g-5">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <div class="hero-container">
-                                <div class="environment"></div>
-                                <h2 class="sanskrit-name hero glitch layers" data-text="AAVIRBHAV"><span>AAVIRBHAV</span></h2>
-                            </div>
+    <div class="container-fluid py-5 bg-dark hero-header mb-5">
+        <section id="home">   
+            <div class="container my-5 py-5">
+                <div class="row  g-5">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <div class="hero-container">
+                            <div class="environment"></div>
+                            <h2 class="sanskrit-name hero glitch layers" data-text="AAVIRBHAV"><span>AAVIRBHAV</span></h2>
+                        </div>
+                        
+                        
+                        <h1 class="motivation animated slideInLeft  mb-5 pb-2">WHERE <span class="underlined underline-clip"> TALENT</span> MEETS OPPORTUNITY!!</h1>
+                        
+                        <p class="motivation-sub text-white  animated slideInLeft mb-5 pb-2">National Level IT & Management Fest</p>
+                        <?php 
+                        if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
+                        {
+                        ?>
+                            <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Dashboard</span><i></i></a>
+                        <?php }else{ ?>
+                            <a href="<?= base_url('login') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
                             
-                            
-                            <h1 class="motivation animated slideInLeft  mb-5 pb-2">WHERE <span class="underlined underline-clip"> TALENT</span> MEETS OPPORTUNITY!!</h1>
-                            
-                            <p class="motivation-sub text-white  animated slideInLeft mb-5 pb-2">National Level IT & Management Fest</p>
-                            <?php 
-                            if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
-                            {
-                            ?>
-                                <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Dashboard</span><i></i></a>
-                            <?php }else{ ?>
-                                <a href="<?= base_url('login') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
-                                
-                            <?php } ?>
-                            
-                            
- 
-                            </div>
+                        <?php } ?>
+                        
+                        
+
+                        </div>
                         <div class="col-lg-6 text-center text-lg-end ">
                             <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
                         
@@ -32,7 +33,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </div>
+        
         <!-- Service Start -->
         <!-- Counter Section Begin  **edited-->
         <div class="container-fluid">
@@ -61,7 +64,7 @@
             </div>
         </div>       
                             
-                        
+        
         <!-- <div class="container-fluid py-5">
             <div class="container">
                 <div class="row g-4">
