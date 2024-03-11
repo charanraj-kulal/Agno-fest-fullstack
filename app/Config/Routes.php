@@ -6,40 +6,42 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+// register routes 
+$routes->get('register', 'User::register');
+$routes->post('/register/create', 'User::create');
 
 
-//login routes
-$routes->get('login', 'Login::index');
-$routes->post('login/authenticate', 'Login::authenticate');
+//  login routes 
+$routes->post('/login/auth', 'User::login');
+$routes->get('login', 'User::login_view');
+// $routes->get('/jwtread', 'User::readUser', ['filter' => 'auth']);
 
-
-//register routes
-$routes->get('register', 'Register::index');
-$routes->post('register/create', 'Register::create');
-$routes->get('register/success', 'Register::success');
 
 //landing page routes
 $routes->get('/', 'LandingPage::index');
 $routes->get('/about-us', 'LandingPage::aboutus');
 
 
-//auth routes
-$routes->match(['get', 'post'],'login','Login::index', ["filter" => "noauth"]);
-$routes->group("dashboard", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "Dashboard::index");
-});
-$routes->group("admin", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "AdminController::index");
-    $routes->post("updateUserRole/(:num)", "AdminController::update/$1");
-    $routes->get("deleteUser/(:num)", "AdminController::delete/$1");
-    
-    
+
+// Auth routes
+$routes->match(['get', 'post'], 'login', 'Login::index', ['filter' => 'noAuth']);
+
+$routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
+    $routes->get('/', 'Dashboard::index');
 });
 
+$routes->group('admin', ['filter' => 'Auth'], function ($routes) {
+    $routes->get('/', 'AdminController::index');
+    $routes->post('updateUserRole/(:num)', 'AdminController::update/$1');
+    $routes->get('deleteUser/(:num)', 'AdminController::delete/$1');
+    
 
-$routes->group("student", ["filter" => "auth"], function ($routes) {
-    $routes->get("/", "StudentController::index");
 });
+$routes->post('admin/event-register', 'EventRegister::register');
+$routes->group('student', ['filter' => 'Auth'], function ($routes) {
+    $routes->get('/', 'StudentController::index');
+});
+
 
 //logout routes
 $routes->get('logout', 'Dashboard::logout');

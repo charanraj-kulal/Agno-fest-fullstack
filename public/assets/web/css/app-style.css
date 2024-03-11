@@ -35,12 +35,48 @@ File: app-style
 
 /* Google Font*/
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 
+/* custom fonts  */
 @font-face {
   font-family: Samarkan;
   src: url("../fonts/samarkan/SAMAN___.TTF");
 }
-
+@font-face {
+  font-family: Samarkan;
+  src: url("../fonts/samarkan/SAMAN___.TTF");
+}
+@font-face {
+  font-family: Doctor;
+  src: url("../fonts/custom/Doctor\ Glitch.otf");
+}
+@font-face {
+  font-family: IBM;
+  src: url("../fonts/custom/Flexi_IBM_VGA_False.ttf");
+}
+@font-face {
+  font-family: IBM437;
+  src: url("../fonts/custom/Flexi_IBM_VGA_False_437.ttf");
+}
+@font-face {
+  font-family: aesthico;
+  src: url("../fonts/custom/Aesthico\(Demo\)-Regular.ttf");
+}
+@font-face {
+  font-family: lt_regular;
+  src: url("../fonts/custom/lt_seada/LTSaeada-Regular.otf");
+}
+@font-face {
+  font-family: lt_bold;
+  src: url("../fonts/custom/lt_seada/LTSaeada-Bold.otf");
+}
+@font-face {
+  font-family: lt_thin;
+  src: url("../fonts/custom/lt_seada/LTSaeada-Thin.otf");
+}
+:root {
+  --glow-color: hsl(186 100% 69%);
+}
 .sanskrit-name {
   font-family: "Samarkan";
   font-size: 1.3vw;
@@ -368,21 +404,6 @@ small {
   margin-left: 0;
 }
 
-.forallsec {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 5vw;
-  justify-content: center;
-  border: 1px solid;
-}
-
-.hide {
-  display: none;
-}
-
 /* Page Content Wrapper */
 .content-wrapper {
   margin-left: 250px;
@@ -689,6 +710,12 @@ body.bg-theme15 {
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+/* Add shadow to navbar */
+.navbar.shadow-black {
+  background-color: #000000d5; /* Black background color */
+  transition: background-color 0.5s ease-in; /* Smooth transition */
+  color: rgb(255, 255, 255);
+}
 
 .toggle-menu i {
   margin-left: 250px;
@@ -859,6 +886,204 @@ body.bg-theme15 {
   right: 15px;
   color: #fff;
   font-size: 16px;
+}
+/* logout button  */
+
+.glowing-btn {
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn {
+    font-size: 1em;
+  }
 }
 
 .product-img {
@@ -4457,6 +4682,7 @@ table.grid td {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.5px;
+  font-family: IBM;
 }
 
 .Btn {
@@ -4581,6 +4807,16 @@ table.grid td {
   border: 3px solid red;
   box-sizing: border-box;
 }
+.forallsec {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5vw;
+  justify-content: center;
+  border: 1px solid;
+}
 
 .dashboard-cards {
   border-radius: 17px;
@@ -4588,18 +4824,25 @@ table.grid td {
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   height: auto;
-  width: 80%;
+  width: 100%;
   margin: 1vw 0;
   padding: 2vh 1.5vw;
   transition: all 0.2s ease-in-out;
+  background: url(../imgs/bg-themes/mandala.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .dashboard-cards:hover {
   border: 3px solid red;
   box-sizing: border-box;
 }
-.dashboard-cards:active {
+/* .dashboard-cards:active {
   transform: scale(1) rotateZ(0.7deg);
+} */
+.hide {
+  display: none;
 }
 .option-1 .option-2 {
   border-radius: 15px;
@@ -4666,7 +4909,14 @@ table.grid td {
 .memname {
   width: 20vw;
 }
-
+.error-msg {
+  font-size: 14px;
+  color: red;
+  display: none;
+}
+.displayErr {
+  display: block;
+}
 input {
   font-family: "IBM";
   font-size: 1vw;
@@ -4751,17 +5001,153 @@ input {
   margin-bottom: 11vh;
 }
 
-.forallsec {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+/* .accomodation-section */
+.accomodation-section {
+  margin-top: 0;
+  background: url(../imgs/bg-themes/mandala.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 5vh;
+  justify-content: center;
   align-items: center;
-  padding: 0 5vw;
-  /* justify-content: center; */
-  /* border: 1px solid; */
 }
 
-.hide {
-  display: none;
+.acc-points-div {
+  align-items: center;
+  margin: 5vh 0;
+  text-align: center;
+}
+
+.acc-points {
+  margin: 1vh 0;
+  font-size: 1.2vw;
+}
+
+.acc-check-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 7vh 0;
+  text-align: center;
+}
+
+.acc-check-div .acc-check-txt {
+  margin: auto 1vw;
+  text-align: center;
+}
+
+.check {
+  cursor: pointer;
+  position: relative;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+
+.check svg {
+  position: relative;
+  z-index: 1;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #c8ccd4;
+  stroke-width: 1.5;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.check svg path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+  opacity: 1;
+}
+
+.check:hover svg {
+  stroke: #4285f4;
+}
+
+#cbx:checked + .check svg {
+  stroke: #4285f4;
+}
+
+#cbx:checked + .check svg path {
+  stroke-dashoffset: 60;
+  transition: all 0.3s linear;
+}
+
+#cbx:checked + .check svg polyline {
+  stroke-dashoffset: 42;
+  transition: all 0.2s linear;
+  transition-delay: 0.15s;
+}
+
+.acc-nums-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70%;
+  opacity: 0.2;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.acc-nums-div.show {
+  opacity: 1;
+}
+
+.acc-nums {
+  padding: 2vh 2vw;
+  border-radius: 17px;
+  border: 1px solid black;
+  pointer-events: none;
+}
+
+.acc-nums-div.show .acc-nums {
+  pointer-events: auto;
+}
+
+.acc-nums-txt1 {
+  margin: 7vh 0;
+  padding-right: 2vw;
+}
+
+.acc-check-txt1 {
+  font-size: 1.2vw;
+  text-align: justify;
+}
+
+.acc-contacts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70%;
+  margin-bottom: 4vh;
+}
+
+.acc-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc-con-name {
+  font-size: 1.2vw;
+}
+
+.acc-con-number {
+  font-size: 1.2vw;
 }

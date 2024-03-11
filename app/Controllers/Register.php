@@ -11,11 +11,9 @@ class Register extends BaseController
 {
     use ResponseTrait;
     private $user;
-    public $session;
 
     public function __construct()
     {
-        $session = \Config\Services::session();
         $this->user = new UserModel();
         
     }
@@ -91,7 +89,7 @@ class Register extends BaseController
         
         // }
          
-        $this->session->set($user = [
+       $user = [
             'name' => $this->request->getVar('name'),
             'college_name' => $this->request->getVar('college_name'),
             'phone_number' => $this->request->getVar('phone_number'),
@@ -100,7 +98,7 @@ class Register extends BaseController
             'user_type' => 1,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
-        ]);
+       ];
         
 
         $userId = $this->user->insert($user);

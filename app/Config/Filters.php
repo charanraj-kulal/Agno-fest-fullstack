@@ -24,8 +24,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth'          => \App\Filters\Auth::class,
-        'noauth'        => \App\Filters\NoAuth::class,
+        'Auth'          => \App\Filters\Auth::class,
+        'noAuth'        => \App\Filters\NoAuth::class,
+        'auth' => JWTAuth::class 
     ];
 
     /**
@@ -41,7 +42,7 @@ class Filters extends BaseConfig
             // 'invalidchars',
         ],
         'after' => [
-            'toolbar',
+            //'toolbar',
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -68,6 +69,11 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-       
+    //    'auth' => [
+    //     'before' => [
+    //         'client/*',
+    //         'client'
+    //         ],
+    //     ]
     ];
 }

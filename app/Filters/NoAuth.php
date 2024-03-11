@@ -27,13 +27,14 @@ class NoAuth implements FilterInterface
     {
         if (session()->get('isLoggedIn')) {
 
-			if (session()->get('role') == "admin") {
+			if (session()->get('user_type') == "2") {
 				return redirect()->to(base_url('admin'));
 			}
 
-			if (session()->get('role') == "editor") {
-				return redirect()->to(base_url('editor'));
+			if (session()->get('user_type') == "1") {
+				return redirect()->to(base_url('student'));
 			}
+            
         }
     }
 
