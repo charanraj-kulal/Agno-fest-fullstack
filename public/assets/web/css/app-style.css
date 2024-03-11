@@ -710,6 +710,12 @@ body.bg-theme15 {
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+/* Add shadow to navbar */
+.navbar.shadow-black {
+  background-color: #000000d5; /* Black background color */
+  transition: background-color 0.5s ease-in; /* Smooth transition */
+  color: rgb(255, 255, 255);
+}
 
 .toggle-menu i {
   margin-left: 250px;
@@ -4832,9 +4838,9 @@ table.grid td {
   border: 3px solid red;
   box-sizing: border-box;
 }
-.dashboard-cards:active {
+/* .dashboard-cards:active {
   transform: scale(1) rotateZ(0.7deg);
-}
+} */
 .hide {
   display: none;
 }
@@ -4903,7 +4909,14 @@ table.grid td {
 .memname {
   width: 20vw;
 }
-
+.error-msg {
+  font-size: 14px;
+  color: red;
+  display: none;
+}
+.displayErr {
+  display: block;
+}
 input {
   font-family: "IBM";
   font-size: 1vw;

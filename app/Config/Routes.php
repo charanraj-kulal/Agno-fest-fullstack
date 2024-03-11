@@ -6,26 +6,16 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// jwt register routes 
-$routes->get('jwtregister', 'User::register');
-$routes->post('/jwtregister/create', 'User::create');
+// register routes 
+$routes->get('register', 'User::register');
+$routes->post('/register/create', 'User::create');
 
 
-// jwt login routes 
-$routes->post('/jwtlogin/auth', 'User::login');
-$routes->get('jwtlogin', 'User::login_view');
-$routes->get('/jwtread', 'User::readUser', ['filter' => 'auth']);
+//  login routes 
+$routes->post('/login/auth', 'User::login');
+$routes->get('login', 'User::login_view');
+// $routes->get('/jwtread', 'User::readUser', ['filter' => 'auth']);
 
-
-//login routes
-$routes->get('login', 'Login::index');
-$routes->post('login/authenticate', 'Login::authenticate');
-
-
-//register routes
-$routes->get('register', 'Register::index');
-$routes->post('register/create', 'Register::create');
-$routes->get('register/success', 'Register::success');
 
 //landing page routes
 $routes->get('/', 'LandingPage::index');

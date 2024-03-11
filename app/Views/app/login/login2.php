@@ -43,8 +43,7 @@
             <div id="particles-js">
                 <div class="wrap-login100">
                     <div class="login100-form">
-                        <form class="validate-form" action="<?= base_url('jwtlogin/auth') ?>" method="post">
-                        <!-- <form class="validate-form" action="<?= base_url('login/authenticate') ?>" method="post"> -->
+                        <form class="validate-form" action="<?= base_url('login/auth') ?>" method="post">
                             <span class="login100-form-title p-b-10">
                                 Welcome to AGNISIA
                             </span>

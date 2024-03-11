@@ -16,20 +16,20 @@ class EventRegister extends BaseController
     {
         
     }
+    
     public function register()
     {
-        // $session = session();
-
+        $session = session();
+        $Event = new EventregModel();
+        $User=new UserModel();
         // Check if the user is logged in
-        // if (session()->get('isLoggedIn')) {
-        //     // Get the user ID from the session
-        //     $userId = $session->get('id');
+        if ($session->get('isLoggedIn')) {
+            // Get the user ID from the session
+            $userId = $session->get('id');
 
-        //     // Now you can use this user ID to create data in your table, assuming your table has a foreign key column named 'user_id'
-        //     $User = new UserModel();
-            $Event = new EventregModel();
+            
             $eventdata = [
-
+            'user_id' => $userId,
             'coding_mem_1' => $this->request->getVar('coding-mem1'),
             'coding_mem_contact_1' => $this->request->getVar('coding-mem1-con1'),
             'coding_mem_2' => $this->request->getVar('coding-mem2'),
@@ -64,45 +64,35 @@ class EventRegister extends BaseController
             'thunt_mem_contact_2' => $this->request->getVar('hunt-mem2-con2'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
-        ];
-        $eventId=$Event->save($eventdata);
-        if ($eventId) {
-             return $this->respondCreated([
+            ];
+
+            $Event->insert($eventdata);
+           if ($Event->affectedRows() > 0) {
+            return $this->respondCreated([
                     'status' => 1,
-                    'message' => 'User  created successfully',
-                ]);
-            } else {
-                // If user creation failed
-                // Return a failure message
-                // return redirect()->back()->with('error', 'Sorry! User not created');
-                
-            }
-
-        //     // Assuming you have a method in your model to insert data with the user ID
-        //     $insertedId = $this->insertWithUserId($Event,$userId, $eventdata);
-        //     if ($insertedId) {
-        //         // If user created successfully
-        //         // Redirect to login page and return a success message
-        //         return redirect()->to('dashboard')->with('success', 'Event saved successfully');
-        //     }
-
-        //     // Handle success or failure
-        // } else {
-        //     // User is not logged in, handle accordingly
-        // }
-        
+                   
+                'message' => 'Successfully',
+            ]);
+            // return redirect()->to('posts')->with('success', 'Post created successfully');
+        } else {
+            $errors = $Event->errors();
+            // Log or display errors
+            log_message('error', print_r($errors, true));
+            return $this->respondCreated([
+                    'status' => 1,
+                   
+                'message' => 'Failed Successfully',
+                'errors' => $errors,
+        ]);
+            // return redirect()->back()->withInput()->with('error', 'Failed to create post');
+        }
+            
+        } else {
+            // User is not logged in, handle accordingly
+            return redirect()->to('login')->with('error', 'Please login to register for the event');
+        }
     }
-    // protected function insertWithUserId(EventregModel $Event, $userId, $eventdata)
-    // {
-    //     // Append user ID to your data array
-    //     $eventdata['user_id'] = $userId;
 
-    //     // Insert data into the database using the model
-    //     if ($Event->insert($eventdata)) {
-    //     return true; // Successful insertion
-    //     } else {
-    //         print("hello");
-    //         return false;
-    //     }
-    // }
+    
+
 }

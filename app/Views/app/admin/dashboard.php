@@ -45,7 +45,7 @@
             <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
                 <div class="brand-logo">
                     <a href="<?= base_url('/') ?>">
-                        <img src="assets/web/imgs/favicon.png" class="logo-icon" alt="logo icon">
+                        <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
                         <h5 class="logo-text">  Dashboard</h5>
                     </a>
                 </div>
@@ -912,14 +912,15 @@
 <script src="<?= base_url('assets/web/js/app-script.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/preventlinks.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/imagekit.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/enroll.js') ?>"></script>
 <!-- Chart js -->
 
 <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>
 
 <!-- Index js -->
 <script src="<?= base_url('assets/web/js/index.js') ?>"></script>
-<script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
-<script src="<?= base_url('assets/web/js/imagekit.js') ?>"></script>
+
 
   
 </body>

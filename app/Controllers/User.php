@@ -18,7 +18,7 @@ class User extends BaseController
 
      public function __construct()
     {
-        $this->session = \Config\Services::session();
+        // $this->session = \Config\Services::session();
         // $this->users = new UserModel();
         
     }

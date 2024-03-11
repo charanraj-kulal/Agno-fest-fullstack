@@ -32,11 +32,13 @@ $(function () {
     /* Top Header */
 
     $(document).ready(function () {
+      var navbar = $(".topbar-nav .navbar"); // Corrected selector
+
       $(window).on("scroll", function () {
         if ($(this).scrollTop() > 60) {
-          $(".topbar-nav .navbar").addClass("shadow-sm");
+          navbar.addClass("shadow-black");
         } else {
-          $(".topbar-nav .navbar").removeClass("shadow-sm");
+          navbar.removeClass("shadow-black");
         }
       });
     });
@@ -223,6 +225,10 @@ $(function () {
     showSection(contactSec);
     hideHambergerMenu();
   };
+  //enroll
+  function validateNumericInput(inputElement) {
+    inputElement.value = inputElement.value.replace(/\D/g, "");
+  }
 
   // sidebar section end
 
