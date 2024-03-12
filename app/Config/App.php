@@ -16,6 +16,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
+    public $logThreshold = 5;
     public string $baseURL = '';
 
     /**

@@ -129,7 +129,8 @@
                                         <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                                     </div>
 
-                                    <form action="<?= base_url('admin/event-register') ?>" method="post">
+                                    <!-- <form action="<?= base_url('admin/event-register') ?>" method="post"> -->
+                                    <form id="myForm" method="post">
                                         <div class="forms-events">
                                             <!-- coding -->
                                             <div class="event">
@@ -930,6 +931,7 @@
 <script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/imagekit.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/enroll.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/dashboard.js') ?>"></script>
 <!-- Chart js -->
 
 <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>

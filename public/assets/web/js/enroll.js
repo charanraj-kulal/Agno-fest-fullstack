@@ -1,6 +1,6 @@
 // fetching data from enroll section
 // declaring variables
-const enrollbtn = document.getElementById("enroll-save-btn");
+// const enrollbtn = document.getElementById("enroll-save-btn");
 // coding
 const codingMem1 = document.getElementById("coding-mem1");
 const codingMemCon1 = document.getElementById("coding-mem1-con1");
@@ -471,47 +471,103 @@ const getEventData = () => {
   return eventData;
 };
 
-const saveBtn = document.querySelector("#enroll-save-btn");
+// const saveBtn = document.querySelector("#enroll-save-btn");
 
-saveBtn.onclick = async () => {
-  enrollSave();
-};
-
+// saveBtn.onclick = async () => {
+//   enrollSave();
+// };
 //Ctrl+S
-document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key === "s") {
-    event.preventDefault();
-    enrollSave();
-  }
-});
+// document.addEventListener("keydown", function (event) {
+//   if (event.ctrlKey && event.key === "s") {
+//     event.preventDefault();
+//     enrollSave();
+//   }
+// });
+// Function to gather form data
+function getFormData() {
+  var formData = {};
+  $("#myForm")
+    .find("input, select, textarea")
+    .each(function (index, element) {
+      var fieldName = $(element).attr("name");
+      var fieldValue = $(element).val();
+      formData[fieldName] = fieldValue;
+    });
 
-async function enrollSave() {
-  if (checkValidation() == true) {
-    loader.style.display = "block";
-    const eventData = getEventData();
+  return formData;
+}
 
-    const options = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(eventData),
-    };
-
-    try {
-      const res = await fetch(`${API_URL}/team/${teamId}`, options);
-
-      if (res.status === 200) {
-        openAlert("Data saved successfully");
-      } else {
-        openAlert("Error saving data");
-      }
-    } catch (error) {
-      console.error("ERROR: " + error);
+// Function to display error messages
+function displayErrorMessages(errors) {
+  // Loop through the errors object and display error messages
+  for (var key in errors) {
+    if (errors.hasOwnProperty(key)) {
+      var errorMessage = errors[key];
+      $("#" + key + "-err").text(errorMessage); // Assuming your error message elements have IDs like 'fieldName-err'
     }
-    loader.style.display = "none";
   }
 }
+
+// Function to clear error messages
+function clearErrorMessages() {
+  $(".error-msg").text(""); // Clear all error messages
+}
+
+// Event listener for form submission
+$("#enroll-save-btn").click(function (e) {
+  e.preventDefault(); // Prevent the default form submission
+  clearErrorMessages(); // Clear previous error messages
+
+  // Get form data
+  var formData = getFormData();
+
+  // Perform AJAX request
+  $.ajax({
+    url: "/admin/event-register", // URL to your controller method
+    method: "POST",
+    dataType: "json",
+    data: formData,
+    success: function (response) {
+      if (response.status === "success") {
+        // Show success alert
+        showAlert("success", response.message);
+      } else {
+        // Show error alert
+        showAlert("error", response.message);
+        if (response.errors) {
+          // Display error messages
+          displayErrorMessages(response.errors);
+        }
+      }
+    },
+    error: function (xhr, status, error) {
+      // Show error alert
+      showAlert("error", "An error occurred while processing your request.");
+    },
+  });
+});
+
+// Function to display alerts
+function showAlert(type, message) {
+  var alertDiv = $(
+    '<div class="alert alert-' + type + '">' + message + "</div>"
+  );
+  $(".info__title").html(alertDiv);
+  setTimeout(function () {
+    $(".info__title").empty();
+  }, 3000); // Hide after 3 seconds
+}
+
+// async function enrollSave() {
+//   $("#enroll-save-btn").on("click", function () {
+//     if (checkValidation() == true) {
+//       loader.style.display = "block";
+
+//       // Redirect to admin/event-register route
+//       window.location.href = "<?php echo base_url('admin/event-register'); ?>";
+//     }
+//   });
+// }
 
 /* Nav active border */
 
@@ -528,24 +584,24 @@ function handleClick(linkId) {
 }
 
 /* ALERT */
-function openAlert(text) {
-  const alertBox = document.querySelector(".info");
-  const alertTitle = document.getElementById("alert-title");
-  const closeButton = document.querySelector(".info__close");
+// function openAlert(text) {
+//   const alertBox = document.querySelector(".info");
+//   const alertTitle = document.getElementById("alert-title");
+//   const closeButton = document.querySelector(".info__close");
 
-  // Check if text is provided
-  if (text) {
-    // Set the alert title dynamically
-    alertTitle.textContent = text;
+//   // Check if text is provided
+//   if (text) {
+//     // Set the alert title dynamically
+//     alertTitle.textContent = text;
 
-    // Display the alert box
-    alertBox.style.display = "flex";
+//     // Display the alert box
+//     alertBox.style.display = "flex";
 
-    // Close the alert box after 3 seconds
-    setTimeout(closeAlert, 3000);
-    closeButton.addEventListener("click", closeAlert);
-  }
-}
+//     // Close the alert box after 3 seconds
+//     setTimeout(closeAlert, 3000);
+//     closeButton.addEventListener("click", closeAlert);
+//   }
+// }
 
 function closeAlert() {
   const alertBox = document.querySelector(".info");
@@ -557,530 +613,530 @@ document.querySelector(".info__close").addEventListener("click", function () {
 });
 
 //CHECK VALIDATION FUNCTION
-function checkValidation() {
-  //If nothing is entered
-  if (
-    (codingMem1.value === "" || codingMem1.value === "N/A") &&
-    (codingMem2.value === "" || codingMem2.value === "N/A") &&
-    (codingMemCon1.value === "" || codingMemCon1.value === "N/A") &&
-    (codingMemCon2.value === "" || codingMemCon2.value === "N/A") &&
-    (webMem1.value === "" || webMem1.value === "N/A") &&
-    (webMem2.value === "" || webMem2.value === "N/A") &&
-    (webMemCon1.value === "" || webMemCon1.value === "N/A") &&
-    (webMemCon2.value === "" || webMemCon2.value === "N/A") &&
-    (quizMem1.value === "" || quizMem1.value === "N/A") &&
-    (quizMem2.value === "" || quizMem2.value === "N/A") &&
-    (quizMemCon1.value === "" || quizMemCon1.value === "N/A") &&
-    (quizMemCon2.value === "" || quizMemCon2.value === "N/A") &&
-    (debateMem1.value === "" || debateMem1.value === "N/A") &&
-    (debateMemCon1.value === "" || debateMemCon1.value === "N/A") &&
-    (danceMem1.value === "" || danceMem1.value === "N/A") &&
-    (danceMemCon1.value === "" || danceMemCon1.value === "N/A") &&
-    (danceMem2.value === "" || danceMem2.value === "N/A") &&
-    (danceMemCon2.value === "" || danceMemCon2.value === "N/A") &&
-    (danceMem3.value === "" || danceMem3.value === "N/A") &&
-    (danceMemCon3.value === "" || danceMemCon3.value === "N/A") &&
-    (danceMem4.value === "" || danceMem4.value === "N/A") &&
-    (danceMemCon4.value === "" || danceMemCon4.value === "N/A") &&
-    (danceMem5.value === "" || danceMem5.value === "N/A") &&
-    (danceMemCon5.value === "" || danceMemCon5.value === "N/A") &&
-    (danceMem6.value === "" || danceMem6.value === "N/A") &&
-    (danceMemCon6.value === "" || danceMemCon6.value === "N/A") &&
-    (danceMem7.value === "" || danceMem7.value === "N/A") &&
-    (danceMemCon7.value === "" || danceMemCon7.value === "N/A") &&
-    (photographyMem1.value === "" || photographyMem1.value === "N/A") &&
-    (photographyMemCon1.value === "" || photographyMemCon1.value === "N/A") &&
-    (gamingMem1.value === "" || gamingMem1.value === "N/A") &&
-    (gamingMem2.value === "" || gamingMem2.value === "N/A") &&
-    (gamingMemCon1.value === "" || gamingMemCon1.value === "N/A") &&
-    (gamingMemCon2.value === "" || gamingMemCon2.value === "N/A") &&
-    (treasureMem1.value === "" || treasureMem1.value === "N/A") &&
-    (treasureMem2.value === "" || treasureMem2.value === "N/A") &&
-    (treasureMemCon1.value === "" || treasureMemCon1.value === "N/A") &&
-    (treasureMemCon2.value === "" || treasureMemCon2.value === "N/A") &&
-    (productMem1.value === "" || productMem1.value === "N/A") &&
-    (productMemCon1.value === "" || productMemCon1.value === "N/A") &&
-    (itManagerMem1.value === "" || itManagerMem1.value === "N/A") &&
-    (itManagerMemCon1.value === "" || itManagerMemCon1.value === "N/A") &&
-    (designingMem1.value === "" || designingMem1.value === "N/A") &&
-    (designingMemCon1.value === "" || designingMemCon1.value === "N/A")
-  ) {
-    openAlert("Please fill all the details!");
-    return false;
-  }
+// function checkValidation() {
+//   //If nothing is entered
+//   if (
+//     (codingMem1.value === "" || codingMem1.value === "N/A") &&
+//     (codingMem2.value === "" || codingMem2.value === "N/A") &&
+//     (codingMemCon1.value === "" || codingMemCon1.value === "N/A") &&
+//     (codingMemCon2.value === "" || codingMemCon2.value === "N/A") &&
+//     (webMem1.value === "" || webMem1.value === "N/A") &&
+//     (webMem2.value === "" || webMem2.value === "N/A") &&
+//     (webMemCon1.value === "" || webMemCon1.value === "N/A") &&
+//     (webMemCon2.value === "" || webMemCon2.value === "N/A") &&
+//     (quizMem1.value === "" || quizMem1.value === "N/A") &&
+//     (quizMem2.value === "" || quizMem2.value === "N/A") &&
+//     (quizMemCon1.value === "" || quizMemCon1.value === "N/A") &&
+//     (quizMemCon2.value === "" || quizMemCon2.value === "N/A") &&
+//     (debateMem1.value === "" || debateMem1.value === "N/A") &&
+//     (debateMemCon1.value === "" || debateMemCon1.value === "N/A") &&
+//     (danceMem1.value === "" || danceMem1.value === "N/A") &&
+//     (danceMemCon1.value === "" || danceMemCon1.value === "N/A") &&
+//     (danceMem2.value === "" || danceMem2.value === "N/A") &&
+//     (danceMemCon2.value === "" || danceMemCon2.value === "N/A") &&
+//     (danceMem3.value === "" || danceMem3.value === "N/A") &&
+//     (danceMemCon3.value === "" || danceMemCon3.value === "N/A") &&
+//     (danceMem4.value === "" || danceMem4.value === "N/A") &&
+//     (danceMemCon4.value === "" || danceMemCon4.value === "N/A") &&
+//     (danceMem5.value === "" || danceMem5.value === "N/A") &&
+//     (danceMemCon5.value === "" || danceMemCon5.value === "N/A") &&
+//     (danceMem6.value === "" || danceMem6.value === "N/A") &&
+//     (danceMemCon6.value === "" || danceMemCon6.value === "N/A") &&
+//     (danceMem7.value === "" || danceMem7.value === "N/A") &&
+//     (danceMemCon7.value === "" || danceMemCon7.value === "N/A") &&
+//     (photographyMem1.value === "" || photographyMem1.value === "N/A") &&
+//     (photographyMemCon1.value === "" || photographyMemCon1.value === "N/A") &&
+//     (gamingMem1.value === "" || gamingMem1.value === "N/A") &&
+//     (gamingMem2.value === "" || gamingMem2.value === "N/A") &&
+//     (gamingMemCon1.value === "" || gamingMemCon1.value === "N/A") &&
+//     (gamingMemCon2.value === "" || gamingMemCon2.value === "N/A") &&
+//     (treasureMem1.value === "" || treasureMem1.value === "N/A") &&
+//     (treasureMem2.value === "" || treasureMem2.value === "N/A") &&
+//     (treasureMemCon1.value === "" || treasureMemCon1.value === "N/A") &&
+//     (treasureMemCon2.value === "" || treasureMemCon2.value === "N/A") &&
+//     (productMem1.value === "" || productMem1.value === "N/A") &&
+//     (productMemCon1.value === "" || productMemCon1.value === "N/A") &&
+//     (itManagerMem1.value === "" || itManagerMem1.value === "N/A") &&
+//     (itManagerMemCon1.value === "" || itManagerMemCon1.value === "N/A") &&
+//     (designingMem1.value === "" || designingMem1.value === "N/A") &&
+//     (designingMemCon1.value === "" || designingMemCon1.value === "N/A")
+//   ) {
+//     openAlert("Please fill all the details!");
+//     return false;
+//   }
 
-  // To remove existing "displayErr" classes
-  const errorElements = document.querySelectorAll(".displayErr");
-  errorElements.forEach((element) => {
-    element.classList.remove("displayErr");
-  });
+//   // To remove existing "displayErr" classes
+//   const errorElements = document.querySelectorAll(".displayErr");
+//   errorElements.forEach((element) => {
+//     element.classList.remove("displayErr");
+//   });
 
-  // Coding
-  if (
-    (codingMem1.value === "" || codingMem1.value === "N/A") &&
-    (codingMem2.value === "" || codingMem2.value === "N/A") &&
-    (codingMemCon1.value === "" || codingMemCon1.value === "N/A") &&
-    (codingMemCon2.value === "" || codingMemCon2.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (codingMem1.value === "" || codingMem1.value === "N/A") {
-      codingMem1err.classList.add("displayErr");
-      scrollToElement(codingMem1);
-      return false;
-    }
-    if (
-      codingMemCon1.value === "" ||
-      codingMemCon1.value === "N/A" ||
-      codingMemCon1.value.length < 10
-    ) {
-      codingMemCon1err.classList.add("displayErr");
-      scrollToElement(codingMem1);
-      return false;
-    }
-    if (codingMem2.value === "" || codingMem2.value === "N/A") {
-      codingMem2err.classList.add("displayErr");
-      scrollToElement(codingMem2);
-      return false;
-    }
-    if (
-      codingMemCon2.value === "" ||
-      codingMemCon2.value === "N/A" ||
-      codingMemCon2.value.length < 10
-    ) {
-      codingMemCon2err.classList.add("displayErr");
-      scrollToElement(codingMem2);
-      return false;
-    }
-  }
+//   // Coding
+//   if (
+//     (codingMem1.value === "" || codingMem1.value === "N/A") &&
+//     (codingMem2.value === "" || codingMem2.value === "N/A") &&
+//     (codingMemCon1.value === "" || codingMemCon1.value === "N/A") &&
+//     (codingMemCon2.value === "" || codingMemCon2.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (codingMem1.value === "" || codingMem1.value === "N/A") {
+//       codingMem1err.classList.add("displayErr");
+//       scrollToElement(codingMem1);
+//       return false;
+//     }
+//     if (
+//       codingMemCon1.value === "" ||
+//       codingMemCon1.value === "N/A" ||
+//       codingMemCon1.value.length < 10
+//     ) {
+//       codingMemCon1err.classList.add("displayErr");
+//       scrollToElement(codingMem1);
+//       return false;
+//     }
+//     if (codingMem2.value === "" || codingMem2.value === "N/A") {
+//       codingMem2err.classList.add("displayErr");
+//       scrollToElement(codingMem2);
+//       return false;
+//     }
+//     if (
+//       codingMemCon2.value === "" ||
+//       codingMemCon2.value === "N/A" ||
+//       codingMemCon2.value.length < 10
+//     ) {
+//       codingMemCon2err.classList.add("displayErr");
+//       scrollToElement(codingMem2);
+//       return false;
+//     }
+//   }
 
-  //Web Designing
-  if (
-    (webMem1.value === "" || webMem1.value === "N/A") &&
-    (webMem2.value === "" || webMem2.value === "N/A") &&
-    (webMemCon1.value === "" || webMemCon1.value === "N/A") &&
-    (webMemCon2.value === "" || webMemCon2.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (webMem1.value === "" || webMem1.value === "N/A") {
-      webMem1err.classList.add("displayErr");
-      scrollToElement(webMem1);
-      return false;
-    }
-    if (
-      webMemCon1.value === "" ||
-      webMemCon1.value === "N/A" ||
-      webMemCon1.value.length < 10
-    ) {
-      webMemCon1err.classList.add("displayErr");
-      scrollToElement(webMem1);
-      return false;
-    }
-    if (webMem2.value === "" || webMem2.value === "N/A") {
-      webMem2err.classList.add("displayErr");
-      scrollToElement(webMem2);
-      return false;
-    }
-    if (
-      webMemCon2.value === "" ||
-      webMemCon2.value === "N/A" ||
-      webMemCon2.value.length < 10
-    ) {
-      webMemCon2err.classList.add("displayErr");
-      scrollToElement(webMem2);
-      return false;
-    }
-  }
+//   //Web Designing
+//   if (
+//     (webMem1.value === "" || webMem1.value === "N/A") &&
+//     (webMem2.value === "" || webMem2.value === "N/A") &&
+//     (webMemCon1.value === "" || webMemCon1.value === "N/A") &&
+//     (webMemCon2.value === "" || webMemCon2.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (webMem1.value === "" || webMem1.value === "N/A") {
+//       webMem1err.classList.add("displayErr");
+//       scrollToElement(webMem1);
+//       return false;
+//     }
+//     if (
+//       webMemCon1.value === "" ||
+//       webMemCon1.value === "N/A" ||
+//       webMemCon1.value.length < 10
+//     ) {
+//       webMemCon1err.classList.add("displayErr");
+//       scrollToElement(webMem1);
+//       return false;
+//     }
+//     if (webMem2.value === "" || webMem2.value === "N/A") {
+//       webMem2err.classList.add("displayErr");
+//       scrollToElement(webMem2);
+//       return false;
+//     }
+//     if (
+//       webMemCon2.value === "" ||
+//       webMemCon2.value === "N/A" ||
+//       webMemCon2.value.length < 10
+//     ) {
+//       webMemCon2err.classList.add("displayErr");
+//       scrollToElement(webMem2);
+//       return false;
+//     }
+//   }
 
-  //IT Quiz
-  if (
-    (quizMem1.value === "" || quizMem1.value === "N/A") &&
-    (quizMem2.value === "" || quizMem2.value === "N/A") &&
-    (quizMemCon1.value === "" || quizMemCon1.value === "N/A") &&
-    (quizMemCon2.value === "" || quizMemCon2.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (quizMem1.value === "" || quizMem1.value === "N/A") {
-      quizMem1err.classList.add("displayErr");
-      scrollToElement(quizMem1);
-      return false;
-    }
-    if (
-      quizMemCon1.value === "" ||
-      quizMemCon1.value === "N/A" ||
-      quizMemCon1.value.length < 10
-    ) {
-      quizMemCon1err.classList.add("displayErr");
-      scrollToElement(quizMem1);
-      return false;
-    }
-    if (quizMem2.value === "" || quizMem2.value === "N/A") {
-      quizMem2err.classList.add("displayErr");
-      scrollToElement(quizMem2);
-      return false;
-    }
-    if (
-      quizMemCon2.value === "" ||
-      quizMemCon2.value === "N/A" ||
-      quizMemCon2.value.length < 10
-    ) {
-      quizMemCon2err.classList.add("displayErr");
-      scrollToElement(quizMem2);
-      return false;
-    }
-  }
+//   //IT Quiz
+//   if (
+//     (quizMem1.value === "" || quizMem1.value === "N/A") &&
+//     (quizMem2.value === "" || quizMem2.value === "N/A") &&
+//     (quizMemCon1.value === "" || quizMemCon1.value === "N/A") &&
+//     (quizMemCon2.value === "" || quizMemCon2.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (quizMem1.value === "" || quizMem1.value === "N/A") {
+//       quizMem1err.classList.add("displayErr");
+//       scrollToElement(quizMem1);
+//       return false;
+//     }
+//     if (
+//       quizMemCon1.value === "" ||
+//       quizMemCon1.value === "N/A" ||
+//       quizMemCon1.value.length < 10
+//     ) {
+//       quizMemCon1err.classList.add("displayErr");
+//       scrollToElement(quizMem1);
+//       return false;
+//     }
+//     if (quizMem2.value === "" || quizMem2.value === "N/A") {
+//       quizMem2err.classList.add("displayErr");
+//       scrollToElement(quizMem2);
+//       return false;
+//     }
+//     if (
+//       quizMemCon2.value === "" ||
+//       quizMemCon2.value === "N/A" ||
+//       quizMemCon2.value.length < 10
+//     ) {
+//       quizMemCon2err.classList.add("displayErr");
+//       scrollToElement(quizMem2);
+//       return false;
+//     }
+//   }
 
-  //Debate
-  if (
-    (debateMem1.value === "" || debateMem1.value === "N/A") &&
-    (debateMemCon1.value === "" || debateMemCon1.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (debateMem1.value === "" || debateMem1.value === "N/A") {
-      debateMem1err.classList.add("displayErr");
-      scrollToElement(debateMem1);
-      return false;
-    }
-    if (
-      debateMemCon1.value === "" ||
-      debateMemCon1.value === "N/A" ||
-      debateMemCon1.value.length < 10
-    ) {
-      debateMemCon1err.classList.add("displayErr");
-      scrollToElement(debateMem1);
-      return false;
-    }
-  }
+//   //Debate
+//   if (
+//     (debateMem1.value === "" || debateMem1.value === "N/A") &&
+//     (debateMemCon1.value === "" || debateMemCon1.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (debateMem1.value === "" || debateMem1.value === "N/A") {
+//       debateMem1err.classList.add("displayErr");
+//       scrollToElement(debateMem1);
+//       return false;
+//     }
+//     if (
+//       debateMemCon1.value === "" ||
+//       debateMemCon1.value === "N/A" ||
+//       debateMemCon1.value.length < 10
+//     ) {
+//       debateMemCon1err.classList.add("displayErr");
+//       scrollToElement(debateMem1);
+//       return false;
+//     }
+//   }
 
-  //Dance
-  if (
-    (danceMem1.value === "" || danceMem1.value === "N/A") &&
-    (danceMemCon1.value === "" || danceMemCon1.value === "N/A") &&
-    (danceMem2.value === "" || danceMem2.value === "N/A") &&
-    (danceMemCon2.value === "" || danceMemCon2.value === "N/A") &&
-    (danceMem3.value === "" || danceMem3.value === "N/A") &&
-    (danceMemCon3.value === "" || danceMemCon3.value === "N/A") &&
-    (danceMem4.value === "" || danceMem4.value === "N/A") &&
-    (danceMemCon4.value === "" || danceMemCon4.value === "N/A") &&
-    (danceMem5.value === "" || danceMem5.value === "N/A") &&
-    (danceMemCon5.value === "" || danceMemCon5.value === "N/A") &&
-    (danceMem6.value === "" || danceMem6.value === "N/A") &&
-    (danceMemCon6.value === "" || danceMemCon6.value === "N/A") &&
-    (danceMem7.value === "" || danceMem7.value === "N/A") &&
-    (danceMemCon7.value === "" || danceMemCon7.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (danceMem1.value === "" || danceMem1.value === "N/A") {
-      danceMem1err.classList.add("displayErr");
-      scrollToElement(danceMem1);
-      return false;
-    }
-    if (
-      danceMemCon1.value === "" ||
-      danceMemCon1.value === "N/A" ||
-      danceMemCon1.value.length < 10
-    ) {
-      danceMemCon1err.classList.add("displayErr");
-      scrollToElement(danceMem1);
-      return false;
-    }
-    if (danceMem2.value === "" || danceMem2.value === "N/A") {
-      danceMem2err.classList.add("displayErr");
-      scrollToElement(danceMem2);
-      return false;
-    }
-    if (
-      danceMemCon2.value === "" ||
-      danceMemCon2.value === "N/A" ||
-      danceMemCon2.value.length < 10
-    ) {
-      danceMemCon2err.classList.add("displayErr");
-      scrollToElement(danceMem2);
-      return false;
-    }
-    if (danceMem3.value === "" || danceMem3.value === "N/A") {
-      danceMem3err.classList.add("displayErr");
-      scrollToElement(danceMem3);
-      return false;
-    }
-    if (
-      danceMemCon3.value === "" ||
-      danceMemCon3.value === "N/A" ||
-      danceMemCon3.value.length < 10
-    ) {
-      danceMemCon3err.classList.add("displayErr");
-      scrollToElement(danceMem3);
-      return false;
-    }
-    if (danceMem4.value === "" || danceMem4.value === "N/A") {
-      danceMem4err.classList.add("displayErr");
-      scrollToElement(danceMem4);
-      return false;
-    }
-    if (
-      danceMemCon4.value === "" ||
-      danceMemCon4.value === "N/A" ||
-      danceMemCon4.value.length < 10
-    ) {
-      danceMemCon4err.classList.add("displayErr");
-      scrollToElement(danceMem4);
-      return false;
-    }
-    if (danceMem5.value === "" || danceMem5.value === "N/A") {
-      danceMem5err.classList.add("displayErr");
-      openAlert("Minimum 5 participants!");
-      scrollToElement(danceMem5);
-      return false;
-    }
-    if (
-      danceMemCon5.value === "" ||
-      danceMemCon5.value === "N/A" ||
-      danceMemCon5.value.length < 10
-    ) {
-      danceMemCon5err.classList.add("displayErr");
-      scrollToElement(danceMem5);
-      return false;
-    }
-    if (danceMem6.value !== "" && danceMem6.value !== "N/A") {
-      if (
-        danceMemCon6.value === "" ||
-        danceMemCon6.value === "N/A" ||
-        danceMemCon6.value.length < 10
-      ) {
-        danceMemCon6err.classList.add("displayErr");
-        scrollToElement(danceMem6);
-        return false;
-      }
-    }
-    if (danceMem7.value !== "" && danceMem7.value !== "N/A") {
-      if (
-        danceMemCon7.value === "" ||
-        danceMemCon7.value === "N/A" ||
-        danceMemCon7.value.length < 10
-      ) {
-        danceMemCon7err.classList.add("displayErr");
-        scrollToElement(danceMem7);
-        return false;
-      }
-    }
-  }
+//   //Dance
+//   if (
+//     (danceMem1.value === "" || danceMem1.value === "N/A") &&
+//     (danceMemCon1.value === "" || danceMemCon1.value === "N/A") &&
+//     (danceMem2.value === "" || danceMem2.value === "N/A") &&
+//     (danceMemCon2.value === "" || danceMemCon2.value === "N/A") &&
+//     (danceMem3.value === "" || danceMem3.value === "N/A") &&
+//     (danceMemCon3.value === "" || danceMemCon3.value === "N/A") &&
+//     (danceMem4.value === "" || danceMem4.value === "N/A") &&
+//     (danceMemCon4.value === "" || danceMemCon4.value === "N/A") &&
+//     (danceMem5.value === "" || danceMem5.value === "N/A") &&
+//     (danceMemCon5.value === "" || danceMemCon5.value === "N/A") &&
+//     (danceMem6.value === "" || danceMem6.value === "N/A") &&
+//     (danceMemCon6.value === "" || danceMemCon6.value === "N/A") &&
+//     (danceMem7.value === "" || danceMem7.value === "N/A") &&
+//     (danceMemCon7.value === "" || danceMemCon7.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (danceMem1.value === "" || danceMem1.value === "N/A") {
+//       danceMem1err.classList.add("displayErr");
+//       scrollToElement(danceMem1);
+//       return false;
+//     }
+//     if (
+//       danceMemCon1.value === "" ||
+//       danceMemCon1.value === "N/A" ||
+//       danceMemCon1.value.length < 10
+//     ) {
+//       danceMemCon1err.classList.add("displayErr");
+//       scrollToElement(danceMem1);
+//       return false;
+//     }
+//     if (danceMem2.value === "" || danceMem2.value === "N/A") {
+//       danceMem2err.classList.add("displayErr");
+//       scrollToElement(danceMem2);
+//       return false;
+//     }
+//     if (
+//       danceMemCon2.value === "" ||
+//       danceMemCon2.value === "N/A" ||
+//       danceMemCon2.value.length < 10
+//     ) {
+//       danceMemCon2err.classList.add("displayErr");
+//       scrollToElement(danceMem2);
+//       return false;
+//     }
+//     if (danceMem3.value === "" || danceMem3.value === "N/A") {
+//       danceMem3err.classList.add("displayErr");
+//       scrollToElement(danceMem3);
+//       return false;
+//     }
+//     if (
+//       danceMemCon3.value === "" ||
+//       danceMemCon3.value === "N/A" ||
+//       danceMemCon3.value.length < 10
+//     ) {
+//       danceMemCon3err.classList.add("displayErr");
+//       scrollToElement(danceMem3);
+//       return false;
+//     }
+//     if (danceMem4.value === "" || danceMem4.value === "N/A") {
+//       danceMem4err.classList.add("displayErr");
+//       scrollToElement(danceMem4);
+//       return false;
+//     }
+//     if (
+//       danceMemCon4.value === "" ||
+//       danceMemCon4.value === "N/A" ||
+//       danceMemCon4.value.length < 10
+//     ) {
+//       danceMemCon4err.classList.add("displayErr");
+//       scrollToElement(danceMem4);
+//       return false;
+//     }
+//     if (danceMem5.value === "" || danceMem5.value === "N/A") {
+//       danceMem5err.classList.add("displayErr");
+//       openAlert("Minimum 5 participants!");
+//       scrollToElement(danceMem5);
+//       return false;
+//     }
+//     if (
+//       danceMemCon5.value === "" ||
+//       danceMemCon5.value === "N/A" ||
+//       danceMemCon5.value.length < 10
+//     ) {
+//       danceMemCon5err.classList.add("displayErr");
+//       scrollToElement(danceMem5);
+//       return false;
+//     }
+//     if (danceMem6.value !== "" && danceMem6.value !== "N/A") {
+//       if (
+//         danceMemCon6.value === "" ||
+//         danceMemCon6.value === "N/A" ||
+//         danceMemCon6.value.length < 10
+//       ) {
+//         danceMemCon6err.classList.add("displayErr");
+//         scrollToElement(danceMem6);
+//         return false;
+//       }
+//     }
+//     if (danceMem7.value !== "" && danceMem7.value !== "N/A") {
+//       if (
+//         danceMemCon7.value === "" ||
+//         danceMemCon7.value === "N/A" ||
+//         danceMemCon7.value.length < 10
+//       ) {
+//         danceMemCon7err.classList.add("displayErr");
+//         scrollToElement(danceMem7);
+//         return false;
+//       }
+//     }
+//   }
 
-  //Photography
-  if (
-    (photographyMem1.value === "" || photographyMem1.value === "N/A") &&
-    (photographyMemCon1.value === "" || photographyMemCon1.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (photographyMem1.value === "" || photographyMem1.value === "N/A") {
-      photoMem1err.classList.add("displayErr");
-      scrollToElement(photographyMem1);
-      return false;
-    }
-    if (
-      photographyMemCon1.value === "" ||
-      photographyMemCon1.value === "N/A" ||
-      photographyMemCon1.value.length < 10
-    ) {
-      photoMemCon1err.classList.add("displayErr");
-      scrollToElement(photographyMem1);
-      return false;
-    }
-  }
+//   //Photography
+//   if (
+//     (photographyMem1.value === "" || photographyMem1.value === "N/A") &&
+//     (photographyMemCon1.value === "" || photographyMemCon1.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (photographyMem1.value === "" || photographyMem1.value === "N/A") {
+//       photoMem1err.classList.add("displayErr");
+//       scrollToElement(photographyMem1);
+//       return false;
+//     }
+//     if (
+//       photographyMemCon1.value === "" ||
+//       photographyMemCon1.value === "N/A" ||
+//       photographyMemCon1.value.length < 10
+//     ) {
+//       photoMemCon1err.classList.add("displayErr");
+//       scrollToElement(photographyMem1);
+//       return false;
+//     }
+//   }
 
-  //Gaming
-  if (
-    (gamingMem1.value === "" || gamingMem1.value === "N/A") &&
-    (gamingMem2.value === "" || gamingMem2.value === "N/A") &&
-    (gamingMemCon1.value === "" || gamingMemCon1.value === "N/A") &&
-    (gamingMemCon2.value === "" || gamingMemCon2.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (gamingMem1.value === "" || gamingMem1.value === "N/A") {
-      gameMem1err.classList.add("displayErr");
-      scrollToElement(gamingMem1);
-      return false;
-    }
-    if (
-      gamingMemCon1.value === "" ||
-      gamingMemCon1.value === "N/A" ||
-      gamingMemCon1.value.length < 10
-    ) {
-      gameMemCon1err.classList.add("displayErr");
-      scrollToElement(gamingMem1);
-      return false;
-    }
-    if (gamingMem2.value === "" || gamingMem2.value === "N/A") {
-      gameMem2err.classList.add("displayErr");
-      scrollToElement(gamingMem2);
-      return false;
-    }
-    if (
-      gamingMemCon2.value === "" ||
-      gamingMemCon2.value === "N/A" ||
-      gamingMemCon2.value.length < 10
-    ) {
-      gameMemCon2err.classList.add("displayErr");
-      scrollToElement(gamingMem2);
-      return false;
-    }
-  }
+//   //Gaming
+//   if (
+//     (gamingMem1.value === "" || gamingMem1.value === "N/A") &&
+//     (gamingMem2.value === "" || gamingMem2.value === "N/A") &&
+//     (gamingMemCon1.value === "" || gamingMemCon1.value === "N/A") &&
+//     (gamingMemCon2.value === "" || gamingMemCon2.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (gamingMem1.value === "" || gamingMem1.value === "N/A") {
+//       gameMem1err.classList.add("displayErr");
+//       scrollToElement(gamingMem1);
+//       return false;
+//     }
+//     if (
+//       gamingMemCon1.value === "" ||
+//       gamingMemCon1.value === "N/A" ||
+//       gamingMemCon1.value.length < 10
+//     ) {
+//       gameMemCon1err.classList.add("displayErr");
+//       scrollToElement(gamingMem1);
+//       return false;
+//     }
+//     if (gamingMem2.value === "" || gamingMem2.value === "N/A") {
+//       gameMem2err.classList.add("displayErr");
+//       scrollToElement(gamingMem2);
+//       return false;
+//     }
+//     if (
+//       gamingMemCon2.value === "" ||
+//       gamingMemCon2.value === "N/A" ||
+//       gamingMemCon2.value.length < 10
+//     ) {
+//       gameMemCon2err.classList.add("displayErr");
+//       scrollToElement(gamingMem2);
+//       return false;
+//     }
+//   }
 
-  //Treasure Hunt
-  if (
-    (treasureMem1.value === "" || treasureMem1.value === "N/A") &&
-    (treasureMem2.value === "" || treasureMem2.value === "N/A") &&
-    (treasureMemCon1.value === "" || treasureMemCon1.value === "N/A") &&
-    (treasureMemCon2.value === "" || treasureMemCon2.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (treasureMem1.value === "" || treasureMem1.value === "N/A") {
-      treasureMem1err.classList.add("displayErr");
-      scrollToElement(treasureMem1);
-      return false;
-    }
-    if (
-      treasureMemCon1.value === "" ||
-      treasureMemCon1.value === "N/A" ||
-      treasureMemCon1.value.length < 10
-    ) {
-      treasureMemCon1err.classList.add("displayErr");
-      scrollToElement(treasureMem1);
-      return false;
-    }
-    if (treasureMem2.value === "" || treasureMem2.value === "N/A") {
-      treasureMem2err.classList.add("displayErr");
-      scrollToElement(treasureMem1);
-      return false;
-    }
-    if (
-      treasureMemCon2.value === "" ||
-      treasureMemCon2.value === "N/A" ||
-      treasureMemCon2.value.length < 10
-    ) {
-      treasureMemCon2err.classList.add("displayErr");
-      scrollToElement(treasureMem1);
-      return false;
-    }
-  }
+//   //Treasure Hunt
+//   if (
+//     (treasureMem1.value === "" || treasureMem1.value === "N/A") &&
+//     (treasureMem2.value === "" || treasureMem2.value === "N/A") &&
+//     (treasureMemCon1.value === "" || treasureMemCon1.value === "N/A") &&
+//     (treasureMemCon2.value === "" || treasureMemCon2.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (treasureMem1.value === "" || treasureMem1.value === "N/A") {
+//       treasureMem1err.classList.add("displayErr");
+//       scrollToElement(treasureMem1);
+//       return false;
+//     }
+//     if (
+//       treasureMemCon1.value === "" ||
+//       treasureMemCon1.value === "N/A" ||
+//       treasureMemCon1.value.length < 10
+//     ) {
+//       treasureMemCon1err.classList.add("displayErr");
+//       scrollToElement(treasureMem1);
+//       return false;
+//     }
+//     if (treasureMem2.value === "" || treasureMem2.value === "N/A") {
+//       treasureMem2err.classList.add("displayErr");
+//       scrollToElement(treasureMem1);
+//       return false;
+//     }
+//     if (
+//       treasureMemCon2.value === "" ||
+//       treasureMemCon2.value === "N/A" ||
+//       treasureMemCon2.value.length < 10
+//     ) {
+//       treasureMemCon2err.classList.add("displayErr");
+//       scrollToElement(treasureMem1);
+//       return false;
+//     }
+//   }
 
-  //Product Launch
-  if (
-    (productMem1.value === "" || productMem1.value === "N/A") &&
-    (productMemCon1.value === "" || productMemCon1.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (productMem1.value === "" || productMem1.value === "N/A") {
-      productMem1err.classList.add("displayErr");
-      scrollToElement(productMem1);
-      return false;
-    }
-    if (
-      productMemCon1.value === "" ||
-      productMemCon1.value === "N/A" ||
-      productMemCon1.value.length < 10
-    ) {
-      productMemCon1err.classList.add("displayErr");
-      scrollToElement(productMem1);
-      return false;
-    }
-  }
+//   //Product Launch
+//   if (
+//     (productMem1.value === "" || productMem1.value === "N/A") &&
+//     (productMemCon1.value === "" || productMemCon1.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (productMem1.value === "" || productMem1.value === "N/A") {
+//       productMem1err.classList.add("displayErr");
+//       scrollToElement(productMem1);
+//       return false;
+//     }
+//     if (
+//       productMemCon1.value === "" ||
+//       productMemCon1.value === "N/A" ||
+//       productMemCon1.value.length < 10
+//     ) {
+//       productMemCon1err.classList.add("displayErr");
+//       scrollToElement(productMem1);
+//       return false;
+//     }
+//   }
 
-  //IT Manager
-  if (
-    (itManagerMem1.value === "" || itManagerMem1.value === "N/A") &&
-    (itManagerMemCon1.value === "" || itManagerMemCon1.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (itManagerMem1.value === "" || itManagerMem1.value === "N/A") {
-      itManagerMem1err.classList.add("displayErr");
-      scrollToElement(itManagerMem1);
-      return false;
-    }
-    if (
-      itManagerMemCon1.value === "" ||
-      itManagerMemCon1.value === "N/A" ||
-      itManagerMemCon1.value.length < 10
-    ) {
-      itManagerMemCon1err.classList.add("displayErr");
-      scrollToElement(itManagerMem1);
-      return false;
-    }
-  }
+//   //IT Manager
+//   if (
+//     (itManagerMem1.value === "" || itManagerMem1.value === "N/A") &&
+//     (itManagerMemCon1.value === "" || itManagerMemCon1.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (itManagerMem1.value === "" || itManagerMem1.value === "N/A") {
+//       itManagerMem1err.classList.add("displayErr");
+//       scrollToElement(itManagerMem1);
+//       return false;
+//     }
+//     if (
+//       itManagerMemCon1.value === "" ||
+//       itManagerMemCon1.value === "N/A" ||
+//       itManagerMemCon1.value.length < 10
+//     ) {
+//       itManagerMemCon1err.classList.add("displayErr");
+//       scrollToElement(itManagerMem1);
+//       return false;
+//     }
+//   }
 
-  //Designing
-  if (
-    (designingMem1.value === "" || designingMem1.value === "N/A") &&
-    (designingMemCon1.value === "" || designingMemCon1.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (designingMem1.value === "" || designingMem1.value === "N/A") {
-      designingMem1err.classList.add("displayErr");
-      scrollToElement(designingMem1);
-      return false;
-    }
-    if (
-      designingMemCon1.value === "" ||
-      designingMemCon1.value === "N/A" ||
-      designingMemCon1.value.length < 10
-    ) {
-      designingCon1err.classList.add("displayErr");
-      scrollToElement(designingMem1);
-      return false;
-    }
-  }
+//   //Designing
+//   if (
+//     (designingMem1.value === "" || designingMem1.value === "N/A") &&
+//     (designingMemCon1.value === "" || designingMemCon1.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (designingMem1.value === "" || designingMem1.value === "N/A") {
+//       designingMem1err.classList.add("displayErr");
+//       scrollToElement(designingMem1);
+//       return false;
+//     }
+//     if (
+//       designingMemCon1.value === "" ||
+//       designingMemCon1.value === "N/A" ||
+//       designingMemCon1.value.length < 10
+//     ) {
+//       designingCon1err.classList.add("displayErr");
+//       scrollToElement(designingMem1);
+//       return false;
+//     }
+//   }
 
-  // Dumb Charades
-  if (
-    (dumbchMem1.value === "" || dumbchMem1.value === "N/A") &&
-    (dumbchMem2.value === "" || dumbchMem2.value === "N/A") &&
-    (dumbchMemCon1.value === "" || dumbchMemCon1.value === "N/A") &&
-    (dumbchMemCon2.value === "" || dumbchMemCon2.value === "N/A")
-  ) {
-    // All are empty, don't return anything
-  } else {
-    if (dumbchMem1.value === "" || dumbchMem1.value === "N/A") {
-      dumbchMem1err.classList.add("displayErr");
-      scrollToElement(dumbchMem1);
-      return false;
-    }
-    if (
-      dumbchMemCon1.value === "" ||
-      dumbchMemCon1.value === "N/A" ||
-      dumbchMemCon1.value.length < 10
-    ) {
-      dumbchMemCon1err.classList.add("displayErr");
-      scrollToElement(dumbchMem1);
-      return false;
-    }
+//   // Dumb Charades
+//   if (
+//     (dumbchMem1.value === "" || dumbchMem1.value === "N/A") &&
+//     (dumbchMem2.value === "" || dumbchMem2.value === "N/A") &&
+//     (dumbchMemCon1.value === "" || dumbchMemCon1.value === "N/A") &&
+//     (dumbchMemCon2.value === "" || dumbchMemCon2.value === "N/A")
+//   ) {
+//     // All are empty, don't return anything
+//   } else {
+//     if (dumbchMem1.value === "" || dumbchMem1.value === "N/A") {
+//       dumbchMem1err.classList.add("displayErr");
+//       scrollToElement(dumbchMem1);
+//       return false;
+//     }
+//     if (
+//       dumbchMemCon1.value === "" ||
+//       dumbchMemCon1.value === "N/A" ||
+//       dumbchMemCon1.value.length < 10
+//     ) {
+//       dumbchMemCon1err.classList.add("displayErr");
+//       scrollToElement(dumbchMem1);
+//       return false;
+//     }
 
-    if (dumbchMem2.value === "" || dumbchMem2.value === "N/A") {
-      dumbchMem2err.classList.add("displayErr");
-      scrollToElement(dumbchMem2);
-      return false;
-    }
-    if (
-      dumbchMemCon2.value === "" ||
-      dumbchMemCon2.value === "N/A" ||
-      dumbchMemCon2.value.length < 10
-    ) {
-      dumbchMemCon2err.classList.add("displayErr");
-      scrollToElement(dumbchMem2);
-      return false;
-    }
-  }
+//     if (dumbchMem2.value === "" || dumbchMem2.value === "N/A") {
+//       dumbchMem2err.classList.add("displayErr");
+//       scrollToElement(dumbchMem2);
+//       return false;
+//     }
+//     if (
+//       dumbchMemCon2.value === "" ||
+//       dumbchMemCon2.value === "N/A" ||
+//       dumbchMemCon2.value.length < 10
+//     ) {
+//       dumbchMemCon2err.classList.add("displayErr");
+//       scrollToElement(dumbchMem2);
+//       return false;
+//     }
+//   }
 
-  return true;
-}
+//   return true;
+// }
 
 function scrollToElement(element) {
   element.scrollIntoView({ behavior: "smooth", block: "center" });
