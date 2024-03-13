@@ -4960,6 +4960,7 @@ table.grid td {
   border-radius: 17px;
   padding: 1.5vh 1vw;
   margin: 1vh 0;
+  background-color: rgba(0, 0, 0, 0.2);;
 }
 
 .memname {

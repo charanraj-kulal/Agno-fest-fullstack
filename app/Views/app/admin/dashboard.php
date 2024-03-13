@@ -934,10 +934,10 @@
 <script src="<?= base_url('assets/web/js/dashboard.js') ?>"></script>
 <!-- Chart js -->
 
-<script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>
+<!-- <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script> -->
 
 <!-- Index js -->
-<script src="<?= base_url('assets/web/js/index.js') ?>"></script>
+<!-- <script src="<?= base_url('assets/web/js/index.js') ?>"></script> -->
 
 
   
