@@ -12,36 +12,62 @@ $(function () {
 
   // === sidebar menu activation js
 
-  $(function () {
-    for (
-      var i = window.location,
-        o = $(".sidebar-menu a")
-          .filter(function () {
-            return this.href == i;
-          })
-          .addClass("active")
-          .parent()
-          .addClass("active");
-      ;
+  // $(function () {
+  //   for (
+  //     var i = window.location,
+  //       o = $(".sidebar-menu a")
+  //         .filter(function () {
+  //           return this.href == i;
+  //         })
+  //         .addClass("active")
+  //         .parent()
+  //         .addClass("active");
+  //     ;
 
-    ) {
-      if (!o.is("li")) break;
-      o = o.parent().addClass("in").parent().addClass("active");
-    }
-  }),
-    /* Top Header */
+  //   ) {
+  //     if (!o.is("li")) break;
+  //     o = o.parent().addClass("in").parent().addClass("active");
+  //   }
+  // });
+  function handleClick(event, navId) {
+    // Add your existing logic here
 
-    $(document).ready(function () {
-      var navbar = $(".topbar-nav .navbar"); // Corrected selector
+    // Remove the 'active' class from all nav items
+    $(".sidebar-menu a").removeClass("active");
+    // Add the 'active' class to the clicked nav item
+    $("#" + navId).addClass("active");
+  }
 
-      $(window).on("scroll", function () {
-        if ($(this).scrollTop() > 60) {
-          navbar.addClass("shadow-black");
-        } else {
-          navbar.removeClass("shadow-black");
-        }
-      });
+  // Attach click event handlers to each navigation item
+  $("#enroll-nav").click(function (event) {
+    handleClick(event, "enroll-nav");
+  });
+
+  $("#manage_user_nav").click(function (event) {
+    handleClick(event, "manage_user_nav");
+  });
+
+  $("#accomodation_nav").click(function (event) {
+    handleClick(event, "accomodation_nav");
+  });
+
+  $("#rules_nav").click(function (event) {
+    handleClick(event, "rules_nav");
+  });
+
+  /* Top Header */
+
+  $(document).ready(function () {
+    var navbar = $(".topbar-nav .navbar"); // Corrected selector
+
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 60) {
+        navbar.addClass("shadow-black");
+      } else {
+        navbar.removeClass("shadow-black");
+      }
     });
+  });
 
   /* Back To Top */
 

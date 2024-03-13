@@ -69,13 +69,13 @@
                     <li class="sidebar-header">MAIN NAVIGATION</li>
 
                     <li>
-                        <a class="links" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
+                        <a class="active" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
                         <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
                         </a>
                     </li>
 
                     <li>
-                        <a class="links" href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
+                        <a  href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
                             <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
                         </a>
                     </li>
@@ -155,7 +155,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
                                                     </div>
@@ -177,7 +177,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
                                                     </div>
@@ -208,7 +208,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con1-err">Contact number is required!</p>
                                                     </div>
@@ -230,7 +230,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con2-err">Contact number is required!</p>
                                                     </div>
@@ -251,7 +251,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con3-err">Contact number is required!</p>
                                                     </div>
@@ -272,7 +272,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
                                                     </div>
@@ -302,7 +302,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="it-con1-err">Contact number is required!</p>
                                                     </div>
@@ -331,7 +331,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="photo-con1-err">Contact number is required!</p>
                                                     </div>
@@ -362,7 +362,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="video-con1-err">Contact number is required!</p>
                                                     </div>
@@ -386,7 +386,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="video-con2-err">Contact number is required!</p>
                                                     </div>
@@ -415,7 +415,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
                                                     </div>
@@ -439,7 +439,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="quiz-con2-err">Contact number is required!</p>
                                                     </div>
@@ -468,7 +468,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="web-con1-err">Contact number is required!</p>
                                                     </div>
@@ -492,7 +492,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="web-con2-err">Contact number is required!</p>
                                                     </div>
@@ -521,7 +521,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="hunt-con1-err">Contact number is required!</p>
                                                     </div>
@@ -545,7 +545,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="hunt-con2-err">Contact number is required!</p>
                                                     </div>
@@ -660,7 +660,7 @@
                                     </div>
 
                                     <div class="acc-check-div">
-                                        <div class="container">
+                                        <div class="cntr" style="height: 36px; width:32px">
                                             <input type="checkbox" id="cbx" onchange="toggleAccNumsDiv()" style="display: none;">
                                             <label for="cbx" class="check">
                                                 <svg class="acc-checkbox" width="2.5vw" height="2.5vw" viewBox="0 0 18 18">
@@ -696,7 +696,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="animated-button" onclick="uploadAccommo()" id="accomodation-btn">
+                                    <button class="accom-animated-button"  id="accomodation-btn">
                                         <span>SAVE</span>
                                         <span></span>
                                     </button>
@@ -790,7 +790,7 @@
                             </ul>
 
                             <ul class="navbar-nav align-items-center right-nav-link">
-                                <p class="team-name mt-2">Welcome!.. <?php echo session('name'); ?></p>
+                                <p class="team-name mt-2">Welcome Team!!.. <span class="header-team-name"> <?php echo session('team_name'); ?> </span></p>
                                 <li class="nav-item">
                                     <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                                         <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>

@@ -34,48 +34,6 @@ const quizMemCon2 = document.getElementById("quiz-mem2-con2");
 const quizMem2err = document.getElementById("quiz-tmem2-err");
 const quizMemCon2err = document.getElementById("quiz-con2-err");
 
-// debate
-const debateMem1 = document.getElementById("debate-mem1");
-const debateMemCon1 = document.getElementById("debate-mem1-con1");
-const debateMem1err = document.getElementById("debate-tmem1-err");
-const debateMemCon1err = document.getElementById("debate-con1-err");
-
-// dance
-const danceMem1 = document.getElementById("dance-mem1");
-const danceMemCon1 = document.getElementById("dance-mem1-con1");
-const danceMem1err = document.getElementById("dance-tmem1-err");
-const danceMemCon1err = document.getElementById("dance-con1-err");
-
-const danceMem2 = document.getElementById("dance-mem2");
-const danceMemCon2 = document.getElementById("dance-mem2-con2");
-const danceMem2err = document.getElementById("dance-tmem2-err");
-const danceMemCon2err = document.getElementById("dance-con2-err");
-
-const danceMem3 = document.getElementById("dance-mem3");
-const danceMemCon3 = document.getElementById("dance-mem3-con3");
-const danceMem3err = document.getElementById("dance-tmem3-err");
-const danceMemCon3err = document.getElementById("dance-con3-err");
-
-const danceMem4 = document.getElementById("dance-mem4");
-const danceMemCon4 = document.getElementById("dance-mem4-con4");
-const danceMem4err = document.getElementById("dance-tmem4-err");
-const danceMemCon4err = document.getElementById("dance-con4-err");
-
-const danceMem5 = document.getElementById("dance-mem5");
-const danceMemCon5 = document.getElementById("dance-mem5-con5");
-const danceMem5err = document.getElementById("dance-tmem5-err");
-const danceMemCon5err = document.getElementById("dance-con5-err");
-
-const danceMem6 = document.getElementById("dance-mem6");
-const danceMemCon6 = document.getElementById("dance-mem6-con6");
-const danceMem6err = document.getElementById("dance-tmem6-err");
-const danceMemCon6err = document.getElementById("dance-con6-err");
-
-const danceMem7 = document.getElementById("dance-mem7");
-const danceMemCon7 = document.getElementById("dance-mem7-con7");
-const danceMem7err = document.getElementById("dance-tmem7-err");
-const danceMemCon7err = document.getElementById("dance-con7-err");
-
 // photography
 const photographyMem1 = document.getElementById("photo-mem1");
 const photographyMemCon1 = document.getElementById("photo-mem1-con1");
@@ -92,6 +50,16 @@ const gamingMem2 = document.getElementById("gaming-mem2");
 const gamingMemCon2 = document.getElementById("gaming-mem2-con2");
 const gameMem2err = document.getElementById("game-tmem2-err");
 const gameMemCon2err = document.getElementById("game-con2-err");
+
+const gamingMem3 = document.getElementById("gaming-mem3");
+const gamingMemCon3 = document.getElementById("gaming-mem2-con3");
+const gameMem3err = document.getElementById("game-tmem3-err");
+const gameMemCon3err = document.getElementById("game-con3-err");
+
+const gamingMem4 = document.getElementById("gaming-mem4");
+const gamingMemCon4 = document.getElementById("gaming-me42-con2");
+const gameMem4err = document.getElementById("game-tmem4-err");
+const gameMemCon4err = document.getElementById("game-con4-err");
 
 // treasure hunt
 const treasureMem1 = document.getElementById("treasure-mem1");

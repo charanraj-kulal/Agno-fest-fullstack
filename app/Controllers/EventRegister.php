@@ -24,15 +24,17 @@ class EventRegister extends BaseController
         $User=new UserModel();
         $validation = \Config\Services::validation();
         if ($this->request->isAJAX()) {
-            if($validation->setRules($User->validationRules)){
+            
             // Check if the user is logged in
                 if ($session->get('isLoggedIn')) {
                     // Get the user ID from the session
                     $userId = $session->get('id');
+                    $teamId = $session->get('team_id');
 
                     
                     $eventdata = [
                     'user_id' => $userId,
+                    'team_id' => $teamId,
                     'coding_mem_1' => $this->request->getVar('coding-mem1'),
                     'coding_mem_contact_1' => $this->request->getVar('coding-mem1-con1'),
                     'coding_mem_2' => $this->request->getVar('coding-mem2'),
@@ -73,6 +75,11 @@ class EventRegister extends BaseController
 
                     if ($inserted) {
                         // Data insertion successful
+                         $eventsessdata = [
+                            'team_name' => $Event['team_name'],
+                            'isEnrolled' => true,
+                            
+                        ];
                         return $this->response->setJSON([
                             'status' => 'success',
                             'message' => 'Data inserted successfully.'
@@ -92,15 +99,7 @@ class EventRegister extends BaseController
                     'message' => 'Please login to register for the event.'
                 ]);
                 }
-            } 
-            else {
-                // Validation failed
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Validation failed.',
-                    'errors' => $validation->getErrors()
-                ]);
-            }
+           
         }
          else {
         // Not an AJAX request

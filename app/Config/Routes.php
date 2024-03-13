@@ -37,7 +37,14 @@ $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
     
 
 });
+//event reg route
 $routes->post('admin/event-register', 'EventRegister::register');
+
+
+//accomodation routes
+$routes->post('admin/accomodation', 'Accomodation::accomodate');
+
+
 $routes->group('student', ['filter' => 'Auth'], function ($routes) {
     $routes->get('/', 'StudentController::index');
 });

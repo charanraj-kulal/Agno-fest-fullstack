@@ -755,6 +755,23 @@ body.bg-theme15 {
     width: 90%;
   }
 }
+@media (max-width: 768px) {
+  .forms-events,
+  .event,
+  .event-name,
+  .member,
+  .member-name,
+  .member-title,
+  .error-msg,
+  .member-input,
+  .member-contact,
+  .contact-title,
+  .contact-input {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+}
 
 /* Topbar Header */
 .topbar-nav .navbar {
@@ -942,6 +959,13 @@ body.bg-theme15 {
   right: 15px;
   color: #fff;
   font-size: 16px;
+}
+.header-team-name {
+  font-weight: bold;
+  font-family: lt_regular;
+  text-shadow: 2px 2px 12px red;
+  letter-spacing: 0.2px;
+  /* font-size: 10px; */
 }
 /* logout button  */
 
@@ -1174,6 +1198,12 @@ body.bg-theme15 {
 .sidebar-menu li a i:last-child {
   margin-right: 10px;
   font-size: 12px;
+}
+.sidebar-menu a.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-left-color: #ffffff;
+  transition: 0.5s ease-in-out;
 }
 
 .row.row-group > div {
@@ -4909,6 +4939,7 @@ table.grid td {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .sanskrit-name {
@@ -4933,6 +4964,7 @@ table.grid td {
   display: flex;
   flex-direction: row;
   margin: 2vh 0;
+  justify-content: space-around;
 }
 
 .member-name {
@@ -4960,10 +4992,14 @@ table.grid td {
   border-radius: 17px;
   padding: 1.5vh 1vw;
   margin: 1vh 0;
-  background-color: rgba(0, 0, 0, 0.2);;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .memname {
+  width: 20vw;
+}
+.memcontact {
   width: 20vw;
 }
 .error-msg {
@@ -5079,6 +5115,8 @@ input {
 .acc-points {
   margin: 1vh 0;
   font-size: 1.2vw;
+  list-style: none;
+  font-weight: bold;
 }
 
 .acc-check-div {
@@ -5155,6 +5193,7 @@ input {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  margin-left: 90px;
   width: 70%;
   opacity: 0.2;
   transition: opacity 0.5s ease-in-out;
@@ -5178,11 +5217,67 @@ input {
 .acc-nums-txt1 {
   margin: 7vh 0;
   padding-right: 2vw;
+  margin-left: 90px;
 }
 
 .acc-check-txt1 {
   font-size: 1.2vw;
   text-align: justify;
+}
+.accom-animated-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  font-size: 1vw;
+  background-color: inherit;
+  border-radius: 17px;
+  font-family: "IBM";
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: #fff;
+  box-shadow: 0 0 0 2px #fa0230;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 41%;
+}
+
+.accom-animated-button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #fa0230;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.accom-animated-button span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.accom-accom-animated-button:hover {
+  box-shadow: 0 0 0 5px #fa0230;
+  color: #ffffff;
+}
+
+.accom-animated-button:active {
+  scale: 0.95;
+}
+
+.accom-animated-button:hover span:last-child {
+  width: 150px;
+  height: 150px;
+  opacity: 1;
 }
 
 .acc-contacts {
@@ -5192,6 +5287,7 @@ input {
   justify-content: space-evenly;
   width: 70%;
   margin-bottom: 4vh;
+  margin-left: 90px;
 }
 
 .acc-con {

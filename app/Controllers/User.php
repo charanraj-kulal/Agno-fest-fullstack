@@ -38,10 +38,24 @@ class User extends BaseController
                 'message' => 'Email already exist'
             ]);
         } else {
+            $teamNames = ['Atom', 'Server savers', 'Backup', 'Iteration', 'Code red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders']; // Define your list of team names
+            shuffle($teamNames); // Shuffle the array to randomize team names
+
+            $uniqueTeamNames = [];
+            foreach ($teamNames as $teamName) {
+            // Check if the team name is already used
+            $isTeamNameExists = $users->where('team_name', $teamName)->first();
+
+            // If the team name is not used, assign it to the user
+            if (!$isTeamNameExists) {
+                $uniqueTeamNames[] = $teamName;
+                break;
+            }
+        }
             
             $user=['name' => $this->request->getVar('name'),
             'college_name' => $this->request->getVar('college_name'),
-            'team_name' => "giga",
+            'team_name' => isset($uniqueTeamNames[0]) ? $uniqueTeamNames[0] : 'Default_Team_Name',
             'phone_number' => $this->request->getVar('phone_number'),
             'email' => $this->request->getVar('email'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
@@ -53,7 +67,7 @@ class User extends BaseController
             if ($userId) {
                 // If user created successfully
                 // Redirect to login page and return a success message
-                return redirect()->to('jwtlogin')->with('success', 'User created successfully');
+                return redirect()->to('login')->with('success', 'User created successfully');
             } else {
                 // If user creation failed
                 // Return a failure message
@@ -142,6 +156,8 @@ class User extends BaseController
         $users = [
             'id' => $user['id'],
             'name' => $user['name'],
+            'college_name' => $user['college_name'],
+            'team_name' => $user['team_name'],
             'phone_number' => $user['phone_number'],
             'email' => $user['email'],
             'isLoggedIn' => true,

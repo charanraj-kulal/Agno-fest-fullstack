@@ -4,16 +4,24 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class AccomodationModel extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'accomodations';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'college_name', 'team_name','phone_number', 'email', 'password', 'user_type', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['user_id', 'numofboys', 'numofgirls', 'team_name', 'created_at', 'updated_at'];
 
+    protected bool $allowEmptyInserts = false;
+
+    protected $belongsTo = [
+        'user' => [
+            'model' => 'UserModel', 
+            'foreign_key' => 'user_id',
+        ],
+    ];
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
@@ -37,7 +45,4 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-
 }
-
