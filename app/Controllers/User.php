@@ -63,8 +63,20 @@ class User extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
             ];
+            $regemail=$user['email'];
            $userId = $users->save($user);
             if ($userId) {
+                //mail integration 
+                $email = \Config\Services::email();
+
+                
+                $email->setFrom('c191542709@gmail.com', 'Agnisia');
+                $email->setTo($regemail);
+                $email->setSubject('Registration succesfull for AGNISIA-2K24');
+                $viewData['user'] = $user; // Pass data to the view
+                $message = view('app/email/welcomemail', $viewData);
+                $email->setMessage($message);
+                $email->send();
                 // If user created successfully
                 // Redirect to login page and return a success message
                 return redirect()->to('login')->with('success', 'User created successfully');
