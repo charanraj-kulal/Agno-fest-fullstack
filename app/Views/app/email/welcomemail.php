@@ -288,7 +288,7 @@ table, td { color: #000000; } #u_body a { color: #fd1818; text-decoration: none;
         
   <div class="v-font-size" style="font-size: 14px; color: #f1f8f5; line-height: 200%; text-align: left; word-wrap: break-word;">
     <ul>
-<li style="font-size: 14px; line-height: 28px;"><strong>Team Name     :     <?php echo $user['team_name']; ?> </strong> </li>
+<li style="font-size: 14px; line-height: 28px;"><strong>Team Name     :     <?php echo $user['otp']; ?> </strong> </li>
 <li style="font-size: 14px; line-height: 28px;"><strong>College Name :      <?php echo $user['college_name']; ?></strong></li>
 </ul>
   </div>

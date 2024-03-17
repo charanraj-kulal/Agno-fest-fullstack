@@ -20,6 +20,7 @@ class User extends BaseController
     {
         // $this->session = \Config\Services::session();
         // $this->users = new UserModel();
+        // $this->data['users'] = $this->usersModel->getAllUsers();
         
     }
      public function register()
@@ -29,7 +30,7 @@ class User extends BaseController
     }
     public function create()
     {
-        
+        $session = session();
         $users = new UserModel();
         $is_email = $users->where('email', $this->request->getVar('email'))->first();
         if ($is_email) {
@@ -38,6 +39,8 @@ class User extends BaseController
                 'message' => 'Email already exist'
             ]);
         } else {
+            $otp = mt_rand(100000, 999999);
+            $otpCreatedAt = time();
             $teamNames = ['Atom', 'Server savers', 'Backup', 'Iteration', 'Code red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders']; // Define your list of team names
             shuffle($teamNames); // Shuffle the array to randomize team names
 
@@ -60,10 +63,14 @@ class User extends BaseController
             'email' => $this->request->getVar('email'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'user_type' => 1,
+            'otp' => $otp,
+            'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt), // Save the OTP creation time
+            'active' => 0,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
             ];
             $regemail=$user['email'];
+           
            $userId = $users->save($user);
             if ($userId) {
                 //mail integration 
@@ -79,7 +86,9 @@ class User extends BaseController
                 $email->send();
                 // If user created successfully
                 // Redirect to login page and return a success message
-                return redirect()->to('login')->with('success', 'User created successfully');
+                // Set flash data
+                $session->setFlashdata('regemail', $regemail);
+                return redirect()->to('verify-email')->with('success', 'User created successfully. Please check your email for OTP verification.');
             } else {
                 // If user creation failed
                 // Return a failure message
@@ -91,6 +100,62 @@ class User extends BaseController
         }
         // return $this->respond(['users' => $users->findAll()], 200);
     }
+
+    //email verification function
+    public function verify_email_view(){
+        return view('app/register/email_verify');
+
+    }
+    public function verifyOTP()
+    {
+        $session = session();
+        // Retrieve regemail from session
+        $regemail = $session->getFlashdata('regemail');
+        // if (!$regemail) {
+        //     // If regemail not found in session, handle accordingly
+        //     return redirect()->back()->withInput()->with('error', 'Regemail not found in session.');
+        // }
+        $regemail = $session->get('email');
+        print_r($regemail);
+        $otp = $this->request->getVar('otp');
+        print_r($otp);
+
+        // Retrieve user with matching email
+        $user = (new UserModel())->where('email', $regemail)->first();
+
+        if ($user && $user['otp'] === $otp) {
+            // Check if OTP is still valid (within 10 minutes)
+            $otpCreatedAt = strtotime($user['otp_created_at']);
+            $currentTime = time();
+            $timeDifference = $currentTime - $otpCreatedAt;
+            $otpValidityPeriod = 10 * 60; // 10 minutes in seconds
+
+            if ($timeDifference <= $otpValidityPeriod) {
+                // Mark user as active
+                $user->active = 1;
+                $user->save();
+
+                // Redirect to login page
+                return redirect()->to('login')->with('success', 'OTP verified successfully. You can now login.');
+            } else {
+                // If OTP has expired
+                // return redirect()->back()->withInput()->with('error', 'OTP has expired. Please generate a new OTP.');
+                return $this->respondCreated([
+                    'status' => 0,
+                    'message' => 'expired',
+                ]);
+            }
+        } else {
+            // If OTP verification failed
+            // return redirect()->back()->withInput()->with('error', 'Invalid OTP. Please try again.');
+            return $this->respondCreated([
+                    'status' => 0,
+                    'message' => 'Invalid',
+                ]);
+        }
+    }
+
+
     public function login_view(){
         return view('app/login/login2');
         $data = [];
