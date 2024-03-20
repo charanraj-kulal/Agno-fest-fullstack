@@ -70,6 +70,8 @@ class User extends BaseController
             'updated_at' => date('Y-m-d H:i:s')
             ];
             $regemail=$user['email'];
+            $session->setFlashdata('regemail', $regemail);
+            print_r($session->getFlashdata('regemail'));
            
            $userId = $users->save($user);
             if ($userId) {
@@ -87,7 +89,7 @@ class User extends BaseController
                 // If user created successfully
                 // Redirect to login page and return a success message
                 // Set flash data
-                $session->setFlashdata('regemail', $regemail);
+                
                 return redirect()->to('verify-email')->with('success', 'User created successfully. Please check your email for OTP verification.');
             } else {
                 // If user creation failed
@@ -115,13 +117,14 @@ class User extends BaseController
         //     // If regemail not found in session, handle accordingly
         //     return redirect()->back()->withInput()->with('error', 'Regemail not found in session.');
         // }
-        $regemail = $session->get('email');
-        print_r($regemail);
+        
+        
         $otp = $this->request->getVar('otp');
         print_r($otp);
 
         // Retrieve user with matching email
         $user = (new UserModel())->where('email', $regemail)->first();
+        print_r($user);
 
         if ($user && $user['otp'] === $otp) {
             // Check if OTP is still valid (within 10 minutes)
