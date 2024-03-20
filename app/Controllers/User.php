@@ -28,135 +28,74 @@ class User extends BaseController
        
         return view('app/register/register');
     }
-    public function create()
-    {
-        $session = session();
-        $users = new UserModel();
-        $is_email = $users->where('email', $this->request->getVar('email'))->first();
-        if ($is_email) {
-            return $this->respondCreated([
-                'status' => 0,
-                'message' => 'Email already exist'
-            ]);
-        } else {
-            $otp = mt_rand(100000, 999999);
-            $otpCreatedAt = time();
-            $teamNames = ['Atom', 'Server savers', 'Backup', 'Iteration', 'Code red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders']; // Define your list of team names
-            shuffle($teamNames); // Shuffle the array to randomize team names
+   public function create()
+{
+    $users = new UserModel();
+    
+    // Generate a verification token and set expiration time
+    $verificationToken = bin2hex(random_bytes(32));
+    $tokenExpiration = time() + (10 * 60); // Token expires after 10 minutes
+    
+    $user = [
+        'name' => $this->request->getVar('name'),
+        'college_name' => $this->request->getVar('college_name'),
+        'team_name' => 'Default_Team_Name', // You can set the team name here or use a similar approach as before
+        'phone_number' => $this->request->getVar('phone_number'),
+        'email' => $this->request->getVar('email'),
+        'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+        'user_type' => 1,
+        'verification_token' => $verificationToken, // Store the verification token
+        'token_expires_at' => date('Y-m-d H:i:s', $tokenExpiration), // Set token expiration time
+        'active' => 0, // User is not active until verified
+        'created_at' => date('Y-m-d H:i:s'),
+        'updated_at' => date('Y-m-d H:i:s')
+    ];
 
-            $uniqueTeamNames = [];
-            foreach ($teamNames as $teamName) {
-            // Check if the team name is already used
-            $isTeamNameExists = $users->where('team_name', $teamName)->first();
-
-            // If the team name is not used, assign it to the user
-            if (!$isTeamNameExists) {
-                $uniqueTeamNames[] = $teamName;
-                break;
-            }
-        }
-            
-            $user=['name' => $this->request->getVar('name'),
-            'college_name' => $this->request->getVar('college_name'),
-            'team_name' => isset($uniqueTeamNames[0]) ? $uniqueTeamNames[0] : 'Default_Team_Name',
-            'phone_number' => $this->request->getVar('phone_number'),
-            'email' => $this->request->getVar('email'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            'user_type' => 1,
-            'otp' => $otp,
-            'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt), // Save the OTP creation time
-            'active' => 0,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-            ];
-            $regemail=$user['email'];
-            $session->setFlashdata('regemail', $regemail);
-            print_r($session->getFlashdata('regemail'));
-           
-           $userId = $users->save($user);
-            if ($userId) {
-                //mail integration 
-                $email = \Config\Services::email();
-
-                
-                $email->setFrom('c191542709@gmail.com', 'Agnisia');
-                $email->setTo($regemail);
-                $email->setSubject('Registration succesfull for AGNISIA-2K24');
-                $viewData['user'] = $user; // Pass data to the view
-                $message = view('app/email/welcomemail', $viewData);
-                $email->setMessage($message);
-                $email->send();
-                // If user created successfully
-                // Redirect to login page and return a success message
-                // Set flash data
-                
-                return redirect()->to('verify-email')->with('success', 'User created successfully. Please check your email for OTP verification.');
-            } else {
-                // If user creation failed
-                // Return a failure message
-                return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'User not created successfully',
-                ]);
-            }
-        }
-        // return $this->respond(['users' => $users->findAll()], 200);
-    }
-
-    //email verification function
-    public function verify_email_view(){
-        return view('app/register/email_verify');
-
-    }
-    public function verifyOTP()
-    {
-        $session = session();
-        // Retrieve regemail from session
-        $regemail = $session->getFlashdata('regemail');
-        // if (!$regemail) {
-        //     // If regemail not found in session, handle accordingly
-        //     return redirect()->back()->withInput()->with('error', 'Regemail not found in session.');
-        // }
+    $userId = $users->save($user);
+    
+    if ($userId) {
+        // Send verification email
+        $emailSent = $this->sendVerificationEmail($user['email'], $verificationToken);
         
-        
-        $otp = $this->request->getVar('otp');
-        print_r($otp);
-
-        // Retrieve user with matching email
-        $user = (new UserModel())->where('email', $regemail)->first();
-        print_r($user);
-
-        if ($user && $user['otp'] === $otp) {
-            // Check if OTP is still valid (within 10 minutes)
-            $otpCreatedAt = strtotime($user['otp_created_at']);
-            $currentTime = time();
-            $timeDifference = $currentTime - $otpCreatedAt;
-            $otpValidityPeriod = 10 * 60; // 10 minutes in seconds
-
-            if ($timeDifference <= $otpValidityPeriod) {
-                // Mark user as active
-                $user->active = 1;
-                $user->save();
-
-                // Redirect to login page
-                return redirect()->to('login')->with('success', 'OTP verified successfully. You can now login.');
-            } else {
-                // If OTP has expired
-                // return redirect()->back()->withInput()->with('error', 'OTP has expired. Please generate a new OTP.');
-                return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'expired',
-                ]);
-            }
+        if ($emailSent) {
+            // Redirect to verify-email page
+            return redirect()->to('verify-email')->with('success', 'User created successfully. Please check your email for verification.');
         } else {
-            // If OTP verification failed
-            // return redirect()->back()->withInput()->with('error', 'Invalid OTP. Please try again.');
-            return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'Invalid',
-                ]);
+            // Handle email sending failure
+            return redirect()->to('register')->with('error', 'Failed to send verification email.');
         }
+    } else {
+        return redirect()->to('register')->with('error', 'User not created successfully.');
     }
+}
+
+private function sendVerificationEmail($email, $verificationToken)
+{
+    // Send email with a verification link containing the verification token
+    // You can use the email library or any other email service provider for sending emails
+    // Here's a basic example using CodeIgniter's email library
+    $email = \Config\Services::email();
+    $email->setFrom('c191542709@gmail.com', 'Agnisia');
+    $email->setTo($email);
+    $email->setSubject('Email Verification for AGNISIA-2K24');
+    
+    // Construct the verification link
+    $verificationLink = base_url('verify-email') . '?token=' . $verificationToken;
+    
+    // Create the email message
+    $message = "Please click the following link to verify your email: $verificationLink";
+    $email->setMessage($message);
+    
+    // Send the email and return true or false based on success
+    try {
+        return $email->send();
+    } catch (\Exception $e) {
+        // Log the error or handle it as per your application's requirements
+        return false;
+    }
+}
+
+
 
 
     public function login_view(){

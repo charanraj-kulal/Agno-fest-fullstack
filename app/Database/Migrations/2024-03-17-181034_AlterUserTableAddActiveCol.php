@@ -9,9 +9,10 @@ class AlterUserTableAddActiveCol extends Migration
     public function up()
     {
         $fields = array(
-            'otp' => [
-                'type'       => 'INT',
-                'constraint' => 10,
+            'verification_token' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
                 'after' => 'password',
             ],
             'active' => [
@@ -25,6 +26,7 @@ class AlterUserTableAddActiveCol extends Migration
 
     public function down()
     {
+        $this->forge->dropColumn('users', 'verification_token');
         $this->forge->dropColumn('users', 'active');
     }
 }
