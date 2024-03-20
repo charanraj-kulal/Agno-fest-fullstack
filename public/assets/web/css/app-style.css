@@ -716,12 +716,22 @@ body.bg-theme15 {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  background: #0a579b;
+  background: #303030;
   border-radius: 8px;
   border: 1px solid white;
   box-shadow: 0px 0px 5px -3px #111;
 }
+.show-flex {
+  display: flex !important;
+}
+.success {
+  color: #28a745; /* Green color */
+}
 
+/* Error message */
+.error {
+  color: #dc3545; /* Red color */
+}
 .info__icon {
   width: 20px;
   height: 20px;
@@ -737,6 +747,7 @@ body.bg-theme15 {
   font-weight: 500;
   font-size: 14px;
   color: #fff;
+  margin-left: 25px;
 }
 
 .info__close {

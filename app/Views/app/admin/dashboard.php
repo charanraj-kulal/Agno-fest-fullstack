@@ -41,12 +41,13 @@
             </svg>
         </div>
         <div class="info__title" id="alert-title"></div>
-        <div class="info__close"><svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <div class="info__close" id="closeAlert">
+            <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"
                     fill="#393a37"></path>
-            </svg></div>
-
+            </svg>
+        </div>
     </div>
 <?php $userid= session('id'); ?>
  
@@ -129,8 +130,8 @@
                                         <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                                     </div>
 
-                                    <!-- <form action="<?= base_url('admin/event-register') ?>" method="post"> -->
-                                    <form id="myForm" method="post">
+                                    <form id="eventForm" action="<?= base_url('admin/event-register') ?>" method="post">
+                                    <!-- <form id="myForm" method="post"> -->
                                         <div class="forms-events">
                                             <!-- coding -->
                                             <div class="event">
@@ -644,66 +645,67 @@
                     
 
                     <!-- start of accomodation -->
-                    
-                    <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
-                        <!-- <div class="card-content "> -->
-                            <div class="row row-group m-0">
-                                 <div class="accomodation-section ">
-                                    <div class="section-heading">
-                                        <p class="enroll-title">ACCOMMODATION</p>
-                                    </div>
-
-                                    <div class="acc-points-div">
-                                        <ul>
-                                            <li class="acc-points">Accommodation may incur some charges.</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="acc-check-div">
-                                        <div class="cntr" style="height: 36px; width:32px">
-                                            <input type="checkbox" id="cbx" onchange="toggleAccNumsDiv()" style="display: none;">
-                                            <label for="cbx" class="check">
-                                                <svg class="acc-checkbox" width="2.5vw" height="2.5vw" viewBox="0 0 18 18">
-                                                    <path
-                                                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
-                                                    </path>
-                                                    <polyline points="1 9 7 14 15 4"></polyline>
-                                                </svg>
-                                            </label>
+                    <form id="accomodateForm" action="<?= base_url('admin/accomodate') ?>" method="post">
+                        <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
+                            <!-- <div class="card-content "> -->
+                                <div class="row row-group m-0">
+                                    <div class="accomodation-section ">
+                                        <div class="section-heading">
+                                            <p class="enroll-title">ACCOMMODATION</p>
                                         </div>
-                                        <p class="acc-check-txt">Accomodation Required!</p>
-                                    </div>
 
-                                    <div class="acc-nums-div acc-hide">
-                                        <input class="acc-nums" id="no-b" type="number" oninput="this.value = this.value.slice(0, 2)"
-                                            placeholder="Number of Men">
-                                        <input class="acc-nums" id="no-g" type="number" oninput="this.value = this.value.slice(0, 2)"
-                                            placeholder="Number of Women">
-                                    </div>
-
-                                    <div class="acc-nums-txt1">
-                                        <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
-                                    </div>
-
-                                    <div class="acc-contacts">
-                                        <div class="acc-con">
-                                            <p class="acc-con-name">XXX</p>
-                                            <p class="acc-con-number">+91 00000000</p>
+                                        <div class="acc-points-div">
+                                            <ul>
+                                                <li class="acc-points">Accommodation may incur some charges.</li>
+                                            </ul>
                                         </div>
-                                        <div class="acc-con">
-                                            <p class="acc-con-name">YYYY</p>
-                                            <p class="acc-con-number">+91 0000000000</p>
-                                        </div>
-                                    </div>
 
-                                    <button class="accom-animated-button"  id="accomodation-btn">
-                                        <span>SAVE</span>
-                                        <span></span>
-                                    </button>
+                                        <div class="acc-check-div">
+                                            <div class="cntr" style="height: 36px; width:32px">
+                                                <input type="checkbox" id="cbx" onchange="toggleAccNumsDiv()" style="display: none;">
+                                                <label for="cbx" class="check">
+                                                    <svg class="acc-checkbox" width="2.5vw" height="2.5vw" viewBox="0 0 18 18">
+                                                        <path
+                                                            d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                                                        </path>
+                                                        <polyline points="1 9 7 14 15 4"></polyline>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                            <p class="acc-check-txt">Accomodation Required!</p>
+                                        </div>
+
+                                        <div class="acc-nums-div acc-hide">
+                                            <input class="acc-nums" id="no-b" type="number" oninput="this.value = this.value.slice(0, 2)"
+                                                placeholder="Number of Men">
+                                            <input class="acc-nums" id="no-g" type="number" oninput="this.value = this.value.slice(0, 2)"
+                                                placeholder="Number of Women">
+                                        </div>
+
+                                        <div class="acc-nums-txt1">
+                                            <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
+                                        </div>
+
+                                        <div class="acc-contacts">
+                                            <div class="acc-con">
+                                                <p class="acc-con-name">XXX</p>
+                                                <p class="acc-con-number">+91 00000000</p>
+                                            </div>
+                                            <div class="acc-con">
+                                                <p class="acc-con-name">YYYY</p>
+                                                <p class="acc-con-number">+91 0000000000</p>
+                                            </div>
+                                        </div>
+
+                                        <button class="accom-animated-button"  id="accomodation-btn">
+                                            <span>SAVE</span>
+                                            <span></span>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        <!-- </div> -->
-                    </div>
+                            <!-- </div> -->
+                        </div>
+                    </form>
                     <!-- end of accomodation   -->
 
                      

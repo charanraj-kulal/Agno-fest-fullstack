@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class AccomodationModel extends Model
 {
-    protected $table            = 'accomodations';
+    protected $table            = 'accomodation';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

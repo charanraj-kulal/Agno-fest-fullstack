@@ -454,7 +454,7 @@ const getEventData = () => {
 // Function to gather form data
 function getFormData() {
   var formData = {};
-  $("#myForm")
+  $("#eventForm")
     .find("input, select, textarea")
     .each(function (index, element) {
       var fieldName = $(element).attr("name");
@@ -491,41 +491,65 @@ $("#enroll-save-btn").click(function (e) {
     var formData = getFormData();
 
     // Perform AJAX request
-    $.ajax({
-      url: "/admin/event-register", // URL to your controller method
-      method: "POST",
-      dataType: "json",
-      data: formData,
-      success: function (response) {
-        if (response.status === "success") {
-          // Show success alert
-          showAlert("success", response.message);
-        } else {
-          // Show error alert
-          showAlert("error", response.message);
-          if (response.errors) {
-            // Display error messages
-            displayErrorMessages(response.errors);
-          }
-        }
-      },
-      error: function (xhr, status, error) {
-        // Show error alert
-        showAlert("error", "An error occurred while processing your request.");
-      },
-    });
+    submitEnrollForm(formData);
   }
 });
 
+// Function to submit the enroll form via AJAX
+function submitEnrollForm(formData) {
+  $.ajax({
+    url: form.attr("action"), // URL to your controller method
+    method: "POST",
+    dataType: "json",
+    data: formData,
+    success: function (response) {
+      if (response.status === "success") {
+        // Show success alert
+        showAlert("success", response.message);
+      } else {
+        // Show error alert
+        showAlert("error", response.message);
+        if (response.errors) {
+          // Display error messages
+          displayErrorMessages(response.errors);
+        }
+      }
+    },
+    error: function (xhr, status, error) {
+      // Show error alert
+      showAlert("error", "An error occurred while processing your request.");
+    },
+  });
+}
+
 // Function to display alerts
-function showAlert(type, message) {
-  var alertDiv = $(
-    '<div class="alert alert-' + type + '">' + message + "</div>"
-  );
-  $(".info__title").html(alertDiv);
+function showAlert(message, isSuccess) {
+  var alertBox = $(".info");
+  var alertTitle = $("#alert-title");
+  var alertClose = $("#closeAlert");
+
+  alertTitle.text(message);
+
+  // Remove existing classes to prevent color conflicts
+  alertBox.removeClass("success error");
+
+  if (isSuccess) {
+    alertBox.addClass("success");
+  } else {
+    alertBox.addClass("error");
+  }
+
+  alertBox.addClass("show-flex");
+  alertBox.show();
+
   setTimeout(function () {
-    $(".info__title").empty();
-  }, 3000); // Hide after 3 seconds
+    alertBox.hide();
+    alertBox.removeClass("show-flex");
+  }, 3000); // 3 seconds delay before hiding
+
+  alertClose.click(function () {
+    alertBox.hide(); // Hide the alert box when close button is clicked
+  });
 }
 
 // async function enrollSave() {

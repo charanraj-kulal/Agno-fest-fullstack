@@ -29,34 +29,34 @@ class User extends BaseController
         return view('app/register/register');
     }
     public function create()
-    {
-        $session = session();
-        $users = new UserModel();
-        $is_email = $users->where('email', $this->request->getVar('email'))->first();
-        if ($is_email) {
-            return $this->respondCreated([
-                'status' => 0,
-                'message' => 'Email already exist'
-            ]);
-        } else {
-            $otp = mt_rand(100000, 999999);
-            $otpCreatedAt = time();
-            $teamNames = ['Atom', 'Server savers', 'Backup', 'Iteration', 'Code red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders']; // Define your list of team names
-            shuffle($teamNames); // Shuffle the array to randomize team names
+{
+    $session = session();
+    $users = new UserModel();
+    $is_email = $users->where('email', $this->request->getVar('email'))->first();
+    
+    if ($is_email) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Email already exists'
+        ]);
+    } else {
+        $otp = mt_rand(100000, 999999);
+        $otpCreatedAt = time();
+        $teamNames = ['Atom', 'Server savers', 'Backup', 'Iteration', 'Code red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders'];
+        shuffle($teamNames);
 
-            $uniqueTeamNames = [];
-            foreach ($teamNames as $teamName) {
-            // Check if the team name is already used
+        $uniqueTeamNames = [];
+        foreach ($teamNames as $teamName) {
             $isTeamNameExists = $users->where('team_name', $teamName)->first();
 
-            // If the team name is not used, assign it to the user
             if (!$isTeamNameExists) {
                 $uniqueTeamNames[] = $teamName;
                 break;
             }
         }
-            
-            $user=['name' => $this->request->getVar('name'),
+        
+        $user = [
+            'name' => $this->request->getVar('name'),
             'college_name' => $this->request->getVar('college_name'),
             'team_name' => isset($uniqueTeamNames[0]) ? $uniqueTeamNames[0] : 'Default_Team_Name',
             'phone_number' => $this->request->getVar('phone_number'),
@@ -64,44 +64,33 @@ class User extends BaseController
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'user_type' => 1,
             'otp' => $otp,
-            'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt), // Save the OTP creation time
+            'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt),
             'active' => 0,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
-            ];
-            $regemail=$user['email'];
-            $session->setFlashdata('regemail', $regemail);
-            print_r($session->getFlashdata('regemail'));
-           
-           $userId = $users->save($user);
-            if ($userId) {
-                //mail integration 
-                $email = \Config\Services::email();
+        ];
 
-                
-                $email->setFrom('c191542709@gmail.com', 'Agnisia');
-                $email->setTo($regemail);
-                $email->setSubject('Registration succesfull for AGNISIA-2K24');
-                $viewData['user'] = $user; // Pass data to the view
-                $message = view('app/email/welcomemail', $viewData);
-                $email->setMessage($message);
-                $email->send();
-                // If user created successfully
-                // Redirect to login page and return a success message
-                // Set flash data
-                
-                return redirect()->to('verify-email')->with('success', 'User created successfully. Please check your email for OTP verification.');
-            } else {
-                // If user creation failed
-                // Return a failure message
-                return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'User not created successfully',
-                ]);
-            }
+        $regemail = $user['email'];
+        $session->set('regemail', $user['email']);
+        
+        $userId = $users->save($user);
+        
+        if ($userId) {
+            // Send email
+            // Redirect to verify-email page
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'User created successfully. Please check your email for OTP verification.'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User not created successfully'
+            ]);
         }
-        // return $this->respond(['users' => $users->findAll()], 200);
     }
+}
+
 
     //email verification function
     public function verify_email_view(){
@@ -109,54 +98,55 @@ class User extends BaseController
 
     }
     public function verifyOTP()
-    {
-        $session = session();
-        // Retrieve regemail from session
-        $regemail = $session->getFlashdata('regemail');
-        // if (!$regemail) {
-        //     // If regemail not found in session, handle accordingly
-        //     return redirect()->back()->withInput()->with('error', 'Regemail not found in session.');
-        // }
-        
-        
-        $otp = $this->request->getVar('otp');
-        print_r($otp);
+{
+    $session = session();
 
-        // Retrieve user with matching email
-        $user = (new UserModel())->where('email', $regemail)->first();
-        print_r($user);
+    // Access the regemail session variable
+    $regemail = $session->get('regemail');
 
-        if ($user && $user['otp'] === $otp) {
-            // Check if OTP is still valid (within 10 minutes)
+    // Check if the regemail session variable exists and is not empty
+
+    $otp = $this->request->getVar('otp');
+
+    $user = (new UserModel())->where('email', $regemail)->first();
+
+    if ($user) {
+        if ($user['otp'] === $otp) {
             $otpCreatedAt = strtotime($user['otp_created_at']);
             $currentTime = time();
             $timeDifference = $currentTime - $otpCreatedAt;
             $otpValidityPeriod = 10 * 60; // 10 minutes in seconds
 
             if ($timeDifference <= $otpValidityPeriod) {
-                // Mark user as active
-                $user->active = 1;
-                $user->save();
-
-                // Redirect to login page
-                return redirect()->to('login')->with('success', 'OTP verified successfully. You can now login.');
+                $userModel = new UserModel();
+                $userModel->update($user['id'], ['active' => 1]);
+               
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'OTP verified successfully. You can now login.'
+                ]);
             } else {
-                // If OTP has expired
-                // return redirect()->back()->withInput()->with('error', 'OTP has expired. Please generate a new OTP.');
-                return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'expired',
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'OTP has expired. Please generate a new OTP.'
                 ]);
             }
         } else {
-            // If OTP verification failed
-            // return redirect()->back()->withInput()->with('error', 'Invalid OTP. Please try again.');
-            return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'Invalid',
-                ]);
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid OTP. Please try again.'
+            ]);
         }
+    } else {
+        // Handle case where user not found with the email (unlikely scenario)
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'User not found'
+        ]);
     }
+}
+
+
 
 
     public function login_view(){
@@ -177,48 +167,57 @@ class User extends BaseController
         
         if ($user) {
             // Verify password using password_verify
-            if (password_verify($password, $user['password'])) {
-                // Generate JWT token
+            if($user['active']==1){
+                if (password_verify($password, $user['password'])) {
+                    // Generate JWT token
+                    
+                    $key=getenv('JWT_SECRET_KEY');
+                    $issuedAtTime = time();
+                    $tokenTimeToLive=getenv('JWT_TIME_TO_LIVE');
+                    // $tokenTimeToLive = getenv('JWT_TIME_TO_LIVE');
+                    $tokenExpiration = $issuedAtTime + $tokenTimeToLive;
                 
-                $key=getenv('JWT_SECRET_KEY');
-                $issuedAtTime = time();
-                $tokenTimeToLive=getenv('JWT_TIME_TO_LIVE');
-                // $tokenTimeToLive = getenv('JWT_TIME_TO_LIVE');
-                $tokenExpiration = $issuedAtTime + $tokenTimeToLive;
-               
-                $payload = [
-                    "iss" => "localhost",
-                    "aud" => "localhost",
-                    'exp' => $tokenExpiration,
-                    "data" => [
-                        'user_id' => $user['id'],
-                        'name' => $user['name'],
-                        'email' => $user['email']
-                    ]
-                ];
-                $jwt = JWT::encode($payload, $key, 'HS256');
-        //          return $this->respondCreated([
-        //  'status' => 1,
-        //            'jwt' => $jwt,
-        //         'message' => 'User Login Successfully',
-        // ]);
-                // Set user session
-                $this->setUserSession($user);
+                    $payload = [
+                        "iss" => "localhost",
+                        "aud" => "localhost",
+                        'exp' => $tokenExpiration,
+                        "data" => [
+                            'user_id' => $user['id'],
+                            'name' => $user['name'],
+                            'email' => $user['email']
+                        ]
+                    ];
+                    $jwt = JWT::encode($payload, $key, 'HS256');
+                    
+                    // Set user session
+                    $this->setUserSession($user);
 
-                // Successful login
-                return redirect()->to('dashboard')->with('success', 'Login successfully');
-            } else {
-                // Incorrect password
-                return $this->respondCreated([
-                    'status' => 0,
-                    'message' => 'Invalid Email and Password',
-                ]);
+                    // Successful login
+                    return $this->response->setJSON([
+                        'success' => true,
+                        'message' => 'Logged In Successfully!!'
+                    ]);
+                } else {
+                    // Incorrect password
+                    return $this->response->setJSON([
+                        'success' => false,
+                        'message' => 'Invalid Email and Password!!'
+                    ]);
+                }
             }
+            else{
+                // Account not activated
+                return $this->response->setJSON([
+                        'success' => false,
+                        'message' => 'Activate your account first, try aganin!!'
+                    ]);
+            }
+
         } else {
             // User not found
-            return $this->respondCreated([
-                'status' => 0,
-                'message' => 'Email is not found',
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'The email provided is not exist!!'
             ]);
         }
     } catch (\Exception $e) {
@@ -229,6 +228,7 @@ class User extends BaseController
         ]);
     }
 }
+
 
 
     private function setUserSession($user)
@@ -246,7 +246,7 @@ class User extends BaseController
 
         session()->set($users);
         $session = session();
-        $session->setFlashdata('success', 'Login Successful!');
+        // $session->setFlashdata('success', 'Login Successful!');
 
         return true;
     }

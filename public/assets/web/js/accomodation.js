@@ -20,6 +20,13 @@ $("#accomodation-btn").on("click", function (e) {
   e.preventDefault();
   var numOfBoys = $("#no-b").val(); // Get value from number of men input box
   var numOfGirls = $("#no-g").val(); // Get value from number of women input box
+
+  // Call the function to submit accommodation form via AJAX
+  submitAccommodationForm(numOfBoys, numOfGirls);
+});
+
+// Function to submit the accommodation form via AJAX
+function submitAccommodationForm(numOfBoys, numOfGirls) {
   var url = "/admin/accomodation"; // Relative endpoint
   const accommodationData = {
     numofboys: numOfBoys,
@@ -40,7 +47,7 @@ $("#accomodation-btn").on("click", function (e) {
       console.error(error);
     },
   });
-});
+}
 
 // $("#accomodation-btn").on("click", function (e) {
 //   e.preventDefault();
