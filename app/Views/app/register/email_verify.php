@@ -67,6 +67,18 @@
                                 </button>
                             </div>
                         </div>
+                        <p class="vtxt1" id="otp-timer" style="color: white;">Regenerate OTP in: 01:00</p>
+                        <!-- Add this HTML for the regenerate OTP link -->
+                        <a class="vtxt2" href="<?= base_url('register/regenerateOTP') ?>" style="color: white; display: none;" id="regenerate-otp-link">Regenerate OTP</a>
+                        <div class="text-center p-t-30">
+                            <span class="vtxt1">
+                                Not Your Email?
+                            </span>
+    
+                            <a class="vrtxt2"  href="<?= base_url('/register') ?>">
+                                Sign Up
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -75,71 +87,11 @@
 
     <div id="dropDownSelect1"></div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#verifyForm').submit(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: '/register/verify',
-                type: 'POST',
-                data: $(this).serialize(),
-                dataType: 'json',
-                success: function(response) {
-                    if (response.success) {
-                        showAlert(response.message, true);
-                        // Redirect to login page after a delay
-                        setTimeout(function() {
-                            window.location.href = '/login';
-                        }, 3000); // 3 seconds delay
-                    } else {
-                        showAlert(response.message, false);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                    showAlert('An error occurred while processing your request.', false);
-                }
-            });
-        });
-    });
-
-    function showAlert(message, isSuccess) {
-        var alertBox = $('.info');
-        var alertTitle = $('#alert-title');
-        var alertClose = $('#closeAlert');
-
-        alertTitle.text(message);
-
-        // Remove existing classes to prevent color conflicts
-        alertBox.removeClass('success error');
-
-        if (isSuccess) {
-            alertBox.addClass('success');
-        } else {
-            alertBox.addClass('error');
-        }
-
-        alertBox.addClass('show-flex');
-        alertBox.show();
-
-        setTimeout(function() {
-            alertBox.hide();
-            alertBox.removeClass('show-flex');
-        }, 3000); // 3 seconds delay before hiding
-
-        alertClose.click(function() {
-            alertBox.hide(); // Hide the alert box when close button is clicked
-        });
-    }
-</script>
-
-
-
-    
+    \
 <!-- jQuery -->
 <script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
 <!-- Your Custom JS File -->
-<script src="<?= base_url('assets/web/js/regmain.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/mainverifyemail.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/particles.min.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/app.js') ?>"></script>
 

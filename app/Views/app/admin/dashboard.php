@@ -586,48 +586,42 @@
                                         <div class="col-lg-12 col-md-6 col-sm-3">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Edit Users</h5>
+                                                    <h5 align="center" class="card-title">Edit Users</h5>
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered">
+                                                        <table class="table table-bordered" id="userTable">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Name</th>
                                                                     <th>College Name</th>
                                                                     <th>Email</th>
-                                                                    <th>edit</th>
-                                                                    <th>delete</th>
+                                                                    <th>Edit</th>
+                                                                    <th>Delete</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                             <?php if(isset($users) && is_array($users)): ?>
-                                                                    <?php foreach ($users as $user): ?>
-                                                                        <tr>
-                                                                            
-                                                                            <td><?=  $user['name']; ?></td>
-                                                                            <td><?=  $user['college_name']; ?></td>
-                                                                            <td><?=  $user['email']; ?></td>
-                                                                            <td>
-                                                                                <form method="post" action="<?php echo base_url('admin/updateUserRole/'.$user['id']); ?>">
-                                                                                    <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                                                                    <select class="btn btn-light " name="user_role">
-                                                                                        <option class="option-1" value="2" <?php echo ($user['user_type'] == '2') ? 'selected' : ''; ?>>Admin</option>
-                                                                                        <option class="option-2" value="1" <?php echo ($user['user_type'] == '1') ? 'selected' : ''; ?>>Student</option>
-                                                                                    </select>
-                                                                                    <button type="submit" class="btn btn-light">Update</button>
-                                                                                </form>
-                                                                            </td>
-                                                                            <td>
-                                                                                <form method="get" action="<?php echo base_url('admin/deleteUser/'.$user['id']); ?>">
-                                                                                <button type="submit" class="btn btn-light">Delete</button>
-                                                                            </td>
-                                                                        </tr>
-                                                                    <?php endforeach; ?>
-                                                                    <?php else: ?>
-                                                                        <tr>
-                                                                            <td colspan="6">No data available</td>
-                                                                        </tr>
+                                                                <?php foreach ($users as $user): ?>
+                                                                    <tr data-user-id="<?= $user['id']; ?>">
+                                                                        <td><?= $user['name']; ?></td>
+                                                                        <td><?= $user['college_name']; ?></td>
+                                                                        <td><?= $user['email']; ?></td>
+                                                                        <td>
+                                                                            <select class="btn btn-light update-user-role" data-user-id="<?= $user['id']; ?>">
+                                                                                <option class="option-1" value="2" <?= ($user['user_type'] == '2') ? 'selected' : ''; ?>>Admin</option>
+                                                                                <option class="option-2" value="1" <?= ($user['user_type'] == '1') ? 'selected' : ''; ?>>Student</option>
+                                                                            </select>
+                                                                            <button class="btn btn-light update-user-btn" data-user-id="<?= $user['id']; ?>">Update</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button class="btn btn-light delete-user-btn" data-user-id="<?= $user['id']; ?>">Delete</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            <?php else: ?>
+                                                                <tr>
+                                                                    <td colspan="6">No data available</td>
+                                                                </tr>
                                                             <?php endif; ?>
-
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -645,7 +639,7 @@
                     
 
                     <!-- start of accomodation -->
-                    <form id="accomodateForm" action="<?= base_url('admin/accomodate') ?>" method="post">
+                    <form id="accomodateForm" action="<?= base_url('admin/accomodation') ?>" method="post">
                         <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
                             <!-- <div class="card-content "> -->
                                 <div class="row row-group m-0">

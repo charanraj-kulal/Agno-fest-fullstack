@@ -32,7 +32,7 @@
 
     // If form is valid and not empty, proceed with AJAX submission
     if (check && !isFormEmpty()) {
-      submitLoginForm($(this));
+      submitRegForm($(this));
     }
   });
 
@@ -68,7 +68,7 @@
   }
 
   // AJAX form submission
-  function submitLoginForm(form) {
+  function submitRegForm(form) {
     $.ajax({
       url: form.attr("action"),
       type: "POST",
@@ -77,9 +77,9 @@
       success: function (response) {
         if (response.success) {
           showAlert(response.message, true);
-          // Redirect to dashboard page after a delay
+          // Redirect to login page after a delay
           setTimeout(function () {
-            window.location.href = "/dashboard";
+            window.location.href = "/login";
           }, 3000); // 3 seconds delay
         } else {
           showAlert(response.message, false);
@@ -91,6 +91,85 @@
       },
     });
   }
+  function regenerateOTP() {
+    $.ajax({
+      url: "/register/regenerate-otp",
+      type: "POST",
+      dataType: "json",
+      success: function (response) {
+        if (response.success) {
+          // Show alert or notification indicating OTP has been regenerated
+          showAlert("success", "OTP has been regenerated successfully.");
+          // Update the UI to reflect the new OTP or any other necessary action
+        } else {
+          showAlert("error", "Failed to regenerate OTP. Please try again.");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+        showAlert("error", "An error occurred while processing your request.");
+      },
+    });
+  }
+
+  function updateCountdown() {
+    // Set the expiry time (1 minute from now)
+    var expiryTime = new Date().getTime() + 1 * 60 * 1000; // 1 minute in milliseconds
+
+    // Update the countdown timer every second
+    var countdownInterval = setInterval(function () {
+      // Get the current time
+      var now = new Date().getTime();
+
+      // Calculate the remaining time
+      var distance = expiryTime - now;
+
+      // Calculate minutes and seconds
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Format minutes and seconds
+      var formattedMinutes = ("0" + minutes).slice(-2);
+      var formattedSeconds = ("0" + seconds).slice(-2);
+
+      // Update the HTML element with the remaining time
+      $("#otp-timer").text(
+        "Regenerate OTP in: " + formattedMinutes + ":" + formattedSeconds
+      );
+
+      // Enable the "Regenerate OTP" link after 1 minute
+      if (distance <= 0) {
+        $("#regenerate-otp-link").attr(
+          "href",
+          "<?= base_url('register/regenerateOTP') ?>"
+        );
+      }
+
+      // If the countdown is over, display the "Regenerate OTP" link
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        $("#otp-timer").hide();
+        $("#regenerate-otp-link").show(); // Show the "Regenerate OTP" link
+      }
+    }, 1000); // Update every second
+  }
+
+  // Call the function to start the countdown timer
+  updateCountdown();
+
+  // Event listener for the "Regenerate OTP" link
+  $("#regenerate-otp-link").click(function (e) {
+    e.preventDefault(); // Prevent the default link behavior
+
+    // Call the function to regenerate OTP (replace with your logic)
+    regenerateOTP();
+
+    // Reset the countdown timer
+    clearInterval(updateCountdown);
+    updateCountdown();
+  });
+
+  // Function to regenerate OTP (replace with your logic)
 
   // Check if form is empty
   function isFormEmpty() {
@@ -127,11 +206,11 @@
       alertBox.hide();
       alertBox.removeClass("show-flex");
     }, 3000); // 3 seconds delay before hiding
-
-    alertClose.click(function () {
-      alertBox.hide(); // Hide the alert box when close button is clicked
-    });
   }
+  $(document).on("click", "#closeAlert", function () {
+    $(".info").hide();
+    $(".info").removeClass("show-flex"); // Hide the alert box when close button is clicked
+  });
 
   /*==================================================================
     [ Show pass ]*/

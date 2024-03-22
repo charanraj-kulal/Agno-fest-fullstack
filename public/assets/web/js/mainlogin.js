@@ -32,7 +32,7 @@
 
     // If form is valid and not empty, proceed with AJAX submission
     if (check && !isFormEmpty()) {
-      submitRegForm($(this));
+      submitLoginForm($(this));
     }
   });
 
@@ -68,7 +68,7 @@
   }
 
   // AJAX form submission
-  function submitRegForm(form) {
+  function submitLoginForm(form) {
     $.ajax({
       url: form.attr("action"),
       type: "POST",
@@ -77,9 +77,9 @@
       success: function (response) {
         if (response.success) {
           showAlert(response.message, true);
-          // Redirect to login page after a delay
+          // Redirect to dashboard page after a delay
           setTimeout(function () {
-            window.location.href = "/verify-email";
+            window.location.href = "/dashboard";
           }, 3000); // 3 seconds delay
         } else {
           showAlert(response.message, false);
@@ -127,12 +127,11 @@
       alertBox.hide();
       alertBox.removeClass("show-flex");
     }, 3000); // 3 seconds delay before hiding
-
-    alertClose.click(function () {
-      alertBox.hide(); // Hide the alert box when close button is clicked
-    });
   }
-
+  $(document).on("click", "#closeAlert", function () {
+    $(".info").hide();
+    $(".info").removeClass("show-flex"); // Hide the alert box when close button is clicked
+  });
   /*==================================================================
     [ Show pass ]*/
   var showPass = 0;

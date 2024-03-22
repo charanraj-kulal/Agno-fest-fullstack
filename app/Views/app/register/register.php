@@ -149,7 +149,7 @@
     <!-- <script src="<?= base_url('assets/web/js/daterangepicker.js') ?>"></script> -->
 
     <!-- Your Custom JS File -->
-    <script src="<?= base_url('assets/web/js/regmain.js') ?>"></script>
+    <script src="<?= base_url('assets/web/js/mainreg.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/particles.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/app.js') ?>"></script>
 

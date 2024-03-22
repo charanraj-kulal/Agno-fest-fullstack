@@ -11,6 +11,8 @@ $routes->get('register', 'User::register');
 $routes->post('/register/create', 'User::create');
 $routes->post('/register/verify', 'User::verifyOTP');
 $routes->get('/verify-email', 'User::verify_email_view');
+$routes->post('register/regenerate-otp', 'User::regenerateOTP');
+
 
 
 //  login routes 
