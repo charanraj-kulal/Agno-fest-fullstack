@@ -84,16 +84,154 @@ $(function () {
       $("html, body").animate({ scrollTop: 0 }, 600);
       return false;
     });
+
+    // Call fetchUsers() when the page loads
+    fetchUsers();
+    // call deleteUser to delete user
+    $(document).on("click", ".delete-user-btn", function () {
+      var userId = $(this).data("user-id");
+      deleteUser(userId);
+    });
+
+    //show data in modal
+    $(document).on("click", ".edit-user-btn", function () {
+      var userId = $(this).data("user-id");
+      // Fetch user data by userId via AJAX and populate the modal
+      fetchUserDetails(userId);
+    });
   });
 
-  $(function () {
-    $('[data-toggle="popover"]').popover();
-  });
+  //fetch user details of user
+  function fetchUserDetails(userId) {
+    $.ajax({
+      url: "/admin/getUserDetails/" + userId, // Assuming you have a route for fetching user details by ID
+      type: "POST",
+      dataType: "json",
+      data: {
+        "user-id": userId,
+      },
+      success: function (response) {
+        $.each(response.users, function (index, user) {
+          // Populate modal with user details
+          $("#editUserName").val(user["name"]);
+          $("#editCollegeName").val(user["college_name"]);
+          $("#editEmail").val(user["email"]);
+          $("#editUserRole").val(user["user_type"]);
 
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
+          // // Show modal
+          $("#editUserModal").show();
+        });
+      },
+      error: function (xhr, status, error) {
+        // Handle error
+        console.error(error);
+      },
+    });
+  }
+  //delete user function
+  function deleteUser(userId) {
+    $.ajax({
+      url: "/admin/deleteUser/" + userId,
+      type: "GET",
+      success: function (response) {
+        if (response.success) {
+          // Handle success response
+          showAlert(response.message, true);
+          // Redirect to dashboard page after a delay
+          setTimeout(function () {
+            fetchUsers();
+          }, 1000); // 1 seconds delay
+        } else {
+          showAlert(response.message, false);
+        }
 
+        // Reload the table after successful deletion
+      },
+      error: function (xhr, status, error) {
+        // Handle error
+        console.error(error);
+      },
+    });
+  }
+  // Function to fetch users and populate the table
+  function fetchUsers() {
+    $.ajax({
+      url: "/admin/getusers", // Route to the controller method
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        if (response.users && response.users.length > 0) {
+          // Clear existing table rows
+          $("#userTable tbody").empty();
+          // Iterate over each user and append a new row to the table
+          $.each(response.users, function (index, user) {
+            // Check if college_name property exists in user object
+            if (user.hasOwnProperty("college_name")) {
+              var newRow =
+                "<tr>" +
+                "<td>" +
+                user.name +
+                "</td>" +
+                "<td>" +
+                user.college_name +
+                "</td>" +
+                "<td>" +
+                user.email +
+                "</td>" +
+                "<td>" +
+                '<button class="btn btn-light edit-user-btn" data-bs-toggle="modal" data-bs-target="#editUserModal" data-user-id="' +
+                user.id +
+                '"><i class="fas fa-edit"></i></button>' +
+                '<span style="margin: 0 8px;"></span>' + // Add space between icons
+                '<button class="btn btn-light delete-user-btn" data-user-id="' +
+                user.id +
+                '"><i class="fas fa-trash-alt"></i></button>' +
+                "</td>" +
+                "</tr>";
+              $("#userTable tbody").append(newRow);
+            }
+          });
+        } else {
+          // If no users are returned, display a message
+          $("#userTable tbody").html(
+            '<tr><td colspan="4">No data available</td></tr>'
+          );
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+  }
+
+  function showAlert(message, isSuccess) {
+    var alertBox = $(".info");
+    var alertTitle = $("#alert-title");
+    var alertClose = $("#closeAlert");
+
+    alertTitle.text(message);
+
+    // Remove existing classes to prevent color conflicts
+    alertBox.removeClass("success error");
+
+    if (isSuccess) {
+      alertBox.addClass("success");
+    } else {
+      alertBox.addClass("error");
+    }
+
+    alertBox.addClass("show-flex");
+    alertBox.show();
+
+    setTimeout(function () {
+      alertBox.hide();
+      alertBox.removeClass("show-flex");
+    }, 3000); // 3 seconds delay before hiding
+  }
+  $(document).on("click", "#closeAlert", function () {
+    $(".info").hide();
+    $(".info").removeClass("show-flex"); // Hide the alert box when close button is clicked
+  });
   // theme setting
   $(".switcher-icon").on("click", function (e) {
     e.preventDefault();
@@ -253,68 +391,4 @@ $(function () {
   };
 
   // update user
-
-  $(document).ready(function () {
-    // Update user role
-    $(document).on("click", ".update-user-btn", function () {
-      var userId = $(this).data("user-id");
-      var userRole = $(this).siblings(".update-user-role").val();
-      updateUserRole(userId, userRole);
-    });
-
-    // Delete user
-    $(document).on("click", ".delete-user-btn", function () {
-      var userId = $(this).data("user-id");
-      deleteUser(userId);
-    });
-
-    function updateUserRole(userId, userRole) {
-      $.ajax({
-        url: "<?php echo base_url('admin/updateUserRole'); ?>/" + userId,
-        type: "POST",
-        data: { user_id: userId, user_role: userRole },
-        success: function (response) {
-          // Handle success response
-          console.log(response);
-          updateTable(); // Update the table after successful update
-        },
-        error: function (xhr, status, error) {
-          // Handle error
-          console.error(error);
-        },
-      });
-    }
-
-    function deleteUser(userId) {
-      $.ajax({
-        url: "<?php echo base_url('admin/deleteUser'); ?>/" + userId,
-        type: "GET",
-        success: function (response) {
-          // Handle success response
-          console.log(response);
-          updateTable(); // Update the table after successful delete
-        },
-        error: function (xhr, status, error) {
-          // Handle error
-          console.error(error);
-        },
-      });
-    }
-
-    function updateTable() {
-      // Fetch updated data and update the table
-      $.ajax({
-        url: "<?php echo base_url('admin/fetchUsers'); ?>",
-        type: "GET",
-        success: function (response) {
-          // Replace the existing table with the updated one
-          $("#userTable").html(response);
-        },
-        error: function (xhr, status, error) {
-          // Handle error
-          console.error(error);
-        },
-      });
-    }
-  });
 });

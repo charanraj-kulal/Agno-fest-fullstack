@@ -36,11 +36,25 @@ $routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
 
 $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
     $routes->get('/', 'AdminController::index');
+    //update user
     $routes->post('updateUserRole/(:num)', 'AdminController::update/$1');
-    $routes->get('deleteUser/(:num)', 'AdminController::delete/$1');
+    //delete user
+    
+    
     
 
+
+
 });
+
+//fetch user detail for modal
+    $routes->post('admin/getUserDetails/(:num)', 'User::getUserDetails/$1');
+
+//fetch users details
+    $routes->get('admin/getusers', 'User::getUsers');
+//delete user
+    $routes->get('admin/deleteUser/(:num)', 'User::deleteUser/$1');
+
 //event reg route
 $routes->post('admin/event-register', 'EventRegister::register');
 

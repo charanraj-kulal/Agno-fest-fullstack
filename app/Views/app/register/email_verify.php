@@ -87,7 +87,7 @@
 
     <div id="dropDownSelect1"></div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    \
+    
 <!-- jQuery -->
 <script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
 <!-- Your Custom JS File -->

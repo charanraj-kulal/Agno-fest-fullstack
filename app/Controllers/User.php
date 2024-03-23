@@ -100,48 +100,48 @@ class User extends BaseController
         }
     }
     public function regenerateOTP()
-{
-    $session = session();
-    $regemail = $session->get('regemail');
+    {
+        $session = session();
+        $regemail = $session->get('regemail');
 
-    // Check if the regemail session variable exists and is not empty
-    if (!empty($regemail)) {
-        $otp = mt_rand(100000, 999999);
-        $otpCreatedAt = time();
+        // Check if the regemail session variable exists and is not empty
+        if (!empty($regemail)) {
+            $otp = mt_rand(100000, 999999);
+            $otpCreatedAt = time();
 
-        // Update the user's OTP and OTP creation time
-        $userModel = new UserModel();
-        $user = $userModel->where('email', $regemail)->first();
-        if ($user) {
-            $userModel->update($user['id'], [
-                'otp' => $otp,
-                'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt)
-            ]);
-            $email = \Config\Services::email();
-                $email->setFrom('c191542709@gmail.com', 'Agnisia');
-                $email->setTo($regemail);
-                $email->setSubject('Registration succesfull for AGNISIA-2K24');
-                $viewData['user'] = $user; // Pass data to the view
-                $message = view('app/email/verify_email', $viewData);
-                $email->setMessage($message);
-                $email->send();
-            return $this->response->setJSON([
-                'success' => true,
-                'message' => 'OTP regenerated successfully.'
-            ]);
+            // Update the user's OTP and OTP creation time
+            $userModel = new UserModel();
+            $user = $userModel->where('email', $regemail)->first();
+            if ($user) {
+                $userModel->update($user['id'], [
+                    'otp' => $otp,
+                    'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt)
+                ]);
+                $email = \Config\Services::email();
+                    $email->setFrom('c191542709@gmail.com', 'Agnisia');
+                    $email->setTo($regemail);
+                    $email->setSubject('Registration succesfull for AGNISIA-2K24');
+                    $viewData['user'] = $user; // Pass data to the view
+                    $message = view('app/email/verify_email', $viewData);
+                    $email->setMessage($message);
+                    $email->send();
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'OTP regenerated successfully.'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'User not found.'
+                ]);
+            }
         } else {
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'User not found.'
+                'message' => 'Session variable regemail not found.'
             ]);
         }
-    } else {
-        return $this->response->setJSON([
-            'success' => false,
-            'message' => 'Session variable regemail not found.'
-        ]);
     }
-}
 
 
 
@@ -198,9 +198,92 @@ class User extends BaseController
             ]);
         }
     }
+    
+   
+    public function deleteUser($id = null)
+    {
+        $userModel = new UserModel();
+
+        // Find the user by ID
+        $user = $userModel->find($id);
+
+        // Check if the user exists
+        if ($user) {
+            // Attempt to delete the user
+            if ($userModel->delete($id)) {
+                // User deleted successfully
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'User deleted successfully.'
+                ]);
+            } else {
+                // Failed to delete user
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Failed to delete user.'
+                ]);
+            }
+        } else {
+            // User not found
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User not found.'
+            ]);
+        }
+    }
+
+    
+
+    // Controller method to fetch all users
+    public function getUsers()
+    {
+        $userModel = new UserModel();
+        // Fetch users from the database
+        $data['users'] = $userModel->findAll();
+        
+        // Send the user data as JSON response
+        return $this->response->setJSON($data);
+    }
+
+    //show data
+    // Controller Method to Fetch User Details
+    public function getUserDetails()
+    {
+        // Fetch the user details from the UserModel
+        $userModel = new UserModel();
+        // Fetch users from the database
+        $userId=$this->request->getPost('user-id');
+        $data['users'] = $userModel->find($userId);
+
+        // Send the user data as JSON response
+        return $this->response->setJSON($data);
+    }
+
+        
+    
 
 
 
+    public function update($id = null)
+    {
+        if ($this->request->getMethod() === 'post') {
+            
+            $userId = $this->request->getPost('user_id');
+
+            
+            $userRole = $this->request->getPost('user_role');
+
+           
+            $userModel = new UserModel();
+            $userModel->update($userId, ['user_type' => $userRole]);
+
+            // Redirect back to the page where the form was submitted
+            return redirect()->back()->with('success', 'User role updated successfully.');
+        } else {
+            // If it's not a POST request, redirect back to the page where the form was submitted
+            return redirect()->back()->with('error', 'Invalid request method.');
+        }
+    }
 
     public function login_view(){
         return view('app/login/login2');

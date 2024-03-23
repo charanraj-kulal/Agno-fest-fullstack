@@ -75,26 +75,24 @@ class EventRegister extends BaseController
 
                 if ($inserted) {
                     // Data insertion successful
-                    return $this->response->setJSON([
-                        'success' => true,
-                        'message' => 'Data added succesfully!!'
-                    ]);
                     $eventsessdata = [
-                    'team_name' => $Event['team_name'],
-                    'isEnrolled' => true,
-                        
+                        'team_name' => $teamId, // Assuming team_name is team_id
+                        'isEnrolled' => true,
                     ];
                     session()->set($eventsessdata);
-                    $session = session();
-                   
-                } 
-                else {
+
+                    return $this->response->setJSON([
+                        'success' => true,
+                        'message' => 'Data added successfully!!'
+                    ]);
+                } else {
                     // Data insertion failed
                     return $this->response->setJSON([
-                        'success' => flase,
+                        'success' => false,
                         'message' => 'Failed to add data!!'
                     ]);
                 }
+
             } else {
             // User is not logged in
             return $this->response->setJSON([

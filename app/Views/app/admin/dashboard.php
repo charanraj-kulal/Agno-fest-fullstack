@@ -20,10 +20,14 @@
   <link href="<?= base_url('assets/web/css/bootstrap.min.css') ?>" rel="stylesheet"/>
   <link href="<?= base_url('assets/web/css/bootstrap.css') ?>" rel="stylesheet"/>
 
+
   <!-- animate CSS-->
   <link href="<?= base_url('assets/web/css/animate.css') ?>" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="<?= base_url('assets/web/css/icons.css') ?>" rel="stylesheet" type="text/css"/>
+  
+  
   <!-- Sidebar CSS-->
   <link href="<?= base_url('assets/web/css/sidebar-menu.css') ?>" rel="stylesheet"/>
   <!-- Custom Style-->
@@ -50,9 +54,12 @@
         </div>
     </div>
 <?php $userid= session('id'); ?>
- 
+ <!-- Edit User Modal -->
+
 <!-- Start wrapper-->
 <div id="wrapper">
+    
+
  
   <!--Start sidebar-wrapper-->
     
@@ -114,6 +121,46 @@
         
             <div class="content-wrapper">
                 <div class="container-fluid">
+                    <div class="modal" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="editUserForm">
+                                        <div class="form-group">
+                                            <label for="editUserName">Name</label>
+                                            <input type="text" class="form-control" id="editUserName" name="editUserName" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editCollegeName">College Name</label>
+                                            <input type="text" class="form-control" id="editCollegeName" name="editCollegeName"
+                                                readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editEmail">Email</label>
+                                            <input type="email" class="form-control" id="editEmail" name="editEmail" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editUserRole">User Type</label>
+                                            <select class="form-control" id="editUserRole" name="editUserRole" disabled>
+                                                <option value="admin">Admin</option>
+                                                <option value="student">Student</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="updateUserBtn">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         
                     <!-- enroll starts -->
                     <div class="card mt-3 dashboard-cards" id="enroll-section-id">
@@ -595,33 +642,11 @@
                                                                     <th>College Name</th>
                                                                     <th>Email</th>
                                                                     <th>Edit</th>
-                                                                    <th>Delete</th>
+                                                                    
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <?php if(isset($users) && is_array($users)): ?>
-                                                                <?php foreach ($users as $user): ?>
-                                                                    <tr data-user-id="<?= $user['id']; ?>">
-                                                                        <td><?= $user['name']; ?></td>
-                                                                        <td><?= $user['college_name']; ?></td>
-                                                                        <td><?= $user['email']; ?></td>
-                                                                        <td>
-                                                                            <select class="btn btn-light update-user-role" data-user-id="<?= $user['id']; ?>">
-                                                                                <option class="option-1" value="2" <?= ($user['user_type'] == '2') ? 'selected' : ''; ?>>Admin</option>
-                                                                                <option class="option-2" value="1" <?= ($user['user_type'] == '1') ? 'selected' : ''; ?>>Student</option>
-                                                                            </select>
-                                                                            <button class="btn btn-light update-user-btn" data-user-id="<?= $user['id']; ?>">Update</button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <button class="btn btn-light delete-user-btn" data-user-id="<?= $user['id']; ?>">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php endforeach; ?>
-                                                            <?php else: ?>
-                                                                <tr>
-                                                                    <td colspan="6">No data available</td>
-                                                                </tr>
-                                                            <?php endif; ?>
+                                                            
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -907,6 +932,7 @@
 <script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/jquery-3.4.1.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/popper.min.js') ?>"></script>
+<!-- Bootstrap JavaScript -->
 <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
 <!-- jQuery library -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
@@ -915,22 +941,25 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!-- simplebar js -->
 <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
 <!-- sidebar-menu js -->
 <script src="<?= base_url('assets/web/js/sidebar-menu.js') ?>"></script>
-<!-- loader scripts -->
-<script src="<?= base_url('assets/web/js/jquery.loading-indicator.js') ?>"></script>
+
 <!-- Custom scripts -->
 <script src="<?= base_url('assets/web/js/app-script.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/preventlinks.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
-<script src="<?= base_url('assets/web/js/imagekit.js') ?>"></script>
+
 <script src="<?= base_url('assets/web/js/enroll.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/dashboard.js') ?>"></script>
 <!-- Chart js -->
 
-<!-- <script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script> -->
+
 
 <!-- Index js -->
 <!-- <script src="<?= base_url('assets/web/js/index.js') ?>"></script> -->

@@ -348,31 +348,6 @@ const displayPGFields = () => {
   designSection.classList.remove("hide");
 };
 
-const fetchData = async () => {
-  try {
-    const response = await fetch(`${API_URL}/team/${teamId}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-
-const fetchDataAndUpdateUI = async () => {
-  const data = await fetchData();
-  const eventData = new EventData(data);
-
-  const isUG = data.isUG;
-
-  if (isUG) {
-    displayUGFields();
-  } else {
-    displayPGFields();
-  }
-
-  updateUITextFields(eventData);
-};
-
 fetchDataAndUpdateUI();
 
 const getEventData = () => {
@@ -497,6 +472,7 @@ $("#enroll-save-btn").click(function (e) {
 
 // Function to submit the enroll form via AJAX
 function submitEnrollForm(formData) {
+  e.preventDefault();
   $.ajax({
     url: form.attr("action"), // URL to your controller method
     method: "POST",
