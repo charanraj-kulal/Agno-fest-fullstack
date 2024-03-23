@@ -303,6 +303,23 @@ class User extends BaseController
 
         return true;
     }
+    public function fetchAllUsers()
+    {
+        // Load the UserModel
+        $userModel = new UserModel();
+
+        // Fetch all users from the database
+        $users = $userModel->findAll();
+
+        // Check if users were found
+        if (!empty($users)) {
+            // Send users data as JSON response
+            return $this->response->setJSON(['success' => true, 'users' => $users]);
+        } else {
+            // No users found
+            return $this->response->setJSON(['success' => false, 'message' => 'No users found.']);
+        }
+    }
     public function readUser()
     {
         $request = service('request');
