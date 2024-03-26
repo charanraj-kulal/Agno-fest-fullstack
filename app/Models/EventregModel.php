@@ -61,8 +61,7 @@ class EventregModel extends Model
 
     // Validation
     protected $validationRules      = [
-        // 'user_id' => 'required|integer',
-        // 'college_name' => 'required|string|max_length[255]',
+        
         // 'coding_mem_1' => 'required|string|max_length[255]',
         // 'coding_mem_contact_1' => 'required|string|max_length[255]',
         // 'coding_mem_2' => 'required|string|max_length[255]',
@@ -97,15 +96,7 @@ class EventregModel extends Model
         // 'thunt_mem_contact_2' => 'required|string|max_length[255]',
     ];
     protected $validationMessages = [
-    // 'user_id' => [
-    //     'required' => 'The user ID is required.',
-    //     'integer' => 'The user ID must be an integer.',
-    // ],
-    // 'college_name' => [
-    //     'required' => 'The college name is required.',
-    //     'string' => 'The college name must be a string.',
-    //     'max_length' => 'The college name must not exceed 255 characters.',
-    // ],
+   
     // 'coding_mem_1' => [
     //     'required' => 'The coding member 1 is required.',
     //     'string' => 'The coding member 1 must be a string.',

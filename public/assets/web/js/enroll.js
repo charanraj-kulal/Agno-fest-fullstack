@@ -1,6 +1,6 @@
 // fetching data from enroll section
 // declaring variables
-const enrollbtn = document.getElementById("enroll-save-btn");
+// const enrollbtn = document.getElementById("enroll-save-btn");
 // coding
 const codingMem1 = document.getElementById("coding-mem1");
 const codingMemCon1 = document.getElementById("coding-mem1-con1");
@@ -13,13 +13,13 @@ const codingMem2err = document.getElementById("coding-tmem2-err");
 const codingMemCon2err = document.getElementById("coding-con2-err");
 
 // web desinging
-const webMem1 = document.getElementById("webdesgn-mem1");
-const webMemCon1 = document.getElementById("webdesgn-mem1-con1");
+const webMem1 = document.getElementById("web-mem1");
+const webMemCon1 = document.getElementById("web-mem1-con1");
 const webMem1err = document.getElementById("web-tmem1-err");
 const webMemCon1err = document.getElementById("web-con1-err");
 
-const webMem2 = document.getElementById("webdesgn-mem2");
-const webMemCon2 = document.getElementById("webdesgn-mem2-con2");
+const webMem2 = document.getElementById("web-mem2");
+const webMemCon2 = document.getElementById("web-mem2-con2");
 const webMem2err = document.getElementById("web-tmem2-err");
 const webMemCon2err = document.getElementById("web-con2-err");
 
@@ -33,48 +33,6 @@ const quizMem2 = document.getElementById("quiz-mem2");
 const quizMemCon2 = document.getElementById("quiz-mem2-con2");
 const quizMem2err = document.getElementById("quiz-tmem2-err");
 const quizMemCon2err = document.getElementById("quiz-con2-err");
-
-// debate
-const debateMem1 = document.getElementById("debate-mem1");
-const debateMemCon1 = document.getElementById("debate-mem1-con1");
-const debateMem1err = document.getElementById("debate-tmem1-err");
-const debateMemCon1err = document.getElementById("debate-con1-err");
-
-// dance
-const danceMem1 = document.getElementById("dance-mem1");
-const danceMemCon1 = document.getElementById("dance-mem1-con1");
-const danceMem1err = document.getElementById("dance-tmem1-err");
-const danceMemCon1err = document.getElementById("dance-con1-err");
-
-const danceMem2 = document.getElementById("dance-mem2");
-const danceMemCon2 = document.getElementById("dance-mem2-con2");
-const danceMem2err = document.getElementById("dance-tmem2-err");
-const danceMemCon2err = document.getElementById("dance-con2-err");
-
-const danceMem3 = document.getElementById("dance-mem3");
-const danceMemCon3 = document.getElementById("dance-mem3-con3");
-const danceMem3err = document.getElementById("dance-tmem3-err");
-const danceMemCon3err = document.getElementById("dance-con3-err");
-
-const danceMem4 = document.getElementById("dance-mem4");
-const danceMemCon4 = document.getElementById("dance-mem4-con4");
-const danceMem4err = document.getElementById("dance-tmem4-err");
-const danceMemCon4err = document.getElementById("dance-con4-err");
-
-const danceMem5 = document.getElementById("dance-mem5");
-const danceMemCon5 = document.getElementById("dance-mem5-con5");
-const danceMem5err = document.getElementById("dance-tmem5-err");
-const danceMemCon5err = document.getElementById("dance-con5-err");
-
-const danceMem6 = document.getElementById("dance-mem6");
-const danceMemCon6 = document.getElementById("dance-mem6-con6");
-const danceMem6err = document.getElementById("dance-tmem6-err");
-const danceMemCon6err = document.getElementById("dance-con6-err");
-
-const danceMem7 = document.getElementById("dance-mem7");
-const danceMemCon7 = document.getElementById("dance-mem7-con7");
-const danceMem7err = document.getElementById("dance-tmem7-err");
-const danceMemCon7err = document.getElementById("dance-con7-err");
 
 // photography
 const photographyMem1 = document.getElementById("photo-mem1");
@@ -92,6 +50,16 @@ const gamingMem2 = document.getElementById("gaming-mem2");
 const gamingMemCon2 = document.getElementById("gaming-mem2-con2");
 const gameMem2err = document.getElementById("game-tmem2-err");
 const gameMemCon2err = document.getElementById("game-con2-err");
+
+const gamingMem3 = document.getElementById("gaming-mem3");
+const gamingMemCon3 = document.getElementById("gaming-mem2-con3");
+const gameMem3err = document.getElementById("game-tmem3-err");
+const gameMemCon3err = document.getElementById("game-con3-err");
+
+const gamingMem4 = document.getElementById("gaming-mem4");
+const gamingMemCon4 = document.getElementById("gaming-me42-con2");
+const gameMem4err = document.getElementById("game-tmem4-err");
+const gameMemCon4err = document.getElementById("game-con4-err");
 
 // treasure hunt
 const treasureMem1 = document.getElementById("treasure-mem1");
@@ -380,31 +348,6 @@ const displayPGFields = () => {
   designSection.classList.remove("hide");
 };
 
-const fetchData = async () => {
-  try {
-    const response = await fetch(`${API_URL}/team/${teamId}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-
-const fetchDataAndUpdateUI = async () => {
-  const data = await fetchData();
-  const eventData = new EventData(data);
-
-  const isUG = data.isUG;
-
-  if (isUG) {
-    displayUGFields();
-  } else {
-    displayPGFields();
-  }
-
-  updateUITextFields(eventData);
-};
-
 fetchDataAndUpdateUI();
 
 const getEventData = () => {
@@ -471,47 +414,130 @@ const getEventData = () => {
   return eventData;
 };
 
-const saveBtn = document.querySelector("#enroll-save-btn");
+// const saveBtn = document.querySelector("#enroll-save-btn");
 
-saveBtn.onclick = async () => {
-  enrollSave();
-};
-
+// saveBtn.onclick = async () => {
+//   enrollSave();
+// };
 //Ctrl+S
-document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key === "s") {
-    event.preventDefault();
-    enrollSave();
+// document.addEventListener("keydown", function (event) {
+//   if (event.ctrlKey && event.key === "s") {
+//     event.preventDefault();
+//     enrollSave();
+//   }
+// });
+// Function to gather form data
+function getFormData() {
+  var formData = {};
+  $("#eventForm")
+    .find("input, select, textarea")
+    .each(function (index, element) {
+      var fieldName = $(element).attr("name");
+      var fieldValue = $(element).val();
+      formData[fieldName] = fieldValue;
+    });
+
+  return formData;
+}
+
+// Function to display error messages
+function displayErrorMessages(errors) {
+  // Loop through the errors object and display error messages
+  for (var key in errors) {
+    if (errors.hasOwnProperty(key)) {
+      var errorMessage = errors[key];
+      $("#" + key + "-err").text(errorMessage); // Assuming your error message elements have IDs like 'fieldName-err'
+    }
+  }
+}
+
+// Function to clear error messages
+function clearErrorMessages() {
+  $(".error-msg").text(""); // Clear all error messages
+}
+
+// Event listener for form submission
+$("#enroll-save-btn").click(function (e) {
+  if (checkValidation() == true) {
+    e.preventDefault(); // Prevent the default form submission
+    clearErrorMessages(); // Clear previous error messages
+
+    // Get form data
+    var formData = getFormData();
+
+    // Perform AJAX request
+    submitEnrollForm(formData);
   }
 });
 
-async function enrollSave() {
-  if (checkValidation() == true) {
-    loader.style.display = "block";
-    const eventData = getEventData();
-
-    const options = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(eventData),
-    };
-
-    try {
-      const res = await fetch(`${API_URL}/team/${teamId}`, options);
-
-      if (res.status === 200) {
-        openAlert("Data saved successfully");
+// Function to submit the enroll form via AJAX
+function submitEnrollForm(formData) {
+  e.preventDefault();
+  $.ajax({
+    url: form.attr("action"), // URL to your controller method
+    method: "POST",
+    dataType: "json",
+    data: formData,
+    success: function (response) {
+      if (response.status === "success") {
+        // Show success alert
+        showAlert("success", response.message);
       } else {
-        openAlert("Error saving data");
+        // Show error alert
+        showAlert("error", response.message);
+        if (response.errors) {
+          // Display error messages
+          displayErrorMessages(response.errors);
+        }
       }
-    } catch (error) {
-      console.error("ERROR: " + error);
-    }
-    loader.style.display = "none";
-  }
+    },
+    error: function (xhr, status, error) {
+      // Show error alert
+      showAlert("error", "An error occurred while processing your request.");
+    },
+  });
 }
+
+// Function to display alerts
+function showAlert(message, isSuccess) {
+  var alertBox = $(".info");
+  var alertTitle = $("#alert-title");
+  var alertClose = $("#closeAlert");
+
+  alertTitle.text(message);
+
+  // Remove existing classes to prevent color conflicts
+  alertBox.removeClass("success error");
+
+  if (isSuccess) {
+    alertBox.addClass("success");
+  } else {
+    alertBox.addClass("error");
+  }
+
+  alertBox.addClass("show-flex");
+  alertBox.show();
+
+  setTimeout(function () {
+    alertBox.hide();
+    alertBox.removeClass("show-flex");
+  }, 3000); // 3 seconds delay before hiding
+
+  alertClose.click(function () {
+    alertBox.hide(); // Hide the alert box when close button is clicked
+  });
+}
+
+// async function enrollSave() {
+//   $("#enroll-save-btn").on("click", function () {
+//     if (checkValidation() == true) {
+//       loader.style.display = "block";
+
+//       // Redirect to admin/event-register route
+//       window.location.href = "<?php echo base_url('admin/event-register'); ?>";
+//     }
+//   });
+// }
 
 /* Nav active border */
 
@@ -528,24 +554,24 @@ function handleClick(linkId) {
 }
 
 /* ALERT */
-function openAlert(text) {
-  const alertBox = document.querySelector(".info");
-  const alertTitle = document.getElementById("alert-title");
-  const closeButton = document.querySelector(".info__close");
+// function openAlert(text) {
+//   const alertBox = document.querySelector(".info");
+//   const alertTitle = document.getElementById("alert-title");
+//   const closeButton = document.querySelector(".info__close");
 
-  // Check if text is provided
-  if (text) {
-    // Set the alert title dynamically
-    alertTitle.textContent = text;
+//   // Check if text is provided
+//   if (text) {
+//     // Set the alert title dynamically
+//     alertTitle.textContent = text;
 
-    // Display the alert box
-    alertBox.style.display = "flex";
+//     // Display the alert box
+//     alertBox.style.display = "flex";
 
-    // Close the alert box after 3 seconds
-    setTimeout(closeAlert, 3000);
-    closeButton.addEventListener("click", closeAlert);
-  }
-}
+//     // Close the alert box after 3 seconds
+//     setTimeout(closeAlert, 3000);
+//     closeButton.addEventListener("click", closeAlert);
+//   }
+// }
 
 function closeAlert() {
   const alertBox = document.querySelector(".info");
@@ -556,7 +582,6 @@ document.querySelector(".info__close").addEventListener("click", function () {
   closeAlert();
 });
 
-//CHECK VALIDATION FUNCTION
 function checkValidation() {
   //If nothing is entered
   if (

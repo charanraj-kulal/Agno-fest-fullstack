@@ -12,36 +12,62 @@ $(function () {
 
   // === sidebar menu activation js
 
-  $(function () {
-    for (
-      var i = window.location,
-        o = $(".sidebar-menu a")
-          .filter(function () {
-            return this.href == i;
-          })
-          .addClass("active")
-          .parent()
-          .addClass("active");
-      ;
+  // $(function () {
+  //   for (
+  //     var i = window.location,
+  //       o = $(".sidebar-menu a")
+  //         .filter(function () {
+  //           return this.href == i;
+  //         })
+  //         .addClass("active")
+  //         .parent()
+  //         .addClass("active");
+  //     ;
 
-    ) {
-      if (!o.is("li")) break;
-      o = o.parent().addClass("in").parent().addClass("active");
-    }
-  }),
-    /* Top Header */
+  //   ) {
+  //     if (!o.is("li")) break;
+  //     o = o.parent().addClass("in").parent().addClass("active");
+  //   }
+  // });
+  function handleClick(event, navId) {
+    // Add your existing logic here
 
-    $(document).ready(function () {
-      var navbar = $(".topbar-nav .navbar"); // Corrected selector
+    // Remove the 'active' class from all nav items
+    $(".sidebar-menu a").removeClass("active");
+    // Add the 'active' class to the clicked nav item
+    $("#" + navId).addClass("active");
+  }
 
-      $(window).on("scroll", function () {
-        if ($(this).scrollTop() > 60) {
-          navbar.addClass("shadow-black");
-        } else {
-          navbar.removeClass("shadow-black");
-        }
-      });
+  // Attach click event handlers to each navigation item
+  $("#enroll-nav").click(function (event) {
+    handleClick(event, "enroll-nav");
+  });
+
+  $("#manage_user_nav").click(function (event) {
+    handleClick(event, "manage_user_nav");
+  });
+
+  $("#accomodation_nav").click(function (event) {
+    handleClick(event, "accomodation_nav");
+  });
+
+  $("#rules_nav").click(function (event) {
+    handleClick(event, "rules_nav");
+  });
+
+  /* Top Header */
+
+  $(document).ready(function () {
+    var navbar = $(".topbar-nav .navbar"); // Corrected selector
+
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 60) {
+        navbar.addClass("shadow-black");
+      } else {
+        navbar.removeClass("shadow-black");
+      }
     });
+  });
 
   /* Back To Top */
 
@@ -58,16 +84,206 @@ $(function () {
       $("html, body").animate({ scrollTop: 0 }, 600);
       return false;
     });
-  });
 
-  $(function () {
-    $('[data-toggle="popover"]').popover();
-  });
+    // Call fetchUsers() when the page loads
+    fetchUsers();
+    // call deleteUser to delete user
+    $(document).on("click", ".delete-user-btn", function () {
+      var userId = $(this).data("user-id");
+      deleteUser(userId);
+    });
 
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
+    //show data in modal
+    $(document).on("click", ".edit-user-btn", function () {
+      var userId = $(this).data("user-id");
 
+      // Fetch user data by userId via AJAX and populate the modal
+      fetchUserDetails(userId);
+    });
+    $(document).on("click", "#updateUser", function () {
+      // Fetch user data by userId via AJAX and populate the modal
+      updateUserDetails();
+    });
+  });
+  var userIdToUpdate;
+  //update user
+  // AJAX function to update user details
+  function updateUserDetails() {
+    // Get the updated user details from the form
+    var name = $("#editUserName").val();
+    var collegeName = $("#editCollegeName").val();
+    var email = $("#editEmail").val();
+    var userType = $("#editUserRole").val();
+
+    // Send AJAX request to update user details
+    $.ajax({
+      url: "/admin/updateUser/" + userIdToUpdate,
+      type: "POST",
+      dataType: "json",
+      data: {
+        id: userIdToUpdate,
+        name: name,
+        college_name: collegeName,
+        email: email,
+        user_type: userType,
+      },
+      success: function (response) {
+        if (response.success) {
+          // If update successful, reload user data
+          showAlert(response.message, true);
+          fetchUsers();
+          // Close the dialog box
+          $("#editUserModal").modal("hide");
+        } else {
+          // Handle error
+          showAlert(response.message, false);
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle error
+        console.error(error);
+      },
+    });
+  }
+
+  //fetch user details of user
+  function fetchUserDetails(userId) {
+    $.ajax({
+      url: "/admin/getUserDetails/" + userId, // Assuming you have a route for fetching user details by ID
+      type: "POST",
+      dataType: "json",
+      data: {
+        "user-id": userId,
+      },
+      success: function (response) {
+        if (response.users) {
+          var user = response.users;
+          userIdToUpdate = user.id; // Assuming user data is returned directly
+          // Populate modal with user details
+          $("#editUserName").val(user["name"]);
+          $("#editCollegeName").val(user["college_name"]);
+          $("#editEmail").val(user["email"]);
+          $("#editUserRole").val(user["user_type"]);
+          // Show the dialog
+          // $("#dialog_state").prop("checked", true);
+        } else {
+          console.error("No user data found.");
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle error
+        console.error(error);
+      },
+    });
+  }
+  //delete user function
+  function deleteUser(userId) {
+    $.ajax({
+      url: "/admin/deleteUser/" + userId,
+      type: "GET",
+      success: function (response) {
+        if (response.success) {
+          // Handle success response
+          showAlert(response.message, true);
+          // Redirect to dashboard page after a delay
+          setTimeout(function () {
+            fetchUsers();
+          }, 1000); // 1 seconds delay
+        } else {
+          showAlert(response.message, false);
+        }
+
+        // Reload the table after successful deletion
+      },
+      error: function (xhr, status, error) {
+        // Handle error
+        console.error(error);
+      },
+    });
+  }
+  // Function to fetch users and populate the table
+  function fetchUsers() {
+    $.ajax({
+      url: "/admin/getusers", // Route to the controller method
+      type: "GET",
+      dataType: "json",
+      success: function (response) {
+        if (response.users && response.users.length > 0) {
+          // Clear existing table rows
+          $("#userTable tbody").empty();
+          // Iterate over each user and append a new row to the table
+          $.each(response.users, function (index, user) {
+            // Check if college_name property exists in user object
+            if (user.hasOwnProperty("college_name")) {
+              var userType = user.user_type == 2 ? "admin" : "student";
+              var newRow =
+                "<tr>" +
+                "<td>" +
+                user.name +
+                "</td>" +
+                "<td>" +
+                user.college_name +
+                "</td>" +
+                "<td>" +
+                user.email +
+                "</td>" +
+                "<td>" +
+                userType +
+                "</td>" +
+                "<td>" +
+                '<label class="btn btn-light edit-user-btn" for="dialog_state"  data-user-id="' +
+                user.id +
+                '"><i class="fas fa-edit"></i></label>' +
+                '<span style="margin: 0 8px;"></span>' + //space
+                '<button class="btn btn-light delete-user-btn" data-user-id="' +
+                user.id +
+                '"><i class="fas fa-trash-alt"></i></button>' +
+                "</td>" +
+                "</tr>";
+              $("#userTable tbody").append(newRow);
+            }
+          });
+        } else {
+          // If no users are returned, display a message
+          $("#userTable tbody").html(
+            '<tr><td colspan="4">No data available</td></tr>'
+          );
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+      },
+    });
+  }
+
+  function showAlert(message, isSuccess) {
+    var alertBox = $(".info");
+    var alertTitle = $("#alert-title");
+    var alertClose = $("#closeAlert");
+
+    alertTitle.text(message);
+
+    // Remove existing classes to prevent color conflicts
+    alertBox.removeClass("success error");
+
+    if (isSuccess) {
+      alertBox.addClass("success");
+    } else {
+      alertBox.addClass("error");
+    }
+
+    alertBox.addClass("show-flex");
+    alertBox.show();
+
+    setTimeout(function () {
+      alertBox.hide();
+      alertBox.removeClass("show-flex");
+    }, 3000); // 3 seconds delay before hiding
+  }
+  $(document).on("click", "#closeAlert", function () {
+    $(".info").hide();
+    $(".info").removeClass("show-flex"); // Hide the alert box when close button is clicked
+  });
   // theme setting
   $(".switcher-icon").on("click", function (e) {
     e.preventDefault();
@@ -225,137 +441,6 @@ $(function () {
     showSection(contactSec);
     hideHambergerMenu();
   };
-  //enroll
-  function validateNumericInput(inputElement) {
-    inputElement.value = inputElement.value.replace(/\D/g, "");
-  }
 
-  // sidebar section end
-
-  // accomodation
-  //ACCOMMODATION
-  const chkAccomodation = document.getElementById("cbx");
-  const num_boys = document.getElementById("no-b");
-  const num_girls = document.getElementById("no-g");
-  // const accBtn = document.getElementById('accomodation-btn');
-
-  /* Accomodation toggle */
-  function toggleAccNumsDiv() {
-    var accNumsDiv = document.querySelector(".acc-nums-div");
-    if (chkAccomodation.checked) {
-      accNumsDiv.classList.add("show");
-    } else {
-      accNumsDiv.classList.remove("show");
-      num_boys.value = 0;
-      num_girls.value = 0;
-      updateAccomodation(0, 0);
-    }
-  }
-
-  function uploadAccommo() {
-    if (chkAccomodation.checked) {
-      openAlert(
-        "Details Updated! Contact officials for details about Accommodation!"
-      );
-      const totalCount = parseInt(num_boys.value) + parseInt(num_girls.value);
-
-      if (num_boys.value === "") {
-        openAlert("Specify number of Men! (0-if none)");
-      } else if (num_girls.value === "") {
-        openAlert("Specify number of Women! (0-if none)");
-      } else if (num_boys.value == 0 && num_girls.value == 0) {
-        openAlert("Please specify proper counts!");
-      } else if (totalCount > 15) {
-        openAlert("Please specify proper counts!");
-      } else if (
-        num_boys.value < 0 ||
-        num_boys.value > 15 ||
-        num_girls.value < 0 ||
-        num_girls.value > 15 ||
-        totalCount <= 0
-      ) {
-        openAlert("Please specify proper counts!");
-      } else {
-        updateAccomodation(num_boys.value, num_girls.value);
-      }
-    } else {
-      openAlert("Accommodation is not required!");
-    }
-  }
-
-  const getAccommodationData = async () => {
-    try {
-      const res = await fetch(`${API_URL}/team/${teamId}`);
-      const data = await res.json();
-      if (data.accommodation) {
-        if (
-          data.accommodation.countOfBoys > 0 ||
-          data.accommodation.countOfGirls > 0
-        ) {
-          chkAccomodation.checked = true;
-          toggleAccNumsDiv();
-          num_boys.value = data.accommodation.countOfBoys;
-          num_girls.value = data.accommodation.countOfGirls;
-        }
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  getAccommodationData();
-
-  const updateAccomodation = async (countOfBoys, countOfGirls) => {
-    if (!teamId) {
-      console.error("Team ID is missing.");
-      return;
-    }
-
-    const accommodationData = {
-      accommodation: {
-        countOfBoys: countOfBoys,
-        countOfGirls: countOfGirls,
-      },
-    };
-    try {
-      const res = await fetch(`${API_URL}/team/${teamId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(accommodationData),
-      });
-      const data = await res.json();
-      // console.log(data.accommodation);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  // ACCOUNT SETTINGS
-  const college = document.getElementById("set-clg-name");
-  const teamName = document.getElementById("set-team-name");
-  const registrationStatus = document.getElementById("set-reg-status");
-
-  const getAccountData = async () => {
-    try {
-      const res = await fetch(`${API_URL}/team/${teamId}`);
-      const data = await res.json();
-      if (data) {
-        college.innerText = data.collegeName;
-        teamName.innerText = data.teamName;
-        const verificationStatus = data.paymentStatus.verificationStatus;
-        if (verificationStatus) {
-          registrationStatus.innerText = "Completed";
-          registrationStatus.style.color = "green";
-        } else {
-          registrationStatus.innerText = "Not Completed";
-          registrationStatus.style.color = "red";
-        }
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  getAccountData();
+  // update user
 });

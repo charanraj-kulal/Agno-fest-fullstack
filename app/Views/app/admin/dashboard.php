@@ -20,10 +20,14 @@
   <link href="<?= base_url('assets/web/css/bootstrap.min.css') ?>" rel="stylesheet"/>
   <link href="<?= base_url('assets/web/css/bootstrap.css') ?>" rel="stylesheet"/>
 
+
   <!-- animate CSS-->
   <link href="<?= base_url('assets/web/css/animate.css') ?>" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="<?= base_url('assets/web/css/icons.css') ?>" rel="stylesheet" type="text/css"/>
+  
+  
   <!-- Sidebar CSS-->
   <link href="<?= base_url('assets/web/css/sidebar-menu.css') ?>" rel="stylesheet"/>
   <!-- Custom Style-->
@@ -41,17 +45,21 @@
             </svg>
         </div>
         <div class="info__title" id="alert-title"></div>
-        <div class="info__close"><svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+        <div class="info__close" id="closeAlert">
+            <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"
                     fill="#393a37"></path>
-            </svg></div>
-
+            </svg>
+        </div>
     </div>
 <?php $userid= session('id'); ?>
- 
+ <!-- Edit User Modal -->
+
 <!-- Start wrapper-->
 <div id="wrapper">
+    
+
  
   <!--Start sidebar-wrapper-->
     
@@ -69,13 +77,13 @@
                     <li class="sidebar-header">MAIN NAVIGATION</li>
 
                     <li>
-                        <a class="links" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
+                        <a class="active" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
                         <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
                         </a>
                     </li>
 
                     <li>
-                        <a class="links" href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
+                        <a  href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
                             <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
                         </a>
                     </li>
@@ -113,6 +121,49 @@
         
             <div class="content-wrapper">
                 <div class="container-fluid">
+                   
+                    <input type="checkbox" name="dialog_state" id="dialog_state" class="dialog_state">
+                    <div id='dialog'>
+                        <label id="dlg-back" for="dialog_state"></label>
+                        <div id='dlg-wrap'>
+                            <label id="dlg-close" for="dialog_state"><i class="fa fa-times"></i></label>
+                            <h2 id='dlg-header'>Edit User</h2>
+                            <div class="modal-body">
+                                <form id="editUserForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="editUserName">Name</label>
+                                                <input  type="text" class="form-control  input100" id="editUserName" name="editUserName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editCollegeName">College Name</label>
+                                                <input  type="text" class="form-control input100" id="editCollegeName" name="editCollegeName" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="editEmail">Email</label>
+                                                <input  type="email" class="form-control input100" id="editEmail" name="editEmail" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editUserRole">User Type</label>
+                                                <select  class="form-control input100" id="editUserRole" name="editUserRole">
+                                                    <option value="2">Admin</option>
+                                                    <option value="1">Student</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div align="center">
+                                        <div id="updateUser" class='button positive'><i class="fa fa-check"></i>Save</div><span style="margin-left:20px; margin-right:20px"></span>
+                                        <label class='button' for="dialog_state"><i class="fa fa-times"></i> Cancel</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                                
         
                     <!-- enroll starts -->
                     <div class="card mt-3 dashboard-cards" id="enroll-section-id">
@@ -129,7 +180,8 @@
                                         <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                                     </div>
 
-                                    <form action="<?= base_url('admin/event-register') ?>" method="post">
+                                    <form id="eventForm" action="<?= base_url('admin/event-register') ?>" method="post">
+                                    <!-- <form id="myForm" method="post"> -->
                                         <div class="forms-events">
                                             <!-- coding -->
                                             <div class="event">
@@ -154,7 +206,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
                                                     </div>
@@ -176,7 +228,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
                                                     </div>
@@ -207,7 +259,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con1-err">Contact number is required!</p>
                                                     </div>
@@ -229,7 +281,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con2-err">Contact number is required!</p>
                                                     </div>
@@ -250,7 +302,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con3-err">Contact number is required!</p>
                                                     </div>
@@ -271,7 +323,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
                                                     </div>
@@ -301,7 +353,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="it-con1-err">Contact number is required!</p>
                                                     </div>
@@ -330,7 +382,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="photo-con1-err">Contact number is required!</p>
                                                     </div>
@@ -361,7 +413,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="video-con1-err">Contact number is required!</p>
                                                     </div>
@@ -385,7 +437,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="video-con2-err">Contact number is required!</p>
                                                     </div>
@@ -414,7 +466,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
                                                     </div>
@@ -438,7 +490,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="quiz-con2-err">Contact number is required!</p>
                                                     </div>
@@ -467,7 +519,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="web-con1-err">Contact number is required!</p>
                                                     </div>
@@ -491,7 +543,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="web-con2-err">Contact number is required!</p>
                                                     </div>
@@ -520,7 +572,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="hunt-con1-err">Contact number is required!</p>
                                                     </div>
@@ -544,7 +596,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
                                                         </div>
                                                         <p class="error-msg" id="hunt-con2-err">Contact number is required!</p>
                                                     </div>
@@ -584,48 +636,21 @@
                                         <div class="col-lg-12 col-md-6 col-sm-3">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Edit Users</h5>
+                                                    <h5 align="center" class="card-title">Edit Users</h5>
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered">
+                                                        <table class="table table-bordered" id="userTable">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Name</th>
                                                                     <th>College Name</th>
                                                                     <th>Email</th>
-                                                                    <th>edit</th>
-                                                                    <th>delete</th>
+                                                                    <th>User Role</th>
+                                                                    <th>Edit</th>
+                                                                    
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <?php if(isset($users) && is_array($users)): ?>
-                                                                    <?php foreach ($users as $user): ?>
-                                                                        <tr>
-                                                                            
-                                                                            <td><?=  $user['name']; ?></td>
-                                                                            <td><?=  $user['college_name']; ?></td>
-                                                                            <td><?=  $user['email']; ?></td>
-                                                                            <td>
-                                                                                <form method="post" action="<?php echo base_url('admin/updateUserRole/'.$user['id']); ?>">
-                                                                                    <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                                                                    <select class="btn btn-light " name="user_role">
-                                                                                        <option class="option-1" value="2" <?php echo ($user['user_type'] == '2') ? 'selected' : ''; ?>>Admin</option>
-                                                                                        <option class="option-2" value="1" <?php echo ($user['user_type'] == '1') ? 'selected' : ''; ?>>Student</option>
-                                                                                    </select>
-                                                                                    <button type="submit" class="btn btn-light">Update</button>
-                                                                                </form>
-                                                                            </td>
-                                                                            <td>
-                                                                                <form method="get" action="<?php echo base_url('admin/deleteUser/'.$user['id']); ?>">
-                                                                                <button type="submit" class="btn btn-light">Delete</button>
-                                                                            </td>
-                                                                        </tr>
-                                                                    <?php endforeach; ?>
-                                                                    <?php else: ?>
-                                                                        <tr>
-                                                                            <td colspan="6">No data available</td>
-                                                                        </tr>
-                                                            <?php endif; ?>
-
+                                                            
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -643,66 +668,67 @@
                     
 
                     <!-- start of accomodation -->
-                    
-                    <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
-                        <!-- <div class="card-content "> -->
-                            <div class="row row-group m-0">
-                                 <div class="accomodation-section ">
-                                    <div class="section-heading">
-                                        <p class="enroll-title">ACCOMMODATION</p>
-                                    </div>
-
-                                    <div class="acc-points-div">
-                                        <ul>
-                                            <li class="acc-points">Accommodation may incur some charges.</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="acc-check-div">
-                                        <div class="container">
-                                            <input type="checkbox" id="cbx" onchange="toggleAccNumsDiv()" style="display: none;">
-                                            <label for="cbx" class="check">
-                                                <svg class="acc-checkbox" width="2.5vw" height="2.5vw" viewBox="0 0 18 18">
-                                                    <path
-                                                        d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
-                                                    </path>
-                                                    <polyline points="1 9 7 14 15 4"></polyline>
-                                                </svg>
-                                            </label>
+                    <form id="accomodateForm" action="<?= base_url('admin/accomodation') ?>" method="post">
+                        <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
+                            <!-- <div class="card-content "> -->
+                                <div class="row row-group m-0">
+                                    <div class="accomodation-section ">
+                                        <div class="section-heading">
+                                            <p class="enroll-title">ACCOMMODATION</p>
                                         </div>
-                                        <p class="acc-check-txt">Accomodation Required!</p>
-                                    </div>
 
-                                    <div class="acc-nums-div acc-hide">
-                                        <input class="acc-nums" id="no-b" type="number" oninput="this.value = this.value.slice(0, 2)"
-                                            placeholder="Number of Men">
-                                        <input class="acc-nums" id="no-g" type="number" oninput="this.value = this.value.slice(0, 2)"
-                                            placeholder="Number of Women">
-                                    </div>
-
-                                    <div class="acc-nums-txt1">
-                                        <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
-                                    </div>
-
-                                    <div class="acc-contacts">
-                                        <div class="acc-con">
-                                            <p class="acc-con-name">XXX</p>
-                                            <p class="acc-con-number">+91 00000000</p>
+                                        <div class="acc-points-div">
+                                            <ul>
+                                                <li class="acc-points">Accommodation may incur some charges.</li>
+                                            </ul>
                                         </div>
-                                        <div class="acc-con">
-                                            <p class="acc-con-name">YYYY</p>
-                                            <p class="acc-con-number">+91 0000000000</p>
-                                        </div>
-                                    </div>
 
-                                    <button class="animated-button" onclick="uploadAccommo()" id="accomodation-btn">
-                                        <span>SAVE</span>
-                                        <span></span>
-                                    </button>
+                                        <div class="acc-check-div">
+                                            <div class="cntr" style="height: 36px; width:32px">
+                                                <input type="checkbox" id="cbx" onchange="toggleAccNumsDiv()" style="display: none;">
+                                                <label for="cbx" class="check">
+                                                    <svg class="acc-checkbox" width="2.5vw" height="2.5vw" viewBox="0 0 18 18">
+                                                        <path
+                                                            d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
+                                                        </path>
+                                                        <polyline points="1 9 7 14 15 4"></polyline>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                            <p class="acc-check-txt">Accomodation Required!</p>
+                                        </div>
+
+                                        <div class="acc-nums-div acc-hide">
+                                            <input class="acc-nums" id="no-b" type="number" oninput="this.value = this.value.slice(0, 2)"
+                                                placeholder="Number of Men">
+                                            <input class="acc-nums" id="no-g" type="number" oninput="this.value = this.value.slice(0, 2)"
+                                                placeholder="Number of Women">
+                                        </div>
+
+                                        <div class="acc-nums-txt1">
+                                            <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
+                                        </div>
+
+                                        <div class="acc-contacts">
+                                            <div class="acc-con">
+                                                <p class="acc-con-name">XXX</p>
+                                                <p class="acc-con-number">+91 00000000</p>
+                                            </div>
+                                            <div class="acc-con">
+                                                <p class="acc-con-name">YYYY</p>
+                                                <p class="acc-con-number">+91 0000000000</p>
+                                            </div>
+                                        </div>
+
+                                        <button class="accom-animated-button"  id="accomodation-btn">
+                                            <span>SAVE</span>
+                                            <span></span>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        <!-- </div> -->
-                    </div>
+                            <!-- </div> -->
+                        </div>
+                    </form>
                     <!-- end of accomodation   -->
 
                      
@@ -789,7 +815,7 @@
                             </ul>
 
                             <ul class="navbar-nav align-items-center right-nav-link">
-                                <p class="team-name mt-2">Welcome!.. <?php echo session('name'); ?></p>
+                                <p class="team-name mt-2">Welcome Team!!.. <span class="header-team-name"> <?php echo session('team_name'); ?> </span></p>
                                 <li class="nav-item">
                                     <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                                         <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
@@ -910,6 +936,7 @@
 <script src="<?= base_url('assets/web/js/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/jquery-3.4.1.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/popper.min.js') ?>"></script>
+<!-- Bootstrap JavaScript -->
 <script src="<?= base_url('assets/web/js/bootstrap.min.js') ?>"></script>
 <!-- jQuery library -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
@@ -918,24 +945,28 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!-- simplebar js -->
 <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
 <!-- sidebar-menu js -->
 <script src="<?= base_url('assets/web/js/sidebar-menu.js') ?>"></script>
-<!-- loader scripts -->
-<script src="<?= base_url('assets/web/js/jquery.loading-indicator.js') ?>"></script>
+
 <!-- Custom scripts -->
 <script src="<?= base_url('assets/web/js/app-script.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/preventlinks.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/accomodation.js') ?>"></script>
-<script src="<?= base_url('assets/web/js/imagekit.js') ?>"></script>
+
 <script src="<?= base_url('assets/web/js/enroll.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/dashboard.js') ?>"></script>
 <!-- Chart js -->
 
-<script src="<?= base_url('ssets/web/plugins/Chart.js/Chart.min.js') ?>"></script>
+
 
 <!-- Index js -->
-<script src="<?= base_url('assets/web/js/index.js') ?>"></script>
+<!-- <script src="<?= base_url('assets/web/js/index.js') ?>"></script> -->
 
 
   

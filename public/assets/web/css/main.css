@@ -205,7 +205,42 @@ iframe {
 .txt2:hover {
   color: #0a0a0a;
 }
+.vtxt1 {
+  font-family: Poppins-Regular;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  line-height: 1.5;
+}
 
+.vtxt2 {
+  font-family: Poppins-Regular;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  line-height: 1.5;
+  text-decoration: none;
+  margin-left: 90px;
+  font-weight: bold;
+}
+.vtxt2:hover {
+  color: #0a0a0a;
+}
+.vrtxt2 {
+  font-family: Poppins-Regular;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  line-height: 1.5;
+  text-decoration: none;
+  font-weight: bold;
+}
+.vrtxt2:hover {
+  color: #0a0a0a;
+}
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
@@ -311,6 +346,75 @@ iframe {
 /*------------------------------------------------------------------
 [ Input ]*/
 
+/* error  */
+.info {
+  font-family: "IBM";
+  width: 25vw;
+  padding: 12px;
+  position: fixed; /* Change position to fixed */
+  top: 1vh;
+  left: 50%;
+  transform: translateX(-50%); /* Simplify translation */
+  z-index: 1000; /* Increase z-index to ensure it overlays other content */
+  display: none;
+  margin-top: 10px;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  background: #303030;
+  border-radius: 8px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 5px -3px #111;
+}
+
+.show-flex {
+  display: flex !important;
+}
+
+.success {
+  background-color: #1f9139; /* Green color */
+}
+
+.error {
+  background-color: #960d1a;
+  /* Red color */
+}
+
+.info__icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+}
+
+.info__icon path {
+  fill: #fff;
+}
+
+.info__title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  margin-left: 25px;
+}
+
+.info__close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.info__close path {
+  fill: #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+  .info {
+    width: 90%;
+  }
+}
 .wrap-input100 {
   width: 90%;
   border-bottom: 2px solid #ffffff;
