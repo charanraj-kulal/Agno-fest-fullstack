@@ -264,26 +264,49 @@ class User extends BaseController
 
 
 
-    public function update($id = null)
+    public function updateUser()
     {
-        if ($this->request->getMethod() === 'post') {
+        // Retrieve updated user details from the request
+        $userId = $this->request->getPost('id');
+        $name = $this->request->getPost('name');
+        $collegeName = $this->request->getPost('college_name');
+        $email = $this->request->getPost('email');
+        $userType = $this->request->getPost('user_type');
+
+        // Update the user details in the database
+        $userModel = new UserModel();
+        $user = $userModel->find($userId);
+
+        if ($user) {
             
-            $userId = $this->request->getPost('user_id');
+                $user->name = $name;
+                $user->college_name = $collegeName;
+                $user->email = $email;
+                $user->user_type = $userType;
 
-            
-            $userRole = $this->request->getPost('user_role');
-
-           
-            $userModel = new UserModel();
-            $userModel->update($userId, ['user_type' => $userRole]);
-
-            // Redirect back to the page where the form was submitted
-            return redirect()->back()->with('success', 'User role updated successfully.');
+                if ($user->save()) {
+                    // Return success response
+                    return $this->response->setJSON([
+                        'success' => true,
+                        'message' => 'User details updated successfully.'
+                    ]);
+                } else {
+                    // Return error response
+                    return $this->response->setJSON([
+                        'success' => false,
+                        'message' => 'Failed to update user details.'
+                    ]);
+                }
+          
         } else {
-            // If it's not a POST request, redirect back to the page where the form was submitted
-            return redirect()->back()->with('error', 'Invalid request method.');
+            // Return error response if user not found
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User not found.'
+            ]);
         }
     }
+
 
     public function login_view(){
         return view('app/login/login2');

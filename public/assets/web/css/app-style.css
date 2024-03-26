@@ -700,6 +700,165 @@ body.bg-theme14 {
 body.bg-theme15 {
   background-image: linear-gradient(45deg, #6a11cb, #2575fc);
 }
+/* modal  */
+#dialog {
+  position: fixed; /* Changed from absolute to fixed */
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Change background to light black with opacity */
+  backdrop-filter: blur(5px); /* Apply backdrop blur */
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+.dialog_state {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+.dialog_state:checked + #dialog,
+#dialog.dialog_open {
+  transition-delay: 0s;
+  opacity: 1;
+  visibility: visible;
+}
+#dlg-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  cursor: pointer;
+}
+.dialog_state:checked + #dialog #dlg-wrap {
+  max-height: 24rem;
+  opacity: 1;
+  padding: 2rem;
+}
+#dlg-wrap {
+  position: relative;
+  z-index: 1;
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 640px;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #969696;
+  background-color: rgba(146, 146, 146, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  backdrop-filter: blur(9px);
+  overflow: hidden;
+  transition: all 0.5s;
+}
+#dlg-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  line-height: 2rem;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+}
+h2#dlg-header {
+  font: 200 2em/1em Raleway, Open Sans, Arial, Sans-Serif;
+  text-transform: initial;
+  letter-spacing: -0.025em;
+  margin: 0 0 1rem;
+}
+#dlg-content {
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.015em;
+}
+#dlg-prompt .button {
+  margin: 1rem 0.5rem;
+  border-radius: 1.5rem;
+}
+
+.main_area {
+  transition: all 0.5s ease-out;
+}
+.dialog_state:checked ~ .main_area,
+.main_area.dialog_open {
+  filter: blur(6px);
+}
+
+.button,
+a.button {
+  display: inline-block;
+  padding: 0.25em 1em;
+  box-sizing: border-box;
+  margin: 1rem auto;
+  background: #0f0f0f;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.075em;
+  line-height: 2rem;
+  font-family: Raleway, Open Sans, Arial;
+  font-weight: 300;
+  font-size: 0.85em;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+
+  transition: 0.1s all;
+  cursor: pointer;
+}
+.input100 {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  line-height: 1.2;
+  display: block;
+  background: black;
+  padding: 0 5px;
+  border: 1px solid white;
+  color: white;
+}
+.button:hover,
+a.button:hover {
+  color: #a0a0a0;
+  background: #ff1313;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  /*transform: scale(1.01);*/
+}
+.button.positive,
+a.button.positive {
+  border-color: #ffffff;
+  color: #ffffff;
+  display: inline-block;
+  padding: 0.25em 1em;
+  box-sizing: border-box;
+  margin: 1rem auto;
+}
+.button.positive:hover,
+a.button.positive:hover {
+  border-color: #468fb6;
+  color: #fff;
+  background-color: #468fb6;
+}
+
+.icon {
+  vertical-align: middle;
+  line-height: inherit;
+  font-size: 1.75em;
+}
 
 /* .error */
 
@@ -2625,11 +2784,16 @@ table.grid td {
 .table th {
   white-space: nowrap;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  vertical-align: middle;
 }
 
-.table-bordered td,
+.table-bordered td label,
 .table-bordered th {
   border: 1px solid rgba(255, 255, 255, 0.15);
+  vertical-align: middle;
+}
+.edit-user-btn {
+  margin-top: 10px;
 }
 
 .table-hover tbody tr:hover {

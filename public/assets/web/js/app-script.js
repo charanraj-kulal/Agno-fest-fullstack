@@ -96,10 +96,55 @@ $(function () {
     //show data in modal
     $(document).on("click", ".edit-user-btn", function () {
       var userId = $(this).data("user-id");
+
       // Fetch user data by userId via AJAX and populate the modal
       fetchUserDetails(userId);
     });
+    $(document).on("click", "#updateUser", function () {
+      // Fetch user data by userId via AJAX and populate the modal
+      updateUserDetails();
+    });
   });
+  var userIdToUpdate;
+  //update user
+  // AJAX function to update user details
+  function updateUserDetails() {
+    // Get the updated user details from the form
+    var name = $("#editUserName").val();
+    var collegeName = $("#editCollegeName").val();
+    var email = $("#editEmail").val();
+    var userType = $("#editUserRole").val();
+
+    // Send AJAX request to update user details
+    $.ajax({
+      url: "/admin/updateUser/" + userIdToUpdate,
+      type: "POST",
+      dataType: "json",
+      data: {
+        id: userIdToUpdate,
+        name: name,
+        college_name: collegeName,
+        email: email,
+        user_type: userType,
+      },
+      success: function (response) {
+        if (response.success) {
+          // If update successful, reload user data
+          showAlert(response.message, true);
+          fetchUsers();
+          // Close the dialog box
+          $("#editUserModal").modal("hide");
+        } else {
+          // Handle error
+          showAlert(response.message, false);
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle error
+        console.error(error);
+      },
+    });
+  }
 
   //fetch user details of user
   function fetchUserDetails(userId) {
@@ -111,16 +156,19 @@ $(function () {
         "user-id": userId,
       },
       success: function (response) {
-        $.each(response.users, function (index, user) {
+        if (response.users) {
+          var user = response.users;
+          userIdToUpdate = user.id; // Assuming user data is returned directly
           // Populate modal with user details
           $("#editUserName").val(user["name"]);
           $("#editCollegeName").val(user["college_name"]);
           $("#editEmail").val(user["email"]);
           $("#editUserRole").val(user["user_type"]);
-
-          // // Show modal
-          $("#editUserModal").show();
-        });
+          // Show the dialog
+          // $("#dialog_state").prop("checked", true);
+        } else {
+          console.error("No user data found.");
+        }
       },
       error: function (xhr, status, error) {
         // Handle error
@@ -167,6 +215,7 @@ $(function () {
           $.each(response.users, function (index, user) {
             // Check if college_name property exists in user object
             if (user.hasOwnProperty("college_name")) {
+              var userType = user.user_type == 2 ? "admin" : "student";
               var newRow =
                 "<tr>" +
                 "<td>" +
@@ -179,10 +228,13 @@ $(function () {
                 user.email +
                 "</td>" +
                 "<td>" +
-                '<button class="btn btn-light edit-user-btn" data-bs-toggle="modal" data-bs-target="#editUserModal" data-user-id="' +
+                userType +
+                "</td>" +
+                "<td>" +
+                '<label class="btn btn-light edit-user-btn" for="dialog_state"  data-user-id="' +
                 user.id +
-                '"><i class="fas fa-edit"></i></button>' +
-                '<span style="margin: 0 8px;"></span>' + // Add space between icons
+                '"><i class="fas fa-edit"></i></label>' +
+                '<span style="margin: 0 8px;"></span>' + //space
                 '<button class="btn btn-light delete-user-btn" data-user-id="' +
                 user.id +
                 '"><i class="fas fa-trash-alt"></i></button>' +

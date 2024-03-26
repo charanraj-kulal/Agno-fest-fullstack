@@ -121,46 +121,49 @@
         
             <div class="content-wrapper">
                 <div class="container-fluid">
-                    <div class="modal" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="editUserForm">
-                                        <div class="form-group">
-                                            <label for="editUserName">Name</label>
-                                            <input type="text" class="form-control" id="editUserName" name="editUserName" readonly>
+                   
+                    <input type="checkbox" name="dialog_state" id="dialog_state" class="dialog_state">
+                    <div id='dialog'>
+                        <label id="dlg-back" for="dialog_state"></label>
+                        <div id='dlg-wrap'>
+                            <label id="dlg-close" for="dialog_state"><i class="fa fa-times"></i></label>
+                            <h2 id='dlg-header'>Edit User</h2>
+                            <div class="modal-body">
+                                <form id="editUserForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="editUserName">Name</label>
+                                                <input  type="text" class="form-control  input100" id="editUserName" name="editUserName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editCollegeName">College Name</label>
+                                                <input  type="text" class="form-control input100" id="editCollegeName" name="editCollegeName" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="editCollegeName">College Name</label>
-                                            <input type="text" class="form-control" id="editCollegeName" name="editCollegeName"
-                                                readonly>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="editEmail">Email</label>
+                                                <input  type="email" class="form-control input100" id="editEmail" name="editEmail" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editUserRole">User Type</label>
+                                                <select  class="form-control input100" id="editUserRole" name="editUserRole">
+                                                    <option value="2">Admin</option>
+                                                    <option value="1">Student</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="editEmail">Email</label>
-                                            <input type="email" class="form-control" id="editEmail" name="editEmail" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="editUserRole">User Type</label>
-                                            <select class="form-control" id="editUserRole" name="editUserRole" disabled>
-                                                <option value="admin">Admin</option>
-                                                <option value="student">Student</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary" id="updateUserBtn">Update</button>
-                                </div>
+                                    </div>
+                                    <div align="center">
+                                        <div id="updateUser" class='button positive'><i class="fa fa-check"></i>Save</div><span style="margin-left:20px; margin-right:20px"></span>
+                                        <label class='button' for="dialog_state"><i class="fa fa-times"></i> Cancel</label>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                                
         
                     <!-- enroll starts -->
                     <div class="card mt-3 dashboard-cards" id="enroll-section-id">
@@ -641,6 +644,7 @@
                                                                     <th>Name</th>
                                                                     <th>College Name</th>
                                                                     <th>Email</th>
+                                                                    <th>User Role</th>
                                                                     <th>Edit</th>
                                                                     
                                                                 </tr>

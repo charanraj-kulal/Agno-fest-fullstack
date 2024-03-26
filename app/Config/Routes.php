@@ -55,6 +55,10 @@ $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
 //delete user
     $routes->get('admin/deleteUser/(:num)', 'User::deleteUser/$1');
 
+    //update user
+        $routes->post('admin/updateUser/(:num)', 'User::updateUser/$1');
+
+
 //event reg route
 $routes->post('admin/event-register', 'EventRegister::register');
 
