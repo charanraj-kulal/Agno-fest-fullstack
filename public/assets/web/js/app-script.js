@@ -130,6 +130,7 @@ $(function () {
       success: function (response) {
         if (response.success) {
           // If update successful, reload user data
+          
           showAlert(response.message, true);
           fetchUsers();
           // Close the dialog box
@@ -215,7 +216,7 @@ $(function () {
           $.each(response.users, function (index, user) {
             // Check if college_name property exists in user object
             if (user.hasOwnProperty("college_name")) {
-              var userType = user.user_type == 2 ? "admin" : "student";
+              var userType = user.user_type == 2 ? "Admin" : "Student";
               var newRow =
                 "<tr>" +
                 "<td>" +
