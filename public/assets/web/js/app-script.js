@@ -130,11 +130,11 @@ $(function () {
       success: function (response) {
         if (response.success) {
           // If update successful, reload user data
-          
+
           showAlert(response.message, true);
           fetchUsers();
           // Close the dialog box
-          $("#editUserModal").modal("hide");
+          $("#dialog_state").prop("checked", false);
         } else {
           // Handle error
           showAlert(response.message, false);

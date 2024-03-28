@@ -703,7 +703,7 @@ body.bg-theme15 {
 /* modal  */
 #dialog {
   position: fixed; /* Changed from absolute to fixed */
-  z-index: 9999;
+  z-index: 5000;
   top: 0;
   left: 0;
   width: 100%;
@@ -870,7 +870,7 @@ a.button.positive:hover {
   top: 1vh;
   left: 50%;
   transform: translateX(-50%); /* Simplify translation */
-  z-index: 1000; /* Increase z-index to ensure it overlays other content */
+  z-index: 9999; /* Increase z-index to ensure it overlays other content */
   display: none;
   margin-top: 10px;
   margin-left: 8.8%;
