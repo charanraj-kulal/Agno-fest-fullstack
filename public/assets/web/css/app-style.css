@@ -5259,6 +5259,26 @@ input {
   margin-left: 0.2vh;
   font-size: 0.8vw;
 }
+.enroll-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 3px black;
+  z-index: 1;
+  padding: 0.75rem;
+  padding-left: 0;
+  padding-right: 10vw;
+}
+
+.enroll-footer button {
+  margin: 0;
+}
 
 .animated-button {
   position: relative;
@@ -5276,10 +5296,9 @@ input {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  margin-top: 3vh;
-  display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999; /* Ensure it's above other content */
 }
 
 .animated-button span:last-child {
