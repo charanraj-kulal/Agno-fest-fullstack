@@ -439,8 +439,6 @@ function getFormData() {
 
   return formData;
 }
-
-// Function to display error messages
 function displayErrorMessages(errors) {
   // Loop through the errors object and display error messages
   for (var key in errors) {
@@ -458,13 +456,16 @@ function clearErrorMessages() {
 
 // Event listener for form submission
 $("#enroll-save-btn").click(function (e) {
-  if (checkValidation() == true) {
-    e.preventDefault(); // Prevent the default form submission
-    clearErrorMessages(); // Clear previous error messages
+  alert();
+  e.preventDefault(); // Prevent the default form submission
 
-    // Get form data
-    var formData = getFormData();
+  clearErrorMessages(); // Clear previous error messages
 
+  // Get form data
+  var formData = getFormData();
+
+  // Perform validation
+  if (checkValidation(formData)) {
     // Perform AJAX request
     submitEnrollForm(formData);
   }
@@ -472,7 +473,7 @@ $("#enroll-save-btn").click(function (e) {
 
 // Function to submit the enroll form via AJAX
 function submitEnrollForm(formData) {
-  e.preventDefault();
+  alert("Hello");
   $.ajax({
     url: form.attr("action"), // URL to your controller method
     method: "POST",
@@ -481,10 +482,10 @@ function submitEnrollForm(formData) {
     success: function (response) {
       if (response.status === "success") {
         // Show success alert
-        showAlert("success", response.message);
+        showAlert("Success", true);
       } else {
         // Show error alert
-        showAlert("error", response.message);
+        showAlert("An error occurred while processing your request.", false);
         if (response.errors) {
           // Display error messages
           displayErrorMessages(response.errors);
@@ -493,51 +494,10 @@ function submitEnrollForm(formData) {
     },
     error: function (xhr, status, error) {
       // Show error alert
-      showAlert("error", "An error occurred while processing your request.");
+      showAlert("An error occurred while processing your request.", false);
     },
   });
 }
-
-// Function to display alerts
-function showAlert(message, isSuccess) {
-  var alertBox = $(".info");
-  var alertTitle = $("#alert-title");
-  var alertClose = $("#closeAlert");
-
-  alertTitle.text(message);
-
-  // Remove existing classes to prevent color conflicts
-  alertBox.removeClass("success error");
-
-  if (isSuccess) {
-    alertBox.addClass("success");
-  } else {
-    alertBox.addClass("error");
-  }
-
-  alertBox.addClass("show-flex");
-  alertBox.show();
-
-  setTimeout(function () {
-    alertBox.hide();
-    alertBox.removeClass("show-flex");
-  }, 3000); // 3 seconds delay before hiding
-
-  alertClose.click(function () {
-    alertBox.hide(); // Hide the alert box when close button is clicked
-  });
-}
-
-// async function enrollSave() {
-//   $("#enroll-save-btn").on("click", function () {
-//     if (checkValidation() == true) {
-//       loader.style.display = "block";
-
-//       // Redirect to admin/event-register route
-//       window.location.href = "<?php echo base_url('admin/event-register'); ?>";
-//     }
-//   });
-// }
 
 /* Nav active border */
 
@@ -552,35 +512,6 @@ function handleClick(linkId) {
     }
   });
 }
-
-/* ALERT */
-// function openAlert(text) {
-//   const alertBox = document.querySelector(".info");
-//   const alertTitle = document.getElementById("alert-title");
-//   const closeButton = document.querySelector(".info__close");
-
-//   // Check if text is provided
-//   if (text) {
-//     // Set the alert title dynamically
-//     alertTitle.textContent = text;
-
-//     // Display the alert box
-//     alertBox.style.display = "flex";
-
-//     // Close the alert box after 3 seconds
-//     setTimeout(closeAlert, 3000);
-//     closeButton.addEventListener("click", closeAlert);
-//   }
-// }
-
-function closeAlert() {
-  const alertBox = document.querySelector(".info");
-  alertBox.style.display = "none";
-}
-//To close using close button
-document.querySelector(".info__close").addEventListener("click", function () {
-  closeAlert();
-});
 
 function checkValidation() {
   //If nothing is entered
