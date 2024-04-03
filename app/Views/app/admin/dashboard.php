@@ -180,7 +180,7 @@
                                         <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                                     </div>
 
-                                    <form id="eventForm" action="<?= base_url('admin/event-register') ?>">
+                                    <form id="eventForm" action="<?= base_url('admin/event-register') ?>" method="post">
                                     <!-- <form id="myForm" method="post"> -->
                                         <div class="forms-events">
                                             <!-- coding -->
