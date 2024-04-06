@@ -309,7 +309,7 @@ function clearErrorMessages() {
 
 // Event listener for form submission
 $("#enroll-save-btn").click(function (e) {
-  alert();
+  
   e.preventDefault(); // Prevent the default form submission
 
   clearErrorMessages(); // Clear previous error messages
