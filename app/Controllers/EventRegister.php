@@ -29,12 +29,12 @@ class EventRegister extends BaseController
             if ($session->get('isLoggedIn')) {
                 // Get the user ID from the session
                 $userId = $session->get('id');
-                $teamId = $session->get('team_id');
+                $teamName = $session->get('team_name');
 
                 
                 $eventdata = [
                 'user_id' => $userId,
-                'team_id' => $teamId,
+                'team_name' => $teamName,
                 'coding_mem_1' => $this->request->getVar('coding-mem1'),
                 'coding_mem_contact_1' => $this->request->getVar('coding-mem1-con1'),
                 'coding_mem_2' => $this->request->getVar('coding-mem2'),
@@ -76,7 +76,7 @@ class EventRegister extends BaseController
                 if ($inserted) {
                     // Data insertion successful
                     $eventsessdata = [
-                        'team_name' => $teamId, // Assuming team_name is team_id
+                        'team_name' => $teamName, // Assuming team_name is team_id
                         'isEnrolled' => true,
                     ];
                     session()->set($eventsessdata);

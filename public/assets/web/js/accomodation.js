@@ -86,7 +86,6 @@ function submitAccommodationForm(numOfBoys, numOfGirls) {
 function showAlert(message, isSuccess) {
   var alertBox = $(".info");
   var alertTitle = $("#alert-title");
-  var alertClose = $("#closeAlert");
 
   alertTitle.text(message);
 
