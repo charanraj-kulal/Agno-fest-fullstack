@@ -101,12 +101,12 @@
                     </li>
 
                     <li>
-                        <a href="tables.html">
+                        <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
                         <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="icons.html">
+                        <a href="#reports-section-id" onclick="handleClick('reports_nav')" id="reports_nav">
                         <i class="zmdi zmdi-chart"></i> <span>Reports</span>
                         </a>
                     </li>
@@ -180,8 +180,8 @@
                                         <p class="enroll-title">ENROLL FOR THE EVENTS...</p>
                                     </div>
 
-                                    <form id="eventForm" action="<?= base_url('admin/event-register') ?>" method="post">
-                                    <!-- <form id="myForm" method="post"> -->
+                                    <form id="eventForm">
+                                    
                                         <div class="forms-events">
                                             <!-- coding -->
                                             <div class="event">
@@ -610,7 +610,7 @@
                                                     events. You can check out the rules for more details.</p>
                                             </div> -->
 
-                                                <button id="enroll-save-btn" class="animated-button" type="submit">
+                                                <button id="enroll-save-btn" class="animated-button">
                                                     <span>ENROLL</span>
                                                     <span></span>
                                                 </button>
@@ -633,7 +633,7 @@
                                     </div>
                                     <div class="forms-events">
                                         
-                                        <div class="col-lg-12 col-md-6 col-sm-3">
+                                        <div class="col-lg-12 col-md-8 col-sm-4">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 align="center" class="card-title">Edit Users</h5>
@@ -789,7 +789,146 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end of accomodation   -->
+                    <!-- end of rules   -->
+
+
+                    <!-- start of site settings -->
+                    <div class="card mt-6 dashboard-cards forallsec hide" id="settings-section-id">
+                        <div class="card-body">
+                            <div class="rules-section">
+                                <div class="section-heading mb-4">
+                                    <p class="enroll-title">ACCOUNT SETTINGS</p>
+                                </div>
+
+                                <div class="settings-content-div mb-4">
+                                    <div class="settings-con1-div">
+                                        <p class="settings-txt1">College Name:</p>
+                                        <p class="settings-txt" id="set-clg-name"><?php echo session('college_name'); ?> </p>
+                                    </div>
+                                    <div class="settings-con2-div">
+                                        <p class="settings-txt1">Team Name:</p>
+                                        <div class="settings-teamname">
+                                            <p class="settings-txt">Team</p>
+                                            <p class="settings-txt" id="set-team-name"><?php echo session('team_name'); ?> </p>
+                                        </div>
+                                    </div>
+                                    <div class="settings-con3-div">
+                                        <p class="settings-txt1">Registration Status:</p>
+                                        
+                                        <p class="settings-txt" id="set-reg-status">Not Completed!</p>
+                                    </div>
+                                </div>
+
+                                <div class="contactus-section-new">
+                                    <div class="section-heading mb-4">
+                                        <p class="enroll-title">CONTACT US</p>
+                                    </div>
+
+                                    <div class="contact-sec1 mb-4">
+                                        <p class="contact-txthead mb-2"><b>Website Admins</b></p>
+                                        <div class="contact-con-div">
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">Charanraj:</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">Charanraj:</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">cccccccc:</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-sec2 mb-4">
+                                        <p class="contact-txthead mb-2"><b>Staff Coordinators</b></p>
+                                        <div class="contact-con-div">
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">Mrs.staff:</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">Mr.STaff:</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">Mr.STaff:</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                            <div class="con-txt-div">
+                                                <p class="con-txt1">Mrs.STaff :</p>
+                                                <p class="con-txt2">+91 80000000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- end of site settings   -->
+
+                    <!-- start of reports -->
+                    <div class="card mt-6 dashboard-cards  forallsec hide" id="reports-section-id">
+                        <div class="card-content">
+                            <div class="row row-group m-0">
+                                <div class="rules-section ">
+                                    <div class="d-flex justify-content-center main" >
+                                        <div class="content mt-5 mb-5 text-light">
+                                            <h1 class="h1 mt-1  heading">Privacy and Policy</h1>
+                                            <div class="ms-2 me-2">
+                                                <p class="h6">These terms and conditions outline the rules and regulations for the use of Sambhram 24's Website, located at https://abc.com/.</p>
+
+                                                <p class="h6">By accessing this website we assume you accept these terms and conditions. Do not continue to use Sambhram 24 if you do not agree to take all of the terms and conditions stated on this page.
+                                                    
+                                                    ABC is a National level techno-cultural festival for the students of technical institutes across the country. However, some events like Battle of the Bands, Fashion Show, Vibe and Stomp That! (Termed as semi-pro events here onwards) are open to all the colleges in the country.</p>
+                                                    <ul>
+                                                        <li>
+                                                            <p class="h6">Participants from only same colleges can form a team.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">Participants must follow all the rules and regulations of the college.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">Display of any unruly behaviour shall lead to disqualification of the team and expulsion of the participant from the fest.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">Consumption of any alcoholic drinks, use of any hallucinogenic drugs and other illegal substances anywhere in the institute campus is strictly prohibited and any person who has consumed such substances and makes an attempt to enter the campus will not be allowed inside.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">Organisers hold the right to change the rules of the event before the event begins without prior notice.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">The entry for the events will be through the Sambhram22 website.</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">The participant must also present their college ID card (compulsory) and Valid government issued ID Proof (Any one) (Aadhaar, Driving license, Voter ID, etc.).</p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="h6">Any participant found violating the above rules may be immediately expelled from the campus. His/her registration from all the events may be cancelled and he/she will be penalised appropriately. Organiser reserves the right to take appropriate legal actions in such cases.</p>
+                                                        </li>  
+                                                    </ul>
+                                                    <h1 class="h3 mt-1 heading">Cancellation Policy</h1>
+                                                    <p class="h6">*Cancellation is not allowed once registered.</p>
+                                                    <p class="h6">The participant registered for the event cannot withdraw the registration and no refund will issued.</p>
+                                                
+                                            
+                                                    <h1 class="h3 mt-1 heading">Refund Policy</h1>
+                                                    <p class="h6">Refunds in any particular case can only be initiated upon request. Please reach out to the Technical Heads of Sambhram24 for refunds.</p>
+                                                    <p class="h6">Name:   xxx xxx xxxx</p>
+                                                    <p class="h6">Name:   xxx xxx xxxx</p>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of reports   -->                   
                     
             
         

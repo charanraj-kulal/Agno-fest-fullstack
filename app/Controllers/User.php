@@ -279,12 +279,14 @@ class User extends BaseController
 
         if ($user) {
             
-                $user->name = $name;
-                $user->college_name = $collegeName;
-                $user->email = $email;
-                $user->user_type = $userType;
+                $user['name'] = $name;
+                $user['college_name'] = $collegeName;
+                $user['email'] = $email;
+                $user['user_type'] = $userType;
 
-                if ($user->save()) {
+                
+
+                if ($userModel->update($userId, $user)) {
                     // Return success response
                     return $this->response->setJSON([
                         'success' => true,

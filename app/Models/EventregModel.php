@@ -14,6 +14,7 @@ class EventregModel extends Model
     protected $protectFields    = true;
     protected $allowedFields = [
         'user_id',
+        'team_name',
         'coding_mem_1',
         'coding_mem_contact_1',
         'coding_mem_2',
@@ -46,6 +47,7 @@ class EventregModel extends Model
         'thunt_mem_contact_1',
         'thunt_mem_2',
         'thunt_mem_contact_2',
+        'isenrolled',
         'created_at',
         'updated_at'
     ];

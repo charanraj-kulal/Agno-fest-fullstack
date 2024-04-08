@@ -11,13 +11,13 @@ class EventReg extends Migration
     $this->forge->addField([
             'id' => [
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 5,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
             'user_id' => [
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 5,
                 'unsigned' => true,
             ],
             'coding_mem_1' => [

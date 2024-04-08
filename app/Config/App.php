@@ -158,6 +158,12 @@ class App extends BaseConfig
      */
     public array $proxyIPs = [];
 
+
+    //session loader
+    public $aliases = [
+    'session' => CodeIgniter\Session\Session::class,
+    ];
+
     /**
      * --------------------------------------------------------------------------
      * Content Security Policy

@@ -61,6 +61,7 @@ $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
 
 //event reg route
 $routes->post('admin/event-register', 'EventRegister::register');
+$routes->get('admin/fetchData', 'EventRegister::fetchData');
 
 
 //accomodation routes

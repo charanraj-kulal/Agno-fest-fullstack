@@ -703,7 +703,7 @@ body.bg-theme15 {
 /* modal  */
 #dialog {
   position: fixed; /* Changed from absolute to fixed */
-  z-index: 9999;
+  z-index: 5000;
   top: 0;
   left: 0;
   width: 100%;
@@ -870,7 +870,7 @@ a.button.positive:hover {
   top: 1vh;
   left: 50%;
   transform: translateX(-50%); /* Simplify translation */
-  z-index: 1000; /* Increase z-index to ensure it overlays other content */
+  z-index: 9999; /* Increase z-index to ensure it overlays other content */
   display: none;
   margin-top: 10px;
   margin-left: 8.8%;
@@ -5259,6 +5259,26 @@ input {
   margin-left: 0.2vh;
   font-size: 0.8vw;
 }
+.enroll-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 3px black;
+  z-index: 1;
+  padding: 0.75rem;
+  padding-left: 0;
+  padding-right: 10vw;
+}
+
+.enroll-footer button {
+  margin: 0;
+}
 
 .animated-button {
   position: relative;
@@ -5276,10 +5296,9 @@ input {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  margin-top: 3vh;
-  display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999; /* Ensure it's above other content */
 }
 
 .animated-button span:last-child {
@@ -5528,4 +5547,117 @@ input {
 
 .acc-con-number {
   font-size: 1.2vw;
+}
+/* settings  */
+
+.settings-section {
+  margin: 0;
+  height: auto;
+  background: url(/assets/images/mandala.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.settings-content-div {
+  margin: 10vh 0;
+  height: 60%;
+}
+
+.settings-con1-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-con2-div {
+  display: flex;
+  flex-direction: row;
+  margin: 5vh 0;
+}
+
+.settings-con3-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-teamname {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-txt {
+  margin-left: 1vw;
+}
+
+#set-team-name {
+  font-weight: 700;
+  text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
+    0 0 40px red, 0 0 55px red, 0 0 70px red;
+}
+
+.settings-foot-div {
+  display: flex;
+  justify-content: start;
+}
+
+.settings-foot {
+  font-size: 0.7vw;
+}
+
+.contact-us-section-heading {
+  margin-top: 0;
+}
+
+/* Contact Us */
+
+.contactus-section {
+  margin: 0;
+  /* background: url(/assets/images/mandala.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+}
+
+.contact-sec1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.contact-txthead {
+  font-size: 1.1vw;
+  text-align: center;
+}
+
+.contact-sec2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.contact-con-div {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh 0;
+}
+
+.con-txt-div {
+  display: flex;
+  flex-direction: row;
+  margin: 0.7vh 0;
+}
+
+.con-txt1 {
+  font-size: 1vw;
+}
+
+.con-txt2 {
+  margin-left: 1vw;
+  font-size: 1vw;
+}
+#set-reg-status {
+  font-weight: bold;
+  color: red;
+  text-shadow: 0 0 15px black;
 }
