@@ -13,7 +13,7 @@ class AlterEventregTable extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'after' => 'user_id',
-            ]
+            ],   
         ); 
         $this->forge->addColumn('event_registration', $fields);
     }

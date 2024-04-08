@@ -5548,3 +5548,116 @@ input {
 .acc-con-number {
   font-size: 1.2vw;
 }
+/* settings  */
+
+.settings-section {
+  margin: 0;
+  height: auto;
+  background: url(/assets/images/mandala.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.settings-content-div {
+  margin: 10vh 0;
+  height: 60%;
+}
+
+.settings-con1-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-con2-div {
+  display: flex;
+  flex-direction: row;
+  margin: 5vh 0;
+}
+
+.settings-con3-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-teamname {
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-txt {
+  margin-left: 1vw;
+}
+
+#set-team-name {
+  font-weight: 700;
+  text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
+    0 0 40px red, 0 0 55px red, 0 0 70px red;
+}
+
+.settings-foot-div {
+  display: flex;
+  justify-content: start;
+}
+
+.settings-foot {
+  font-size: 0.7vw;
+}
+
+.contact-us-section-heading {
+  margin-top: 0;
+}
+
+/* Contact Us */
+
+.contactus-section {
+  margin: 0;
+  /* background: url(/assets/images/mandala.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+}
+
+.contact-sec1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.contact-txthead {
+  font-size: 1.1vw;
+  text-align: center;
+}
+
+.contact-sec2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.contact-con-div {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh 0;
+}
+
+.con-txt-div {
+  display: flex;
+  flex-direction: row;
+  margin: 0.7vh 0;
+}
+
+.con-txt1 {
+  font-size: 1vw;
+}
+
+.con-txt2 {
+  margin-left: 1vw;
+  font-size: 1vw;
+}
+#set-reg-status {
+  font-weight: bold;
+  color: red;
+  text-shadow: 0 0 15px black;
+}

@@ -10,28 +10,7 @@ $(function () {
     $("#wrapper").toggleClass("toggled");
   });
 
-  // === sidebar menu activation js
-
-  // $(function () {
-  //   for (
-  //     var i = window.location,
-  //       o = $(".sidebar-menu a")
-  //         .filter(function () {
-  //           return this.href == i;
-  //         })
-  //         .addClass("active")
-  //         .parent()
-  //         .addClass("active");
-  //     ;
-
-  //   ) {
-  //     if (!o.is("li")) break;
-  //     o = o.parent().addClass("in").parent().addClass("active");
-  //   }
-  // });
   function handleClick(event, navId) {
-    // Add your existing logic here
-
     // Remove the 'active' class from all nav items
     $(".sidebar-menu a").removeClass("active");
     // Add the 'active' class to the clicked nav item
@@ -53,6 +32,14 @@ $(function () {
 
   $("#rules_nav").click(function (event) {
     handleClick(event, "rules_nav");
+  });
+
+  $("#settings_nav").click(function (event) {
+    handleClick(event, "settings_nav");
+  });
+
+  $("#reports_nav").click(function (event) {
+    handleClick(event, "reports_nav");
   });
 
   /* Top Header */
@@ -377,14 +364,14 @@ $(function () {
   const accomodationSec = document.querySelector("#accomodation-section-id");
   const rulesSec = document.querySelector("#rules-section-id");
   const settingSec = document.querySelector("#settings-section-id");
-  const contactSec = document.querySelector("#contactus-section-id");
+  const reportsSec = document.querySelector("#reports-section-id");
 
   const enrollBtn = document.querySelector("#enroll-nav");
   const manageuserBtn = document.querySelector("#manage_user_nav");
   const accomodationBtn = document.querySelector("#accomodation_nav");
   const rulesBtn = document.querySelector("#rules_nav");
-  const settingBtn = document.querySelector("#settings-nav");
-  const contactBtn = document.querySelector("#contactus-nav");
+  const settingBtn = document.querySelector("#settings_nav");
+  const reportsBtn = document.querySelector("#reports_nav");
 
   const showSection = (section) => {
     const sections = [
@@ -393,7 +380,7 @@ $(function () {
       accomodationSec,
       rulesSec,
       settingSec,
-      contactSec,
+      reportsSec,
     ];
 
     sections.forEach((sec) => {
@@ -438,8 +425,8 @@ $(function () {
     hideHambergerMenu();
   };
 
-  contactBtn.onclick = () => {
-    showSection(contactSec);
+  reportsBtn.onclick = () => {
+    showSection(reportsSec);
     hideHambergerMenu();
   };
 
