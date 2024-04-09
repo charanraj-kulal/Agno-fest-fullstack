@@ -404,6 +404,36 @@ small {
   margin-left: 0;
 }
 
+/* side bar report  */
+.extra-links {
+  display: none; /* Hide the extra links by default */
+}
+/* Adjust the position of the angle-left icon */
+.right {
+  float: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate the angle-left icon when the extra-links are displayed */
+.rotate-down {
+  transform: rotate(-90deg);
+}
+/* Remove list style */
+.extra-links li {
+  list-style: none;
+  padding: 8px 0;
+}
+.extra-links li i {
+  margin-right: 8px;
+}
+
+ul.extra-links > li.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white !important;
+  border-left-color: #ffffff !important;
+  transition: 0.5s ease-in-out !important;
+}
+
 /* Page Content Wrapper */
 .content-wrapper {
   margin-left: 250px;
@@ -1419,13 +1449,12 @@ a.button.positive:hover {
   margin-right: 10px;
   font-size: 12px;
 }
-.sidebar-menu a.active {
+.sidebar-menu > li > a.active {
   background-color: rgba(255, 255, 255, 0.15);
   color: white;
   border-left-color: #ffffff;
   transition: 0.5s ease-in-out;
 }
-
 .row.row-group > div {
   border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -5658,6 +5687,7 @@ input {
 }
 #set-reg-status {
   font-weight: bold;
-  color: red;
-  text-shadow: 0 0 15px black;
+  color: white;
+  text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
+    0 0 40px red, 0 0 55px red, 0 0 70px red;
 }

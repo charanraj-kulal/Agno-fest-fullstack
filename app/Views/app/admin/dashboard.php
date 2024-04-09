@@ -66,7 +66,7 @@
     <div class="main-contents">
 
         <section class="left-fixed-nav">
-            <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+            <!-- <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
                 <div class="brand-logo">
                     <a href="<?= base_url('/') ?>">
                         <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
@@ -107,16 +107,109 @@
                     </li>
                     <li>
                         <a href="#reports-section-id" onclick="handleClick('reports_nav')" id="reports_nav">
-                        <i class="zmdi zmdi-chart"></i> <span>Reports</span>
+                            <i class="zmdi zmdi-chart"></i> <span>Reports</span> <i class="fas fa-angle-left right"></i>
                         </a>
+                        <ul class="extra-links" id="extra-links">
+                            <li>
+                                <a href="#all-students-reports-section-id" onclick="handleClick('all-students-reports_nav')" id="all-students-reports_nav"><i class="far fa-circle"></i><span>All users</a></span>
+                            </li>
+                            <li>
+                                <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event registration details</a></span>
+                            </li>
+                            <li>
+                                <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accomodation details</a></span>
+                            </li>
+                            <li>
+                                <a href="#all-total-reports-section-id" onclick="handleClick('all-total-reports_nav')" id="all-total-reports_nav"><i class="far fa-circle"></i><span>All Reports</a></span>
+                            </li>
+                        </ul>
                     </li>
-
-                    
 
                 </ul>
             
     
+            </nav> -->
+            <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+                <div class="brand-logo">
+                    <a href="<?= base_url('/') ?>">
+                        <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
+                        <h5 class="logo-text">Dashboard</h5>
+                    </a>
+                </div>
+                <ul class="sidebar-menu do-nicescrol">
+                    <li class="sidebar-header">MAIN NAVIGATION</li>
+
+                    <?php 
+                    // Check if the user type is set in the session
+                    if (isset($_SESSION['user_type'])) {
+                        $userType = $_SESSION['user_type'];
+                        if ($userType == 1) : ?> <!-- Check if user type is student -->
+                            <li>
+                                <a class="active enroll enroll-clicked" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
+                                    <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#accomodation-section-id" onclick="handleClick('accomodation_nav')" id="accomodation_nav">
+                                    <i class="zmdi zmdi-hotel"></i> <span>Accommodation</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
+                                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
+                                    <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+                                </a>
+                            </li>
+                        <?php elseif ($userType == 2) : ?> <!-- Check if user type is admin -->
+                            <li>
+                                <a class="active manage-user manage-user-clicked" href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
+                                    <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
+                                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
+                                    <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#reports-section-id" onclick="handleClick('reports_nav')" id="reports_nav">
+                                    <i class="zmdi zmdi-chart"></i> <span>Reports</span> <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="extra-links" id="extra-links">
+                                    <li>
+                                        <a href="#all-students-reports-section-id" onclick="handleClick('all-students-reports_nav')" id="all-students-reports_nav"><i class="far fa-circle"></i><span>All users</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event registration details</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accommodation details</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#all-total-reports-section-id" onclick="handleClick('all-total-reports_nav')" id="all-total-reports_nav"><i class="far fa-circle"></i><span>All Reports</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                    <?php } ?>
+
+                </ul>
             </nav>
+
+
+
+
+
+
             <div class="clearfix"></div>
         
             <div class="content-wrapper">
@@ -867,69 +960,238 @@
                         </div>
                     </div>
 
-
-
-
                     <!-- end of site settings   -->
 
-                    <!-- start of reports -->
-                    <div class="card mt-6 dashboard-cards  forallsec hide" id="reports-section-id">
+                    <!-- start of all students reports -->
+                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-students-reports-section-id">
                         <div class="card-content">
                             <div class="row row-group m-0">
-                                <div class="rules-section ">
-                                    <div class="d-flex justify-content-center main" >
-                                        <div class="content mt-5 mb-5 text-light">
-                                            <h1 class="h1 mt-1  heading">Privacy and Policy</h1>
-                                            <div class="ms-2 me-2">
-                                                <p class="h6">These terms and conditions outline the rules and regulations for the use of Sambhram 24's Website, located at https://abc.com/.</p>
+                                <div class="manageuser-section" >
+                                    <div class="section-heading">
+                                        <p class="enroll-title">ALL USERS</p>
+                                    </div>
+                                    <div class="forms-events">
+                                        
+                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 align="center" class="card-title">All Users</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="allUserTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>College Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Team Name</th>
+                                                                    <th>Phone No</th>
+                                                                    <th>User Role</th>
+                                                                    <th>Enrolled</th>
+                                                                    <th>Accommodation needed</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php foreach ($users as $user) : ?>
+                                                                    <?php
+                                                                    // Fetch data from EventregModel for enrolled status
+                                                                    $eventRegData = $eventregModel->where('user_id', $user['id'])->first();
+                                                                    $enrolled = ($eventRegData && $eventRegData['isenrolled'] == 1) ? 'Yes' : 'No';
 
-                                                <p class="h6">By accessing this website we assume you accept these terms and conditions. Do not continue to use Sambhram 24 if you do not agree to take all of the terms and conditions stated on this page.
-                                                    
-                                                    ABC is a National level techno-cultural festival for the students of technical institutes across the country. However, some events like Battle of the Bands, Fashion Show, Vibe and Stomp That! (Termed as semi-pro events here onwards) are open to all the colleges in the country.</p>
-                                                    <ul>
-                                                        <li>
-                                                            <p class="h6">Participants from only same colleges can form a team.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Participants must follow all the rules and regulations of the college.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Display of any unruly behaviour shall lead to disqualification of the team and expulsion of the participant from the fest.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Consumption of any alcoholic drinks, use of any hallucinogenic drugs and other illegal substances anywhere in the institute campus is strictly prohibited and any person who has consumed such substances and makes an attempt to enter the campus will not be allowed inside.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Organisers hold the right to change the rules of the event before the event begins without prior notice.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">The entry for the events will be through the Sambhram22 website.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">The participant must also present their college ID card (compulsory) and Valid government issued ID Proof (Any one) (Aadhaar, Driving license, Voter ID, etc.).</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Any participant found violating the above rules may be immediately expelled from the campus. His/her registration from all the events may be cancelled and he/she will be penalised appropriately. Organiser reserves the right to take appropriate legal actions in such cases.</p>
-                                                        </li>  
-                                                    </ul>
-                                                    <h1 class="h3 mt-1 heading">Cancellation Policy</h1>
-                                                    <p class="h6">*Cancellation is not allowed once registered.</p>
-                                                    <p class="h6">The participant registered for the event cannot withdraw the registration and no refund will issued.</p>
-                                                
-                                            
-                                                    <h1 class="h3 mt-1 heading">Refund Policy</h1>
-                                                    <p class="h6">Refunds in any particular case can only be initiated upon request. Please reach out to the Technical Heads of Sambhram24 for refunds.</p>
-                                                    <p class="h6">Name:   xxx xxx xxxx</p>
-                                                    <p class="h6">Name:   xxx xxx xxxx</p>
+                                                                    // Fetch data from AccomodationModel for accommodation needed
+                                                                    $accomodationData = $accomodationModel->where('user_id', $user['id'])->first();
+                                                                    $accommodationNeeded = ($accomodationData) ? 'Yes' : 'No';
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><?= esc($user['name']) ?></td>
+                                                                        <td><?= esc($user['college_name']) ?></td>
+                                                                        <td><?= esc($user['email']) ?></td>
+                                                                        <td><?= esc($user['team_name']) ?></td>
+                                                                        <td><?= esc($user['phone_number']) ?></td>
+                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
+                                                                        <td><?= $enrolled ?></td>
+                                                                        <td><?= $accommodationNeeded ?></td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end of reports   -->                   
+                    <!-- end of all students  reports   -->                   
                     
+                    <!-- start of all event reg reports -->
+                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-events-reports-section-id">
+                        <div class="card-content">
+                            <div class="row row-group m-0">
+                                <div class="manageuser-section" >
+                                    <div class="section-heading">
+                                        <p class="enroll-title">ALL EVENT DETAILS</p>
+                                    </div>
+                                    <div class="forms-events">
+                                        
+                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 align="center" class="card-title">All Users</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="allUserTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>College Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Team Name</th>
+                                                                    <th>Phone No</th>
+                                                                    <th>User Role</th>
+                                                                    <th>Enrolled</th>
+                                                                    <th>Accomodation needed</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php foreach ($users as $user) : ?>
+                                                                    <tr>
+                                                                        <td><?= esc($user['name']) ?></td>
+                                                                        <td><?= esc($user['college_name']) ?></td>
+                                                                        <td><?= esc($user['email']) ?></td>
+                                                                        <td><?= esc($user['team_name']) ?></td>
+                                                                        <td><?= esc($user['phone_number']) ?></td>
+                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
+                                                                        <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
+                                                                        <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of all event reg  reports   --> 
+
+                    <!-- start of all accomodation reports -->
+                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-accomodations-reports-section-id">
+                        <div class="card-content">
+                            <div class="row row-group m-0">
+                                <div class="manageuser-section" >
+                                    <div class="section-heading">
+                                        <p class="enroll-title">ALL ACCOMODATION DETAILS</p>
+                                    </div>
+                                    <div class="forms-events">
+                                        
+                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 align="center" class="card-title">All Users</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="allUserTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>College Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Team Name</th>
+                                                                    <th>Phone No</th>
+                                                                    <th>User Role</th>
+                                                                    <th>Enrolled</th>
+                                                                    <th>Accomodation needed</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php foreach ($users as $user) : ?>
+                                                                    <tr>
+                                                                        <td><?= esc($user['name']) ?></td>
+                                                                        <td><?= esc($user['college_name']) ?></td>
+                                                                        <td><?= esc($user['email']) ?></td>
+                                                                        <td><?= esc($user['team_name']) ?></td>
+                                                                        <td><?= esc($user['phone_number']) ?></td>
+                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
+                                                                        <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
+                                                                        <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of all students  reports   --> 
+
+                    <!-- start of all total  reports -->
+                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-total-reports-section-id">
+                        <div class="card-content">
+                            <div class="row row-group m-0">
+                                <div class="manageuser-section" >
+                                    <div class="section-heading">
+                                        <p class="enroll-title">TOTAL REPORTS</p>
+                                    </div>
+                                    <div class="forms-events">
+                                        
+                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 align="center" class="card-title">All Users</h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="allUserTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>College Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Team Name</th>
+                                                                    <th>Phone No</th>
+                                                                    <th>User Role</th>
+                                                                    <th>Enrolled</th>
+                                                                    <th>Accomodation needed</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php foreach ($users as $user) : ?>
+                                                                    <tr>
+                                                                        <td><?= esc($user['name']) ?></td>
+                                                                        <td><?= esc($user['college_name']) ?></td>
+                                                                        <td><?= esc($user['email']) ?></td>
+                                                                        <td><?= esc($user['team_name']) ?></td>
+                                                                        <td><?= esc($user['phone_number']) ?></td>
+                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
+                                                                        <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
+                                                                        <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
+                                                                    </tr>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of all students  reports   --> 
             
         
 

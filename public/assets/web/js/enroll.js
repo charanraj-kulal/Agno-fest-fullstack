@@ -647,8 +647,9 @@ $(document).ready(function () {
           if (isEnrolled === 1) {
             // If isenrolled is 1, set registration status to "Completed"
             $("#set-reg-status").text("Completed").css({
-              color: "green",
-              "text-shadow": "0 0 15px black",
+              color: "white",
+              "text-shadow":
+                "0 0 5px green, 0 0 10px green, 0 0 20px green, 0 0 30px green, 0 0 40px green, 0 0 55px green, 0 0 70px green",
               "font-weight": "bold",
             });
           } else {
@@ -668,7 +669,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
-        // Show error message or perform other actions if needed
+        showAlert("An error occurred while processing your request.", false);
       },
     });
   }

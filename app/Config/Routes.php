@@ -28,7 +28,7 @@ $routes->get('/about-us', 'LandingPage::aboutus');
 
 
 // Auth routes
-$routes->match(['get', 'post'], 'login', 'Login::index', ['filter' => 'noAuth']);
+// $routes->match(['get', 'post'], 'login', 'Login::index', ['filter' => 'noAuth']);
 
 $routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
