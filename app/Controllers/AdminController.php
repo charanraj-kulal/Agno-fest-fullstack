@@ -14,10 +14,7 @@ class AdminController extends BaseController
     {
             $this->user = new UserModel();
        
-        if (session()->get('user_type') != "2") {
-            echo view('app/common/access_denied');
-            exit;
-        }
+        
     }
 
 
