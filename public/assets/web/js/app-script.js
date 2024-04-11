@@ -10,52 +10,47 @@ $(function () {
     $("#wrapper").toggleClass("toggled");
   });
 
-  // Attach click event handlers to each navigation item
-  $("#enroll-nav").click(function (event) {
-    handleClick(event, "enroll-nav");
-  });
+  // // Attach click event handlers to each navigation item
+  // $("#enroll-nav").click(function (event) {
+  //   handleClick(event, "enroll-nav");
+  // });
 
-  $("#manage_user_nav").click(function (event) {
-    handleClick(event, "manage_user_nav");
-  });
+  // $("#manage_user_nav").click(function (event) {
+  //   handleClick(event, "manage_user_nav");
+  // });
 
-  $("#accomodation_nav").click(function (event) {
-    handleClick(event, "accomodation_nav");
-  });
+  // $("#accomodation_nav").click(function (event) {
+  //   handleClick(event, "accomodation_nav");
+  // });
 
-  $("#rules_nav").click(function (event) {
-    handleClick(event, "rules_nav");
-  });
+  // $("#rules_nav").click(function (event) {
+  //   handleClick(event, "rules_nav");
+  // });
 
-  $("#settings_nav").click(function (event) {
-    handleClick(event, "settings_nav");
-  });
+  // $("#settings_nav").click(function (event) {
+  //   handleClick(event, "settings_nav");
+  // });
 
-  $("#reports_nav").click(function (event) {
-    handleClick(event, "reports_nav");
-  });
+  // $("#reports_nav").click(function (event) {
+  //   handleClick(event, "reports_nav");
+  // });
 
-  $("#all-students-reports_nav").click(function (event) {
-    handleClick(event, "all-students-reports_nav");
-  });
-  $("#all-events-reports_nav").click(function (event) {
-    handleClick(event, "all-events-reports_nav");
-  });
-  $("#all-accomodations-reports_nav").click(function (event) {
-    handleClick(event, "all-accomodations-reports_nav");
-  });
-  $("#all-total-reports_nav").click(function (event) {
-    handleClick(event, "all-total-reports_nav");
-  });
+  // $("#all-students-reports_nav").click(function (event) {
+  //   handleClick(event, "all-students-reports_nav");
+  // });
+  // $("#all-events-reports_nav").click(function (event) {
+  //   handleClick(event, "all-events-reports_nav");
+  // });
+  // $("#all-accomodations-reports_nav").click(function (event) {
+  //   handleClick(event, "all-accomodations-reports_nav");
+  // });
+  // $("#all-total-reports_nav").click(function (event) {
+  //   handleClick(event, "all-total-reports_nav");
+  // });
 
   /* Top Header */
 
   $(document).ready(function () {
-    // Check user session to determine the initial sidebar section to display
-
-    // Call the function with the initial user type
-    toggleSidebarSections(userType);
-
     var navbar = $(".topbar-nav .navbar"); // Corrected selector
 
     $(window).on("scroll", function () {
@@ -366,152 +361,152 @@ $(function () {
   }
 
   // sidebar sections
-  const navLinks = document.querySelector(".left-fixed-nav");
-  const manuIcon = document.querySelector(".menu-icon");
-  const overlay = document.querySelector(".overlay");
+  // const navLinks = document.querySelector(".left-fixed-nav");
+  // const manuIcon = document.querySelector(".menu-icon");
+  // const overlay = document.querySelector(".overlay");
 
-  const enrollSec = document.querySelector("#enroll-section-id");
-  const manageuserSec = document.querySelector("#manageuser-section-id");
-  const accomodationSec = document.querySelector("#accomodation-section-id");
-  const rulesSec = document.querySelector("#rules-section-id");
-  const settingSec = document.querySelector("#settings-section-id");
-  const allStudentsReportsSec = document.querySelector(
-    "#all-students-reports-section-id"
-  );
-  const allEventsReportsSec = document.querySelector(
-    "#all-events-reports-section-id"
-  );
-  const allAccomodationsReportsSec = document.querySelector(
-    "#all-accomodations-reports-section-id"
-  );
-  const allTotalReportsSec = document.querySelector(
-    "#all-total-reports-section-id"
-  );
+  // const enrollSec = document.querySelector("#enroll-section-id");
+  // const manageuserSec = document.querySelector("#manageuser-section-id");
+  // const accomodationSec = document.querySelector("#accomodation-section-id");
+  // const rulesSec = document.querySelector("#rules-section-id");
+  // const settingSec = document.querySelector("#settings-section-id");
+  // const allStudentsReportsSec = document.querySelector(
+  //   "#all-students-reports-section-id"
+  // );
+  // const allEventsReportsSec = document.querySelector(
+  //   "#all-events-reports-section-id"
+  // );
+  // const allAccomodationsReportsSec = document.querySelector(
+  //   "#all-accomodations-reports-section-id"
+  // );
+  // const allTotalReportsSec = document.querySelector(
+  //   "#all-total-reports-section-id"
+  // );
 
-  const enrollBtn = document.querySelector("#enroll-nav");
+  // const enrollBtn = document.querySelector("#enroll-nav");
 
-  const manageuserBtn = document.querySelector("#manage_user_nav");
-  const accomodationBtn = document.querySelector("#accomodation_nav");
-  const rulesBtn = document.querySelector("#rules_nav");
-  const settingBtn = document.querySelector("#settings_nav");
-  // const reportsBtn = document.querySelector("#reports_nav");
-  const allStudentsReportsBtn = document.querySelector(
-    "#all-students-reports_nav"
-  );
-  const allEventsReportsBtn = document.querySelector("#all-events-reports_nav");
-  const allAccomodationsReportsBtn = document.querySelector(
-    "#all-accomodations-reports_nav"
-  );
-  const allTotalReportsBtn = document.querySelector("#all-total-reports_nav");
+  // const manageuserBtn = document.querySelector("#manage_user_nav");
+  // const accomodationBtn = document.querySelector("#accomodation_nav");
+  // const rulesBtn = document.querySelector("#rules_nav");
+  // const settingBtn = document.querySelector("#settings_nav");
+  // // const reportsBtn = document.querySelector("#reports_nav");
+  // const allStudentsReportsBtn = document.querySelector(
+  //   "#all-students-reports_nav"
+  // );
+  // const allEventsReportsBtn = document.querySelector("#all-events-reports_nav");
+  // const allAccomodationsReportsBtn = document.querySelector(
+  //   "#all-accomodations-reports_nav"
+  // );
+  // const allTotalReportsBtn = document.querySelector("#all-total-reports_nav");
 
-  const showSection = (section) => {
-    const sections = [
-      enrollSec,
-      manageuserSec,
-      accomodationSec,
-      rulesSec,
-      settingSec,
-      allStudentsReportsSec,
-      allEventsReportsSec,
-      allAccomodationsReportsSec,
-      allTotalReportsSec,
-    ];
+  // const showSection = (section) => {
+  //   const sections = [
+  //     enrollSec,
+  //     manageuserSec,
+  //     accomodationSec,
+  //     rulesSec,
+  //     settingSec,
+  //     allStudentsReportsSec,
+  //     allEventsReportsSec,
+  //     allAccomodationsReportsSec,
+  //     allTotalReportsSec,
+  //   ];
 
-    sections.forEach((sec) => {
-      if (sec) {
-        sec.classList.add("hide");
-      }
-    });
+  //   sections.forEach((sec) => {
+  //     if (sec) {
+  //       sec.classList.add("hide");
+  //     }
+  //   });
 
-    if (section) {
-      section.classList.remove("hide");
-    }
-  };
+  //   if (section) {
+  //     section.classList.remove("hide");
+  //   }
+  // };
 
-  const hideHambergerMenu = () => {
-    navLinks.classList.toggle("show");
-    manuIcon.checked = false;
-    overlay.classList.toggle("hide");
-  };
+  // const hideHambergerMenu = () => {
+  //   navLinks.classList.toggle("show");
+  //   manuIcon.checked = false;
+  //   overlay.classList.toggle("hide");
+  // };
 
-  // Define click event handlers only if the buttons exist
-  if (enrollBtn) {
-    enrollBtn.onclick = () => {
-      showSection(enrollSec);
-      hideHambergerMenu();
-    };
-  }
+  // // Define click event handlers only if the buttons exist
+  // if (enrollBtn) {
+  //   enrollBtn.onclick = () => {
+  //     showSection(enrollSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (manageuserBtn) {
-    manageuserBtn.onclick = () => {
-      showSection(manageuserSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (manageuserBtn) {
+  //   manageuserBtn.onclick = () => {
+  //     showSection(manageuserSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (accomodationBtn) {
-    accomodationBtn.onclick = () => {
-      showSection(accomodationSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (accomodationBtn) {
+  //   accomodationBtn.onclick = () => {
+  //     showSection(accomodationSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (rulesBtn) {
-    rulesBtn.onclick = () => {
-      showSection(rulesSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (rulesBtn) {
+  //   rulesBtn.onclick = () => {
+  //     showSection(rulesSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (settingBtn) {
-    settingBtn.onclick = () => {
-      showSection(settingSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (settingBtn) {
+  //   settingBtn.onclick = () => {
+  //     showSection(settingSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (allStudentsReportsBtn) {
-    allStudentsReportsBtn.onclick = () => {
-      showSection(allStudentsReportsSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (allStudentsReportsBtn) {
+  //   allStudentsReportsBtn.onclick = () => {
+  //     showSection(allStudentsReportsSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (allEventsReportsBtn) {
-    allEventsReportsBtn.onclick = () => {
-      showSection(allEventsReportsSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (allEventsReportsBtn) {
+  //   allEventsReportsBtn.onclick = () => {
+  //     showSection(allEventsReportsSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (allAccomodationsReportsBtn) {
-    allAccomodationsReportsBtn.onclick = () => {
-      showSection(allAccomodationsReportsSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (allAccomodationsReportsBtn) {
+  //   allAccomodationsReportsBtn.onclick = () => {
+  //     showSection(allAccomodationsReportsSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
-  if (allTotalReportsBtn) {
-    allTotalReportsBtn.onclick = () => {
-      showSection(allTotalReportsSec);
-      hideHambergerMenu();
-    };
-  }
+  // if (allTotalReportsBtn) {
+  //   allTotalReportsBtn.onclick = () => {
+  //     showSection(allTotalReportsSec);
+  //     hideHambergerMenu();
+  //   };
+  // }
 
   // update user
 });
-function handleClick(event, navId) {
-  // Remove the 'active' class from all nav items
-  $(".sidebar-menu a").removeClass("active");
-  // Add the 'active' class to the clicked nav item
-  $("#" + navId).addClass("active");
+// function handleClick(event, navId) {
+//   // Remove the 'active' class from all nav items
+//   $(".sidebar-menu a").removeClass("active");
+//   // Add the 'active' class to the clicked nav item
+//   $("#" + navId).addClass("active");
 
-  if (navId === "reports_nav") {
-    $("#extra-links").slideToggle(); // Apply slide animation for smooth transition
-    $(".right").toggleClass("rotate-down"); // Rotate the angle-left icon
-  }
-  $("#extra-links li").removeClass("active"); // Remove active class from all items
-  $("#extra-links").on("click", "li", function () {
-    $(this).addClass("active").siblings().removeClass("active");
-  });
-}
+//   if (navId === "reports_nav") {
+//     $("#extra-links").slideToggle(); // Apply slide animation for smooth transition
+//     $(".right").toggleClass("rotate-down"); // Rotate the angle-left icon
+//   }
+//   $("#extra-links li").removeClass("active"); // Remove active class from all items
+//   $("#extra-links").on("click", "li", function () {
+//     $(this).addClass("active").siblings().removeClass("active");
+//   });
+// }

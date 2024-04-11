@@ -68,9 +68,10 @@ $routes->get('admin/fetchData', 'EventRegister::fetchData');
 $routes->post('admin/accomodation', 'Accomodation::accomodate');
 
 
-$routes->group('student', ['filter' => 'Auth'], function ($routes) {
-    $routes->get('/', 'StudentController::index');
-});
+//reports routes
+//all user route
+$routes->get('admin/fetchAllUserData', 'Dashboard::getAllUserData');
+
 
 
 //logout routes

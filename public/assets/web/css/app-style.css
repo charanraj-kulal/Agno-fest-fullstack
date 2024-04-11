@@ -428,9 +428,8 @@ small {
 }
 
 ul.extra-links > li.active {
-  background-color: rgba(255, 255, 255, 0.15);
   color: white !important;
-  border-left-color: #ffffff !important;
+  /* border-left-color: #ffffff !important; */
   transition: 0.5s ease-in-out !important;
 }
 

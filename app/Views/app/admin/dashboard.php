@@ -990,28 +990,8 @@
                                                                     <th>Accommodation needed</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <?php foreach ($users as $user) : ?>
-                                                                    <?php
-                                                                    // Fetch data from EventregModel for enrolled status
-                                                                    $eventRegData = $eventregModel->where('user_id', $user['id'])->first();
-                                                                    $enrolled = ($eventRegData && $eventRegData['isenrolled'] == 1) ? 'Yes' : 'No';
-
-                                                                    // Fetch data from AccomodationModel for accommodation needed
-                                                                    $accomodationData = $accomodationModel->where('user_id', $user['id'])->first();
-                                                                    $accommodationNeeded = ($accomodationData) ? 'Yes' : 'No';
-                                                                    ?>
-                                                                    <tr>
-                                                                        <td><?= esc($user['name']) ?></td>
-                                                                        <td><?= esc($user['college_name']) ?></td>
-                                                                        <td><?= esc($user['email']) ?></td>
-                                                                        <td><?= esc($user['team_name']) ?></td>
-                                                                        <td><?= esc($user['phone_number']) ?></td>
-                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
-                                                                        <td><?= $enrolled ?></td>
-                                                                        <td><?= $accommodationNeeded ?></td>
-                                                                    </tr>
-                                                                <?php endforeach; ?>
+                                                            <tbody id="userTableBody">
+                                                                <!-- data updated via ajax  -->
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -1364,10 +1344,225 @@
 <script src="<?= base_url('assets/web/js/dashboard.js') ?>"></script>
 <!-- Chart js -->
 
+ <script>
+    $(function () {
+  "use strict";
 
+  //sidebar menu js
+  $.sidebarMenu($(".sidebar-menu"));
+
+  // === toggle-menu js
+  $(".toggle-menu").on("click", function (e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+
+        $("#enroll-nav").click(function (event) {
+    handleClick(event, "enroll-nav");
+  });
+
+  $("#manage_user_nav").click(function (event) {
+    handleClick(event, "manage_user_nav");
+  });
+
+  $("#accomodation_nav").click(function (event) {
+    handleClick(event, "accomodation_nav");
+  });
+
+  $("#rules_nav").click(function (event) {
+    handleClick(event, "rules_nav");
+  });
+
+  $("#settings_nav").click(function (event) {
+    handleClick(event, "settings_nav");
+  });
+
+  $("#reports_nav").click(function (event) {
+    handleClick(event, "reports_nav");
+  });
+
+  $("#all-students-reports_nav").click(function (event) {
+    handleClick(event, "all-students-reports_nav");
+  });
+  $("#all-events-reports_nav").click(function (event) {
+    handleClick(event, "all-events-reports_nav");
+  });
+  $("#all-accomodations-reports_nav").click(function (event) {
+    handleClick(event, "all-accomodations-reports_nav");
+  });
+  $("#all-total-reports_nav").click(function (event) {
+    handleClick(event, "all-total-reports_nav");
+  });
+ // sidebar sections
+  const navLinks = document.querySelector(".left-fixed-nav");
+  const manuIcon = document.querySelector(".menu-icon");
+  const overlay = document.querySelector(".overlay");
+
+  const enrollSec = document.querySelector("#enroll-section-id");
+  const manageuserSec = document.querySelector("#manageuser-section-id");
+  const accomodationSec = document.querySelector("#accomodation-section-id");
+  const rulesSec = document.querySelector("#rules-section-id");
+  const settingSec = document.querySelector("#settings-section-id");
+  const allStudentsReportsSec = document.querySelector(
+    "#all-students-reports-section-id"
+  );
+  const allEventsReportsSec = document.querySelector(
+    "#all-events-reports-section-id"
+  );
+  const allAccomodationsReportsSec = document.querySelector(
+    "#all-accomodations-reports-section-id"
+  );
+  const allTotalReportsSec = document.querySelector(
+    "#all-total-reports-section-id"
+  );
+
+  const enrollBtn = document.querySelector("#enroll-nav");
+
+  const manageuserBtn = document.querySelector("#manage_user_nav");
+  const accomodationBtn = document.querySelector("#accomodation_nav");
+  const rulesBtn = document.querySelector("#rules_nav");
+  const settingBtn = document.querySelector("#settings_nav");
+  // const reportsBtn = document.querySelector("#reports_nav");
+  const allStudentsReportsBtn = document.querySelector(
+    "#all-students-reports_nav"
+  );
+  const allEventsReportsBtn = document.querySelector("#all-events-reports_nav");
+  const allAccomodationsReportsBtn = document.querySelector(
+    "#all-accomodations-reports_nav"
+  );
+  const allTotalReportsBtn = document.querySelector("#all-total-reports_nav");
+
+  const showSection = (section) => {
+    const sections = [
+      enrollSec,
+      manageuserSec,
+      accomodationSec,
+      rulesSec,
+      settingSec,
+      allStudentsReportsSec,
+      allEventsReportsSec,
+      allAccomodationsReportsSec,
+      allTotalReportsSec,
+    ];
+
+    sections.forEach((sec) => {
+      if (sec) {
+        sec.classList.add("hide");
+      }
+    });
+
+    if (section) {
+      section.classList.remove("hide");
+    }
+  };
+
+  const hideHambergerMenu = () => {
+    navLinks.classList.toggle("show");
+    manuIcon.checked = false;
+    overlay.classList.toggle("hide");
+  };
+
+  // Define click event handlers only if the buttons exist
+  if (enrollBtn) {
+    enrollBtn.onclick = () => {
+      showSection(enrollSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (manageuserBtn) {
+    manageuserBtn.onclick = () => {
+      showSection(manageuserSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (accomodationBtn) {
+    accomodationBtn.onclick = () => {
+      showSection(accomodationSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (rulesBtn) {
+    rulesBtn.onclick = () => {
+      showSection(rulesSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (settingBtn) {
+    settingBtn.onclick = () => {
+      showSection(settingSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (allStudentsReportsBtn) {
+    allStudentsReportsBtn.onclick = () => {
+      showSection(allStudentsReportsSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (allEventsReportsBtn) {
+    allEventsReportsBtn.onclick = () => {
+      showSection(allEventsReportsSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (allAccomodationsReportsBtn) {
+    allAccomodationsReportsBtn.onclick = () => {
+      showSection(allAccomodationsReportsSec);
+      hideHambergerMenu();
+    };
+  }
+
+  if (allTotalReportsBtn) {
+    allTotalReportsBtn.onclick = () => {
+      showSection(allTotalReportsSec);
+      hideHambergerMenu();
+    };
+  }
+  $(document).ready(function() {
+    // Show appropriate section based on user type
+    if (userType == 1) {
+        showSection(enrollSec);
+    } else if (userType == 2) {
+         showSection(manageuserSec);
+    }
+});
+    });
+
+function handleClick(event, navId) {
+  // Remove the 'active' class from all nav items
+  $(".sidebar-menu a").removeClass("active");
+  // Add the 'active' class to the clicked nav item
+  $("#" + navId).addClass("active");
+
+  if (navId === "reports_nav") {
+    $("#extra-links").slideToggle(); // Apply slide animation for smooth transition
+    $(".right").toggleClass("rotate-down"); // Rotate the angle-left icon
+  }
+   // Toggle the class of the clicked icon from far to fas
+  $("#" + navId + " i").toggleClass("far fa-circle fas fa-circle");
+
+  // Reset all other icons to far fa-circle
+  $("#extra-links li a i").not($("#" + navId + " i")).removeClass("fas fa-circle").addClass("far fa-circle");
+
+  $("#extra-links li").removeClass("active"); // Remove active class from all items
+  $("#extra-links").on("click", "li", function () {
+    $(this).addClass("active").siblings().removeClass("active");
+    });
+}
+var userType = <?php echo $userType; ?>;
+
+</script>
 
 <!-- Index js -->
 <!-- <script src="<?= base_url('assets/web/js/index.js') ?>"></script> -->
+<script src="<?= base_url('assets/web/js/reports.js') ?>"></script>
 
 
   
