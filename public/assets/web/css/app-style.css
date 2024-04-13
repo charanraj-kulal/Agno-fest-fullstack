@@ -1175,25 +1175,25 @@ a.button.positive:hover {
 
 /* SearachBar */
 .search-bar {
-  margin-left: 20px;
   position: relative;
+  float: right; /* Position the search bar to the right */
+  margin-right: 20px; /* Add margin to separate from the container */
 }
 
 .search-bar input {
   border: 0px solid #f1f1f1;
   font-size: 15px;
-  width: 530px;
+  width: 300px; /* Adjust width to fit within container */
   border-radius: 0.25rem;
   height: 34px;
   padding: 0.375rem 2rem 0.375rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(31, 21, 21, 0.2);
 }
 
 .search-bar input::placeholder {
   color: #fff !important;
   font-size: 13px;
   opacity: 0.5 !important;
-  /* Firefox */
 }
 
 .search-bar input:focus {
@@ -1202,13 +1202,31 @@ a.button.positive:hover {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.45);
 }
 
-.search-bar a i {
+.search-bar a {
   position: absolute;
-  top: 8px;
-  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; /* Adjust right position */
+}
+
+.search-bar a i {
   color: #fff;
   font-size: 16px;
 }
+#searchBarContainer {
+  width: 300px;
+  margin-left: 800px;
+  margin-top: 20px; /* Set the width of the container */
+}
+
+#searchInput {
+  width: 140px; /* Set the width of the input field */
+}
+
+#searchBtn {
+  min-width: 60px; /* Set the width of the button */
+}
+
 .header-team-name {
   font-weight: bold;
   font-family: lt_regular;

@@ -966,7 +966,22 @@
                     <div class="card mt-6 dashboard-cards  forallsec hide" id="all-students-reports-section-id">
                         <div class="card-content">
                             <div class="row row-group m-0">
+                                <!-- <form class="search-bar">
+                                        <input type="text" class="form-control" placeholder="Enter keywords">
+                                        <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+                                    </form> -->
+                                    <div id="searchBarContainer" class="fixed-center">
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                                            
+                                                
+                                           
+                                        </div>
+                                    </div>
                                 <div class="manageuser-section" >
+                                   
+                                    
+                                   
                                     <div class="section-heading">
                                         <p class="enroll-title">ALL USERS</p>
                                     </div>
@@ -974,7 +989,8 @@
                                         
                                         <div class="col-lg-8 col-md-6 col-sm-4">
                                             <div class="card">
-                                                <div class="card-body">
+                                                <div class="card-body">                   
+                                                    
                                                     <h5 align="center" class="card-title">All Users</h5>
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered" id="allUserTable">

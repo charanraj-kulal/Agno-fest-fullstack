@@ -49,8 +49,12 @@ class Dashboard extends BaseController
             'accommodation_needed' => $this->isAccommodationNeeded($user['id'])
         ];
     }
+ $response = [
+        'users' => $userData,
+    ];
 
-    return $this->response->setJSON($userData); // Return users data as JSON
+    // Return the response as JSON
+    return $this->response->setJSON($response);
 }
 
 // Function to check if user is enrolled
