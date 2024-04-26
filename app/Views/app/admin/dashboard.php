@@ -973,10 +973,14 @@
                                     <div id="searchBarContainer" class="fixed-center">
                                         <div class="input-group mb-3">
                                             <input type="text" id="searchInput" class="form-control" placeholder="Search...">
-                                            
+                                            <span style="margin: 0 8px;"></span>
+                                            <button id="export-pdf-btn" class="btn btn-light" ><i class="fa-solid fa-file-pdf"></i>
+                                                   PDF
+                                            </button>
                                                 
                                            
                                         </div>
+                                        
                                     </div>
                                 <div class="manageuser-section" >
                                    
@@ -1579,6 +1583,13 @@ var userType = <?php echo $userType; ?>;
 <!-- Index js -->
 <!-- <script src="<?= base_url('assets/web/js/index.js') ?>"></script> -->
 <script src="<?= base_url('assets/web/js/reports.js') ?>"></script>
+
+
+<!-- tableHTMLExport.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
 
 
   
