@@ -5,7 +5,7 @@
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Aantarya</h4>
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnisia</h4>
                         <a class="btn btn-link" href="#about">About Us</a>
                         <a class="btn btn-link" href="#events">Events</a>
                         <a class="btn btn-link" href="#">more about us</a>

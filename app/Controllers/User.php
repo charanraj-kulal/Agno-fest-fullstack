@@ -316,79 +316,79 @@ class User extends BaseController
     }
     
    public function login()
-{
-    $userModel = new UserModel();
-    
-    try {
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-       
-        // Retrieve user using model's retrieval method
-        $user = $userModel->where('email', $email)->first(); 
+    {
+        $userModel = new UserModel();
         
-        if ($user) {
-            // Verify password using password_verify
-            if($user['active']==1){
-                if (password_verify($password, $user['password'])) {
-                    // Generate JWT token
+        try {
+            $email = $this->request->getVar('email');
+            $password = $this->request->getVar('password');
+        
+            // Retrieve user using model's retrieval method
+            $user = $userModel->where('email', $email)->first(); 
+            
+            if ($user) {
+                // Verify password using password_verify
+                if($user['active']==1){
+                    if (password_verify($password, $user['password'])) {
+                        // Generate JWT token
+                        
+                        $key=getenv('JWT_SECRET_KEY');
+                        $issuedAtTime = time();
+                        $tokenTimeToLive=getenv('JWT_TIME_TO_LIVE');
+                        // $tokenTimeToLive = getenv('JWT_TIME_TO_LIVE');
+                        $tokenExpiration = $issuedAtTime + $tokenTimeToLive;
                     
-                    $key=getenv('JWT_SECRET_KEY');
-                    $issuedAtTime = time();
-                    $tokenTimeToLive=getenv('JWT_TIME_TO_LIVE');
-                    // $tokenTimeToLive = getenv('JWT_TIME_TO_LIVE');
-                    $tokenExpiration = $issuedAtTime + $tokenTimeToLive;
-                
-                    $payload = [
-                        "iss" => "localhost",
-                        "aud" => "localhost",
-                        'exp' => $tokenExpiration,
-                        "data" => [
-                            'user_id' => $user['id'],
-                            'name' => $user['name'],
-                            'email' => $user['email']
-                        ]
-                    ];
-                    $jwt = JWT::encode($payload, $key, 'HS256');
-                    
-                    // Set user session
-                    $this->setUserSession($user);
+                        $payload = [
+                            "iss" => "localhost",
+                            "aud" => "localhost",
+                            'exp' => $tokenExpiration,
+                            "data" => [
+                                'user_id' => $user['id'],
+                                'name' => $user['name'],
+                                'email' => $user['email']
+                            ]
+                        ];
+                        $jwt = JWT::encode($payload, $key, 'HS256');
+                        
+                        // Set user session
+                        $this->setUserSession($user);
 
-                    // Successful login
-                    return $this->response->setJSON([
-                        'success' => true,
-                        'message' => 'Logged In Successfully!!'
-                    ]);
-                } else {
-                    // Incorrect password
-                    return $this->response->setJSON([
-                        'success' => false,
-                        'message' => 'Invalid Email and Password!!'
-                    ]);
+                        // Successful login
+                        return $this->response->setJSON([
+                            'success' => true,
+                            'message' => 'Logged In Successfully!!'
+                        ]);
+                    } else {
+                        // Incorrect password
+                        return $this->response->setJSON([
+                            'success' => false,
+                            'message' => 'Invalid Email and Password!!'
+                        ]);
+                    }
                 }
-            }
-            else{
-                // Account not activated
-                return $this->response->setJSON([
-                        'success' => false,
-                        'message' => 'Activate your account first, try aganin!!'
-                    ]);
-            }
+                else{
+                    // Account not activated
+                    return $this->response->setJSON([
+                            'success' => false,
+                            'message' => 'Activate your account first, try aganin!!'
+                        ]);
+                }
 
-        } else {
-            // User not found
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'The email provided is not exist!!'
+            } else {
+                // User not found
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'The email provided is not exist!!'
+                ]);
+            }
+        } catch (\Exception $e) {
+            // Handle potential errors gracefully
+            return $this->respondCreated([
+                'status' => 0,
+                'message' => 'An error occurred during login.',
             ]);
         }
-    } catch (\Exception $e) {
-        // Handle potential errors gracefully
-        return $this->respondCreated([
-            'status' => 0,
-            'message' => 'An error occurred during login.',
-        ]);
     }
-}
 
 
 

@@ -38,6 +38,30 @@ class UserModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function getUserById($userId)
+    {
+        return $this->where('id', $userId)->first();
+    }
+    public function updateUserPassword($userId, $newPassword)
+    {
+        // Update the user's password in the database
+        $data = [
+            'password' => $newPassword
+        ];
+        $this->set($data)->where('id', $userId)->update();
 
+        // Check if the update was successful
+        return $this->affectedRows() > 0;
+    }
+    public function deleteUser($userId)
+    {
+        // Delete user record from the database
+        $this->where('id', $userId)->delete();
+
+        // You may also need to delete associated data from other tables if necessary
+
+        // Check if the user record was successfully deleted
+        return $this->db->affectedRows() > 0;
+    }
 }
 

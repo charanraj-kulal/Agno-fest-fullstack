@@ -194,9 +194,9 @@
                                     <li>
                                         <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accommodation details</span></a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="#all-total-reports-section-id" onclick="handleClick('all-total-reports_nav')" id="all-total-reports_nav"><i class="far fa-circle"></i><span>All Reports</span></a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                         <?php endif; ?>
@@ -214,7 +214,7 @@
         
             <div class="content-wrapper">
                 <div class="container-fluid">
-                   
+                   <!-- change user details modal  -->
                     <input type="checkbox" name="dialog_state" id="dialog_state" class="dialog_state">
                     <div id='dialog'>
                         <label id="dlg-back" for="dialog_state"></label>
@@ -257,7 +257,59 @@
                         </div>
                     </div>
                                 
-        
+                    <!-- change password modal  -->
+                    <input type="checkbox" name="dialog_state" id="pswd_dialog_state" class="dialog_state">
+                    <div id='dialog'>
+                        <label id="dlg-back" for="pswd_dialog_state"></label>
+                        <div id='dlg-wrap'>
+                            <label id="dlg-close" for="pswd_dialog_state"><i class="fa fa-times"></i></label>
+                            <h2 id='dlg-header'>Change Password</h2>
+                            <div class="modal-body">
+                                <form id="changePassForm">
+                                    <div class="form-group-pswd">
+                                        <label for="currentPassword">Current Password</label>
+                                        <input type="password" class="form-control input100" id="currentPassword" name="currentPassword">
+                                    </div>
+                                    <div class="form-group-pswd">
+                                        <label for="newPassword">New Password</label>
+                                        <input type="password" class="form-control input100" id="newPassword" name="newPassword">
+                                    </div>
+                                    <div class="form-group-pswd">
+                                        <label for="confirmPassword">Confirm Password</label>
+                                        <input type="password" class="form-control input100" id="confirmPassword" name="confirmPassword">
+                                    </div>
+                                    <div align="center">
+                                        <div id="changePassword" class='button positive'><i class="fa fa-check"></i>Change Password</div>
+                                        <span style="margin-left:20px; margin-right:20px"></span>
+                                        <label class='button' for="pswd_dialog_state"><i class="fa fa-times"></i> Cancel</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- confirmation modal for closing account  -->
+                    <input type="checkbox" name="dialog_state" id="cls_dialog_state" class="dialog_state">
+                    <div id='dialog'>
+                        <label id="dlg-back" for="cls_dialog_state"></label>
+                        <div id='dlg-wrap'>
+                            <label id="dlg-close" for="cls_dialog_state"><i class="fa fa-times"></i></label>
+                            <h2 id='dlg-header'>Confirm to close your account?</h2>
+                            <div class="modal-body">
+                                <form id="changePassForm">
+                                    <div class="form-group-pswd">
+                                     <p style="color:#ff5c40"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 10px;"></i>By closing your account, all your enrollment and accommodation data will be permanently deleted. This action is irreversible.  </p>   
+                                    </div>
+                                    <div align="center">
+                                        <div style="color:#ff5c40" id="closeAccount" class='button positive'><i class="fa-solid fa-circle-check"></i>Yes</div>
+                                        <span style="margin-left:40px; margin-right:40px"></span>
+                                        <label  class='button' for="cls_dialog_state"><i class="fa-solid fa-circle-xmark"></i> No </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- enroll starts -->
                     <div class="card mt-3 dashboard-cards" id="enroll-section-id">
                         <div cass="card-content">
@@ -788,7 +840,7 @@
                                                     </svg>
                                                 </label>
                                             </div>
-                                            <p class="acc-check-txt">Accomodation Required!</p>
+                                            <p style="margin-left:20px" class="acc-check-txt">Accomodation Required!</p>
                                         </div>
 
                                         <div class="acc-nums-div acc-hide">
@@ -802,14 +854,14 @@
                                             <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
                                         </div>
 
-                                        <div class="acc-contacts">
+                                        <div align="center" class="acc-contacts">
                                             <div class="acc-con">
                                                 <p class="acc-con-name">XXX</p>
-                                                <p class="acc-con-number">+91 00000000</p>
+                                                <p class="acc-con-number">+91 9353649294</p>
                                             </div>
                                             <div class="acc-con">
                                                 <p class="acc-con-name">YYYY</p>
-                                                <p class="acc-con-number">+91 0000000000</p>
+                                                <p class="acc-con-number">+91 9353649294</p>
                                             </div>
                                         </div>
 
@@ -833,14 +885,10 @@
                                 <div class="rules-section ">
                                     <div class="d-flex justify-content-center main" >
                                         <div class="content mt-5 mb-5 text-light">
-                                            <h1 class="h1 mt-1  heading">Privacy and Policy</h1>
+                                            <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">GENERAL RULES</h1>
                                             <div class="ms-2 me-2">
-                                                <p class="h6">These terms and conditions outline the rules and regulations for the use of Sambhram 24's Website, located at https://abc.com/.</p>
-
-                                                <p class="h6">By accessing this website we assume you accept these terms and conditions. Do not continue to use Sambhram 24 if you do not agree to take all of the terms and conditions stated on this page.
-                                                    
-                                                    ABC is a National level techno-cultural festival for the students of technical institutes across the country. However, some events like Battle of the Bands, Fashion Show, Vibe and Stomp That! (Termed as semi-pro events here onwards) are open to all the colleges in the country.</p>
-                                                    <ul>
+                                                
+                                                    <!-- <ul>
                                                         <li>
                                                             <p class="h6">Participants from only same colleges can form a team.</p>
                                                         </li>
@@ -874,7 +922,39 @@
                                                     <h1 class="h3 mt-1 heading">Refund Policy</h1>
                                                     <p class="h6">Refunds in any particular case can only be initiated upon request. Please reach out to the Technical Heads of Sambhram24 for refunds.</p>
                                                     <p class="h6">Name:   xxx xxx xxxx</p>
-                                                    <p class="h6">Name:   xxx xxx xxxx</p>
+                                                    <p class="h6">Name:   xxx xxx xxxx</p> -->
+                                                    <ul class="list-rules-ul">
+                                                    <!-- <p class="h6">These terms and conditions outline the rules and regulations for the use of Sambhram 24's Website, located at https://abc.com/.</p>
+
+                                                    <p class="h6">By accessing this website we assume you accept these terms and conditions. Do not continue to use Sambhram 24 if you do not agree to take all of the terms and conditions stated on this page.
+                                                    
+                                                    ABC is a National level techno-cultural festival for the students of technical institutes across the country. However, some events like Battle of the Bands, Fashion Show, Vibe and Stomp That! (Termed as semi-pro events here onwards) are open to all the colleges in the country.</p>
+                                                     -->
+                                                        <li class="rule-text">"AAVIRBHAV-2K24" is open to  MCA students.
+                                                        </li>
+                                                        <li class="rule-text">A maximum of 15 participants are allowed per team.
+                                                        </li>
+                                                        <li class="rule-text">The registration fee stands at ₹1,500 per Team.
+                                                        </li>
+                                                        <li class="rule-text">Teams must confirm their participation through <a href='/pages/login' style="color:#4af3ff" id='linktologin'>Website.</a>
+                                                        </li>
+                                                        <li class="rule-text">All the participants need to be present by 9.00 AM.</li>
+                                                        <li class="rule-text">Participants are advised to carry their college ID card and Permission
+                                                            letter on the day of the event.
+                                                        </li>
+                                                        <li class="rule-text">For the Overall Championship, a team must participate in all events.
+                                                        </li>
+                                                        <li class="rule-text">Participants in IT Manager, Photography, Coding, and Web designing are not
+                                                            permitted to participate in other events.
+                                                        </li>
+                                                        <li class="rule-text">All participants must be present on campus for both event days.
+                                                        </li>
+                                                        <li class="rule-text">If accommodation is needed, it should be specified during registration.
+                                                        </li>
+                                                        <li class="rule-text">Cash prizes and trophies will be given to the overall champions and
+                                                            runners-up.
+                                                        </li>
+                                                    </ul>
                                             </div>
                                         </div>    
                                     </div>
@@ -893,67 +973,78 @@
                                     <p class="enroll-title">ACCOUNT SETTINGS</p>
                                 </div>
 
-                                <div class="settings-content-div mb-4">
-                                    <div class="settings-con1-div">
-                                        <p class="settings-txt1">College Name:</p>
-                                        <p class="settings-txt" id="set-clg-name"><?php echo session('college_name'); ?> </p>
-                                    </div>
-                                    <div class="settings-con2-div">
-                                        <p class="settings-txt1">Team Name:</p>
-                                        <div class="settings-teamname">
-                                            <p class="settings-txt">Team</p>
-                                            <p class="settings-txt" id="set-team-name"><?php echo session('team_name'); ?> </p>
-                                        </div>
-                                    </div>
-                                    <div class="settings-con3-div">
-                                        <p class="settings-txt1">Registration Status:</p>
-                                        
-                                        <p class="settings-txt" id="set-reg-status">Not Completed!</p>
-                                    </div>
-                                </div>
+                                <div align="center" class="settings-content-div bqnier  mb-4">
+                                <table>
+                                    <tr>
+                                        <td class="settings-txt1">College Name:</td>
+                                        <td><p class="settings-txt" id="set-clg-name"><?php echo session('college_name'); ?></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="settings-txt1">Team Name:</td>
+                                        <td><p class="settings-txt burn" id="set-team-name"><?php echo session('team_name'); ?></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="settings-txt1">Registration Status:</td>
+                                        <td><p class="settings-txt" id="set-reg-status">Not Completed!</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div align="center" class="settings-buttons">
+                                                <button class="btn btn-light mr-2" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
+                                                <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                                <div class="contactus-section-new">
+                                  
+                                </div>
+                                
+
+                                <div class="contactus-section-new bqnier">
                                     <div class="section-heading mb-4">
                                         <p class="enroll-title">CONTACT US</p>
                                     </div>
 
                                     <div class="contact-sec1 mb-4">
-                                        <p class="contact-txthead mb-2"><b>Website Admins</b></p>
+                                        <p class="contact-txthead mb-2 me-2"><b style="margin-right:22%">Website Admins</b></p>
                                         <div class="contact-con-div">
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">Charanraj:</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">Charanraj:</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">cccccccc:</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td class="con-txt1">Charanraj:</td>
+                                                    <td class="con-txt2">+91 935473892</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="con-txt1">Venkatesh:</td>
+                                                    <td class="con-txt2">+91 935473892</td>
+                                                </tr>
+                                            </table>
                                         </div>
+
                                     </div>
                                     <div class="contact-sec2 mb-4">
-                                        <p class="contact-txthead mb-2"><b>Staff Coordinators</b></p>
+                                        <p class="contact-txthead mb-2"><b style="margin-right:22%">Staff Coordinators</b></p>
                                         <div class="contact-con-div">
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">Mrs.staff:</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">Mr.STaff:</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">Mr.STaff:</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
-                                            <div class="con-txt-div">
-                                                <p class="con-txt1">Mrs.STaff :</p>
-                                                <p class="con-txt2">+91 80000000</p>
-                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td class="con-txt1">Mrs. Staff:</td>
+                                                    <td class="con-txt2">+91 935473892</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="con-txt1">Mr. Staff:</td>
+                                                    <td class="con-txt2">+91 935473892</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="con-txt1">Mr. Staff:</td>
+                                                    <td class="con-txt2">+91 935473892</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="con-txt1">Mrs. Staff:</td>
+                                                    <td class="con-txt2">+91 935473892</td>
+                                                </tr>
+                                            </table>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -970,24 +1061,16 @@
                                         <input type="text" class="form-control" placeholder="Enter keywords">
                                         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
                                     </form> -->
-                                    <div id="searchBarContainer" class="fixed-center">
-                                        <div class="input-group mb-3">
-                                            <input type="text" id="searchInput" class="form-control" placeholder="Search...">
-                                            <span style="margin: 0 8px;"></span>
-                                            <button id="export-pdf-btn" class="btn btn-light" ><i class="fa-solid fa-file-pdf"></i>
-                                                   PDF
-                                            </button>
-                                                
-                                           
-                                        </div>
+                                    
                                         
-                                    </div>
+                                    
                                 <div class="manageuser-section" >
                                    
                                     
                                    
                                     <div class="section-heading">
                                         <p class="enroll-title">ALL USERS</p>
+                                        
                                     </div>
                                     <div class="forms-events">
                                         
@@ -996,6 +1079,15 @@
                                                 <div class="card-body">                   
                                                     
                                                     <h5 align="center" class="card-title">All Users</h5>
+                                                    <div id="searchBarContainer" class="fixed-center">
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                                                            <span style="margin: 0 8px;"></span>
+                                                            <button id="all-user-report-export-pdf-btn" class="btn btn-light" ><i class="fa-solid fa-file-pdf"></i>
+                                                                PDF
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered" id="allUserTable">
                                                             <thead>
@@ -1026,50 +1118,72 @@
                     <!-- end of all students  reports   -->                   
                     
                     <!-- start of all event reg reports -->
-                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-events-reports-section-id">
+                    <div class="card mt-6 dashboard-cards forallsec hide" id="all-events-reports-section-id">
                         <div class="card-content">
                             <div class="row row-group m-0">
-                                <div class="manageuser-section" >
+                                
+                                <div class="manageevent-section">
                                     <div class="section-heading">
-                                        <p class="enroll-title">ALL EVENT DETAILS</p>
+                                        <p class="enroll-title">ALL EVENT REPORTS</p>
                                     </div>
                                     <div class="forms-events">
-                                        
-                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                        <div class="col-lg-2 col-md-6 col-sm-4">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 align="center" class="card-title">All Users</h5>
+                                                    <h5 align="center" class="card-title">All Event Reports</h5>
+                                                    <div id="searchBarContainer" class="fixed-center">
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" id="eventsearchInput" class="form-control" placeholder="Search...">
+                                                            <span style="margin: 0 8px;"></span>
+                                                            <button id="all-event-report-export-pdf-btn" class="btn btn-light">
+                                                                <i class="fa-solid fa-file-pdf"></i> PDF
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered" id="allUserTable">
+                                                        <table class="table table-bordered" id="allEventTable">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Name</th>
-                                                                    <th>College Name</th>
-                                                                    <th>Email</th>
                                                                     <th>Team Name</th>
-                                                                    <th>Phone No</th>
-                                                                    <th>User Role</th>
-                                                                    <th>Enrolled</th>
-                                                                    <th>Accomodation needed</th>
+                                                                    <th>Coding Member 1</th>
+                                                                    <th>Coding Member Contact 1</th>
+                                                                    <th>Coding Member 2</th>
+                                                                    <th>Coding Member Contact 2</th>
+                                                                    <th>Quiz Member 1</th>
+                                                                    <th>Quiz Member Contact 1</th>
+                                                                    <th>Quiz Member 2</th>
+                                                                    <th>Quiz Member Contact 2</th>
+                                                                    <th>Web Member 1</th>
+                                                                    <th>Web Member Contact 1</th>
+                                                                    <th>Web Member 2</th>
+                                                                    <th>Web Member Contact 2</th>
+                                                                    <th>Game Member 1</th>
+                                                                    <th>Game Member Contact 1</th>
+                                                                    <th>Game Member 2</th>
+                                                                    <th>Game Member Contact 2</th>
+                                                                    <th>Game Member 3</th>
+                                                                    <th>Game Member Contact 3</th>
+                                                                    <th>Game Member 4</th>
+                                                                    <th>Game Member Contact 4</th>
+                                                                    <th>IT Manager Member 1</th>
+                                                                    <th>IT Manager Member Contact 1</th>
+                                                                    <th>Photo Member 1</th>
+                                                                    <th>Photo Member Contact 1</th>
+                                                                    <th>Video Member 1</th>
+                                                                    <th>Video Member Contact 1</th>
+                                                                    <th>Video Member 2</th>
+                                                                    <th>Video Member Contact 2</th>
+                                                                    <th>Treasure Hunt Member 1</th>
+                                                                    <th>Treasure Hunt Member Contact 1</th>
+                                                                    <th>Treasure Hunt Member 2</th>
+                                                                    <th>Treasure Hunt Member Contact 2</th>
+                                                                    
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <?php foreach ($users as $user) : ?>
-                                                                    <tr>
-                                                                        <td><?= esc($user['name']) ?></td>
-                                                                        <td><?= esc($user['college_name']) ?></td>
-                                                                        <td><?= esc($user['email']) ?></td>
-                                                                        <td><?= esc($user['team_name']) ?></td>
-                                                                        <td><?= esc($user['phone_number']) ?></td>
-                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
-                                                                        <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
-                                                                        <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
-                                                                    </tr>
-                                                                <?php endforeach; ?>
+                                                            <tbody id="eventTableBody">
+                                                                <!-- data updated via ajax  -->
                                                             </tbody>
                                                         </table>
-
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -1079,6 +1193,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- end of all event reg  reports   --> 
 
                     <!-- start of all accomodation reports -->
@@ -1086,47 +1201,36 @@
                         <div class="card-content">
                             <div class="row row-group m-0">
                                 <div class="manageuser-section" >
-                                    <div class="section-heading">
-                                        <p class="enroll-title">ALL ACCOMODATION DETAILS</p>
-                                    </div>
-                                    <div class="forms-events">
-                                        
-                                        <div class="col-lg-8 col-md-6 col-sm-4">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 align="center" class="card-title">All Users</h5>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered" id="allUserTable">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Name</th>
-                                                                    <th>College Name</th>
-                                                                    <th>Email</th>
-                                                                    <th>Team Name</th>
-                                                                    <th>Phone No</th>
-                                                                    <th>User Role</th>
-                                                                    <th>Enrolled</th>
-                                                                    <th>Accomodation needed</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php foreach ($users as $user) : ?>
-                                                                    <tr>
-                                                                        <td><?= esc($user['name']) ?></td>
-                                                                        <td><?= esc($user['college_name']) ?></td>
-                                                                        <td><?= esc($user['email']) ?></td>
-                                                                        <td><?= esc($user['team_name']) ?></td>
-                                                                        <td><?= esc($user['phone_number']) ?></td>
-                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
-                                                                        <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
-                                                                        <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
-                                                                    </tr>
-                                                                <?php endforeach; ?>
-                                                            </tbody>
-                                                        </table>
-
-
+                                <div class="section-heading">
+                                    <p class="enroll-title">ALL ACCOMMODATION REPORTS</p>
+                                </div>
+                                <div class="forms-events">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 align="center" class="card-title">All Accommodation Reports</h5>
+                                                <div id="searchBarContainer" class="fixed-center">
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" id="accommodationSearchInput" class="form-control" placeholder="Search...">
+                                                        <span style="margin: 0 8px;"></span>
+                                                        <button id="all-accommodation-report-export-pdf-btn" class="btn btn-light">
+                                                            <i class="fa-solid fa-file-pdf"></i> PDF
+                                                        </button>
                                                     </div>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="allAccommodationTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Team Name</th>
+                                                                <th>Number of Boys</th>
+                                                                <th>Number of Girls</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="accommodationTableBody">
+                                                            <!-- Data will be updated via AJAX -->
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -1582,15 +1686,14 @@ var userType = <?php echo $userType; ?>;
 
 <!-- Index js -->
 <!-- <script src="<?= base_url('assets/web/js/index.js') ?>"></script> -->
-<script src="<?= base_url('assets/web/js/reports.js') ?>"></script>
 
+<script src="<?= base_url('assets/web/js/jsPdf.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/tableexport.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/jspdfautotable.js') ?>"></script>
 
-<!-- tableHTMLExport.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js" integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- jsPDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
-
+<script src="<?= base_url('assets/web/js/allusersreports.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/alleventsreports.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/allaccomodation.js') ?>"></script>
 
   
 </body>

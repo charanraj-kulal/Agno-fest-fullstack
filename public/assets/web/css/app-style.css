@@ -51,12 +51,25 @@ File: app-style
   src: url("../fonts/custom/Doctor\ Glitch.otf");
 }
 @font-face {
+  font-family: bequnier;
+  src: url("../fonts/custom/BEQINER.ttf");
+}
+@font-face {
   font-family: IBM;
   src: url("../fonts/custom/Flexi_IBM_VGA_False.ttf");
 }
 @font-face {
   font-family: IBM437;
   src: url("../fonts/custom/Flexi_IBM_VGA_False_437.ttf");
+}
+
+@font-face {
+  font-family: longshort;
+  src: url("../fonts/custom/Long_Shot.ttf");
+}
+@font-face {
+  font-family: bowler;
+  src: url("../fonts/custom/TheBlowar-Regular.ttf");
 }
 @font-face {
   font-family: aesthico;
@@ -74,6 +87,27 @@ File: app-style
   font-family: lt_thin;
   src: url("../fonts/custom/lt_seada/LTSaeada-Thin.otf");
 }
+@font-face {
+  font-family: Graduate;
+  src: url('../fonts/custom/Graduate-Regular.ttf');
+}
+@font-face {
+  font-family: Dash;
+  src: url('../fonts/custom/Dash-Horizon-Demo.otf');
+}@font-face {
+  font-family: Burn;
+  src: url('../fonts/custom/Burn.otf');
+}@font-face {
+  font-family: Gezier;
+  src: url('../fonts/custom/Geizer.otf');
+}@font-face {
+  font-family: pirate;
+  src: url('../fonts/custom/PirataOne-Regular.ttf');
+}
+@font-face {
+  font-family: blazed;
+  src: url('../fonts/custom/Blazed.ttf');
+}
 :root {
   --glow-color: hsl(186 100% 69%);
 }
@@ -85,7 +119,49 @@ File: app-style
   line-height: normal;
   letter-spacing: 0.5px;
 }
+.blazed{
+  font-family: "blazed";
+  font-size: 1.3vw;
+  font-style: normal;
+  /* font-weight: 400; */
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+.dash{
+  font-family: "Dash";
+  font-size: 1.3vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+}
+.bowler{
+  font-family: "bowler";
+  font-size: 1.3vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+}
+.burn{
+  font-family: "Burn";
+  font-size: 1.3vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
 
+}
+.bqnier{
+  font-family: "bequnier";
+  font-size: 0.8vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+}
 /* General */
 html {
   font-family: "Roboto", sans-serif;
@@ -810,7 +886,7 @@ h2#dlg-header {
   font: 200 2em/1em Raleway, Open Sans, Arial, Sans-Serif;
   text-transform: initial;
   letter-spacing: -0.025em;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
 }
 #dlg-content {
   font-weight: 300;
@@ -829,13 +905,15 @@ h2#dlg-header {
 .main_area.dialog_open {
   filter: blur(6px);
 }
-
+.form-group-pswd{
+  margin-bottom: 0.5rem;
+}
 .button,
 a.button {
   display: inline-block;
   padding: 0.25em 1em;
   box-sizing: border-box;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   background: #0f0f0f;
   color: #ffffff;
   text-decoration: none;
@@ -902,7 +980,7 @@ a.button.positive:hover {
   z-index: 9999; /* Increase z-index to ensure it overlays other content */
   display: none;
   margin-top: 10px;
-  margin-left: 8.8%;
+
   flex-direction: row;
   align-items: center;
   justify-content: start;
@@ -1213,11 +1291,11 @@ a.button.positive:hover {
   color: #fff;
   font-size: 16px;
 }
-#searchBarContainer {
+/* #searchBarContainer {
   width: 300px;
   margin-left: 800px;
   margin-top: 20px; /* Set the width of the container */
-}
+/* } */ 
 
 #searchInput {
   width: 140px; /* Set the width of the input field */
@@ -5029,7 +5107,7 @@ table.grid td {
   display: flex;
   justify-content: center;
   margin-top: 2vh;
-
+  
   padding-top: 5rem;
 }
 
@@ -5483,7 +5561,7 @@ input {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 90px;
+  margin-left: 80px;
   width: 70%;
   opacity: 0.2;
   transition: opacity 0.5s ease-in-out;
@@ -5496,8 +5574,10 @@ input {
 .acc-nums {
   padding: 2vh 2vw;
   border-radius: 17px;
-  border: 1px solid black;
+  border: 1px solid white;
   pointer-events: none;
+  background-color: #1f1e1e;
+  color: white;
 }
 
 .acc-nums-div.show .acc-nums {
@@ -5605,9 +5685,13 @@ input {
   background-size: cover;
 }
 
+
 .settings-content-div {
-  margin: 10vh 0;
+  margin: 10vh 0 18%;
   height: 60%;
+  justify-content: center;
+  text-align: center;
+  
 }
 
 .settings-con1-div {
@@ -5633,8 +5717,12 @@ input {
 
 .settings-txt {
   margin-left: 1vw;
+  margin-top: 5px; /* Adjust as needed */
+  margin-bottom: 20px; /* Adjust as needed */
 }
-
+.settings-buttons {
+  margin-top: 10px;
+}
 #set-team-name {
   font-weight: 700;
   text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
@@ -5655,7 +5743,9 @@ input {
 }
 
 /* Contact Us */
-
+.contact-con-div table tr {
+  margin-bottom: 20px !important;
+}
 .contactus-section {
   margin: 0;
   /* background: url(/assets/images/mandala.png);
@@ -5666,6 +5756,7 @@ input {
 
 .contact-sec1 {
   display: flex;
+  margin: 10vh 0 0 18%;
   flex-direction: column;
   margin-top: 5vh;
 }
@@ -5678,6 +5769,7 @@ input {
 .contact-sec2 {
   display: flex;
   flex-direction: column;
+  margin: 10vh 0 0 18%;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
@@ -5707,4 +5799,11 @@ input {
   color: white;
   text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
     0 0 40px red, 0 0 55px red, 0 0 70px red;
+}
+.rule-text {
+  font-family: 'Graduate', serif;
+  line-height: 2.4rem;
+  letter-spacing: 1.5px;
+  padding: 2vh 0;
+  color: white;
 }

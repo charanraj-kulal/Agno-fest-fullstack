@@ -46,7 +46,7 @@
                         <div class="counter main-example text-center text-lg-start">
                             <h1 class="display-1 text-center text-white animated slideInLeft"><strong>The Event Starts In.</strong></h1>
                             <h1 class="display-5 text-center text-white animated slideInLeft"><strong>Every Second Counts...</strong></h1>
-                            <div class="text-center countdown-container" data-timer="2024/04/15" id="main-example"></div>
+                            <div class="text-center countdown-container" data-timer="2024/05/15" id="main-example"></div>
                         </div>
                         <div class="counter">
                             <script type="text/template" id="main-example-template">

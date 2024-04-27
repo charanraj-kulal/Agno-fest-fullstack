@@ -38,9 +38,16 @@ $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
     $routes->get('/', 'AdminController::index');
     //update user
     $routes->post('updateUserRole/(:num)', 'AdminController::update/$1');
+    
     //delete user
-    
-    
+    $routes->get('deleteUser/(:num)', 'User::deleteUser/$1');
+
+    // change password 
+    $routes->post('update-password', 'Dashboard::changePassword');
+
+      
+    //close account
+    $routes->post('close-account', 'Dashboard::closeAccount');
     
 
 
@@ -52,8 +59,7 @@ $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
 
 //fetch users details
     $routes->get('admin/getusers', 'User::getUsers');
-//delete user
-    $routes->get('admin/deleteUser/(:num)', 'User::deleteUser/$1');
+
 
     //update user
         $routes->post('admin/updateUser/(:num)', 'User::updateUser/$1');
@@ -71,6 +77,10 @@ $routes->post('admin/accomodation', 'Accomodation::accomodate');
 //reports routes
 //all user route
 $routes->get('admin/fetchAllUserData', 'Dashboard::getAllUserData');
+//all event route
+$routes->get('admin/fetchAllEventData', 'Dashboard::getAllEventRegistrationData');
+//all event route
+$routes->get('/admin/getAllAccommodationData', 'Dashboard::getAllAccommodationData');
 
 
 
