@@ -4,55 +4,14 @@ $(function () {
   //sidebar menu js
   $.sidebarMenu($(".sidebar-menu"));
 
-  // === toggle-menu js
-  $(".toggle-menu").on("click", function (e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
 
-  // // Attach click event handlers to each navigation item
-  // $("#enroll-nav").click(function (event) {
-  //   handleClick(event, "enroll-nav");
-  // });
+  
 
-  // $("#manage_user_nav").click(function (event) {
-  //   handleClick(event, "manage_user_nav");
-  // });
-
-  // $("#accomodation_nav").click(function (event) {
-  //   handleClick(event, "accomodation_nav");
-  // });
-
-  // $("#rules_nav").click(function (event) {
-  //   handleClick(event, "rules_nav");
-  // });
-
-  // $("#settings_nav").click(function (event) {
-  //   handleClick(event, "settings_nav");
-  // });
-
-  // $("#reports_nav").click(function (event) {
-  //   handleClick(event, "reports_nav");
-  // });
-
-  // $("#all-students-reports_nav").click(function (event) {
-  //   handleClick(event, "all-students-reports_nav");
-  // });
-  // $("#all-events-reports_nav").click(function (event) {
-  //   handleClick(event, "all-events-reports_nav");
-  // });
-  // $("#all-accomodations-reports_nav").click(function (event) {
-  //   handleClick(event, "all-accomodations-reports_nav");
-  // });
-  // $("#all-total-reports_nav").click(function (event) {
-  //   handleClick(event, "all-total-reports_nav");
-  // });
-
-  /* Top Header */
+  
 
   $(document).ready(function () {
     var navbar = $(".topbar-nav .navbar"); // Corrected selector
-
+    // scroll shade 
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 60) {
         navbar.addClass("shadow-black");
@@ -60,11 +19,11 @@ $(function () {
         navbar.removeClass("shadow-black");
       }
     });
-  });
-
-  /* Back To Top */
-
-  $(document).ready(function () {
+      // === toggle-menu js
+    $(".toggle-menu").on("click", function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
     //change password modal
     $("#changePasswordBtn").click(function () {
    
@@ -95,10 +54,7 @@ $(function () {
       var userId = $(this).data("user-id");
       deleteUser(userId);
     });
-    $(document).on("click", ".delete-user-btn", function () {
-      var userId = $(this).data("user-id");
-      deleteUser(userId);
-    });
+    
     //show data in modal
     $(document).on("click", ".edit-user-btn", function () {
       var userId = $(this).data("user-id");

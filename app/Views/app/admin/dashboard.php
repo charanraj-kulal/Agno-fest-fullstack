@@ -8,10 +8,12 @@
   <meta name="author" content=""/>
   <title>Dashboard - Agnisia</title>
   <!-- loader-->
+
   <link href="<?= base_url('assets/web/css/pace.min.css') ?>" rel="stylesheet"/>
   <script src="<?= base_url('assets/web/js/pace.min.js') ?>"></script>
-  <!--favicon-->
-  <link rel="icon" href="<?= base_url('assets/web/images/favicon.ico') ?>" type="image/x-icon">
+  
+  <!-- Favicon -->
+  <link href="<?= base_url('assets/web/imgs/favicon.png') ?>" rel="icon">
   <!-- Vector CSS -->
   <link href="<?= base_url('assets/web/plugins/vectormap/jquery-jvectormap-2.0.5.css') ?>" rel="stylesheet"/>
   <!-- simplebar CSS-->
@@ -296,7 +298,7 @@
                             <label id="dlg-close" for="cls_dialog_state"><i class="fa fa-times"></i></label>
                             <h2 id='dlg-header'>Confirm to close your account?</h2>
                             <div class="modal-body">
-                                <form id="changePassForm">
+                                <form id="confirmform">
                                     <div class="form-group-pswd">
                                      <p style="color:#ff5c40"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 10px;"></i>By closing your account, all your enrollment and accommodation data will be permanently deleted. This action is irreversible.  </p>   
                                     </div>
@@ -822,7 +824,7 @@
                                             <p class="enroll-title">ACCOMMODATION</p>
                                         </div>
 
-                                        <div class="acc-points-div">
+                                        <div class="acc-points-div bqnier ">
                                             <ul>
                                                 <li class="acc-points">Accommodation may incur some charges.</li>
                                             </ul>
@@ -840,7 +842,7 @@
                                                     </svg>
                                                 </label>
                                             </div>
-                                            <p style="margin-left:20px" class="acc-check-txt">Accomodation Required!</p>
+                                            <p style="margin-left:20px" class="acc-check-txt bqnier">Accomodation Required!</p>
                                         </div>
 
                                         <div class="acc-nums-div acc-hide">
@@ -850,11 +852,11 @@
                                                 placeholder="Number of Women">
                                         </div>
 
-                                        <div class="acc-nums-txt1">
+                                        <div class="acc-nums-txt1 bqnier" >
                                             <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
                                         </div>
 
-                                        <div align="center" class="acc-contacts">
+                                        <div align="center" class="acc-contacts bqnier">
                                             <div class="acc-con">
                                                 <p class="acc-con-name">XXX</p>
                                                 <p class="acc-con-number">+91 9353649294</p>
@@ -1295,12 +1297,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
                     <!-- end of all students  reports   --> 
-            
-        
-
-
-                <!--End sidebar-wrapper-->
+                                                                
+                    <!--End sidebar-wrapper-->
                     <!--Start topbar header-->
                     <header class="topbar-nav">
                         <nav class="navbar navbar-expand fixed-top">
@@ -1372,9 +1372,7 @@
 
 
         
-                    <!--start overlay-->
-                    <div class="overlay toggle-menu" onclick="hideHambergerMenu()"></div>
-                    <!--end overlay-->
+                    
             
                 </div>
                 <!-- End container-fluid-->
