@@ -28,6 +28,7 @@ class User extends BaseController
        
         return view('app/register/register');
     }
+    //registration of user
     public function create()
     {
         $session = session();
@@ -315,7 +316,8 @@ class User extends BaseController
         $data = [];
     }
     
-   public function login()
+    //authentication
+     public function login()
     {
         $userModel = new UserModel();
         
@@ -356,7 +358,7 @@ class User extends BaseController
                         // Successful login
                         return $this->response->setJSON([
                             'success' => true,
-                            'message' => 'Logged In Successfully!!'
+                            'message' => 'Login Successful!!'
                         ]);
                     } else {
                         // Incorrect password

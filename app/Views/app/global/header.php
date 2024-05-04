@@ -57,10 +57,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="#home" class="nav-item nav-link active">Home</a>
-                        <a href="#about" class="nav-item nav-link">About</a>
-                        <a href="#events" class="nav-item nav-link">Events</a>
-                        <a href="#teams" class="nav-item nav-link">Teams</a>
+                        <a href="#home" class="nav-item nav-link land-nav active">Home</a>
+                        <a href="#about" class="nav-item nav-link land-nav">About</a>
+                        <a href="#events" class="nav-item nav-link land-nav">Events</a>
+                        <a href="#teams" class="nav-item nav-link land-nav">Teams</a>
                     </div>
                     <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
                         {
