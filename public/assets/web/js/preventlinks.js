@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll(
-    ".navbar-nav .nav-item,.sidebar-wrapper a "
+    ".navbar-nav .land-nav,.sidebar-wrapper a "
   );
 
   links.forEach(function (link) {

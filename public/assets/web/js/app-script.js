@@ -4,60 +4,14 @@ $(function () {
   //sidebar menu js
   $.sidebarMenu($(".sidebar-menu"));
 
-  // === toggle-menu js
-  $(".toggle-menu").on("click", function (e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
 
-  // Attach click event handlers to each navigation item
-  $("#enroll-nav").click(function (event) {
-    handleClick(event, "enroll-nav");
-  });
+  
 
-  $("#manage_user_nav").click(function (event) {
-    handleClick(event, "manage_user_nav");
-  });
-
-  $("#accomodation_nav").click(function (event) {
-    handleClick(event, "accomodation_nav");
-  });
-
-  $("#rules_nav").click(function (event) {
-    handleClick(event, "rules_nav");
-  });
-
-  $("#settings_nav").click(function (event) {
-    handleClick(event, "settings_nav");
-  });
-
-  $("#reports_nav").click(function (event) {
-    handleClick(event, "reports_nav");
-  });
-
-  $("#all-students-reports_nav").click(function (event) {
-    handleClick(event, "all-students-reports_nav");
-  });
-  $("#all-events-reports_nav").click(function (event) {
-    handleClick(event, "all-events-reports_nav");
-  });
-  $("#all-accomodations-reports_nav").click(function (event) {
-    handleClick(event, "all-accomodations-reports_nav");
-  });
-  $("#all-total-reports_nav").click(function (event) {
-    handleClick(event, "all-total-reports_nav");
-  });
-
-  /* Top Header */
+  
 
   $(document).ready(function () {
-    // Check user session to determine the initial sidebar section to display
-
-    // Call the function with the initial user type
-    toggleSidebarSections(userType);
-
     var navbar = $(".topbar-nav .navbar"); // Corrected selector
-
+    // scroll shade 
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 60) {
         navbar.addClass("shadow-black");
@@ -65,11 +19,21 @@ $(function () {
         navbar.removeClass("shadow-black");
       }
     });
+      // === toggle-menu js
+    $(".toggle-menu").on("click", function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+    //change password modal
+    $("#changePasswordBtn").click(function () {
+   
+      $("#pswd_dialog_state").prop("checked", true); // Check the checkbox to show the modal
   });
-
-  /* Back To Top */
-
-  $(document).ready(function () {
+  // close account confirm modal 
+  $("#closeAccountBtn").click(function () {
+    $("#cls_dialog_state").prop("checked", true); // Check the checkbox to show the modal
+});
+   //end of change password
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 300) {
         $(".back-to-top").fadeIn();
@@ -90,7 +54,7 @@ $(function () {
       var userId = $(this).data("user-id");
       deleteUser(userId);
     });
-
+    
     //show data in modal
     $(document).on("click", ".edit-user-btn", function () {
       var userId = $(this).data("user-id");
@@ -102,9 +66,83 @@ $(function () {
       // Fetch user data by userId via AJAX and populate the modal
       updateUserDetails();
     });
+    $(document).on("click", "#changePassword", function () {
+      
+
+      // Fetch user data by userId via AJAX and populate the modal
+      updatePassword();
+    });
+    $(document).on("click", "#closeAccount", function () {
+      
+
+      // Fetch user data by userId via AJAX and populate the modal
+      closeAccount();
+    });
   });
   var userIdToUpdate;
-  //update user
+
+  // AJAX function to close account
+  function closeAccount(){
+  $.ajax({
+    url: "admin/close-account",
+    method: "POST",
+    success: function (response) {
+        // Show alert based on response
+        if (response.success) {
+            showAlert("Your account has been deleted successfully.", true);
+            // Redirect to login page after 3 seconds
+            setTimeout(function () {
+                window.location.href = "/login";
+            }, 3000);
+        } else {
+            showAlert(response.message, false);
+        }
+    },
+    error: function (xhr, status, error) {
+        showAlert("Failed to delete account. Please try again later.", false);
+    }
+});
+}
+
+  //update password
+  // AJAX function to update user password
+  function updatePassword(){
+    
+    var currentPassword = $("#currentPassword").val();
+    var newPassword = $("#newPassword").val();
+    var confirmPassword = $("#confirmPassword").val();
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      showAlert("Please fill in all fields.",false);
+      return;
+      
+    }
+    // Make AJAX request to change password
+    $.ajax({
+        url: "admin/update-password",
+        method: "POST",
+        data: {
+           
+            currentPassword: currentPassword,
+            newPassword: newPassword,
+            confirmPassword: confirmPassword
+        },
+        success: function (response) {
+            // Close the modal
+            $("#password_dialog_state").prop("checked", false);
+            // Show alert based on response
+            if (response.success) {
+                showAlert("Password changed successfully.",true);
+                $("#pswd_dialog_state").prop("checked", false);
+            } else {
+              showAlert(response.message);
+            }
+        },
+        error: function (xhr, status, error) {
+          showAlert("Failed to change password. Please try again later.",false);
+        }
+    });
+  }
+
   // AJAX function to update user details
   function updateUserDetails() {
     // Get the updated user details from the form
@@ -112,7 +150,7 @@ $(function () {
     var collegeName = $("#editCollegeName").val();
     var email = $("#editEmail").val();
     var userType = $("#editUserRole").val();
-
+    
     // Send AJAX request to update user details
     $.ajax({
       url: "/admin/updateUser/" + userIdToUpdate,
@@ -365,153 +403,6 @@ $(function () {
     $("body").attr("class", "bg-theme bg-theme15");
   }
 
-  // sidebar sections
-  const navLinks = document.querySelector(".left-fixed-nav");
-  const manuIcon = document.querySelector(".menu-icon");
-  const overlay = document.querySelector(".overlay");
-
-  const enrollSec = document.querySelector("#enroll-section-id");
-  const manageuserSec = document.querySelector("#manageuser-section-id");
-  const accomodationSec = document.querySelector("#accomodation-section-id");
-  const rulesSec = document.querySelector("#rules-section-id");
-  const settingSec = document.querySelector("#settings-section-id");
-  const allStudentsReportsSec = document.querySelector(
-    "#all-students-reports-section-id"
-  );
-  const allEventsReportsSec = document.querySelector(
-    "#all-events-reports-section-id"
-  );
-  const allAccomodationsReportsSec = document.querySelector(
-    "#all-accomodations-reports-section-id"
-  );
-  const allTotalReportsSec = document.querySelector(
-    "#all-total-reports-section-id"
-  );
-
-  const enrollBtn = document.querySelector("#enroll-nav");
-
-  const manageuserBtn = document.querySelector("#manage_user_nav");
-  const accomodationBtn = document.querySelector("#accomodation_nav");
-  const rulesBtn = document.querySelector("#rules_nav");
-  const settingBtn = document.querySelector("#settings_nav");
-  // const reportsBtn = document.querySelector("#reports_nav");
-  const allStudentsReportsBtn = document.querySelector(
-    "#all-students-reports_nav"
-  );
-  const allEventsReportsBtn = document.querySelector("#all-events-reports_nav");
-  const allAccomodationsReportsBtn = document.querySelector(
-    "#all-accomodations-reports_nav"
-  );
-  const allTotalReportsBtn = document.querySelector("#all-total-reports_nav");
-
-  const showSection = (section) => {
-    const sections = [
-      enrollSec,
-      manageuserSec,
-      accomodationSec,
-      rulesSec,
-      settingSec,
-      allStudentsReportsSec,
-      allEventsReportsSec,
-      allAccomodationsReportsSec,
-      allTotalReportsSec,
-    ];
-
-    sections.forEach((sec) => {
-      if (sec) {
-        sec.classList.add("hide");
-      }
-    });
-
-    if (section) {
-      section.classList.remove("hide");
-    }
-  };
-
-  const hideHambergerMenu = () => {
-    navLinks.classList.toggle("show");
-    manuIcon.checked = false;
-    overlay.classList.toggle("hide");
-  };
-
-  // Define click event handlers only if the buttons exist
-  if (enrollBtn) {
-    enrollBtn.onclick = () => {
-      showSection(enrollSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (manageuserBtn) {
-    manageuserBtn.onclick = () => {
-      showSection(manageuserSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (accomodationBtn) {
-    accomodationBtn.onclick = () => {
-      showSection(accomodationSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (rulesBtn) {
-    rulesBtn.onclick = () => {
-      showSection(rulesSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (settingBtn) {
-    settingBtn.onclick = () => {
-      showSection(settingSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (allStudentsReportsBtn) {
-    allStudentsReportsBtn.onclick = () => {
-      showSection(allStudentsReportsSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (allEventsReportsBtn) {
-    allEventsReportsBtn.onclick = () => {
-      showSection(allEventsReportsSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (allAccomodationsReportsBtn) {
-    allAccomodationsReportsBtn.onclick = () => {
-      showSection(allAccomodationsReportsSec);
-      hideHambergerMenu();
-    };
-  }
-
-  if (allTotalReportsBtn) {
-    allTotalReportsBtn.onclick = () => {
-      showSection(allTotalReportsSec);
-      hideHambergerMenu();
-    };
-  }
-
-  // update user
+ 
+  
 });
-function handleClick(event, navId) {
-  // Remove the 'active' class from all nav items
-  $(".sidebar-menu a").removeClass("active");
-  // Add the 'active' class to the clicked nav item
-  $("#" + navId).addClass("active");
-
-  if (navId === "reports_nav") {
-    $("#extra-links").slideToggle(); // Apply slide animation for smooth transition
-    $(".right").toggleClass("rotate-down"); // Rotate the angle-left icon
-  }
-  $("#extra-links li").removeClass("active"); // Remove active class from all items
-  $("#extra-links").on("click", "li", function () {
-    $(this).addClass("active").siblings().removeClass("active");
-  });
-}
