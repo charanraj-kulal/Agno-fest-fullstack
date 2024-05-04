@@ -25,6 +25,7 @@
 
     <!-- Animsition CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/animsition.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/minimal.css') ?>">
 
     <!-- Select2 CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/select2.min.css') ?>">
@@ -97,7 +98,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <div class="wrap-input100-pass validate-input" data-validate="Enter password">
+                                <div class="wrap-input100-pass validate-input" data-validate="Enter atleast 8 password">
                                     <span class="btn-show-pass">
                                         <i class="zmdi zmdi-eye"></i>
                                     </span>
@@ -152,6 +153,8 @@
     <script src="<?= base_url('assets/web/js/mainreg.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/particles.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/app.js') ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script> <!-- Include Pace.js here -->
+
 
 </body>
 </html>

@@ -32,6 +32,12 @@
 
     // If form is valid and not empty, proceed with AJAX submission
     if (check && !isFormEmpty()) {
+      // Show Pace loader
+      Pace.restart();
+
+      // Disable submit button to prevent multiple submissions
+      $(this).find(".login100-form-btn").prop("disabled", true);
+
       submitLoginForm($(this));
     }
   });
@@ -52,6 +58,8 @@
             /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/
           ) != null
       );
+    } else if ($(input).attr("name") == "password") {
+      return $(input).val().trim().length >= 8; // Minimum length check
     } else {
       return $(input).val().trim() != "";
     }
@@ -88,6 +96,13 @@
       error: function (xhr, status, error) {
         console.error(xhr.responseText);
         showAlert("An error occurred while processing your request.", false);
+      },
+      complete: function () {
+        // Hide Pace loader after AJAX request is complete
+        Pace.stop();
+
+        // Enable submit button
+        form.find(".login100-form-btn").prop("disabled", false);
       },
     });
   }

@@ -386,7 +386,7 @@ table, td { color: #000000; } #u_body a { color: #fd1818; text-decoration: none;
   <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
 <div align="center">
   <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://unlayer.com/" style="height:47px; v-text-anchor:middle; width:165px;" arcsize="8.5%"  stroke="f" fillcolor="#ff1d1d"><w:anchorlock/><center style="color:#FFFFFF;"><![endif]-->
-    <a href="https://unlayer.com/" target="_blank" class="v-button v-font-size" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #ff1d1d; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
+    <a href="http://localhost:8080/" target="_blank" class="v-button v-font-size" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #ff1d1d; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
       <span style="display:block;padding:14px 33px;line-height:120%;"><strong><span style="font-size: 16px; line-height: 19.2px;">EXPLORE →</span></strong></span>
     </a>
     <!--[if mso]></center></v:roundrect><![endif]-->

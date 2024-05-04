@@ -40,7 +40,7 @@
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">Agnisia</a>, All Right Reserved. <br> 
 							
-							Designed By <a class="border-bottom" href="<?= base_url('/') ?>">charanraj</a><br><br>
+							Designed By <a class="border-bottom" href="https://charanraj-kulal.github.io/charan_portfolio_2k24/">charanraj & Venkatesh</a><br><br>
                             Distributed By <a class="border-bottom" href="<?= base_url('/') ?>"> <target="_blank">MCA UNited</a>
                         </div>
                         
