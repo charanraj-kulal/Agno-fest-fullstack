@@ -62,7 +62,7 @@
                         <a href="#events" class="nav-item nav-link land-nav">Events</a>
                         <a href="#teams" class="nav-item nav-link land-nav">Teams</a>
                     </div>
-                    <?php if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
+                    <?php if( isset($_SESSION['college_name']) && !empty($_SESSION['college_name']) )
                         {
                         ?>
                             <a href="<?= base_url('dashboard') ?>" class="nav-btn  py-3 px-4" style="--color: #ff1867;"><span>Dashboard</span><i></i></a>

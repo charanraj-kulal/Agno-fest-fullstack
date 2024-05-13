@@ -463,7 +463,7 @@ table, td { color: #000000; } #u_body a { color: #fd1818; text-decoration: none;
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 21px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://facebook.com/" title="Facebook" target="_blank">
-          <img src="<?= base_url('assets/web/imgs/email/image-1.png') ?>" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="https://cdn.exclaimer.com/Handbook%20Images/facebook-icon_square_64x64.png?_ga=2.200693930.501225093.1691396100-1175264005.1679480569&_gac=1.254493562.1689842177.CjwKCAjwtuOlBhBREiwA7agf1jbFBhqKOVSo_Oy7J58Rvjg6V69g4ysLVmotOCjT9IenNgEuK-yOhxoC5UUQAvD_BwE" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>
@@ -473,7 +473,7 @@ table, td { color: #000000; } #u_body a { color: #fd1818; text-decoration: none;
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 21px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://twitter.com/" title="Twitter" target="_blank">
-          <img src="<?= base_url('assets/web/imgs/email/image-3.png') ?>" alt="Twitter" title="Twitter" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="https://a.storyblok.com/f/228452/33x33/3208e7b119/x-32px.png" alt="Twitter" title="Twitter" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>
@@ -483,7 +483,7 @@ table, td { color: #000000; } #u_body a { color: #fd1818; text-decoration: none;
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 21px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://instagram.com/" title="Instagram" target="_blank">
-          <img src="<?= base_url('assets/web/imgs/email/image-4.png') ?>" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="https://cdn.exclaimer.com/Handbook%20Images/instagram-icon_square_64x64.png?_ga=2.19222972.501225093.1691396100-1175264005.1679480569&_gac=1.257507833.1689842177.CjwKCAjwtuOlBhBREiwA7agf1jbFBhqKOVSo_Oy7J58Rvjg6V69g4ysLVmotOCjT9IenNgEuK-yOhxoC5UUQAvD_BwE" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>
@@ -493,7 +493,7 @@ table, td { color: #000000; } #u_body a { color: #fd1818; text-decoration: none;
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://linkedin.com/" title="LinkedIn" target="_blank">
-          <img src="<?= base_url('assets/web/imgs/email/image-2.png') ?>" alt="LinkedIn" title="LinkedIn" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="https://cdn.exclaimer.com/Handbook%20Images/linkedin-icon_square_64x64.png?_ga=2.266804362.501225093.1691396100-1175264005.1679480569&_gac=1.226168552.1689842177.CjwKCAjwtuOlBhBREiwA7agf1jbFBhqKOVSo_Oy7J58Rvjg6V69g4ysLVmotOCjT9IenNgEuK-yOhxoC5UUQAvD_BwE" alt="LinkedIn" title="LinkedIn" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>

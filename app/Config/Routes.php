@@ -97,7 +97,7 @@ $routes->post('email', 'EmailController::sendMail');
 
 
 // 404 routes
-// $routes->set404Override(function(){
-//     return view('app/common/404');
-// });
+$routes->set404Override(function(){
+    return view('app/common/404');
+});
 
