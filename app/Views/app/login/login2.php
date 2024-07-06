@@ -22,6 +22,8 @@
 
     <!-- Hamburgers CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/hamburgers.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/minimal.css') ?>">
+
 
     <!-- Animsition CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/animsition.min.css') ?>">
@@ -73,7 +75,7 @@
                                 <span class="focus-input100" data-placeholder="Email"></span>
                             </div>
         
-                            <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <div class="wrap-input100 validate-input" data-validate="Minimus password 8 charecter">
                                 <span class="btn-show-pass">
                                     <i class="zmdi zmdi-eye" id="togglePassword"></i>
                                 </span>
@@ -123,6 +125,7 @@
     <!-- Date Range Picker JS -->
     <script src="<?= base_url('assets/web/js/moment.min.js') ?>"></script>
     <!-- <script src="<?= base_url('assets/web/js/daterangepicker.js') ?>"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script> <!-- Include Pace.js here -->
 
     <!-- Your Custom JS File -->
     <script src="<?= base_url('assets/web/js/mainlogin.js') ?>"></script>

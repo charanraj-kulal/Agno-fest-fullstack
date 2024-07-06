@@ -12,15 +12,17 @@
                         <h1 class="motivation animated slideInLeft  mb-5 pb-2">WHERE <span class="underlined underline-clip"> TALENT</span> MEETS OPPORTUNITY!!</h1>
                         
                         <p class="motivation-sub text-white  animated slideInLeft mb-5 pb-2">National Level IT & Management Fest</p>
-                        <?php 
-                        if( isset($_SESSION['name']) && !empty($_SESSION['name']) )
-                        {
-                        ?>
-                            <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Dashboard</span><i></i></a>
-                        <?php }else{ ?>
-                            <a href="<?= base_url('login') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>Login</span><i></i></a>
+                        <?php if (isset($_SESSION['name']) && !empty($_SESSION['name'])): ?>
                             
-                        <?php } ?>
+                            <a href="<?= base_url('dashboard') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft" style="--clr:#000000">
+                                <span>Dashboard</span><i></i>
+                            </a>
+                        <?php else: ?>
+                            <a href="<?= base_url('login') ?>" class="lan-btn py-sm-3 px-sm-5 me-3 animated slideInLeft" style="--clr:#000000">
+                                <span>Login</span><i></i>
+                            </a>
+                        <?php endif; ?>
+                        
                         
                         
 

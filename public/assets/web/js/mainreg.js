@@ -32,6 +32,12 @@
 
     // If form is valid and not empty, proceed with AJAX submission
     if (check && !isFormEmpty()) {
+      // Show Pace loader
+      Pace.restart();
+
+      // Disable submit button to prevent multiple submissions
+      $(this).find(".login100-form-btn").prop("disabled", true);
+
       submitRegForm($(this));
     }
   });
@@ -52,6 +58,15 @@
             /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/
           ) != null
       );
+    } else if ($(input).attr("name") == "password") {
+      return $(input).val().trim().length >= 8; // Minimum length check
+    } else if ($(input).attr("name") == "phone_number") {
+      return (
+        $(input)
+          .val()
+          .trim()
+          .match(/^\d{10}$/) != null
+      ); // Exactly 10 numbers check for phone number
     } else {
       return $(input).val().trim() != "";
     }
@@ -88,6 +103,13 @@
       error: function (xhr, status, error) {
         console.error(xhr.responseText);
         showAlert("An error occurred while processing your request.", false);
+      },
+      complete: function () {
+        // Hide Pace loader after AJAX request is complete
+        Pace.stop();
+
+        // Enable submit button
+        form.find(".login100-form-btn").prop("disabled", false);
       },
     });
   }
@@ -150,102 +172,3 @@
     }
   });
 })(jQuery);
-
-// venilla js
-// (function () {
-//   "use strict";
-
-//   /*==================================================================
-//     [ Focus input ]*/
-//   var inputs = document.querySelectorAll(".input100");
-//   inputs.forEach(function (input) {
-//     input.addEventListener("blur", function () {
-//       if (this.value.trim() !== "") {
-//         this.classList.add("has-val");
-//       } else {
-//         this.classList.remove("has-val");
-//       }
-//     });
-//   });
-
-//   /*==================================================================
-//     [ Validate ]*/
-//   var validateForms = document.querySelectorAll(".validate-form");
-//   validateForms.forEach(function (form) {
-//     form.addEventListener("submit", function (event) {
-//       var inputs = this.querySelectorAll(".input100");
-//       var check = true;
-//       inputs.forEach(function (input) {
-//         if (!validate(input)) {
-//           showValidate(input);
-//           check = false;
-//         }
-//       });
-//       if (!check) {
-//         event.preventDefault();
-//         // } else {
-//         //   // Validation succeeded, redirect to the desired page
-//         //   window.location.href = '<?= site_url("login/authenticate") ?>';
-//         // }
-//       }
-//     });
-//   });
-
-//   var inputFields = document.querySelectorAll(".validate-form .input100");
-//   inputFields.forEach(function (input) {
-//     input.addEventListener("focus", function () {
-//       hideValidate(this);
-//     });
-//   });
-
-//   function validate(input) {
-//     if (
-//       input.getAttribute("type") === "email" ||
-//       input.getAttribute("name") === "email"
-//     ) {
-//       if (
-//         !/^[a-zA-Z0-9_\-\.]+@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/.test(
-//           input.value.trim()
-//         )
-//       ) {
-//         return false;
-//       }
-//     } else {
-//       if (input.value.trim() === "") {
-//         return false;
-//       }
-//     }
-//     return true;
-//   }
-
-//   function showValidate(input) {
-//     var thisAlert = input.parentElement;
-//     thisAlert.classList.add("alert-validate");
-//   }
-
-//   function hideValidate(input) {
-//     var thisAlert = input.parentElement;
-//     thisAlert.classList.remove("alert-validate");
-//   }
-
-//   /*==================================================================
-//     [ Show pass ]*/
-//   var showPass = 0;
-//   var showPassButtons = document.querySelectorAll(".btn-show-pass");
-//   showPassButtons.forEach(function (button) {
-//     button.addEventListener("click", function () {
-//       var inputField = this.nextElementSibling;
-//       if (showPass === 0) {
-//         inputField.setAttribute("type", "text");
-//         this.querySelector("i").classList.remove("zmdi-eye");
-//         this.querySelector("i").classList.add("zmdi-eye-off");
-//         showPass = 1;
-//       } else {
-//         inputField.setAttribute("type", "password");
-//         this.querySelector("i").classList.add("zmdi-eye");
-//         this.querySelector("i").classList.remove("zmdi-eye-off");
-//         showPass = 0;
-//       }
-//     });
-//   });
-// })();
