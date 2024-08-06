@@ -89,24 +89,27 @@ File: app-style
 }
 @font-face {
   font-family: Graduate;
-  src: url('../fonts/custom/Graduate-Regular.ttf');
+  src: url("../fonts/custom/Graduate-Regular.ttf");
 }
 @font-face {
   font-family: Dash;
-  src: url('../fonts/custom/Dash-Horizon-Demo.otf');
-}@font-face {
+  src: url("../fonts/custom/Dash-Horizon-Demo.otf");
+}
+@font-face {
   font-family: Burn;
-  src: url('../fonts/custom/Burn.otf');
-}@font-face {
+  src: url("../fonts/custom/Burn.otf");
+}
+@font-face {
   font-family: Gezier;
-  src: url('../fonts/custom/Geizer.otf');
-}@font-face {
+  src: url("../fonts/custom/Geizer.otf");
+}
+@font-face {
   font-family: pirate;
-  src: url('../fonts/custom/PirataOne-Regular.ttf');
+  src: url("../fonts/custom/PirataOne-Regular.ttf");
 }
 @font-face {
   font-family: blazed;
-  src: url('../fonts/custom/Blazed.ttf');
+  src: url("../fonts/custom/Blazed.ttf");
 }
 :root {
   --glow-color: hsl(186 100% 69%);
@@ -119,7 +122,7 @@ File: app-style
   line-height: normal;
   letter-spacing: 0.5px;
 }
-.blazed{
+.blazed {
   font-family: "blazed";
   font-size: 1.3vw;
   font-style: normal;
@@ -128,7 +131,7 @@ File: app-style
   letter-spacing: 0.5px;
   text-transform: capitalize;
 }
-.dash{
+.dash {
   font-family: "Dash";
   font-size: 1.3vw;
   font-style: normal;
@@ -136,7 +139,7 @@ File: app-style
   line-height: normal;
   letter-spacing: 0.5px;
 }
-.bowler{
+.bowler {
   font-family: "bowler";
   font-size: 1.3vw;
   font-style: normal;
@@ -144,7 +147,7 @@ File: app-style
   line-height: normal;
   letter-spacing: 0.5px;
 }
-.burn{
+.burn {
   font-family: "Burn";
   font-size: 1.3vw;
   font-style: normal;
@@ -152,9 +155,8 @@ File: app-style
   line-height: normal;
   letter-spacing: 0.5px;
   text-transform: capitalize;
-
 }
-.bqnier{
+.bqnier {
   font-family: "bequnier";
   font-size: 0.8vw;
   font-style: normal;
@@ -905,7 +907,7 @@ h2#dlg-header {
 .main_area.dialog_open {
   filter: blur(6px);
 }
-.form-group-pswd{
+.form-group-pswd {
   margin-bottom: 0.5rem;
 }
 .button,
@@ -1295,7 +1297,7 @@ a.button.positive:hover {
   width: 300px;
   margin-left: 800px;
   margin-top: 20px; /* Set the width of the container */
-/* } */ 
+/* } */
 
 #searchInput {
   width: 140px; /* Set the width of the input field */
@@ -5107,7 +5109,7 @@ table.grid td {
   display: flex;
   justify-content: center;
   margin-top: 2vh;
-  
+
   padding-top: 5rem;
 }
 
@@ -5225,6 +5227,8 @@ table.grid td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* max-width: 1000px; */
+  margin: 0 auto;
 }
 
 .event {
@@ -5237,11 +5241,66 @@ table.grid td {
   margin: 1vw 0;
   padding: 2vh 1.5vw;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 1rem;
 }
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 17px;
+  cursor: pointer;
+}
+.accordion-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
 .event:hover {
   border: 3px solid red;
   box-sizing: border-box;
 }
+/* .event-content {
+  display: none;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 17px 17px;
+}
+
+.event-content.active {
+  display: block;
+} */
+
+.member {
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .member {
+    flex-direction: row;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .memname,
+  .memcontact {
+    width: 100% !important;
+  }
+
+  .sanskrit-name,
+  .normal-name,
+  .input-title-name,
+  .input-title-contact,
+  .animated-button .section-heading input {
+    font-size: 12px !important;
+  }
+}
+
 .forallsec {
   min-height: 100vh;
   min-height: 100svh;
@@ -5685,13 +5744,11 @@ input {
   background-size: cover;
 }
 
-
 .settings-content-div {
   margin: 10vh 0 18%;
   height: 60%;
   justify-content: center;
   text-align: center;
-  
 }
 
 .settings-con1-div {
@@ -5801,7 +5858,7 @@ input {
     0 0 40px red, 0 0 55px red, 0 0 70px red;
 }
 .rule-text {
-  font-family: 'Graduate', serif;
+  font-family: "Graduate", serif;
   line-height: 2.4rem;
   letter-spacing: 1.5px;
   padding: 2vh 0;

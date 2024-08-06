@@ -68,70 +68,7 @@
     <div class="main-contents">
 
         <section class="left-fixed-nav">
-            <!-- <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-                <div class="brand-logo">
-                    <a href="<?= base_url('/') ?>">
-                        <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
-                        <h5 class="logo-text">  Dashboard</h5>
-                    </a>
-                </div>
-                <ul class="sidebar-menu do-nicescrol">
-                    <li class="sidebar-header">MAIN NAVIGATION</li>
-
-                    <li>
-                        <a class="active" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
-                        <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a  href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
-                            <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a  href="#accomodation-section-id" onclick="handleClick('accomodation_nav')" id="accomodation_nav">
-                        <i class="zmdi zmdi-hotel"></i> <span>Accomodation</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
-                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
-                        <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#reports-section-id" onclick="handleClick('reports_nav')" id="reports_nav">
-                            <i class="zmdi zmdi-chart"></i> <span>Reports</span> <i class="fas fa-angle-left right"></i>
-                        </a>
-                        <ul class="extra-links" id="extra-links">
-                            <li>
-                                <a href="#all-students-reports-section-id" onclick="handleClick('all-students-reports_nav')" id="all-students-reports_nav"><i class="far fa-circle"></i><span>All users</a></span>
-                            </li>
-                            <li>
-                                <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event registration details</a></span>
-                            </li>
-                            <li>
-                                <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accomodation details</a></span>
-                            </li>
-                            <li>
-                                <a href="#all-total-reports-section-id" onclick="handleClick('all-total-reports_nav')" id="all-total-reports_nav"><i class="far fa-circle"></i><span>All Reports</a></span>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-            
-    
-            </nav> -->
-            <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+        <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
                 <div class="brand-logo">
                     <a href="<?= base_url('/') ?>">
                         <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
@@ -335,51 +272,55 @@
                                                 <div class="event-name">
                                                     <p class="sanskrit-name">Kodhasangam</p>
                                                     <p class="normal-name">(CODING)</p>
+                                                     <!-- <button class="accordion-toggle">+</button> -->
                                                 </div>
+                                               
+                                                <!-- <div class="event-content"> -->
+                                                    <div class="member">
+                                                        <div class="member-name">
+                                                            <div class="member-title">
+                                                                <p class="input-title-name">Team Member 1</p>
+                                                            </div>
+                                                            <div class="member-input">
+                                                                <input class="form-inputbox memname" id="coding-mem1" name="coding-mem1" type="text" placeholder="N/A">
+                                                            </div>
+                                                            <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
+                                                        </div>
 
-                                                <div class="member">
-                                                    <div class="member-name">
-                                                        <div class="member-title">
-                                                            <p class="input-title-name">Team Member 1</p>
+                                                        <div class="member-contact">
+                                                            <div class="contact-title">
+                                                                <p class="input-title-contact">Contact Number</p>
+                                                            </div>
+                                                            <div class="contact-input">
+                                                                <input class="form-inputbox memcontact" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            </div>
+                                                            <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
                                                         </div>
-                                                        <div class="member-input">
-                                                            <input class="form-inputbox memname" id="coding-mem1" name="coding-mem1" type="text" placeholder="N/A">
-                                                        </div>
-                                                        <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
                                                     </div>
+                                                
 
-                                                    <div class="member-contact">
-                                                        <div class="contact-title">
-                                                            <p class="input-title-contact">Contact Number</p>
+                                                    <div class="member">
+                                                        <div class="member-name">
+                                                            <div class="member-title">
+                                                                <p class="input-title-name">Team Member 2</p>
+                                                            </div>
+                                                            <div class="member-input">
+                                                                <input class="form-inputbox memname" id="coding-mem2" name="coding-mem2" type="text" placeholder="N/A">
+                                                            </div>
+                                                            <p class="error-msg" id="coding-tmem2-err">Name is required!</p>
                                                         </div>
-                                                        <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                        </div>
-                                                        <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
-                                                    </div>
-                                                </div>
 
-                                                <div class="member">
-                                                    <div class="member-name">
-                                                        <div class="member-title">
-                                                            <p class="input-title-name">Team Member 2</p>
+                                                        <div class="member-contact">
+                                                            <div class="contact-title">
+                                                                <p class="input-title-contact">Contact Number</p>
+                                                            </div>
+                                                            <div class="contact-input">
+                                                                <input class="form-inputbox memcontact" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            </div>
+                                                            <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
                                                         </div>
-                                                        <div class="member-input">
-                                                            <input class="form-inputbox memname" id="coding-mem2" name="coding-mem2" type="text" placeholder="N/A">
-                                                        </div>
-                                                        <p class="error-msg" id="coding-tmem2-err">Name is required!</p>
                                                     </div>
-
-                                                    <div class="member-contact">
-                                                        <div class="contact-title">
-                                                            <p class="input-title-contact">Contact Number</p>
-                                                        </div>
-                                                        <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
-                                                        </div>
-                                                        <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
-                                                    </div>
-                                                </div>
+                                                <!-- </div> -->
                                             </div>
 
                                             

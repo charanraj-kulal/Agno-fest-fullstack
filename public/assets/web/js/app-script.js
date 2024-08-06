@@ -4,14 +4,9 @@ $(function () {
   //sidebar menu js
   $.sidebarMenu($(".sidebar-menu"));
 
-
-  
-
-  
-
   $(document).ready(function () {
     var navbar = $(".topbar-nav .navbar"); // Corrected selector
-    // scroll shade 
+    // scroll shade
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 60) {
         navbar.addClass("shadow-black");
@@ -19,21 +14,20 @@ $(function () {
         navbar.removeClass("shadow-black");
       }
     });
-      // === toggle-menu js
+    // === toggle-menu js
     $(".toggle-menu").on("click", function (e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
     //change password modal
     $("#changePasswordBtn").click(function () {
-   
       $("#pswd_dialog_state").prop("checked", true); // Check the checkbox to show the modal
-  });
-  // close account confirm modal 
-  $("#closeAccountBtn").click(function () {
-    $("#cls_dialog_state").prop("checked", true); // Check the checkbox to show the modal
-});
-   //end of change password
+    });
+    // close account confirm modal
+    $("#closeAccountBtn").click(function () {
+      $("#cls_dialog_state").prop("checked", true); // Check the checkbox to show the modal
+    });
+    //end of change password
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 300) {
         $(".back-to-top").fadeIn();
@@ -54,7 +48,7 @@ $(function () {
       var userId = $(this).data("user-id");
       deleteUser(userId);
     });
-    
+
     //show data in modal
     $(document).on("click", ".edit-user-btn", function () {
       var userId = $(this).data("user-id");
@@ -67,14 +61,10 @@ $(function () {
       updateUserDetails();
     });
     $(document).on("click", "#changePassword", function () {
-      
-
       // Fetch user data by userId via AJAX and populate the modal
       updatePassword();
     });
     $(document).on("click", "#closeAccount", function () {
-      
-
       // Fetch user data by userId via AJAX and populate the modal
       closeAccount();
     });
@@ -82,64 +72,61 @@ $(function () {
   var userIdToUpdate;
 
   // AJAX function to close account
-  function closeAccount(){
-  $.ajax({
-    url: "admin/close-account",
-    method: "POST",
-    success: function (response) {
+  function closeAccount() {
+    $.ajax({
+      url: "admin/close-account",
+      method: "POST",
+      success: function (response) {
         // Show alert based on response
         if (response.success) {
-            showAlert("Your account has been deleted successfully.", true);
-            // Redirect to login page after 3 seconds
-            setTimeout(function () {
-                window.location.href = "/login";
-            }, 3000);
+          showAlert("Your account has been deleted successfully.", true);
+          // Redirect to login page after 3 seconds
+          setTimeout(function () {
+            window.location.href = "/login";
+          }, 3000);
         } else {
-            showAlert(response.message, false);
+          showAlert(response.message, false);
         }
-    },
-    error: function (xhr, status, error) {
+      },
+      error: function (xhr, status, error) {
         showAlert("Failed to delete account. Please try again later.", false);
-    }
-});
-}
+      },
+    });
+  }
 
   //update password
   // AJAX function to update user password
-  function updatePassword(){
-    
+  function updatePassword() {
     var currentPassword = $("#currentPassword").val();
     var newPassword = $("#newPassword").val();
     var confirmPassword = $("#confirmPassword").val();
     if (!currentPassword || !newPassword || !confirmPassword) {
-      showAlert("Please fill in all fields.",false);
+      showAlert("Please fill in all fields.", false);
       return;
-      
     }
     // Make AJAX request to change password
     $.ajax({
-        url: "admin/update-password",
-        method: "POST",
-        data: {
-           
-            currentPassword: currentPassword,
-            newPassword: newPassword,
-            confirmPassword: confirmPassword
-        },
-        success: function (response) {
-            // Close the modal
-            $("#password_dialog_state").prop("checked", false);
-            // Show alert based on response
-            if (response.success) {
-                showAlert("Password changed successfully.",true);
-                $("#pswd_dialog_state").prop("checked", false);
-            } else {
-              showAlert(response.message);
-            }
-        },
-        error: function (xhr, status, error) {
-          showAlert("Failed to change password. Please try again later.",false);
+      url: "admin/update-password",
+      method: "POST",
+      data: {
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+        confirmPassword: confirmPassword,
+      },
+      success: function (response) {
+        // Close the modal
+        $("#password_dialog_state").prop("checked", false);
+        // Show alert based on response
+        if (response.success) {
+          showAlert("Password changed successfully.", true);
+          $("#pswd_dialog_state").prop("checked", false);
+        } else {
+          showAlert(response.message);
         }
+      },
+      error: function (xhr, status, error) {
+        showAlert("Failed to change password. Please try again later.", false);
+      },
     });
   }
 
@@ -150,7 +137,7 @@ $(function () {
     var collegeName = $("#editCollegeName").val();
     var email = $("#editEmail").val();
     var userType = $("#editUserRole").val();
-    
+
     // Send AJAX request to update user details
     $.ajax({
       url: "/admin/updateUser/" + userIdToUpdate,
@@ -403,6 +390,11 @@ $(function () {
     $("body").attr("class", "bg-theme bg-theme15");
   }
 
- 
-  
+  // document.querySelectorAll(".accordion-toggle").forEach((button) => {
+  //   button.addEventListener("click", () => {
+  //     const content = button.closest(".event").querySelector(".event-content");
+  //     content.classList.toggle("active");
+  //     button.textContent = content.classList.contains("active") ? "-" : "+";
+  //   });
+  // });
 });
