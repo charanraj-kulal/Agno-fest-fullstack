@@ -4,6 +4,8 @@
     <title>Login-AAVIRBHAV</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Login to AGNISIA - Your trusted platform">
+    <meta name="keywords" content="login, AGNISIA, secure login">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="<?= base_url('images/icons/favicon.ico') ?>"/>
@@ -37,6 +39,8 @@
     <!-- Your Custom CSS Files -->
     <link rel="stylesheet"  href="<?= base_url('assets/web/css/util.css') ?>">
     <link rel="stylesheet"  href="<?= base_url('assets/web/css/main.css') ?>">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+
 
 </head>
     <body>
@@ -62,47 +66,50 @@
             <div id="particles-js">
                 <div class="wrap-login100">
                     <div class="login100-form">
-                        <form class="validate-form" id="loginVerifyForm" action="<?= base_url('login/auth') ?>" method="post">
-                            <span class="login100-form-title p-b-10">
-                                Welcome to AGNISIA
-                            </span>
-                            <span class="login100-form-title p-b-15">
-                                <i class="zmdi zmdi-font"></i>
-                            </span>
-        
-                            <div class="wrap-input100 validate-input" data-validate = "Enter valid email">
-                                <input class="input100" type="text" name="email">
-                                <span class="focus-input100" data-placeholder="Email"></span>
-                            </div>
-        
-                            <div class="wrap-input100 validate-input" data-validate="Minimus password 8 charecter">
-                                <span class="btn-show-pass">
-                                    <i class="zmdi zmdi-eye" id="togglePassword"></i>
-                                </span>
-                                <input class="input100" type="password" name="password" id="passwordField">
-                                <span class="focus-input100" data-placeholder="Password"></span>
-                            </div>
+                        <div id="lottie-animation" style="width: 100%; height: 200px; margin: 20px 0;">
 
-        
-                            <div class="container-login100-form-btn">
-                                <div class="wrap-login100-form-btn">
-                                    <div class="login100-form-bgbtn"></div>
-                                    <button class="login100-form-btn">
-                                        Login
-                                    </button>
-                                </div>
-                            </div>
-        
-                            <div class="text-center p-t-30">
-                                <span class="txt1">
-                                    Don’t have an account?
+                            <form class="validate-form" id="loginVerifyForm" action="<?= base_url('login/auth') ?>" method="post">
+                                <span class="login100-form-title p-b-10">
+                                    Welcome to AGNISIA
                                 </span>
-        
-                                <a class="txt2"  href="<?= base_url('/register') ?>">
-                                    Sign Up
-                                </a>
-                            </div>
-                        </form>
+                                <span class="login100-form-title p-b-15">
+                                    <i class="zmdi zmdi-font"></i>
+                                </span>
+            
+                                <div class="wrap-input100 validate-input" data-validate = "Enter valid email">
+                                    <input class="input100" type="text" name="email">
+                                    <span class="focus-input100" data-placeholder="Email"></span>
+                                </div>
+            
+                                <div class="wrap-input100 validate-input" data-validate="Minimus password 8 charecter">
+                                    <span class="btn-show-pass">
+                                        <i class="zmdi zmdi-eye" id="togglePassword"></i>
+                                    </span>
+                                    <input class="input100" type="password" name="password" id="passwordField">
+                                    <span class="focus-input100" data-placeholder="Password"></span>
+                                </div>
+
+            
+                                <div class="container-login100-form-btn">
+                                    <div class="wrap-login100-form-btn">
+                                        <div class="login100-form-bgbtn"></div>
+                                        <button class="login100-form-btn">
+                                            Login
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <div class="text-center p-t-30">
+                                    <span class="txt1">
+                                        Don’t have an account?
+                                    </span>
+            
+                                    <a class="txt2"  href="<?= base_url('/register') ?>">
+                                        Sign Up
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,6 +133,21 @@
     <script src="<?= base_url('assets/web/js/moment.min.js') ?>"></script>
     <!-- <script src="<?= base_url('assets/web/js/daterangepicker.js') ?>"></script> -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script> <!-- Include Pace.js here -->
+
+
+
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'), // the dom element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/web/imgs/loader/animation.json' // the path to the animation json
+            });
+        });
+    </script>
+
 
     <!-- Your Custom JS File -->
     <script src="<?= base_url('assets/web/js/mainlogin.js') ?>"></script>

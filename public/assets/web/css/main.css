@@ -36,8 +36,9 @@
 
 body,
 html {
-  height: 100%;
-  font-family: Poppins-Regular, sans-serif;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
 }
 
 /*---------------------------------------------*/
@@ -380,6 +381,16 @@ iframe {
   background-color: #960d1a;
   /* Red color */
 }
+.input100.error {
+  border-bottom-color: #ff3e3e;
+}
+
+.error-message {
+  color: #ff3e3e;
+  font-size: 12px;
+  margin-top: -30px;
+  margin-bottom: 15px;
+}
 
 .info__icon {
   width: 20px;
@@ -599,6 +610,7 @@ iframe {
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
+  transition: all 0.3s ease;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -615,7 +627,10 @@ iframe {
 .wrap-login100-form-btn:hover .login100-form-bgbtn {
   left: 0;
 }
-
+.login100-form-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
@@ -711,4 +726,42 @@ body::-webkit-scrollbar {
 
 .heading {
   text-align: center;
+}
+
+/* mobile screen  */
+@media (max-width: 768px) {
+  .wrap-login100 {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .login100-form-title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .wrap-input100 {
+    width: 100%;
+  }
+
+  .input100 {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 768px) {
+  #particles-js {
+    background-size: cover;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wrap-login100 {
+  animation: fadeIn 0.5s ease-in-out;
 }
