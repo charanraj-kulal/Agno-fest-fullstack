@@ -32,7 +32,12 @@ $routes->get('/about-us', 'LandingPage::aboutus');
 
 $routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
+    
+    
 });
+$routes->post('razorpay/initiate', 'RazorpayController::initiate');
+    $routes->post('razorpay/verify', 'RazorpayController::verify');
+
 
 $routes->group('admin', ['filter' => 'Auth'], function ($routes) {
     $routes->get('/', 'AdminController::index');

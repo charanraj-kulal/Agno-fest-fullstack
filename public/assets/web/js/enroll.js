@@ -178,17 +178,66 @@ $(document).ready(function () {
     return formData;
   }
 
+  //payment integration
+  function initiateRazorpayPayment() {
+    $.ajax({
+      url: "/razorpay/initiate",
+      type: "POST",
+      dataType: "json",
+      success: function (response) {
+        var options = response;
+        options.handler = function (response) {
+          verifyPayment(response);
+        };
+        var rzp = new Razorpay(options);
+        rzp.open();
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+        alert("Failed to initiate payment. Please try again.");
+      },
+    });
+  }
+
+  function verifyPayment(response) {
+    $.ajax({
+      url: "/razorpay/verify",
+      type: "POST",
+      data: response,
+      success: function (result) {
+        if (result.success) {
+          alert(result.message);
+          // Redirect or update UI as needed
+        } else {
+          alert("Payment verification failed: " + result.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error(error);
+        alert("Payment verification failed. Please contact support.");
+      },
+    });
+  }
+
   // Event listener for form submission
+  // $("#enroll-save-btn").click(function (e) {
+  //   e.preventDefault(); // Prevent the default form submission
+
+  //   // Get form data
+  //   var formData = getFormData();
+
+  //   // Perform validation
+  //   if (checkValidation(formData)) {
+  //     // Perform AJAX request
+  //     submitEnrollForm(formData);
+  //   }
+  // });
+
   $("#enroll-save-btn").click(function (e) {
-    e.preventDefault(); // Prevent the default form submission
-
-    // Get form data
+    e.preventDefault();
     var formData = getFormData();
-
-    // Perform validation
     if (checkValidation(formData)) {
-      // Perform AJAX request
-      submitEnrollForm(formData);
+      initiateRazorpayPayment();
     }
   });
 

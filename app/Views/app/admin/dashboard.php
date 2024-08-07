@@ -699,10 +699,12 @@
                                                     events. You can check out the rules for more details.</p>
                                             </div> -->
 
-                                                <button id="enroll-save-btn" class="animated-button">
+                                            
+                                                <button id="enroll-save-btn" class="animated-button" >
                                                     <span>ENROLL</span>
                                                     <span></span>
                                                 </button>
+                                       
                                             </div>
                                         </div>
                                     </form>
@@ -1627,6 +1629,6 @@ var userType = <?php echo $userType; ?>;
 <script src="<?= base_url('assets/web/js/alleventsreports.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/allaccomodation.js') ?>"></script>
 
-  
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>  
 </body>
 </html>

@@ -10,9 +10,10 @@ use App\Models\AccomodationModel;
 
 class Dashboard extends BaseController
 {
+     protected $session;
     public function __construct()
     {
-        $this->session = \Config\Services::session(); // Load session service
+        $this->session = session();  // Load session service
     }
     
     public function index()
