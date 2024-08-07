@@ -19,6 +19,31 @@ $(function () {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+
+    // Close sidebar when clicking outside or on nav items
+    $(document).on("click", function (e) {
+      if ($("#wrapper").hasClass("toggled")) {
+        if (
+          !$(e.target).closest(".sidebar-wrapper").length &&
+          !$(e.target).closest(".toggle-menu").length
+        ) {
+          $("#wrapper").removeClass("toggled");
+        }
+      }
+    });
+
+    // Close sidebar when clicking on sidebar items
+    $(".sidebar-wrapper ul li").on("click", function () {
+      if ($("#wrapper").hasClass("toggled")) {
+        $("#wrapper").removeClass("toggled");
+      }
+    });
+
+    // Close sidebar when clicking the close button
+    $(".close-sidebar").on("click", function () {
+      $("#wrapper").removeClass("toggled");
+    });
+
     //change password modal
     $("#changePasswordBtn").click(function () {
       $("#pswd_dialog_state").prop("checked", true); // Check the checkbox to show the modal

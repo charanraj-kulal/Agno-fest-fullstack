@@ -68,83 +68,85 @@
     <div class="main-contents">
 
         <section class="left-fixed-nav">
-        <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-                <div class="brand-logo">
-                    <a href="<?= base_url('/') ?>">
-                        <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
-                        <h5 class="logo-text">Dashboard</h5>
-                    </a>
+            <nav class="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+                <div class="sidebar-contents">
+                    <div class="brand-logo">
+                        <a href="<?= base_url('/') ?>">
+                            <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
+                            <h5 class="logo-text">Agnisia</h5>
+                        </a>
+        
+                    </div>
+                    <ul class="sidebar-menu do-nicescrol">
+                        <li class="sidebar-header">MAIN NAVIGATION</li>
+
+                        <?php 
+                        // Check if the user type is set in the session
+                        if (isset($_SESSION['user_type'])) {
+                            $userType = $_SESSION['user_type'];
+                            if ($userType == 1) : ?> <!-- Check if user type is student -->
+                                <li>
+                                    <a class="active enroll enroll-clicked" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
+                                        <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#accomodation-section-id" onclick="handleClick('accomodation_nav')" id="accomodation_nav">
+                                        <i class="zmdi zmdi-hotel"></i> <span>Accommodation</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
+                                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
+                                        <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+                                    </a>
+                                </li>
+                            <?php elseif ($userType == 2) : ?> <!-- Check if user type is admin -->
+                                <li>
+                                    <a class="active manage-user manage-user-clicked" href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
+                                        <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
+                                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
+                                        <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#reports-section-id" onclick="handleClick('reports_nav')" id="reports_nav">
+                                        <i class="zmdi zmdi-chart"></i> <span>Reports</span> <i class="fas fa-angle-left right"></i>
+                                    </a>
+                                    <ul class="extra-links" id="extra-links">
+                                        <li>
+                                            <a href="#all-students-reports-section-id" onclick="handleClick('all-students-reports_nav')" id="all-students-reports_nav"><i class="far fa-circle"></i><span>All users</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event registration details</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accommodation details</span></a>
+                                        </li>
+                                        <!-- <li>
+                                            <a href="#all-total-reports-section-id" onclick="handleClick('all-total-reports_nav')" id="all-total-reports_nav"><i class="far fa-circle"></i><span>All Reports</span></a>
+                                        </li> -->
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
+                        <?php } ?>
+
+                    </ul>
+                
                 </div>
-                <ul class="sidebar-menu do-nicescrol">
-                    <li class="sidebar-header">MAIN NAVIGATION</li>
-
-                    <?php 
-                    // Check if the user type is set in the session
-                    if (isset($_SESSION['user_type'])) {
-                        $userType = $_SESSION['user_type'];
-                        if ($userType == 1) : ?> <!-- Check if user type is student -->
-                            <li>
-                                <a class="active enroll enroll-clicked" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
-                                    <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#accomodation-section-id" onclick="handleClick('accomodation_nav')" id="accomodation_nav">
-                                    <i class="zmdi zmdi-hotel"></i> <span>Accommodation</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
-                                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
-                                    <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
-                                </a>
-                            </li>
-                        <?php elseif ($userType == 2) : ?> <!-- Check if user type is admin -->
-                            <li>
-                                <a class="active manage-user manage-user-clicked" href="#manageuser-section-id" onclick="handleClick('manage_user_nav')" id="manage_user_nav">
-                                    <i class="zmdi zmdi-edit"></i> <span>Manage users</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
-                                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
-                                    <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#reports-section-id" onclick="handleClick('reports_nav')" id="reports_nav">
-                                    <i class="zmdi zmdi-chart"></i> <span>Reports</span> <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="extra-links" id="extra-links">
-                                    <li>
-                                        <a href="#all-students-reports-section-id" onclick="handleClick('all-students-reports_nav')" id="all-students-reports_nav"><i class="far fa-circle"></i><span>All users</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event registration details</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accommodation details</span></a>
-                                    </li>
-                                    <!-- <li>
-                                        <a href="#all-total-reports-section-id" onclick="handleClick('all-total-reports_nav')" id="all-total-reports_nav"><i class="far fa-circle"></i><span>All Reports</span></a>
-                                    </li> -->
-                                </ul>
-                            </li>
-                        <?php endif; ?>
-                    <?php } ?>
-
-                </ul>
             </nav>
-
-
 
 
 
@@ -272,17 +274,16 @@
                                                 <div class="event-name">
                                                     <p class="sanskrit-name">Kodhasangam</p>
                                                     <p class="normal-name">(CODING)</p>
-                                                     <!-- <button class="accordion-toggle">+</button> -->
                                                 </div>
                                                
-                                                <!-- <div class="event-content"> -->
+                                            
                                                     <div class="member">
                                                         <div class="member-name">
                                                             <div class="member-title">
                                                                 <p class="input-title-name">Team Member 1</p>
                                                             </div>
                                                             <div class="member-input">
-                                                                <input class="form-inputbox memname" id="coding-mem1" name="coding-mem1" type="text" placeholder="N/A">
+                                                                <input class="form-inputbox memname" id="coding-mem1" name="coding-mem1" type="text" placeholder="Enter name">
                                                             </div>
                                                             <p class="error-msg" id="coding-tmem1-err">Name is required!</p>
                                                         </div>
@@ -292,7 +293,7 @@
                                                                 <p class="input-title-contact">Contact Number</p>
                                                             </div>
                                                             <div class="contact-input">
-                                                                <input class="form-inputbox memcontact" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                                <input class="form-inputbox memcontact" id="coding-mem1-con1" name="coding-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                             </div>
                                                             <p class="error-msg" id="coding-con1-err">Contact number is required!</p>
                                                         </div>
@@ -305,7 +306,7 @@
                                                                 <p class="input-title-name">Team Member 2</p>
                                                             </div>
                                                             <div class="member-input">
-                                                                <input class="form-inputbox memname" id="coding-mem2" name="coding-mem2" type="text" placeholder="N/A">
+                                                                <input class="form-inputbox memname" id="coding-mem2" name="coding-mem2" type="text" placeholder="Enter name">
                                                             </div>
                                                             <p class="error-msg" id="coding-tmem2-err">Name is required!</p>
                                                         </div>
@@ -315,12 +316,12 @@
                                                                 <p class="input-title-contact">Contact Number</p>
                                                             </div>
                                                             <div class="contact-input">
-                                                                <input class="form-inputbox memcontact" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                                <input class="form-inputbox memcontact" id="coding-mem2-con2" name="coding-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                             </div>
                                                             <p class="error-msg" id="coding-con2-err">Contact number is required!</p>
                                                         </div>
                                                     </div>
-                                                <!-- </div> -->
+                                               
                                             </div>
 
                                             
@@ -337,7 +338,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="gaming-mem1" name="gaming-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="gaming-mem1" name="gaming-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="gaming-tmem1-err">Name is required!</p>
                                                     </div>
@@ -347,7 +348,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem1-con1" name="gaming-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con1-err">Contact number is required!</p>
                                                     </div>
@@ -359,7 +360,7 @@
                                                             <p class="input-title-name">Team Member 2</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="gaming-mem2" name="gaming-mem2" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="gaming-mem2" name="gaming-mem2" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="gaming-tmem2-err">Name is required!</p>
                                                     </div>
@@ -369,7 +370,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem2-con2" name="gaming-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con2-err">Contact number is required!</p>
                                                     </div>
@@ -380,7 +381,7 @@
                                                             <p class="input-title-name">Team Member 3</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="gaming-mem3" name="gaming-mem3" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="gaming-mem3" name="gaming-mem3" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="gaming-tmem3-err">Name is required!</p>
                                                     </div>
@@ -390,7 +391,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem3-con3" name="gaming-mem3-con3" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con3-err">Contact number is required!</p>
                                                     </div>
@@ -401,7 +402,7 @@
                                                             <p class="input-title-name">Team Member 4</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="gaming-mem4" name="gaming-mem4" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="gaming-mem4" name="gaming-mem4" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="gaming-tmem4-err">Name is required!</p>
                                                     </div>
@@ -411,7 +412,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="gaming-mem4-con4" name="gaming-mem4-con4" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="gaming-con4-err">Contact number is required!</p>
                                                     </div>
@@ -431,7 +432,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="it-mem1" name="it-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="it-mem1" name="it-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="it-tmem1-err">Name is required!</p>
                                                     </div>
@@ -441,7 +442,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="it-mem1-con1" name="it-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="it-con1-err">Contact number is required!</p>
                                                     </div>
@@ -460,7 +461,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="photo-mem1" name="photo-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="photo-mem1" name="photo-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="photo-tmem1-err">Name is required!</p>
                                                     </div>
@@ -470,7 +471,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="photo-mem1-con1" name="photo-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="photo-con1-err">Contact number is required!</p>
                                                     </div>
@@ -491,7 +492,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="video-mem1" name="video-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="video-mem1" name="video-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="video-tmem1-err">Name is required!</p>
                                                     </div>
@@ -501,7 +502,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="video-mem1-con1" name="video-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="video-con1-err">Contact number is required!</p>
                                                     </div>
@@ -515,7 +516,7 @@
                                                             <p class="input-title-name">Team Member 2</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="video-mem2" name="video-mem2" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="video-mem2" name="video-mem2" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="video-tmem2-err">Name is required!</p>
                                                     </div>
@@ -525,7 +526,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="video-mem2-con2" name="video-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="video-con2-err">Contact number is required!</p>
                                                     </div>
@@ -544,7 +545,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="quiz-mem1" name="quiz-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="quiz-mem1" name="quiz-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="quiz-tmem1-err">Name is required!</p>
                                                     </div>
@@ -554,7 +555,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="quiz-mem1-con1" name="quiz-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="quiz-con1-err">Contact number is required!</p>
                                                     </div>
@@ -568,7 +569,7 @@
                                                             <p class="input-title-name">Team Member 2</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="quiz-mem2" name="quiz-mem2" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="quiz-mem2" name="quiz-mem2" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="quiz-tmem2-err">Name is required!</p>
                                                     </div>
@@ -578,7 +579,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="quiz-mem2-con2" name="quiz-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="quiz-con2-err">Contact number is required!</p>
                                                     </div>
@@ -597,7 +598,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="web-mem1" name="web-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="web-mem1" name="web-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="web-tmem1-err">Name is required!</p>
                                                     </div>
@@ -607,7 +608,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="web-mem1-con1" name="web-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="web-con1-err">Contact number is required!</p>
                                                     </div>
@@ -621,7 +622,7 @@
                                                             <p class="input-title-name">Team Member 2</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="web-mem2" name="web-mem2" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="web-mem2" name="web-mem2" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="web-tmem2-err">Name is required!</p>
                                                     </div>
@@ -631,7 +632,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="web-mem2-con2" name="web-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="web-con2-err">Contact number is required!</p>
                                                     </div>
@@ -650,7 +651,7 @@
                                                             <p class="input-title-name">Team Member 1</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="hunt-mem1" name="hunt-mem1" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="hunt-mem1" name="hunt-mem1" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="hunt-tmem1-err">Name is required!</p>
                                                     </div>
@@ -660,7 +661,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="hunt-mem1-con1" name="hunt-mem1-con1" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter contact number">
                                                         </div>
                                                         <p class="error-msg" id="hunt-con1-err">Contact number is required!</p>
                                                     </div>
@@ -674,7 +675,7 @@
                                                             <p class="input-title-name">Team Member 2</p>
                                                         </div>
                                                         <div class="member-input">
-                                                            <input class="form-inputbox memname" id="hunt-mem2" name="hunt-mem2" type="text" placeholder="N/A">
+                                                            <input class="form-inputbox memname" id="hunt-mem2" name="hunt-mem2" type="text" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="hunt-tmem2-err">Name is required!</p>
                                                     </div>
@@ -684,7 +685,7 @@
                                                             <p class="input-title-contact">Contact Number</p>
                                                         </div>
                                                         <div class="contact-input">
-                                                            <input class="form-inputbox memcontact" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="N/A">
+                                                            <input class="form-inputbox memcontact" id="hunt-mem2-con2" name="hunt-mem2-con2" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" placeholder="Enter name">
                                                         </div>
                                                         <p class="error-msg" id="hunt-con2-err">Contact number is required!</p>
                                                     </div>
@@ -767,7 +768,7 @@
 
                                         <div class="acc-points-div bqnier ">
                                             <ul>
-                                                <li class="acc-points">Accommodation may incur some charges.</li>
+                                                <li class="acc-points">Accommodation may incure some charges.</li>
                                             </ul>
                                         </div>
 
@@ -1515,73 +1516,69 @@
     }
   };
 
-  const hideHambergerMenu = () => {
-    navLinks.classList.toggle("show");
-    manuIcon.checked = false;
-    overlay.classList.toggle("hide");
-  };
+ 
 
   // Define click event handlers only if the buttons exist
   if (enrollBtn) {
     enrollBtn.onclick = () => {
       showSection(enrollSec);
-      hideHambergerMenu();
+     
     };
   }
 
   if (manageuserBtn) {
     manageuserBtn.onclick = () => {
       showSection(manageuserSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (accomodationBtn) {
     accomodationBtn.onclick = () => {
       showSection(accomodationSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (rulesBtn) {
     rulesBtn.onclick = () => {
       showSection(rulesSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (settingBtn) {
     settingBtn.onclick = () => {
       showSection(settingSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (allStudentsReportsBtn) {
     allStudentsReportsBtn.onclick = () => {
       showSection(allStudentsReportsSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (allEventsReportsBtn) {
     allEventsReportsBtn.onclick = () => {
       showSection(allEventsReportsSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (allAccomodationsReportsBtn) {
     allAccomodationsReportsBtn.onclick = () => {
       showSection(allAccomodationsReportsSec);
-      hideHambergerMenu();
+      
     };
   }
 
   if (allTotalReportsBtn) {
     allTotalReportsBtn.onclick = () => {
       showSection(allTotalReportsSec);
-      hideHambergerMenu();
+      
     };
   }
   $(document).ready(function() {
