@@ -2881,8 +2881,29 @@ table.grid td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* max-width: 1000px; */
+  width: 100%;
   margin: 0 auto;
+}
+
+.oneblock-event-container,
+.twoblock-event-container,
+.threeblock-event-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.threeblock-event-1st-container {
+  display: flex;
+  flex-direction: column;
+  width: 47%; /* Adjust this value as needed */
+  justify-content: space-between;
+}
+
+.threeblock-event-2nd-container {
+  display: flex;
+  width: 50%;
 }
 
 .event {
@@ -2891,11 +2912,10 @@ table.grid td {
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   height: auto;
-  width: 80%;
-  margin: 1vw 0;
+  width: 100%;
+  margin: 1vw;
   padding: 2vh 1.5vw;
   transition: all 0.2s ease-in-out;
-  margin-bottom: 1rem;
 }
 .event-header {
   display: flex;
@@ -2917,10 +2937,6 @@ table.grid td {
 .event:hover {
   border: 3px solid red;
   box-sizing: border-box;
-}
-
-.member {
-  flex-direction: column;
 }
 
 @media (min-width: 768px) {
@@ -2976,7 +2992,7 @@ table.grid td {
 
 .event-name {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -2991,7 +3007,6 @@ table.grid td {
 }
 
 .normal-name {
-  margin-left: 0.5vw;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 400;
@@ -3002,7 +3017,7 @@ table.grid td {
 
 .member {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 2vh 0;
   justify-content: center;
   align-items: center;
@@ -3017,7 +3032,7 @@ table.grid td {
 .member-contact {
   display: flex;
   flex-direction: column;
-  margin: 0 2vw;
+  margin: 2vh 2vw;
 }
 
 .input-title-name {
@@ -3038,10 +3053,10 @@ table.grid td {
   width: 100%;
   padding: 12px;
   border: 1px solid #0a579b;
-  border-radius: 17px;
+  border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.2);
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   transition: border-color 0.3s, padding-top 0.3s;
 }
 
@@ -3060,7 +3075,7 @@ table.grid td {
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -3115,16 +3130,15 @@ input {
 }
 .enroll-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   position: fixed;
   bottom: 0;
-  right: 0;
-  width: 100%;
+
+  width: 85%;
   background: transparent;
   backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 3px black;
-  z-index: 1;
+
   padding: 0.75rem;
   padding-left: 0;
   padding-right: 10vw;
@@ -3736,6 +3750,14 @@ input {
     font-size: 15px;
     cursor: pointer;
     color: #ffffff;
+  }
+  .oneblock-event-container,
+  .twoblock-event-container,
+  .threeblock-event-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
   }
 
   /* accomodation responsive  */
