@@ -1,37 +1,61 @@
-//ACCOMMODATION
-const chkAccomodation = document.getElementById("cbx");
-var numOfBoys = $("#no-b").val(); // Get value from number of men input box
-var numOfGirls = $("#no-g").val(); // Get value from number of women input box
-// const accBtn = document.getElementById('accomodation-btn');
+// Accommodation
+const boyDisplay = document.getElementById("no-b");
+const girlDisplay = document.getElementById("no-g");
+const decBoys = document.getElementById("dec-boys");
+const incBoys = document.getElementById("inc-boys");
+const decGirls = document.getElementById("dec-girls");
+const incGirls = document.getElementById("inc-girls");
+const accomodationBtn = document.getElementById("accomodation-btn");
 
-/* Accomodation toggle */
-function toggleAccNumsDiv() {
-  var accNumsDiv = document.querySelector(".acc-nums-div");
-  if (chkAccomodation.checked) {
-    accNumsDiv.classList.add("show");
-  } else {
-    accNumsDiv.classList.remove("show");
-    numOfBoys.value = 0;
-    numOfGirls.value = 0;
+function updateAccommodationNumbers() {
+  const numOfBoys = parseInt(boyDisplay.textContent);
+  const numOfGirls = parseInt(girlDisplay.textContent);
+
+  decBoys.classList.toggle("disabled", numOfBoys === 0);
+  incBoys.classList.toggle("disabled", numOfBoys === 99);
+  decGirls.classList.toggle("disabled", numOfGirls === 0);
+  incGirls.classList.toggle("disabled", numOfGirls === 99);
+
+  if (numOfBoys === 0 && numOfGirls === 0) {
+    showAlert("Accommodation is not required.", false);
   }
 }
-$("#accomodation-btn").on("click", function (e) {
-  e.preventDefault();
-  var numOfBoys = parseInt($("#no-b").val()); // Parse value to integer
-  var numOfGirls = parseInt($("#no-g").val()); // Parse value to integer
+
+incBoys.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default button behavior
+  boyDisplay.textContent = Math.min(parseInt(boyDisplay.textContent) + 1, 99);
+  updateAccommodationNumbers();
+});
+
+decBoys.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default button behavior
+  boyDisplay.textContent = Math.max(parseInt(boyDisplay.textContent) - 1, 0);
+  updateAccommodationNumbers();
+});
+
+incGirls.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default button behavior
+  girlDisplay.textContent = Math.min(parseInt(girlDisplay.textContent) + 1, 99);
+  updateAccommodationNumbers();
+});
+
+decGirls.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default button behavior
+  girlDisplay.textContent = Math.max(parseInt(girlDisplay.textContent) - 1, 0);
+  updateAccommodationNumbers();
+});
+
+accomodationBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default button behavior
+  var numOfBoys = parseInt(boyDisplay.textContent);
+  var numOfGirls = parseInt(girlDisplay.textContent);
   var totalMembers = numOfBoys + numOfGirls;
-  var chkAccomodation = document.getElementById("cbx");
-  if (!chkAccomodation.checked) {
-    showAlert("Accommodation is not required.", false); // Show alert if checkbox is not checked
-    return;
-  }
 
   if (totalMembers > 15) {
     showAlert("The total number of boys and girls cannot exceed 15.", false);
     return;
   }
 
-  // Validate input boxes
   if ((numOfBoys > 0 && numOfGirls < 0) || (numOfGirls > 0 && numOfBoys < 0)) {
     showAlert(
       "Both the number of boys and girls should be positive or zero.",
@@ -40,7 +64,6 @@ $("#accomodation-btn").on("click", function (e) {
     return;
   }
 
-  // If one input box is filled with a positive number and the other with zero or positive number, no validation error
   if (
     !(numOfBoys > 0 && numOfGirls >= 0) &&
     !(numOfGirls > 0 && numOfBoys >= 0)
@@ -49,15 +72,13 @@ $("#accomodation-btn").on("click", function (e) {
     return;
   }
 
-  // Check if input boxes are filled with zero
-
   // Call the function to submit accommodation form via AJAX
   submitAccommodationForm(numOfBoys, numOfGirls);
 });
 
 // Function to submit the accommodation form via AJAX
 function submitAccommodationForm(numOfBoys, numOfGirls) {
-  var url = "admin/accomodation"; // Relative endpoint
+  var url = "/dashboard/accomodation"; // Relative endpoint
   const accommodationData = {
     numofboys: numOfBoys,
     numofgirls: numOfGirls,
@@ -106,6 +127,7 @@ function showAlert(message, isSuccess) {
     alertBox.removeClass("show-flex");
   }, 3000); // 3 seconds delay before hiding
 }
+
 $(document).on("click", "#closeAlert", function () {
   $(".info").hide();
   $(".info").removeClass("show-flex"); // Hide the alert box when close button is clicked

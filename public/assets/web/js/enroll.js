@@ -181,7 +181,7 @@ $(document).ready(function () {
   //payment integration
   function initiateRazorpayPayment() {
     $.ajax({
-      url: "/razorpay/initiate",
+      url: "dashboard/razorpay/initiate",
       type: "POST",
       dataType: "json",
       success: function (response) {
@@ -201,13 +201,16 @@ $(document).ready(function () {
 
   function verifyPayment(response) {
     $.ajax({
-      url: "/razorpay/verify",
+      url: "dashboard/razorpay/verify",
       type: "POST",
       data: response,
       success: function (result) {
         if (result.success) {
-          alert(result.message);
-          // Redirect or update UI as needed
+          formData = getFormData();
+
+          if (checkValidation(formData)) {
+            submitEnrollForm(formData);
+          }
         } else {
           alert("Payment verification failed: " + result.message);
         }
@@ -245,7 +248,7 @@ $(document).ready(function () {
   function submitEnrollForm(formData) {
     console.log(formData);
 
-    var url = "admin/event-register"; // Relative endpoint
+    var url = "dashboard/event-register"; // Relative endpoint
     $.ajax({
       url: url, // URL to your controller method
       type: "POST",
@@ -652,7 +655,7 @@ $(document).ready(function () {
   // Perform AJAX request to fetch data
   function fetchData() {
     $.ajax({
-      url: "admin/fetchData", // Update 'controller-name' with your actual controller name
+      url: "dashboard/fetchEnrollData", // Update 'controller-name' with your actual controller name
       type: "GET",
       dataType: "json",
       success: function (response) {
@@ -695,7 +698,7 @@ $(document).ready(function () {
           const isEnrolled = parseInt(data.isenrolled);
           if (isEnrolled === 1) {
             // If isenrolled is 1, set registration status to "Completed"
-            $("#set-reg-status").text("Completed").css({
+            $("#set-reg-status").text(": Completed").css({
               color: "white",
               "text-shadow":
                 "0 0 5px green, 0 0 10px green, 0 0 20px green, 0 0 30px green, 0 0 40px green, 0 0 55px green, 0 0 70px green",
@@ -703,7 +706,7 @@ $(document).ready(function () {
             });
           } else {
             // If isenrolled is not 1, set registration status to "Not Completed"
-            $("#set-reg-status").text("Not Completed").css({
+            $("#set-reg-status").text(": Not Completed").css({
               color: "red",
               "text-shadow": "0 0 15px black",
               "font-weight": "bold",

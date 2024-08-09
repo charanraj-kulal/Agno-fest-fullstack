@@ -731,12 +731,12 @@
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered" id="userTable">
                                                             <thead>
-                                                                <tr>
+                                                                <tr align="center">
                                                                     <th>Name</th>
                                                                     <th>College Name</th>
                                                                     <th>Email</th>
                                                                     <th>User Role</th>
-                                                                    <th>Edit</th>
+                                                                    <th>Action</th>
                                                                     
                                                                 </tr>
                                                             </thead>
@@ -759,65 +759,64 @@
                     
 
                     <!-- start of accomodation -->
-                    <form id="accomodateForm" action="<?= base_url('admin/accomodation') ?>" method="post">
+                    <form id="accomodateForm">
                         <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
-                            <!-- <div class="card-content "> -->
-                                <div class="row row-group m-0">
-                                    <div class="accomodation-section ">
-                                        <div class="section-heading">
-                                            <p class="enroll-title">ACCOMMODATION</p>
-                                        </div>
-
-                                        <div class="acc-points-div bqnier ">
-                                            <ul>
-                                                <li class="acc-points">Accommodation may incure some charges.</li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="acc-check-div">
-                                            <div class="cntr" style="height: 36px; width:32px">
-                                                <input type="checkbox" id="cbx" onchange="toggleAccNumsDiv()" style="display: none;">
-                                                <label for="cbx" class="check">
-                                                    <svg class="acc-checkbox" width="2.5vw" height="2.5vw" viewBox="0 0 18 18">
-                                                        <path
-                                                            d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z">
-                                                        </path>
-                                                        <polyline points="1 9 7 14 15 4"></polyline>
-                                                    </svg>
-                                                </label>
-                                            </div>
-                                            <p style="margin-left:20px" class="acc-check-txt bqnier">Accomodation Required!</p>
-                                        </div>
-
-                                        <div class="acc-nums-div acc-hide">
-                                            <input class="acc-nums" id="no-b" type="number" oninput="this.value = this.value.slice(0, 2)"
-                                                placeholder="Number of Men">
-                                            <input class="acc-nums" id="no-g" type="number" oninput="this.value = this.value.slice(0, 2)"
-                                                placeholder="Number of Women">
-                                        </div>
-
-                                        <div class="acc-nums-txt1 bqnier" >
-                                            <p class="acc-check-txt1">For any queries regarding Accommodation, Please feel free to contact:</p>
-                                        </div>
-
-                                        <div align="center" class="acc-contacts bqnier">
-                                            <div class="acc-con">
-                                                <p class="acc-con-name">XXX</p>
-                                                <p class="acc-con-number">+91 9353649294</p>
-                                            </div>
-                                            <div class="acc-con">
-                                                <p class="acc-con-name">YYYY</p>
-                                                <p class="acc-con-number">+91 9353649294</p>
-                                            </div>
-                                        </div>
-
-                                        <button class="accom-animated-button"  id="accomodation-btn">
-                                            <span>SAVE</span>
-                                            <span></span>
-                                        </button>
+                            <div class="row row-group m-0">
+                                <div class="accomodation-section">
+                                    <div class="section-heading">
+                                        <p class="enroll-title">ACCOMMODATION</p>
                                     </div>
+
+                                    <div class="acc-points-div bqnier">
+                                        <ul>
+                                            <li class="acc-points"><span class="acc-ckeck-note">Note : </span>Accommodation may incur some charges.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="acc-nums-div">
+                                        <div class="acc-num-container">
+                                            <div class="acc-num-btn-container">
+                                                <button class="acc-num-btn disabled" id="dec-boys">-</button>
+                                                <div class="acc-num-display" id="no-b">0</div>
+                                                <button class="acc-num-btn" id="inc-boys">+</button>
+                                            </div>
+                                            <div class="acc-num-label-container">
+                                                <p class="acc-num-label">Number of Men</p>
+                                            </div>
+                                        </div>
+                                        <div class="acc-num-container">
+                                            <div class="acc-num-btn-container">
+                                                <button class="acc-num-btn disabled" id="dec-girls">-</button>
+                                                <div class="acc-num-display" id="no-g">0</div>
+                                                <button class="acc-num-btn" id="inc-girls">+</button>
+                                            </div>
+                                            <div class="acc-num-label-container">
+                                                <p class="acc-num-label">Number of Women</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="acc-nums-txt1 bqnier">
+                                        <p class="acc-check-txt1"> Any queries regarding accommodation, please reach out to the number given below</p>
+                                    </div>
+
+                                    <div align="center" class="acc-contacts bqnier">
+                                        <div class="acc-con">
+                                            <p class="acc-con-name">XXX</p>
+                                            <p class="acc-con-number">+91 9353649294</p>
+                                        </div>
+                                        <div class="acc-con">
+                                            <p class="acc-con-name">YYYY</p>
+                                            <p class="acc-con-number">+91 9353649294</p>
+                                        </div>
+                                    </div>
+
+                                    <button align="center" class="accom-animated-button" id="accomodation-btn">
+                                        <span>SAVE</span>
+                                        <span></span>
+                                    </button>
                                 </div>
-                            <!-- </div> -->
+                            </div>
                         </div>
                     </form>
                     <!-- end of accomodation   -->
@@ -833,49 +832,8 @@
                                         <div class="content mt-5 mb-5 text-light">
                                             <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">GENERAL RULES</h1>
                                             <div class="ms-2 me-2">
-                                                
-                                                    <!-- <ul>
-                                                        <li>
-                                                            <p class="h6">Participants from only same colleges can form a team.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Participants must follow all the rules and regulations of the college.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Display of any unruly behaviour shall lead to disqualification of the team and expulsion of the participant from the fest.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Consumption of any alcoholic drinks, use of any hallucinogenic drugs and other illegal substances anywhere in the institute campus is strictly prohibited and any person who has consumed such substances and makes an attempt to enter the campus will not be allowed inside.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Organisers hold the right to change the rules of the event before the event begins without prior notice.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">The entry for the events will be through the Sambhram22 website.</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">The participant must also present their college ID card (compulsory) and Valid government issued ID Proof (Any one) (Aadhaar, Driving license, Voter ID, etc.).</p>
-                                                        </li>
-                                                        <li>
-                                                            <p class="h6">Any participant found violating the above rules may be immediately expelled from the campus. His/her registration from all the events may be cancelled and he/she will be penalised appropriately. Organiser reserves the right to take appropriate legal actions in such cases.</p>
-                                                        </li>  
-                                                    </ul>
-                                                    <h1 class="h3 mt-1 heading">Cancellation Policy</h1>
-                                                    <p class="h6">*Cancellation is not allowed once registered.</p>
-                                                    <p class="h6">The participant registered for the event cannot withdraw the registration and no refund will issued.</p>
-                                                
-                                            
-                                                    <h1 class="h3 mt-1 heading">Refund Policy</h1>
-                                                    <p class="h6">Refunds in any particular case can only be initiated upon request. Please reach out to the Technical Heads of Sambhram24 for refunds.</p>
-                                                    <p class="h6">Name:   xxx xxx xxxx</p>
-                                                    <p class="h6">Name:   xxx xxx xxxx</p> -->
                                                     <ul class="list-rules-ul">
-                                                    <!-- <p class="h6">These terms and conditions outline the rules and regulations for the use of Sambhram 24's Website, located at https://abc.com/.</p>
-
-                                                    <p class="h6">By accessing this website we assume you accept these terms and conditions. Do not continue to use Sambhram 24 if you do not agree to take all of the terms and conditions stated on this page.
-                                                    
-                                                    ABC is a National level techno-cultural festival for the students of technical institutes across the country. However, some events like Battle of the Bands, Fashion Show, Vibe and Stomp That! (Termed as semi-pro events here onwards) are open to all the colleges in the country.</p>
-                                                     -->
+                                                   
                                                         <li class="rule-text">"AAVIRBHAV-2K24" is open to  MCA students.
                                                         </li>
                                                         <li class="rule-text">A maximum of 15 participants are allowed per team.
@@ -919,19 +877,19 @@
                                     <p class="enroll-title">ACCOUNT SETTINGS</p>
                                 </div>
 
-                                <div align="center" class="settings-content-div bqnier  mb-4">
+                                <div  class="settings-content-div bqnier  mb-4">
                                 <table>
                                     <tr>
                                         <td class="settings-txt1">College Name:</td>
-                                        <td><p class="settings-txt" id="set-clg-name"><?php echo session('college_name'); ?></p></td>
+                                        <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
                                     </tr>
                                     <tr>
                                         <td class="settings-txt1">Team Name:</td>
-                                        <td><p class="settings-txt burn" id="set-team-name"><?php echo session('team_name'); ?></p></td>
+                                        <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
                                     </tr>
                                     <tr>
-                                        <td class="settings-txt1">Registration Status:</td>
-                                        <td><p class="settings-txt" id="set-reg-status">Not Completed!</p></td>
+                                        <td class="settings-txt1">Registration Status</td>
+                                        <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -953,9 +911,9 @@
                                     </div>
 
                                     <div class="contact-sec1 mb-4">
-                                        <p class="contact-txthead mb-2 me-2"><b style="margin-right:22%">Website Admins</b></p>
+                                        <p class="contact-txthead mb-2 me-2"><b>Website Admins</b></p>
                                         <div class="contact-con-div">
-                                            <table>
+                                            <table align="center">
                                                 <tr>
                                                     <td class="con-txt1">Charanraj:</td>
                                                     <td class="con-txt2">+91 935473892</td>
@@ -969,9 +927,9 @@
 
                                     </div>
                                     <div class="contact-sec2 mb-4">
-                                        <p class="contact-txthead mb-2"><b style="margin-right:22%">Staff Coordinators</b></p>
+                                        <p class="contact-txthead mb-2"><b>Staff Coordinators</b></p>
                                         <div class="contact-con-div">
-                                            <table>
+                                            <table align="center">
                                                 <tr>
                                                     <td class="con-txt1">Mrs. Staff:</td>
                                                     <td class="con-txt2">+91 935473892</td>
@@ -1003,10 +961,7 @@
                     <div class="card mt-6 dashboard-cards  forallsec hide" id="all-students-reports-section-id">
                         <div class="card-content">
                             <div class="row row-group m-0">
-                                <!-- <form class="search-bar">
-                                        <input type="text" class="form-control" placeholder="Enter keywords">
-                                        <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-                                    </form> -->
+                                
                                     
                                         
                                     
@@ -1253,38 +1208,12 @@
                                 <a class="nav-link toggle-menu" href="javascript:void();">
                                 <i class="icon-menu menu-icon"></i>
                                 </a>
-                                </li> <!-- 
-                                <li class="nav-item">
-                                <form class="search-bar">
-                                    <input type="text" class="form-control" placeholder="Enter keywords">
-                                    <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-                                </form>
-                                </li> -->
-                                
+                                </li>
                             </ul>
 
                             <ul class="navbar-nav align-items-center right-nav-link">
                                 <p class="team-name mt-2">Welcome Team!!.. <span class="header-team-name"> <?php echo session('team_name'); ?> </span></p>
                                 <li class="nav-item">
-                                    <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item user-details">
-                                            <a href="javaScript:void();">
-                                                <div class="media">
-                                                    <div class="avatar"><img class="align-self-start mr-3" src="<?= base_url('assets/web/imgs/user.jpg')?>" alt="user avatar"></div>
-                                                    <div class="media-body">
-                                                        <h6 class="mt-2 user-title"><?php echo session('name'); ?></h6>
-                                                        <p class="user-subtitle"><?php echo session('email'); ?></p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown-divider"></li>
-                                        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
-                                    </ul> -->
-                                     
                                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
                                         <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
                                     </a>
@@ -1301,7 +1230,6 @@
                                             </a>
                                         </li>
                                         <li class="dropdown-divider"></li>
-                                        <!-- <a href="<?= base_url('logout') ?>"class='glowing-btn'><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></a> -->
 
                                         <a href="<?= base_url('logout') ?>">
                                         
@@ -1330,7 +1258,7 @@
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	<footer class="footer">
+	<footer class="card-footer">
       <div class="container">
         <div class="text-center">
           Copyright © 2024 AAVIRBHAV

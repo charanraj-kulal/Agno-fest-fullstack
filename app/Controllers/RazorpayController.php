@@ -46,7 +46,7 @@ class RazorpayController extends BaseController
                     'address'           => 'Agnes'
                 ],
                 'theme'             => [
-                    'color'             => '#F37254'
+                    'color'             => '#E81400'
                 ],
                 'order_id'          => $razorpayOrder['id'],
             ];

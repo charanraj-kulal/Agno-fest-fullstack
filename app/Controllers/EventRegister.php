@@ -141,7 +141,7 @@ class EventRegister extends BaseController
             ]);
         }
     }
-    public function fetchData()
+    public function fetchEnrollData()
     {
         // Load the required model
         $eventModel = new EventregModel();
