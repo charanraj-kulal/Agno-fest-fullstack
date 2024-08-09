@@ -90,6 +90,9 @@ $(document).ready(function () {
   const treasureMem2err = document.getElementById("hunt-tmem2-err");
   const treasureMemCon2err = document.getElementById("hunt-con2-err");
 
+  function validateNumericInput(inputElement) {
+    inputElement.value = inputElement.value.replace(/\D/g, "");
+  }
   class EventData {
     constructor(data) {
       this.data = data || {};

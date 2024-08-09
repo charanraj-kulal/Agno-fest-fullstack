@@ -1,5 +1,5 @@
 $(function () {
-  "use strict";
+  ("use strict");
 
   //sidebar menu js
   $.sidebarMenu($(".sidebar-menu"));
