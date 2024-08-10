@@ -20,6 +20,7 @@ class AlterUsertable extends Migration
 
     public function down()
     {
-        //
+        $this->forge->dropColumn('users', 'team_name');
+
     }
 }
