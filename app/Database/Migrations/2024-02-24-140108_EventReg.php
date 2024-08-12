@@ -132,6 +132,22 @@ class EventReg extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
+            'mad_mem_5' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'mad_mem_contact_5' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'mad_mem_6' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'mad_mem_contact_6' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'itmanager_mem_1' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,

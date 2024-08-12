@@ -107,16 +107,46 @@ $(document).ready(function () {
         event.photo_mem_contact_1 +
         "</td>" +
         "<td>" +
-        event.video_mem_1 +
+        event.photo_mem_2 +
         "</td>" +
         "<td>" +
-        event.video_mem_contact_1 +
+        event.photo_mem_contact_2 +
         "</td>" +
         "<td>" +
-        event.video_mem_2 +
+        event.mad_mem_1 +
         "</td>" +
         "<td>" +
-        event.video_mem_contact_2 +
+        event.mad_mem_contact_1 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_2 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_contact_2 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_3 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_contact_3 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_4 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_contact_4 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_5 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_contact_5 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_6 +
+        "</td>" +
+        "<td>" +
+        event.mad_mem_contact_6 +
         "</td>" +
         "<td>" +
         event.thunt_mem_1 +

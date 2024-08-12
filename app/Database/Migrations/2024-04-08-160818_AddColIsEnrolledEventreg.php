@@ -19,12 +19,14 @@ class AddColIsEnrolledEventreg extends Migration
                 'type'       => 'INT',
                 'constraint' => 5,
                 'default' => 0, 
+                 'after' => 'isenrolled',
                 
             ],
             'ticket_number' => [
-                'type' => 'INT',
+                'type' => 'VARCHAR',
                 'null' => true,
-                'constraint' => 255,       
+                'constraint' => 255,  
+                'after' => 'ispaid',     
             ]
         ); 
         $this->forge->addColumn('event_registration', $fields);

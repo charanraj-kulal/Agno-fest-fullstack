@@ -87,7 +87,7 @@
                             if ($userType == 1) : ?> <!-- Check if user type is student -->
                                 <li>
                                     <a class="active enroll enroll-clicked" href="#enroll-section-id" onclick="handleClick('enroll-nav')" id="enroll-nav">
-                                        <i class="zmdi zmdi-hospital"></i> <span>Enroll</span>
+                                        <i class="zmdi zmdi-hospital"></i> <span>Register</span>
                                     </a>
                                 </li>
                                 <li>
@@ -102,7 +102,7 @@
                                 </li>
                                 <li>
                                     <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
-                                        <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+                                        <i class="zmdi zmdi-info"></i> <span>Info</span>
                                     </a>
                                 </li>
                             <?php elseif ($userType == 2) : ?> <!-- Check if user type is admin -->
@@ -263,7 +263,7 @@
                                     </div>
 
                                     <div class="section-heading">
-                                        <p class="enroll-title">ENROLLMENT FORM</p>
+                                        <p class="enroll-title">EVENT REGISTRATION FORM</p>
                                     </div>
 
                                     <form id="eventForm">
@@ -553,7 +553,7 @@
                                                             <div class="member-name">
                                                                 <div class="member-input">
                                                                     <input class="form-inputbox memname" id="mad-mem5" name="mad-mem5" type="text" oninput="validateTextInput(this)" placeholder="">
-                                                                    <label for="mad-mem5">Team Member 4</label>
+                                                                    <label for="mad-mem5">Team Member 5</label>
                                                                 </div>
                                                                 <p class="error-msg" id="mad-tmem4-err">Name is required!</p>
                                                             </div>
@@ -570,7 +570,7 @@
                                                             <div class="member-name">
                                                                 <div class="member-input">
                                                                     <input class="form-inputbox memname" id="mad-mem6" name="mad-mem6" type="text" oninput="validateTextInput(this)" placeholder="">
-                                                                    <label for="mad-mem6">Team Member 4</label>
+                                                                    <label for="mad-mem6">Team Member 6</label>
                                                                 </div>
                                                                 <p class="error-msg" id="mad-tmem6-err">Name is required!</p>
                                                             </div>
@@ -804,11 +804,7 @@
                                         <p class="enroll-title">ACCOMMODATION</p>
                                     </div>
 
-                                    <div class="acc-points-div bqnier">
-                                        <ul>
-                                            <li class="acc-points"><span class="acc-ckeck-note">Note : </span>Accommodation may incur some charges.</li>
-                                        </ul>
-                                    </div>
+                                    
 
                                     <div class="acc-nums-div">
                                         <div class="acc-num-container">
@@ -867,34 +863,55 @@
                                 <div class="rules-section ">
                                     <div class="d-flex justify-content-center main" >
                                         <div class="content mt-5 mb-5 text-light">
-                                            <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">GENERAL RULES</h1>
+                                            <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">RULES</h1>
                                             <div class="ms-2 me-2">
                                                     <ul class="list-rules-ul">
-                                                   
-                                                        <li class="rule-text">"AAVIRBHAV-2K24" is open to  MCA students.
+                                                        <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">"AAVIRBHAV-2K24" is open to  MCA students.
+                                                            </li>
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">A maximum of 15 participants are allowed per team.
                                                         </li>
-                                                        <li class="rule-text">A maximum of 15 participants are allowed per team.
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The registration fee stands at ₹1,500 per Team.
                                                         </li>
-                                                        <li class="rule-text">The registration fee stands at ₹1,500 per Team.
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Teams must confirm their participation through <a href='/pages/login' style="color:#4af3ff" id='linktologin'>Website.</a>
                                                         </li>
-                                                        <li class="rule-text">Teams must confirm their participation through <a href='/pages/login' style="color:#4af3ff" id='linktologin'>Website.</a>
-                                                        </li>
-                                                        <li class="rule-text">All the participants need to be present by 9.00 AM.</li>
-                                                        <li class="rule-text">Participants are advised to carry their college ID card and Permission
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">All the participants need to be present by 9.00 AM.</li>
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants are advised to carry their college ID card and Permission
                                                             letter on the day of the event.
                                                         </li>
-                                                        <li class="rule-text">For the Overall Championship, a team must participate in all events.
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">For the Overall Championship, a team must participate in all events.
                                                         </li>
-                                                        <li class="rule-text">Participants in IT Manager, Photography, Coding, and Web designing are not
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants in IT Manager, Photography, Coding, and Web designing are not
                                                             permitted to participate in other events.
                                                         </li>
-                                                        <li class="rule-text">All participants must be present on campus for both event days.
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">All participants must be present on campus for both event days.
                                                         </li>
-                                                        <li class="rule-text">If accommodation is needed, it should be specified during registration.
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">If accommodation is needed, it should be specified during registration.
                                                         </li>
-                                                        <li class="rule-text">Cash prizes and trophies will be given to the overall champions and
+                                                        </div>
+                                                         <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Cash prizes and trophies will be given to the overall champions and
                                                             runners-up.
                                                         </li>
+                                                        </div>
                                                     </ul>
                                             </div>
                                         </div>    
@@ -930,7 +947,7 @@
                                     </tr>
                                      <tr>
                                         <td class="settings-txt1">Ticket Number</td>
-                                        <td><p class="settings-txt" id="ticket-number">N/A</p></td>
+                                        <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -946,7 +963,7 @@
                                 </div>
                                 
 
-                                <div class="contactus-section-new bqnier">
+                                <!-- <div class="contactus-section-new bqnier">
                                     <div class="section-heading mb-4">
                                         <p class="enroll-title">CONTACT US</p>
                                     </div>
@@ -991,7 +1008,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -1111,10 +1128,20 @@
                                                                     <th>IT Manager Member Contact 1</th>
                                                                     <th>Photo Member 1</th>
                                                                     <th>Photo Member Contact 1</th>
-                                                                    <th>Video Member 1</th>
-                                                                    <th>Video Member Contact 1</th>
-                                                                    <th>Video Member 2</th>
-                                                                    <th>Video Member Contact 2</th>
+                                                                    <th>Photo Member 2</th>
+                                                                    <th>Photo Member Contact 2</th>
+                                                                    <th>Mad AD Member 1</th>
+                                                                    <th>Mad AD Member Contact 1</th>
+                                                                    <th>Mad AD Member 2</th>
+                                                                    <th>Mad AD Member Contact 2</th>
+                                                                    <th>Mad AD Member 3</th>
+                                                                    <th>Mad AD Member Contact 3</th>
+                                                                    <th>Mad AD Member 4</th>
+                                                                    <th>Mad AD Member Contact 4</th>
+                                                                    <th>Mad AD Member 5</th>
+                                                                    <th>Mad AD Member Contact 5</th>
+                                                                    <th>Mad AD Member 6</th>
+                                                                    <th>Mad AD Member Contact 6</th>
                                                                     <th>Treasure Hunt Member 1</th>
                                                                     <th>Treasure Hunt Member Contact 1</th>
                                                                     <th>Treasure Hunt Member 2</th>
@@ -1254,30 +1281,33 @@
 
                             <ul class="navbar-nav align-items-center right-nav-link">
                                 <p class="team-name mt-2">Welcome Team!!.. <span class="header-team-name"> <?php echo session('team_name'); ?> </span></p>
-                                <li class="nav-item">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-toggle="dropdown" aria-expanded="false">
                                         <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item user-details">
-                                            <a href="javaScript:void();">
-                                            <div class="media">
-                                                <div class="avatar"><img class="align-self-start mr-3" src="<?= base_url('assets/web/imgs/user.jpg')?>" alt="user avatar"></div>
-                                                <div class="media-body">
-                                                    <h6 class="mt-2 user-title"><?php echo session('name'); ?></h6>
-                                                    <p class="user-subtitle"><?php echo session('email'); ?></p>
+                                            <a href="javascript:void(0);">
+                                                <div class="media">
+                                                    <div class="avatar">
+                                                        <img class="align-self-start mr-3" src="<?= base_url('assets/web/imgs/user.jpg')?>" alt="user avatar">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mt-2 user-title"><?php echo session('name'); ?></h6>
+                                                        <p class="user-subtitle"><?php echo session('email'); ?></p>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </a>
                                         </li>
                                         <li class="dropdown-divider"></li>
-
-                                        <a href="<?= base_url('logout') ?>">
-                                        
-                                        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> 
-                                        </a> 
+                                        <li class="dropdown-item">
+                                            <a href="<?= base_url('logout') ?>">
+                                                <i class="icon-power mr-2"></i> Logout
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
+
                             </ul>
                         </nav>
                     </header>

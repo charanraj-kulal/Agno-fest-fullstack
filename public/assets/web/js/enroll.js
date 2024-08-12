@@ -226,7 +226,7 @@ $(document).ready(function () {
   function updateUIAfterPayment(ticketNumber) {
     $("#payment-btn").hide();
     $("#enroll-save-btn").show();
-    $("#ticket-number").text("Your ticket number: " + ticketNumber);
+    $("#ticket-number").text(": " + ticketNumber);
   }
 
   function checkValidation() {
@@ -553,89 +553,76 @@ $(document).ready(function () {
     ) {
       // All are empty, don't return anything
     } else {
-      if (madMem1.value === "" || madMem1.value === "N/A") {
-        madMem1err.classList.add("displayErr");
-        scrollToElement(madMem1);
-        return false;
+      let validMembers = 0;
+
+      function displayError(element, message) {
+        element.classList.add("displayErr");
+        element.textContent = message;
       }
-      if (
-        madMemCon1.value === "" ||
-        madMemCon1.value === "N/A" ||
-        madMemCon1.value.length < 10
+
+      function clearError(element) {
+        element.classList.remove("displayErr");
+        element.textContent = "";
+      }
+
+      function validateMember(
+        member,
+        contact,
+        memberErr,
+        contactErr,
+        isRequired
       ) {
-        madMemCon1err.classList.add("displayErr");
-        scrollToElement(madMem1);
-        return false;
+        // clearError(memberErr);
+        // clearError(contactErr);
+
+        if (isRequired || member.value !== "" || contact.value !== "") {
+          if (member.value === "" || member.value === "N/A") {
+            displayError(memberErr, "Member name is required");
+            return false;
+          }
+          if (contact.value === "" || contact.value === "N/A") {
+            displayError(contactErr, "Contact is required");
+            return false;
+          }
+          if (contact.value.length < 10) {
+            displayError(
+              contactErr,
+              "Contact should be at least 10 characters"
+            );
+            return false;
+          }
+          validMembers++;
+        }
+        return true;
       }
-      if (madMem2.value === "" || madMem2.value === "N/A") {
-        madMem2err.classList.add("displayErr");
-        scrollToElement(madMem2);
-        return false;
+
+      // Clear all previous errors
+      document.querySelectorAll(".displayErr").forEach((el) => clearError(el));
+
+      // Validate first 4 members (required)
+      for (let i = 1; i <= 4; i++) {
+        let member = eval(`madMem${i}`);
+        let contact = eval(`madMemCon${i}`);
+        let memberErr = eval(`madMem${i}err`);
+        let contactErr = eval(`madMemCon${i}err`);
+
+        if (!validateMember(member, contact, memberErr, contactErr, true)) {
+          scrollToElement(member);
+          return false;
+        }
       }
-      if (
-        madMemCon2.value === "" ||
-        madMemCon2.value === "N/A" ||
-        madMemCon2.value.length < 10
-      ) {
-        madMemCon2err.classList.add("displayErr");
-        scrollToElement(madMem2);
-        return false;
-      }
-      if (madMem3.value === "" || madMem3.value === "N/A") {
-        madMem3err.classList.add("displayErr");
-        scrollToElement(madMem3);
-        return false;
-      }
-      if (
-        madMemCon3.value === "" ||
-        madMemCon3.value === "N/A" ||
-        madMemCon3.value.length < 10
-      ) {
-        madMemCon3err.classList.add("displayErr");
-        scrollToElement(madMem3);
-        return false;
-      }
-      if (madMem4.value === "" || madMem4.value === "N/A") {
-        madMem4err.classList.add("displayErr");
-        scrollToElement(madMem4);
-        return false;
-      }
-      if (
-        madMemCon4.value === "" ||
-        madMemCon4.value === "N/A" ||
-        madMemCon4.value.length < 10
-      ) {
-        madMemCon4err.classList.add("displayErr");
-        scrollToElement(madMem4);
-        return false;
-      }
-      if (madMem5.value === "" || madMem5.value === "N/A") {
-        madMem5err.classList.add("displayErr");
-        scrollToElement(madMem5);
-        return false;
-      }
-      if (
-        madMemCon5.value === "" ||
-        madMemCon5.value === "N/A" ||
-        madMemCon5.value.length < 10
-      ) {
-        madMemCon5err.classList.add("displayErr");
-        scrollToElement(madMem5);
-        return false;
-      }
-      if (madMem6.value === "" || madMem6.value === "N/A") {
-        madMem6err.classList.add("displayErr");
-        scrollToElement(madMem6);
-        return false;
-      }
-      if (
-        madMemCon6.value === "" ||
-        madMemCon6.value === "N/A" ||
-        madMemCon6.value.length < 10
-      ) {
-        madMemCon6err.classList.add("displayErr");
-        scrollToElement(madMem6);
-        return false;
+
+      // Validate optional members (5 and 6)
+      for (let i = 5; i <= 6; i++) {
+        let member = eval(`madMem${i}`);
+        let contact = eval(`madMemCon${i}`);
+        let memberErr = eval(`madMem${i}err`);
+        let contactErr = eval(`madMemCon${i}err`);
+
+        if (!validateMember(member, contact, memberErr, contactErr, false)) {
+          scrollToElement(member);
+          return false;
+        }
       }
     }
     //Treasure Hunt
@@ -769,8 +756,10 @@ $(document).ready(function () {
           $("#mad-mem5-con5").val(data.mad_mem_contact_5);
           $("#mad-mem6").val(data.mad_mem_6);
           $("#mad-mem6-con6").val(data.mad_mem_contact_6);
+          $("#ticket-number").text(": " + data.ticket_number);
 
           const isEnrolled = parseInt(data.isenrolled);
+
           if (isEnrolled === 1) {
             // If isenrolled is 1, set registration status to "Completed"
             $("#set-reg-status").text(": Completed").css({

@@ -93,7 +93,7 @@ class EventRegister extends BaseController
                 'mad_mem_contact_6' => $this->request->getVar('mad-mem6-con6'),
                 'isenrolled' => 1,
                 'ispaid' => 1,
-                'ticket_number' => 'TCKN' . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT),
+                
                 'updated_at' => date('Y-m-d H:i:s')
             ];
             
@@ -101,10 +101,13 @@ class EventRegister extends BaseController
            if ($existingData) {
                 $updated = $Event->update($existingData['id'], $eventdata);
                 $message = $updated ? 'Data updated successfully!!' : 'Failed to update data!!';
+                $ticketNumber = $existingData['ticket_number'];
             } else {
                 $eventdata['created_at'] = date('Y-m-d H:i:s');
+                $eventdata['ticket_number'] = 'TCKN' . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
                 $inserted = $Event->insert($eventdata);
                 $message = $inserted ? 'Data added successfully!!' : 'Failed to add data!!';
+                $ticketNumber = $eventdata['ticket_number']; // New ticket number
 
                 if ($inserted) {
                     $eventsessdata = ['isEnrolled' => true];
@@ -116,7 +119,7 @@ class EventRegister extends BaseController
             return $this->response->setJSON([
                 'success' => $updated || $inserted,
                 'message' => $message,
-                'ticket_number' => $eventdata['ticket_number']
+                'ticket_number' => $ticketNumber
             ]);
         } else {
             return $this->response->setJSON([
