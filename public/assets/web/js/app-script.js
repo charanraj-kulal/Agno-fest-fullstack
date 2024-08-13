@@ -1,5 +1,5 @@
 $(function () {
-  "use strict";
+  ("use strict");
 
   //sidebar menu js
   $.sidebarMenu($(".sidebar-menu"));
@@ -99,7 +99,7 @@ $(function () {
   // AJAX function to close account
   function closeAccount() {
     $.ajax({
-      url: "admin/close-account",
+      url: "dashboard/close-account",
       method: "POST",
       success: function (response) {
         // Show alert based on response
@@ -131,7 +131,7 @@ $(function () {
     }
     // Make AJAX request to change password
     $.ajax({
-      url: "admin/update-password",
+      url: "dashboard/update-password",
       method: "POST",
       data: {
         currentPassword: currentPassword,
@@ -165,7 +165,7 @@ $(function () {
 
     // Send AJAX request to update user details
     $.ajax({
-      url: "/admin/updateUser/" + userIdToUpdate,
+      url: "/dashboard/updateUser/" + userIdToUpdate,
       type: "POST",
       dataType: "json",
       data: {
@@ -198,7 +198,7 @@ $(function () {
   //fetch user details of user
   function fetchUserDetails(userId) {
     $.ajax({
-      url: "/admin/getUserDetails/" + userId, // Assuming you have a route for fetching user details by ID
+      url: "/dashboard/getUserDetails/" + userId, // Assuming you have a route for fetching user details by ID
       type: "POST",
       dataType: "json",
       data: {
@@ -228,7 +228,7 @@ $(function () {
   //delete user function
   function deleteUser(userId) {
     $.ajax({
-      url: "/admin/deleteUser/" + userId,
+      url: "/dashboard/deleteUser/" + userId,
       type: "GET",
       success: function (response) {
         if (response.success) {
@@ -253,7 +253,7 @@ $(function () {
   // Function to fetch users and populate the table
   function fetchUsers() {
     $.ajax({
-      url: "/admin/getusers", // Route to the controller method
+      url: "/dashboard/getusers", // Route to the controller method
       type: "GET",
       dataType: "json",
       success: function (response) {

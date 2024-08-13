@@ -13,7 +13,8 @@ class AlterUserTableAddOTPCraetedAt extends Migration
                     'type' => 'DATETIME',
                     'null' => true,
                     'after' => 'active',
-            ]
+            ],
+           
         );
         $this->forge->addColumn('users', $fields);
     }
@@ -21,5 +22,6 @@ class AlterUserTableAddOTPCraetedAt extends Migration
     public function down()
     {
         $this->forge->dropColumn('users', 'otp_created_at');
+
     }
 }

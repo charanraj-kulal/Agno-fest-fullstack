@@ -12,7 +12,7 @@ class AccomodationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'numofboys', 'numofgirls', 'team_name', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['user_id', 'numofboys', 'numofgirls', 'team_name','emg_contact','req_food','agree_tandm', 'created_at', 'updated_at'];
 
     protected bool $allowEmptyInserts = false;
 

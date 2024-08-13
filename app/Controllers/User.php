@@ -139,7 +139,7 @@ class User extends BaseController
         } else {
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'Session variable regemail not found.'
+                'message' => 'Email not found.'
             ]);
         }
     }

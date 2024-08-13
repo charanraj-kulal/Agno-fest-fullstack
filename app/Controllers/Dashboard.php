@@ -10,9 +10,10 @@ use App\Models\AccomodationModel;
 
 class Dashboard extends BaseController
 {
+     protected $session;
     public function __construct()
     {
-        $this->session = \Config\Services::session(); // Load session service
+        $this->session = session();  // Load session service
     }
     
     public function index()
@@ -124,14 +125,20 @@ public function getAllEventRegistrationData()
             'itmanager_mem_contact_1' => esc($event['itmanager_mem_contact_1']),
             'photo_mem_1' => esc($event['photo_mem_1']),
             'photo_mem_contact_1' => esc($event['photo_mem_contact_1']),
-            'video_mem_1' => esc($event['video_mem_1']),
-            'video_mem_contact_1' => esc($event['video_mem_contact_1']),
-            'video_mem_2' => esc($event['video_mem_2']),
-            'video_mem_contact_2' => esc($event['video_mem_contact_2']),
+            'photo_mem_2' => esc($event['photo_mem_2']),
+            'photo_mem_contact_2' => esc($event['photo_mem_contact_2']),
             'thunt_mem_1' => esc($event['thunt_mem_1']),
             'thunt_mem_contact_1' => esc($event['thunt_mem_contact_1']),
             'thunt_mem_2' => esc($event['thunt_mem_2']),
             'thunt_mem_contact_2' => esc($event['thunt_mem_contact_2']),
+            'mad_mem_1' => esc($event['mad_mem_1']),
+            'mad_mem_contact_1' => esc($event['mad_mem_contact_1']),
+            'mad_mem_2' => esc($event['mad_mem_2']),
+            'mad_mem_contact_2' => esc($event['mad_mem_contact_2']),
+            'mad_mem_3' => esc($event['mad_mem_3']),
+            'mad_mem_contact_3' => esc($event['mad_mem_contact_3']),
+            'mad_mem_4' => esc($event['mad_mem_4']),
+            'mad_mem_contact_4' => esc($event['mad_mem_contact_4']),
             // Add other fields here
         ];
     }

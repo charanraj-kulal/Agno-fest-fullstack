@@ -14,7 +14,20 @@ class AddColIsEnrolledEventreg extends Migration
                 'constraint' => 5,
                 'default' => 0, 
                 'after' => 'thunt_mem_contact_2',
-            ]  
+            ],
+            'ispaid'=>[
+                'type'       => 'INT',
+                'constraint' => 5,
+                'default' => 0, 
+                 'after' => 'isenrolled',
+                
+            ],
+            'ticket_number' => [
+                'type' => 'VARCHAR',
+                'null' => true,
+                'constraint' => 255,  
+                'after' => 'ispaid',     
+            ]
         ); 
         $this->forge->addColumn('event_registration', $fields);
     }
@@ -22,6 +35,8 @@ class AddColIsEnrolledEventreg extends Migration
     public function down()
     {
                 $this->forge->dropColumn('event_registration', 'isenrolled');
+                $this->forge->dropColumn('event_registration', 'paid');
+                $this->forge->dropColumn('event_registration', 'ticket_number');
 
     }
 }

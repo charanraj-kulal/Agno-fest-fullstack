@@ -16,17 +16,14 @@ class EventRegister extends BaseController
     {
         
     }
-    public function __construct()
-    {
-        $this->session = \Config\Services::session(); // Load session service
-    }
+    
     
     public function register()
     {
         $session = session();
         $Event = new EventregModel();
         $UserModel = new UserModel();
-        $validation = \Config\Services::validation();
+       
 
         // Check if the user is logged in
         if ($session->get('isLoggedIn')) {
@@ -45,7 +42,8 @@ class EventRegister extends BaseController
                     'message' => 'Team name is empty!'
                 ]);
             }
-
+            $updated = false;
+            $inserted = false;
             $existingData = $Event->where('user_id', $userId)->first();
             // Data already exists, update the existing entry
             $eventdata = [
@@ -67,10 +65,8 @@ class EventRegister extends BaseController
                 'itmanager_mem_contact_1' => $this->request->getVar('it-mem1-con1'),
                 'photo_mem_1' => $this->request->getVar('photo-mem1'),
                 'photo_mem_contact_1' => $this->request->getVar('photo-mem1-con1'),
-                'video_mem_1' => $this->request->getVar('video-mem1'),
-                'video_mem_contact_1' => $this->request->getVar('video-mem1-con1'),
-                'video_mem_2' => $this->request->getVar('video-mem2'),
-                'video_mem_contact_2' => $this->request->getVar('video-mem2-con2'),
+                'photo_mem_2' => $this->request->getVar('photo-mem2'),
+                'photo_mem_contact_2' => $this->request->getVar('photo-mem2-con2'),
                 'quiz_mem_1' => $this->request->getVar('quiz-mem1'),
                 'quiz_mem_contact_1' => $this->request->getVar('quiz-mem1-con1'),
                 'quiz_mem_2' => $this->request->getVar('quiz-mem2'),
@@ -83,71 +79,62 @@ class EventRegister extends BaseController
                 'thunt_mem_contact_1' => $this->request->getVar('hunt-mem1-con1'),
                 'thunt_mem_2' => $this->request->getVar('hunt-mem2'),
                 'thunt_mem_contact_2' => $this->request->getVar('hunt-mem2-con2'),
+                'mad_mem_1' => $this->request->getVar('mad-mem1'),
+                'mad_mem_contact_1' => $this->request->getVar('mad-mem1-con1'),
+                'mad_mem_2' => $this->request->getVar('mad-mem2'),
+                'mad_mem_contact_2' => $this->request->getVar('mad-mem2-con2'),
+                'mad_mem_3' => $this->request->getVar('mad-mem3'),
+                'mad_mem_contact_3' => $this->request->getVar('mad-mem3-con3'),
+                'mad_mem_4' => $this->request->getVar('mad-mem4'),
+                'mad_mem_contact_4' => $this->request->getVar('mad-mem4-con4'),
+                'mad_mem_5' => $this->request->getVar('mad-mem5'),
+                'mad_mem_contact_5' => $this->request->getVar('mad-mem5-con5'),
+                'mad_mem_6' => $this->request->getVar('mad-mem6'),
+                'mad_mem_contact_6' => $this->request->getVar('mad-mem6-con6'),
                 'isenrolled' => 1,
+                'ispaid' => 1,
+                
                 'updated_at' => date('Y-m-d H:i:s')
             ];
+            
 
-            if ($existingData) { 
-                // Save the updated entry
-                
+           if ($existingData) {
                 $updated = $Event->update($existingData['id'], $eventdata);
-
-                if ($updated) {
-                    // Data update successful
-                    return $this->response->setJSON([
-                        'success' => true,
-                        'message' => 'Data updated successfully!!'
-                    ]);
-                } else {
-                    // Data update failed
-                    return $this->response->setJSON([
-                        'success' => false,
-                        'message' => 'Failed to update data!!'
-                    ]);
-                }
-            }else{
+                $message = $updated ? 'Data updated successfully!!' : 'Failed to update data!!';
+                $ticketNumber = $existingData['ticket_number'];
+            } else {
                 $eventdata['created_at'] = date('Y-m-d H:i:s');
-                // Insert data into the database
+                $eventdata['ticket_number'] = 'TCKN' . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
                 $inserted = $Event->insert($eventdata);
+                $message = $inserted ? 'Data added successfully!!' : 'Failed to add data!!';
+                $ticketNumber = $eventdata['ticket_number']; // New ticket number
 
                 if ($inserted) {
-                    // Data insertion successful
-                
-                    return $this->response->setJSON([
-                        'success' => true,
-                        'message' => 'Data added successfully!!'
-                    ]);
-                    $eventsessdata = [
-                        // 'team_name' => $teamName, // Assuming team_name is team_id
-                        'isEnrolled' => true,
-                    ];
-                    $session = session();
-                    session()->set($eventsessdata);
-
-                } else {
-                    // Data insertion failed
-                    return $this->response->setJSON([
-                        'success' => false,
-                        'message' => 'Failed to add data!!'
-                    ]);
+                    $eventsessdata = ['isEnrolled' => true];
+                    $session->set($eventsessdata);
+                   
                 }
             }
 
+            return $this->response->setJSON([
+                'success' => $updated || $inserted,
+                'message' => $message,
+                'ticket_number' => $ticketNumber
+            ]);
         } else {
-            // User is not logged in
             return $this->response->setJSON([
                 'success' => false,
                 'message' => 'Login first to enroll for event!!'
             ]);
         }
     }
-    public function fetchData()
+    public function fetchEnrollData()
     {
         // Load the required model
         $eventModel = new EventregModel();
         $session = session();
         // Fetch data from the database
-        $data = $eventModel->where('user_id', $this->session->get('id'))->first();
+        $data = $eventModel->where('user_id', $session->get('id'))->first();
 
         if ($data) {
             // If data is found, send it as JSON response

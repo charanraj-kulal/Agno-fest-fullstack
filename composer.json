@@ -12,7 +12,8 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.4",
-        "firebase/php-jwt": "^6.10"
+        "firebase/php-jwt": "^6.10",
+        "razorpay/razorpay": "^2.9"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

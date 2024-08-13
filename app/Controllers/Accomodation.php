@@ -15,49 +15,39 @@ class Accomodation extends BaseController
         //
     }
     
-    public function accomodate()
-    {
-        $session = session();
-        $Event = new EventregModel();
-        $Accom = new AccomodationModel();
-        $User = new UserModel();
+   public function accomodate()
+{
+    $session = session();
+    $Event = new EventregModel();
+    $Accom = new AccomodationModel();
+    $User = new UserModel();
 
-        // Get the user ID from the session
-        $userId = $session->get('id');
-        $teamId = $session->get('team_name');
-        
+    $userId = $session->get('id');
+    $teamId = $session->get('team_name');
 
-         $eventEnrollData = $Event->where('user_id', $userId)->first();
+    $eventEnrollData = $Event->where('user_id', $userId)->first();
 
-        // Log the retrieved data
-        // log_message('debug', 'Event registration data: ' . print_r($eventEnrollData, true));
-
-
-        
-
-        if($eventEnrollData && $eventEnrollData['isenrolled'] == 1){
-
-        // Check if accommodation data already exists for the current user
+    if($eventEnrollData && $eventEnrollData['isenrolled'] == 1){
         $existingAccom = $Accom->where('user_id', $userId)->first();
 
-        // Prepare data to be inserted or updated
         $accomData = [
             'user_id' => $userId,
             'numofboys' => $this->request->getVar('numofboys'),
             'numofgirls' => $this->request->getVar('numofgirls'),
             'team_name' => $teamId,
+            'emg_contact' => $this->request->getVar('emg_contact'),
+            'req_food' => $this->request->getVar('req_food'),
+            'agree_tandm' => $this->request->getVar('agree_tandm'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
         if ($existingAccom) {
-            // Update existing accommodation data
             $Accom->update($existingAccom['id'], $accomData);
             return $this->response->setJSON([
                 'success' => true,
                 'message' => 'Accommodation data updated successfully!'
             ]);
         } else {
-            // Insert new accommodation data
             $accomData['created_at'] = date('Y-m-d H:i:s');
             $inserted = $Accom->insert($accomData);
 
@@ -73,12 +63,33 @@ class Accomodation extends BaseController
                 ]);
             }
         }
-         }else{
+    } else {
+        return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Enroll first to avail accommodation!'
+        ]);
+    }
+}
+  public function fetchAccomData()
+    {
+        // Load the required model
+        $Accom = new AccomodationModel();
+        $session = session();
+        // Fetch data from the database
+        $data = $Accom->where('user_id', $session->get('id'))->first();
+
+        if ($data) {
+            // If data is found, send it as JSON response
             return $this->response->setJSON([
-                    'success' => false,
-                    'message' => 'Enroll first to avail accomodation!!'
+                'success' => true,
+                'data' => $data
+            ]);
+        } else {
+            // If no data found, send error response
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No data found'
             ]);
         }
     }
-
 }
