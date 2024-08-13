@@ -18,6 +18,7 @@
   <link href="<?= base_url('assets/web/plugins/vectormap/jquery-jvectormap-2.0.5.css') ?>" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?= base_url('assets/web/plugins/simplebar/css/simplebar.css') ?>" rel="stylesheet"/>
+  <link href="<?= base_url('assets/web/css/select2.min.css') ?>" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
   <link href="<?= base_url('assets/web/css/bootstrap.min.css') ?>" rel="stylesheet"/>
   <link href="<?= base_url('assets/web/css/bootstrap.css') ?>" rel="stylesheet"/>
@@ -112,13 +113,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#rules-section-id" onclick="handleClick('rules_nav')" id="rules_nav">
-                                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rules</span>
+                                    <a href="#qual-section-id" onclick="handleClick('qual_nav')" id="qual_nav">
+                                        <i class="zmdi zmdi-format-list-bulleted"></i> <span>Qual Teams</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#settings-section-id" onclick="handleClick('settings_nav')" id="settings_nav">
-                                        <i class="zmdi zmdi-settings"></i> <span>Site settings</span>
+                                        <i class="zmdi zmdi-info"></i> <span>Info</span>
                                     </a>
                                 </li>
                                 <li>
@@ -252,7 +253,7 @@
                     </div>
 
                     <!-- enroll starts -->
-                    <div class="card mt-3 dashboard-cards" id="enroll-section-id">
+                    <div class="card mt-3 enroll-dashboard-cards" id="enroll-section-id">
                         <div cass="card-content">
                             <div class="row row-group m-0">
                                 <div class="enroll-section" >
@@ -796,38 +797,51 @@
                     
 
                     <!-- start of accomodation -->
-                    <form id="accomodateForm">
+                    <form id="accomodateForm" novalidate>
                         <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
                             <div class="row row-group m-0">
                                 <div class="accomodation-section">
                                     <div class="section-heading">
                                         <p class="enroll-title">ACCOMMODATION</p>
                                     </div>
-
-                                    
-
-                                    <div class="acc-nums-div">
-                                        <div class="acc-num-container">
-                                            <div class="acc-num-btn-container">
-                                                <button class="acc-num-btn disabled" id="dec-boys">-</button>
-                                                <div class="acc-num-display" id="no-b">0</div>
-                                                <button class="acc-num-btn" id="inc-boys">+</button>
-                                            </div>
-                                            <div class="acc-num-label-container">
-                                                <p class="acc-num-label">Number of Men</p>
+                                    <div class="accom_card event">
+                                        <div class="card-body">
+                                        <div class="card-title">Accomodation Details</div>
+                                        <hr>
+                                            <form>
+                                        <div class="form-group">
+                                            <label for="input-6">Number Of Men</label>
+                                            <input type="text" class="form-control form-control-rounded" id="no-b" inputmode="numeric" oninput="validateNumericInput(this)" placeholder="Enter Number Of Men">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input-7">Number Of Women</label>
+                                            <input type="text" class="form-control form-control-rounded" id="no-g" inputmode="numeric" oninput="validateNumericInput(this)" placeholder="Enter Number Of Women">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input-8">Emergency Contact Number</label>
+                                            <input class="form-control form-control-rounded" id="emg-contact" placeholder="Enter Mobile Number" type="tel" maxlength="10" inputmode="numeric" pattern="[6789][0-9]{9}" oninput="validateNumericInput(this)">
+                                        </div>
+                                        <div class="form-group py-2">
+                                            <div class="icheck-material-white">
+                                            <input type="checkbox" id="user-checkbox1" name="req_food" />
+                                            <label for="user-checkbox1">We require food facility (incur some charges)</label>
                                             </div>
                                         </div>
-                                        <div class="acc-num-container">
-                                            <div class="acc-num-btn-container">
-                                                <button class="acc-num-btn disabled" id="dec-girls">-</button>
-                                                <div class="acc-num-display" id="no-g">0</div>
-                                                <button class="acc-num-btn" id="inc-girls">+</button>
-                                            </div>
-                                            <div class="acc-num-label-container">
-                                                <p class="acc-num-label">Number of Women</p>
+                                        <div class="form-group py-2">
+                                            <div class="icheck-material-white">
+                                            <input type="checkbox" id="user-checkbox2" name="agree_tandm" required/>
+                                            <label for="user-checkbox2">We Agree Terms & Conditions</label>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="form-group" align="center">
+                                             <button align="center" class="accom-animated-button" id="accomodation-btn">
+                                                <span>SAVE</span>
+                                                <span></span>
+                                            </button>
+                                        </div>
+                                        </form>
+                                        </div>
+                                        </div>
 
                                     <div class="acc-nums-txt1 bqnier">
                                         <p class="acc-check-txt1"> Any queries regarding accommodation, please reach out to the number given below</p>
@@ -844,10 +858,7 @@
                                         </div>
                                     </div>
 
-                                    <button align="center" class="accom-animated-button" id="accomodation-btn">
-                                        <span>SAVE</span>
-                                        <span></span>
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -921,47 +932,158 @@
                         </div>
                     </div>
                     <!-- end of rules   -->
+                    
+                    <!-- start of Manage Qual Teams -->
+                    <div class="card mt-6 dashboard-cards forallsec hide" id="qual-section-id">
+                        <div class="card-content">
+                            <div class="row row-group m-0">
+                                <div class="qual-section">
+                                    <div class="d-flex justify-content-center main">
+                                        <div class="content mt-5 mb-5 text-light">
+                                            <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">Manage Qualified Team</h1>
+                                            <form id="qualTeamsForm">
+                                                <div class="form-group">
+                                                    <div class="qual-selection-container">
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for coding:</label>
+                                                            <select class="form-control" id="code-qualTeams" name="codequalTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for webdesign:</label>
+                                                            <select class="form-control" id="web-qualTeams" name="webqualTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Gaming:</label>
+                                                            <select class="form-control" id="game-qualTeams" name="gamequalTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Mad Ad:</label>
+                                                            <select class="form-control" id="mad-qualTeams" name="madqualTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for It Manager:</label>
+                                                            <select class="form-control" id="itmanager-qualTeams" name="itmanagerqualTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Treasure Hunt:</label>
+                                                            <select class="form-control" id="thunt-qualTeams" name="thuntqualTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Photography & Videography:</label>
+                                                            <select class="form-control" id="photo-qualTeams" name="photoqualTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        <div class="qual-selection-sub-sontainer">
+                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for IT Quiz:</label>
+                                                            <select class="form-control" id="quiz-qualTeams" name="quizqualTeams[]" multiple>
+                                                                <!-- Options will be populated dynamically -->
+                                                            </select>
+                                                        </div>
+                                                        
 
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-light">Save Qualified Teams</button>
+                                            </form>
+                                        </div>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of Manage Qual Teams   -->
 
                     <!-- start of site settings -->
                     <div class="card mt-6 dashboard-cards forallsec hide" id="settings-section-id">
                         <div class="card-body">
-                            <div class="rules-section">
+                            <div class="settings-section">
                                 <div class="section-heading mb-4">
-                                    <p class="enroll-title">ACCOUNT SETTINGS</p>
+                                    <p class="enroll-title">ACCOUNT INFO</p>
                                 </div>
 
                                 <div  class="settings-content-div bqnier  mb-4">
-                                <table>
-                                    <tr>
-                                        <td class="settings-txt1">College Name:</td>
-                                        <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="settings-txt1">Team Name:</td>
-                                        <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="settings-txt1">Registration Status</td>
-                                        <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
-                                    </tr>
-                                     <tr>
-                                        <td class="settings-txt1">Ticket Number</td>
-                                        <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                            <div align="center" class="settings-buttons">
-                                                <button class="btn btn-light mr-2" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
-                                                <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                                    <table>
+                                        <tr>
+                                            <td class="settings-txt1">College Name:</td>
+                                            <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Team Name:</td>
+                                            <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Registration Status</td>
+                                            <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Ticket Number</td>
+                                            <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div align="center" class="settings-buttons">
+                                                    <button class="btn btn-light mr-2" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
+                                                    <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
 
                                   
                                 </div>
                                 
+                                 <div class="section-heading mb-4">
+                                    <p class="enroll-title">QUALIFIED TEAMS FOR DAY 2</p>
+                                </div>
+
+                                <div  class="settings-content-div bqnier  mb-4">
+                                    <table>
+                                        <tr>
+                                            <td class="settings-txt1">Coding:</td>
+                                            <td><p class="settings-txt" id="set-qual-code">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Web Design:</td>
+                                            <td><p class="settings-txt" id="set-qual-web">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Gaming</td>
+                                            <td><p class="settings-txt" id="set-qual-game">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Mad ad</td>
+                                            <td><p class="settings-txt" id="set-qual-mad">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Treasure Hunt</td>
+                                            <td><p class="settings-txt" id="set-qual-thunt">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">Photography & Videography</td>
+                                            <td><p class="settings-txt" id="set-qual-photo">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="settings-txt1">IT Quiz</td>
+                                            <td><p class="settings-txt" id="set-qual-quiz">: Not Yet Disclosed..!</p></td>
+                                        </tr>
+                                        
+                                    </table>
+
+                                  
+                                </div>
 
                                 <!-- <div class="contactus-section-new bqnier">
                                     <div class="section-heading mb-4">
@@ -1395,6 +1517,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <!-- simplebar js -->
 <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
 <!-- sidebar-menu js -->
@@ -1407,6 +1531,7 @@
 
 <script src="<?= base_url('assets/web/js/enroll.js') ?>"></script>
 <script src="<?= base_url('assets/web/js/dashboard.js') ?>"></script>
+<script src="<?= base_url('assets/web/js/qual_team.js') ?>"></script>
 <!-- Chart js -->
 
  <script>
@@ -1418,7 +1543,7 @@
 
   
 
-        $("#enroll-nav").click(function (event) {
+    $("#enroll-nav").click(function (event) {
     handleClick(event, "enroll-nav");
   });
 
@@ -1432,6 +1557,9 @@
 
   $("#rules_nav").click(function (event) {
     handleClick(event, "rules_nav");
+  });
+  $("#qual_nav").click(function (event) {
+    handleClick(event, "qual_nav");
   });
 
   $("#settings_nav").click(function (event) {
@@ -1463,6 +1591,7 @@
   const manageuserSec = document.querySelector("#manageuser-section-id");
   const accomodationSec = document.querySelector("#accomodation-section-id");
   const rulesSec = document.querySelector("#rules-section-id");
+  const qualSec = document.querySelector("#qual-section-id");
   const settingSec = document.querySelector("#settings-section-id");
   const allStudentsReportsSec = document.querySelector(
     "#all-students-reports-section-id"
@@ -1482,6 +1611,7 @@
   const manageuserBtn = document.querySelector("#manage_user_nav");
   const accomodationBtn = document.querySelector("#accomodation_nav");
   const rulesBtn = document.querySelector("#rules_nav");
+  const qualBtn = document.querySelector("#qual_nav");
   const settingBtn = document.querySelector("#settings_nav");
   // const reportsBtn = document.querySelector("#reports_nav");
   const allStudentsReportsBtn = document.querySelector(
@@ -1499,6 +1629,7 @@
       manageuserSec,
       accomodationSec,
       rulesSec,
+      qualSec,
       settingSec,
       allStudentsReportsSec,
       allEventsReportsSec,
@@ -1544,6 +1675,12 @@
   if (rulesBtn) {
     rulesBtn.onclick = () => {
       showSection(rulesSec);
+      
+    };
+  }
+  if (qualBtn) {
+    qualBtn.onclick = () => {
+      showSection(qualSec);
       
     };
   }

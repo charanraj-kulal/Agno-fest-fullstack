@@ -4,24 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AccomodationModel extends Model
+class QualTeamModel extends Model
 {
-    protected $table            = 'accomodation';
+    protected $table            = 'qual_teams';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'numofboys', 'numofgirls', 'team_name','emg_contact','req_food','agree_tandm', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['user_id', 'qual_code', 'qual_web', 'qual_game', 'qual_thunt', 'qual_photo', 'qual_quiz', 'status', 'created_at', 'updated_at'];
 
     protected bool $allowEmptyInserts = false;
 
-    protected $belongsTo = [
-        'user' => [
-            'model' => 'UserModel', 
-            'foreign_key' => 'user_id',
-        ],
-    ];
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';

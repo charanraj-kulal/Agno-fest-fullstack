@@ -1306,7 +1306,7 @@ a.button.positive:hover {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border: none;
   background-color: rgba(0, 0, 0, 0.2);
-  max-width: 100%;
+  width: 100%;
 }
 
 .card-header {
@@ -2491,6 +2491,465 @@ table.grid td {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.45);
   color: #fff !important;
 }
+.form-control-rounded {
+  border-radius: 8px !important;
+  border: 1px solid black;
+  padding: 12px;
+}
+
+/* check box  */
+[class*="icheck-material"] {
+  min-height: 22px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 0px;
+}
+[class*="icheck-material"] > label {
+  padding-left: 29px !important;
+  min-height: 22px;
+  line-height: 22px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+[class*="icheck-material"] > input:first-child {
+  position: absolute !important;
+  opacity: 0;
+  margin: 0;
+  background-color: #787878;
+  border-radius: 50%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  display: block;
+  width: 22px;
+  height: 22px;
+  outline: none;
+  transform: scale(2);
+  -ms-transform: scale(2);
+  transition: opacity 0.3s, transform 0.3s;
+}
+[class*="icheck-material"] > input:first-child:disabled {
+  cursor: default;
+}
+[class*="icheck-material"] > input:first-child:disabled + label,
+[class*="icheck-material"]
+  > input:first-child:disabled
+  + input[type="hidden"]
+  + label,
+[class*="icheck-material"] > input:first-child:disabled + label::before,
+[class*="icheck-material"]
+  > input:first-child:disabled
+  + input[type="hidden"]
+  + label::before {
+  pointer-events: none;
+  cursor: default;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.65;
+}
+[class*="icheck-material"] > input:first-child + label::before,
+[class*="icheck-material"]
+  > input:first-child
+  + input[type="hidden"]
+  + label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  margin-left: -29px;
+  box-sizing: border-box;
+}
+[class*="icheck-material"] > input:first-child:checked + label::after,
+[class*="icheck-material"]
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 10px;
+  border: solid 2px #fff;
+  border-left: none;
+  border-top: none;
+  transform: translate(7.75px, 4.5px) rotate(45deg);
+  -ms-transform: translate(7.75px, 4.5px) rotate(45deg);
+  box-sizing: border-box;
+}
+[class*="icheck-material"]
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+[class*="icheck-material"]
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-width: 2px;
+}
+[class*="icheck-material"] > input:first-child::-ms-check {
+  opacity: 0;
+  border-radius: 50%;
+}
+[class*="icheck-material"] > input:first-child:active {
+  transform: scale(0);
+  -ms-transform: scale(0);
+  opacity: 1;
+  transition: opacity 0s, transform 0s;
+}
+[class*="icheck-material"] > input[type="radio"]:first-child + label::before,
+[class*="icheck-material"]
+  > input[type="radio"]:first-child
+  + input[type="hidden"]
+  + label::before {
+  border-radius: 50%;
+}
+[class*="icheck-material"]
+  > input[type="radio"]:first-child:checked
+  + label::before,
+[class*="icheck-material"]
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: transparent;
+}
+[class*="icheck-material"]
+  > input[type="radio"]:first-child:checked
+  + label::after,
+[class*="icheck-material"]
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  top: 5px;
+  left: 5px;
+  transform: none;
+  -ms-transform: none;
+}
+[class*="icheck-material"]
+  > input[type="checkbox"]:first-child:checked
+  + label::after,
+[class*="icheck-material"]
+  > input[type="checkbox"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  width: 6px;
+  height: 12px;
+  transform: translate(7px, 2px) rotate(45deg);
+  -ms-transform: translate(7px, 2px) rotate(45deg);
+}
+
+.icheck-inline {
+  display: inline-block;
+}
+.icheck-inline + .icheck-inline {
+  margin-left: 0.75rem;
+  margin-top: 6px;
+}
+
+.icheck-material-primary > input:first-child {
+  background-color: #14abef;
+}
+.icheck-material-primary > input:first-child::-ms-check {
+  background-color: #14abef;
+}
+.icheck-material-primary
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-primary
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #14abef;
+}
+.icheck-material-primary > input:first-child:checked + label::before,
+.icheck-material-primary
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #14abef;
+  border-color: #14abef;
+}
+.icheck-material-primary > input:first-child:checked + label::after,
+.icheck-material-primary
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+}
+
+.icheck-material-primary
+  > input[type="radio"]:first-child:checked
+  + label::after,
+.icheck-material-primary
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #14abef;
+}
+
+.icheck-material-success > input:first-child {
+  background-color: #02ba5a;
+}
+.icheck-material-success > input:first-child::-ms-check {
+  background-color: #02ba5a;
+}
+.icheck-material-success
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-success
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #02ba5a;
+}
+.icheck-material-success > input:first-child:checked + label::before,
+.icheck-material-success
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #02ba5a;
+  border-color: #02ba5a;
+}
+.icheck-material-success > input:first-child:checked + label::after,
+.icheck-material-success
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+}
+
+.icheck-material-success
+  > input[type="radio"]:first-child:checked
+  + label::after,
+.icheck-material-success
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #02ba5a;
+}
+
+.icheck-material-danger > input:first-child {
+  background-color: #f5365c;
+}
+.icheck-material-danger > input:first-child::-ms-check {
+  background-color: #f5365c;
+}
+.icheck-material-danger
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-danger
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #f5365c;
+}
+.icheck-material-danger > input:first-child:checked + label::before,
+.icheck-material-danger
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #f5365c;
+  border-color: #f5365c;
+}
+.icheck-material-danger > input:first-child:checked + label::after,
+.icheck-material-danger
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+}
+
+.icheck-material-danger
+  > input[type="radio"]:first-child:checked
+  + label::after,
+.icheck-material-danger
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #f5365c;
+}
+
+.icheck-material-info > input:first-child {
+  background-color: #03d0ea;
+}
+.icheck-material-info > input:first-child::-ms-check {
+  background-color: #03d0ea;
+}
+.icheck-material-info
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-info
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #03d0ea;
+}
+.icheck-material-info > input:first-child:checked + label::before,
+.icheck-material-info
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #03d0ea;
+  border-color: #03d0ea;
+}
+.icheck-material-info > input:first-child:checked + label::after,
+.icheck-material-info
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+}
+
+.icheck-material-info > input[type="radio"]:first-child:checked + label::after,
+.icheck-material-info
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #03d0ea;
+}
+
+.icheck-material-warning > input:first-child {
+  background-color: #fba540;
+}
+.icheck-material-warning > input:first-child::-ms-check {
+  background-color: #fba540;
+}
+.icheck-material-warning
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-warning
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #fba540;
+}
+.icheck-material-warning > input:first-child:checked + label::before,
+.icheck-material-warning
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #fba540;
+  border-color: #fba540;
+}
+.icheck-material-warning > input:first-child:checked + label::after,
+.icheck-material-warning
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+}
+
+.icheck-material-warning
+  > input[type="radio"]:first-child:checked
+  + label::after,
+.icheck-material-warning
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #fba540;
+}
+
+.icheck-material-secondary > input:first-child {
+  background-color: #d13adf;
+}
+.icheck-material-secondary > input:first-child::-ms-check {
+  background-color: #d13adf;
+}
+.icheck-material-secondary
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-secondary
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #d13adf;
+}
+.icheck-material-secondary > input:first-child:checked + label::before,
+.icheck-material-secondary
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #d13adf;
+  border-color: #d13adf;
+}
+.icheck-material-secondary > input:first-child:checked + label::after,
+.icheck-material-secondary
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+}
+
+.icheck-material-secondary
+  > input[type="radio"]:first-child:checked
+  + label::after,
+.icheck-material-secondary
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #d13adf;
+}
+
+.icheck-material-white > input:first-child {
+  background-color: #ffffff;
+}
+.icheck-material-white > input:first-child::-ms-check {
+  background-color: #ffffff;
+}
+.icheck-material-white
+  > input:first-child:not(:checked):not(:disabled):hover
+  + label::before,
+.icheck-material-white
+  > input:first-child:not(:checked):not(:disabled):hover
+  + input[type="hidden"]
+  + label::before {
+  border-color: #ffffff;
+}
+.icheck-material-white > input:first-child:checked + label::before,
+.icheck-material-white
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::before {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.icheck-material-white > input:first-child:checked + label::after,
+.icheck-material-white
+  > input:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  border-bottom-color: #000;
+  border-right-color: #000;
+}
+
+.icheck-material-white > input[type="radio"]:first-child:checked + label::after,
+.icheck-material-white
+  > input[type="radio"]:first-child:checked
+  + input[type="hidden"]
+  + label::after {
+  background-color: #ffffff;
+}
 
 /* Background Colors */
 .bg-primary {
@@ -2789,6 +3248,10 @@ table.grid td {
   -ms-transform: rotate(15deg);
   transform: rotate(15deg);
 }
+.card-body {
+  align-items: center;
+  justify-content: center;
+}
 
 .card-authentication1 {
   width: 24rem;
@@ -2960,6 +3423,22 @@ table.grid td {
   border: 1px solid;
 }
 
+.enroll-dashboard-cards {
+  border-radius: 17px;
+  border: 1px red;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  height: auto;
+  width: 100%;
+  margin: 1vw 0;
+  padding: 2vh 1.5vw;
+  transition: all 0.2s ease-in-out;
+  /* background: url(../imgs/bg-themes/mandala2.png); */
+  background: url(../imgs/bg-themes/mandala_2.png);
+  background-repeat: repeat;
+
+  background-size: contain;
+}
 .dashboard-cards {
   border-radius: 17px;
   border: 1px red;
@@ -2971,9 +3450,9 @@ table.grid td {
   padding: 2vh 1.5vw;
   transition: all 0.2s ease-in-out;
   /* background: url(../imgs/bg-themes/mandala2.png); */
-  background: url(../imgs/bg-themes/Mandala_2080px.png);
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url(../imgs/bg-themes/mandala_2.png);
+  background-repeat: repeat;
+
   background-size: cover;
 }
 
@@ -3208,6 +3687,19 @@ input {
   margin-bottom: 11vh;
 }
 
+/* qual-section  */
+.qual-txt {
+  color: white;
+}
+.qual-selection-container {
+  display: flex;
+  flex-direction: column;
+}
+.qual-selection-sub-container {
+  display: flex;
+  flex-direction: row;
+}
+
 /* .accomodation-section */
 .accomodation-section {
   margin-top: 0;
@@ -3218,151 +3710,14 @@ input {
   align-items: center;
 }
 
-.acc-points-div {
-  align-items: center;
-  margin: 5vh 0;
-  justify-content: center;
-  text-align: center;
-}
+.accom_card {
+  width: 90%;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
 
-.acc-points {
-  margin: 1vh 0;
-  font-size: 1.2vw;
-  list-style: none;
-  font-weight: bold;
-}
-.acc-points > span {
-  text-shadow: red 0.5px 0 10px;
-}
-
-.acc-check-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 7vh 0;
-  text-align: center;
-}
-
-.acc-check-div .acc-check-txt {
-  margin: auto 1vw;
-  text-align: center;
-}
-
-.check {
-  cursor: pointer;
-  position: relative;
-  margin: auto;
-  width: 18px;
-  height: 18px;
-  -webkit-tap-highlight-color: transparent;
-  transform: translate3d(0, 0, 0);
-}
-
-.check svg {
-  position: relative;
-  z-index: 1;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #c8ccd4;
-  stroke-width: 1.5;
-  transform: translate3d(0, 0, 0);
-  transition: all 0.2s ease;
-}
-
-.check svg path {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 0;
-}
-
-.check svg polyline {
-  stroke-dasharray: 22;
-  stroke-dashoffset: 66;
-}
-
-.check:hover:before {
-  opacity: 1;
-}
-
-.check:hover svg {
-  stroke: #4285f4;
-}
-
-#cbx:checked + .check svg {
-  stroke: #4285f4;
-}
-
-#cbx:checked + .check svg path {
-  stroke-dashoffset: 60;
-  transition: all 0.3s linear;
-}
-
-#cbx:checked + .check svg polyline {
-  stroke-dashoffset: 42;
-  transition: all 0.2s linear;
-  transition-delay: 0.15s;
-}
-
-.acc-nums-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 7vh 0;
-  width: 100%;
-  font-family: "lt_regular";
-}
-
-.acc-num-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 4vw;
-}
-.acc-num-btn-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 20px;
-}
-
-.acc-num-btn {
-  background-color: #1f1e1e;
-  color: white;
-  border: 2px solid black;
-  padding: 5px 10px;
-  font-size: 1.2vw;
-  border-radius: 50%;
-  background-color: transparent;
-  cursor: pointer;
-  margin: 0 10px;
-}
-
-.acc-num-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.acc-num-display {
-  font-size: 2vw;
-  font-weight: bold;
-  margin: 0 20px;
-}
-
-.acc-num-label {
-  font-size: 1.2vw;
-  margin-top: 1vh;
-}
-
-.acc-nums-txt1 {
-  margin: 7vh 0;
-  padding-right: 2vw;
-}
-
-.acc-check-txt1 {
-  font-size: 1.2vw;
-  text-align: justify;
+  padding: 2% 5%;
 }
 
 .accom-animated-button {
@@ -3419,7 +3774,25 @@ input {
   height: 150px;
   opacity: 1;
 }
+.accom-animated-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
+.accom-animated-button:disabled:hover {
+  box-shadow: 0 0 0 2px #fa0230;
+  color: #fff;
+}
+
+.accom-animated-button:disabled:hover span:last-child {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+.acc-check-txt1 {
+  font-size: 1.2vw;
+  text-align: justify;
+}
 .acc-contacts {
   display: flex;
   flex-direction: row;
@@ -3449,12 +3822,11 @@ input {
 /* SETTINGS */
 
 .settings-section {
-  margin: 0;
-  height: auto;
-  background: url(/assets/images/mandala.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  margin-top: 0;
+  padding-bottom: 5vh;
+  justify-content: center;
+
+  align-items: center;
 }
 
 .settings-content-div {
@@ -3770,9 +4142,7 @@ input {
   }
 
   /* accomodation responsive  */
-  .acc-points {
-    font-size: 2.2vw;
-  }
+
   .topbar-nav .navbar {
     z-index: 1000;
   }

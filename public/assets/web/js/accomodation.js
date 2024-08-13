@@ -1,62 +1,35 @@
 // Accommodation
-const boyDisplay = document.getElementById("no-b");
-const girlDisplay = document.getElementById("no-g");
-const decBoys = document.getElementById("dec-boys");
-const incBoys = document.getElementById("inc-boys");
-const decGirls = document.getElementById("dec-girls");
-const incGirls = document.getElementById("inc-girls");
 const accomodationBtn = document.getElementById("accomodation-btn");
+const agreeCheckbox = document.getElementById("user-checkbox2");
+const foodCheckbox = document.getElementById("user-checkbox1");
 
-function updateAccommodationNumbers() {
-  const numOfBoys = parseInt(boyDisplay.textContent);
-  const numOfGirls = parseInt(girlDisplay.textContent);
-
-  decBoys.classList.toggle("disabled", numOfBoys === 0);
-  incBoys.classList.toggle("disabled", numOfBoys === 99);
-  decGirls.classList.toggle("disabled", numOfGirls === 0);
-  incGirls.classList.toggle("disabled", numOfGirls === 99);
-
-  if (numOfBoys === 0 && numOfGirls === 0) {
-    showAlert("Accommodation is not required.", false);
-  }
-}
-
-incBoys.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default button behavior
-  boyDisplay.textContent = Math.min(parseInt(boyDisplay.textContent) + 1, 99);
-  updateAccommodationNumbers();
-});
-
-decBoys.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default button behavior
-  boyDisplay.textContent = Math.max(parseInt(boyDisplay.textContent) - 1, 0);
-  updateAccommodationNumbers();
-});
-
-incGirls.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default button behavior
-  girlDisplay.textContent = Math.min(parseInt(girlDisplay.textContent) + 1, 99);
-  updateAccommodationNumbers();
-});
-
-decGirls.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default button behavior
-  girlDisplay.textContent = Math.max(parseInt(girlDisplay.textContent) - 1, 0);
-  updateAccommodationNumbers();
+// Enable/disable save button based on T&C checkbox
+agreeCheckbox.addEventListener("change", function () {
+  accomodationBtn.disabled = !this.checked;
 });
 
 accomodationBtn.addEventListener("click", (e) => {
   e.preventDefault(); // Prevent default button behavior
-  var numOfBoys = parseInt(boyDisplay.textContent);
-  var numOfGirls = parseInt(girlDisplay.textContent);
+
+  const boyDisplay = document.getElementById("no-b").value;
+  const girlDisplay = document.getElementById("no-g").value;
+  const emg_contact_data = document.getElementById("emg-contact").value;
+
+  var numOfBoys = parseInt(boyDisplay);
+  var numOfGirls = parseInt(girlDisplay);
   var totalMembers = numOfBoys + numOfGirls;
+
+  if (isNaN(numOfBoys) || isNaN(numOfGirls)) {
+    showAlert("Please enter valid numbers for boys and girls.", false);
+    return;
+  }
 
   if (totalMembers > 15) {
     showAlert("The total number of boys and girls cannot exceed 15.", false);
     return;
   }
 
-  if ((numOfBoys > 0 && numOfGirls < 0) || (numOfGirls > 0 && numOfBoys < 0)) {
+  if (numOfBoys < 0 || numOfGirls < 0) {
     showAlert(
       "Both the number of boys and girls should be positive or zero.",
       false
@@ -64,45 +37,82 @@ accomodationBtn.addEventListener("click", (e) => {
     return;
   }
 
-  if (
-    !(numOfBoys > 0 && numOfGirls >= 0) &&
-    !(numOfGirls > 0 && numOfBoys >= 0)
-  ) {
+  if (totalMembers === 0) {
     showAlert("Please enter the number of boys or girls.", false);
     return;
   }
 
   // Call the function to submit accommodation form via AJAX
-  submitAccommodationForm(numOfBoys, numOfGirls);
+  submitAccommodationForm(numOfBoys, numOfGirls, emg_contact_data);
 });
 
 // Function to submit the accommodation form via AJAX
-function submitAccommodationForm(numOfBoys, numOfGirls) {
+function submitAccommodationForm(numOfBoys, numOfGirls, emg_contact_data) {
   var url = "/dashboard/accomodation"; // Relative endpoint
   const accommodationData = {
     numofboys: numOfBoys,
     numofgirls: numOfGirls,
+    emg_contact: emg_contact_data,
+    req_food: foodCheckbox.checked ? 1 : 0,
+    agree_tandm: agreeCheckbox.checked ? 1 : 0,
   };
   $.ajax({
     type: "POST",
     url: url,
-    data: accommodationData, // Send data directly, no need for headers or JSON.stringify
-    dataType: "json", // Set the expected data type
+    data: accommodationData,
+    dataType: "json",
     success: function (response) {
-      // Handle success response here
       if (response.success) {
-        showAlert(response.message, true); // Show success message
+        showAlert(response.message, true);
+        updateUIAfterPayment();
       } else {
-        showAlert(response.message, false); // Show error message
+        showAlert(response.message, false);
       }
     },
     error: function (xhr, status, error) {
-      // Handle error
       console.error(error);
-      showAlert("An error occurred while processing your request.", false); // Show error message
+      showAlert("An error occurred while processing your request.", false);
     },
   });
 }
+function updateUIAfterPayment() {
+  $("#accomodation-btn").text("UPDATE");
+}
+// Perform AJAX request to fetch data
+function fetchData() {
+  $.ajax({
+    url: "dashboard/fetchAccomData", // Update 'controller-name' with your actual controller name
+    type: "GET",
+    dataType: "json",
+    success: function (response) {
+      if (response.success) {
+        // Populate text boxes with data
+        var data = response.data;
+
+        $("#no-b").val(data.numofboys);
+        $("#no-g").val(data.numofgirls);
+        $("#emg-contact").val(data.emg_contact);
+        $("#user-checkbox1").prop("checked", data.req_food == 1);
+        $("#user-checkbox2").prop("checked", data.agree_tandm == 1);
+        const isSubmitted = parseInt(data.agree_tandm);
+        if (isSubmitted === 1) {
+          $("#accomodation-btn").text("UPDATE");
+          accomodationBtn.disabled = false;
+        } else {
+          // If isenrolled is not 1, set registration status to "Not Completed"
+          $("#accomodation-btn").text("SAVE");
+          accomodationBtn.disabled = true;
+        }
+      } else {
+        accomodationBtn.disabled = true;
+      }
+    },
+    error: function (xhr, status, error) {
+      showAlert("An error occurred while processing your request.", false);
+    },
+  });
+}
+fetchData();
 
 function showAlert(message, isSuccess) {
   var alertBox = $(".info");
@@ -110,7 +120,6 @@ function showAlert(message, isSuccess) {
 
   alertTitle.text(message);
 
-  // Remove existing classes to prevent color conflicts
   alertBox.removeClass("success error");
 
   if (isSuccess) {
@@ -125,10 +134,10 @@ function showAlert(message, isSuccess) {
   setTimeout(function () {
     alertBox.hide();
     alertBox.removeClass("show-flex");
-  }, 3000); // 3 seconds delay before hiding
+  }, 3000);
 }
 
 $(document).on("click", "#closeAlert", function () {
   $(".info").hide();
-  $(".info").removeClass("show-flex"); // Hide the alert box when close button is clicked
+  $(".info").removeClass("show-flex");
 });

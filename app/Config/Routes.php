@@ -62,6 +62,13 @@ $routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
 
     //accomodation routes
     $routes->post('accomodation', 'Accomodation::accomodate');
+    $routes->get('fetchAccomData', 'Accomodation::fetchAccomData');
+
+    // manage qual teams 
+    $routes->get('qual-teams', 'QualTeams::index');
+    $routes->get('get-registered-teams', 'QualTeams::getRegisteredTeams');
+    $routes->post('save-qualified-teams', 'QualTeams::saveQualifiedTeams');
+    
     // payment gateway routes 
     $routes->post('razorpay/initiate', 'RazorpayController::initiate');
     $routes->post('razorpay/verify', 'RazorpayController::verify');
