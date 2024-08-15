@@ -68,6 +68,7 @@ $routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {
     $routes->get('qual-teams', 'QualTeams::index');
     $routes->get('get-registered-teams', 'QualTeams::getRegisteredTeams');
     $routes->post('save-qualified-teams', 'QualTeams::saveQualifiedTeams');
+    $routes->get('fetchQualData', 'QualTeams::getQualifiedTeams');
     
     // payment gateway routes 
     $routes->post('razorpay/initiate', 'RazorpayController::initiate');

@@ -32,6 +32,10 @@ class CreateTableQualTeams extends Migration
                 'type' => 'TEXT',
                 'null' => true,
             ],
+            'qual_mad' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
             'qual_thunt' => [
                 'type' => 'TEXT',
                 'null' => true,

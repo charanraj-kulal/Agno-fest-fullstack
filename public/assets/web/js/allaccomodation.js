@@ -31,6 +31,7 @@ $(document).ready(function () {
 
     // Append new table rows
     $.each(accommodations, function (index, accommodation) {
+      var req_food = accommodation.req_food == 1 ? "Yes" : "No";
       var newRow =
         "<tr>" +
         "<td>" +
@@ -41,6 +42,12 @@ $(document).ready(function () {
         "</td>" +
         "<td>" +
         accommodation.numofgirls +
+        "</td>" +
+        "<td>" +
+        accommodation.emg_contact +
+        "</td>" +
+        "<td>" +
+        req_food +
         "</td>" +
         "</tr>";
       tableBody.append(newRow);
@@ -77,7 +84,14 @@ $(document).ready(function () {
     // Access jsPDF using global scope
 
     // Add table headers for accommodation table
-    var headers = ["Team Name", "Number of Boys", "Number of Girls", "Paid"];
+    var headers = [
+      "Team Name",
+      "Number of Boys",
+      "Number of Girls",
+      "Emergency Con",
+      "Require Food",
+      "Paid",
+    ];
     var data = [];
 
     // Push headers to the data array

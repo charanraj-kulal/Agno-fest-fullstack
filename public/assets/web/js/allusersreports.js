@@ -30,6 +30,7 @@ $(document).ready(function () {
     $.each(users, function (index, user) {
       var userType = user.user_type == 2 ? "Admin" : "Student";
       var enrolled = user.isenrolled == 1 ? "Yes" : "No";
+      var present = user.isPresent == 1 ? "Yes" : "No";
       var accommodationNeeded = user.accommodation_needed ? "Yes" : "No";
       var newRow =
         "<tr>" +
@@ -56,6 +57,9 @@ $(document).ready(function () {
         "</td>" +
         "<td>" +
         accommodationNeeded +
+        "</td>" +
+        "<td>" +
+        present +
         "</td>" +
         "</tr>";
       tableBody.append(newRow);
@@ -99,6 +103,7 @@ $(document).ready(function () {
       "User Role",
       "Enrolled",
       "Accommodation Needed",
+      "Present",
     ];
     var data = [];
 
