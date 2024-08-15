@@ -131,7 +131,7 @@
                                             <a href="#all-students-reports-section-id" onclick="handleClick('all-students-reports_nav')" id="all-students-reports_nav"><i class="far fa-circle"></i><span>All users</span></a>
                                         </li>
                                         <li>
-                                            <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event registration details</span></a>
+                                            <a href="#all-events-reports-section-id" onclick="handleClick('all-events-reports_nav')" id="all-events-reports_nav"><i class="far fa-circle"></i><span>Event reg details</span></a>
                                         </li>
                                         <li>
                                             <a href="#all-accomodations-reports-section-id" onclick="handleClick('all-accomodations-reports_nav')" id="all-accomodations-reports_nav"><i class="far fa-circle"></i><span>Accommodation details</span></a>
@@ -166,7 +166,7 @@
                             <div class="modal-body">
                                 <form id="editUserForm">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-12 col-md-8 col-sm-6 col-4">
                                             <div class="form-group">
                                                 <label for="editUserName">Name</label>
                                                 <input  type="text" class="form-control  input100" id="editUserName" name="editUserName">
@@ -176,7 +176,7 @@
                                                 <input  type="text" class="form-control input100" id="editCollegeName" name="editCollegeName" readonly>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-12 col-md-8 col-sm-6 col-4">
                                             <div class="form-group">
                                                 <label for="editEmail">Email</label>
                                                 <input  type="email" class="form-control input100" id="editEmail" name="editEmail" readonly>
@@ -762,7 +762,7 @@
                                     </div>
                                     <div class="forms-events">
                                         
-                                        <div class="col-lg-12 col-md-8 col-sm-4">
+                                        <div class="col-lg-12 col-md-8 col-sm-6 col-4">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 align="center" class="card-title">Edit Users</h5>
@@ -943,67 +943,76 @@
                                             <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">Manage Qualified Team</h1>
                                             <form id="qualTeamsForm">
                                                 <div class="form-group">
-                                                    <div class="qual-selection-container">
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for coding:</label>
-                                                            <select class="form-control" id="code-qualTeams" name="codequalTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for webdesign:</label>
-                                                            <select class="form-control" id="web-qualTeams" name="webqualTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Gaming:</label>
-                                                            <select class="form-control" id="game-qualTeams" name="gamequalTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Mad Ad:</label>
-                                                            <select class="form-control" id="mad-qualTeams" name="madqualTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for It Manager:</label>
-                                                            <select class="form-control" id="itmanager-qualTeams" name="itmanagerqualTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Treasure Hunt:</label>
-                                                            <select class="form-control" id="thunt-qualTeams" name="thuntqualTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for Photography & Videography:</label>
-                                                            <select class="form-control" id="photo-qualTeams" name="photoqualTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        <div class="qual-selection-sub-sontainer">
-                                                            <label for="qualTeams" class="qual-txt">Select Qualified Teams for IT Quiz:</label>
-                                                            <select class="form-control" id="quiz-qualTeams" name="quizqualTeams[]" multiple>
-                                                                <!-- Options will be populated dynamically -->
-                                                            </select>
-                                                        </div>
-                                                        
-
-                                                    </div>
+                                                    <table class="qual-selection-table">
+                                                        <tr>
+                                                            <th>Select Qualified Teams for coding:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="code-qualTeams" name="qual_code[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Select Qualified Teams for webdesign:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="web-qualTeams" name="qual_web[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Select Qualified Teams for Gaming:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="game-qualTeams" name="qual_game[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                            <th>Select Qualified Teams for Mad AD:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="mad-qualTeams" name="qual_mad[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Select Qualified Teams for Treasure Hunt:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="thunt-qualTeams" name="qual_thunt[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Select Qualified Teams for Photography & Videography:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="photo-qualTeams" name="qual_photo[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Select Qualified Teams for IT Quiz:</th>
+                                                            <td>
+                                                                <select class="form-control qual-select" id="quiz-qualTeams" name="qual_quiz[]" multiple>
+                                                                    <!-- Options will be populated dynamically -->
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
                                                 </div>
-                                                <button type="submit" class="btn btn-light">Save Qualified Teams</button>
+                                                <div class="table-button text-center mt-4">
+                                                    <button type="submit" class="btn btn-light">Save Qualified Teams</button>
+                                                </div>
                                             </form>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- end of Manage Qual Teams   -->
 
                     <!-- start of site settings -->
@@ -1016,33 +1025,31 @@
 
                                 <div  class="settings-content-div bqnier  mb-4">
                                     <table>
-                                        <tr>
-                                            <td class="settings-txt1">College Name:</td>
-                                            <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Team Name:</td>
-                                            <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Registration Status</td>
-                                            <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Ticket Number</td>
-                                            <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <div align="center" class="settings-buttons">
-                                                    <button class="btn btn-light mr-2" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
-                                                    <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <tbody>
+                                            <tr>
+                                                <td class="settings-txt1">College Name:</td>
+                                                <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Team Name:</td>
+                                                <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Registration Status</td>
+                                                <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Ticket Number</td>
+                                                <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
+                                            </tr>
+                                            
+                                        <tbody>
                                     </table>
-
-                                  
+                                    <div align="center" class="settings-buttons text-center mt-4">
+                                        <button class="btn btn-light" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
+                                        <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
+                                    </div>
+                                     
                                 </div>
                                 
                                  <div class="section-heading mb-4">
@@ -1051,35 +1058,36 @@
 
                                 <div  class="settings-content-div bqnier  mb-4">
                                     <table>
-                                        <tr>
-                                            <td class="settings-txt1">Coding:</td>
-                                            <td><p class="settings-txt" id="set-qual-code">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Web Design:</td>
-                                            <td><p class="settings-txt" id="set-qual-web">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Gaming</td>
-                                            <td><p class="settings-txt" id="set-qual-game">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Mad ad</td>
-                                            <td><p class="settings-txt" id="set-qual-mad">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Treasure Hunt</td>
-                                            <td><p class="settings-txt" id="set-qual-thunt">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">Photography & Videography</td>
-                                            <td><p class="settings-txt" id="set-qual-photo">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="settings-txt1">IT Quiz</td>
-                                            <td><p class="settings-txt" id="set-qual-quiz">: Not Yet Disclosed..!</p></td>
-                                        </tr>
-                                        
+                                        <tbody>
+                                            <tr>
+                                                <td class="settings-txt1">Coding</td>
+                                                <td><p class="settings-txt" id="set-qual_code">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Web Design</td>
+                                                <td><p class="settings-txt" id="set-qual_web">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Gaming</td>
+                                                <td><p class="settings-txt" id="set-qual_game">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Mad ad</td>
+                                                <td><p class="settings-txt" id="set-qual_mad">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Treasure Hunt</td>
+                                                <td><p class="settings-txt" id="set-qual_thunt">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">Photography & Videography</td>
+                                                <td><p class="settings-txt" id="set-qual_photo">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="settings-txt1">IT Quiz</td>
+                                                <td><p class="settings-txt" id="set-qual_quiz">: Not Yet Disclosed..!</p></td>
+                                            </tr>
+                                        </tbody>
                                     </table>
 
                                   
@@ -1155,7 +1163,7 @@
                                     </div>
                                     <div class="forms-events">
                                         
-                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                        <div class="col-lg-8 col-md-6 col-sm-4 col-3">
                                             <div class="card">
                                                 <div class="card-body">                   
                                                     
@@ -1181,6 +1189,7 @@
                                                                     <th>User Role</th>
                                                                     <th>Enrolled</th>
                                                                     <th>Accommodation needed</th>
+                                                                    <th>Prsent For Fest</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody id="userTableBody">
@@ -1208,7 +1217,7 @@
                                         <p class="enroll-title">ALL EVENT REPORTS</p>
                                     </div>
                                     <div class="forms-events">
-                                        <div class="col-lg-2 col-md-6 col-sm-4">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 align="center" class="card-title">All Event Reports</h5>
@@ -1296,7 +1305,7 @@
                                     <p class="enroll-title">ALL ACCOMMODATION REPORTS</p>
                                 </div>
                                 <div class="forms-events">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12 col-md-8 col-sm-6 col-5">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 align="center" class="card-title">All Accommodation Reports</h5>
@@ -1316,6 +1325,8 @@
                                                                 <th>Team Name</th>
                                                                 <th>Number of Boys</th>
                                                                 <th>Number of Girls</th>
+                                                                <th>EMG Contact</th>
+                                                                <th>Require Food</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="accommodationTableBody">
@@ -1342,7 +1353,7 @@
                                     </div>
                                     <div class="forms-events">
                                         
-                                        <div class="col-lg-8 col-md-6 col-sm-4">
+                                        <div class="col-lg-12 col-md-8 col-sm-6 col-4">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 align="center" class="card-title">All Users</h5>
@@ -1405,7 +1416,7 @@
                                 <p class="team-name mt-2">Welcome Team!!.. <span class="header-team-name"> <?php echo session('team_name'); ?> </span></p>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-toggle="dropdown" aria-expanded="false">
-                                        <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user.jpg')?>" class="img-circle" alt="user avatar"></span>
+                                        <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user3.png')?>" class="img-circle" alt="user avatar"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item user-details">
@@ -1518,7 +1529,7 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
 <!-- simplebar js -->
 <script src="<?= base_url('assets/web/plugins/simplebar/js/simplebar.js') ?>"></script>
 <!-- sidebar-menu js -->

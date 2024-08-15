@@ -12,7 +12,7 @@ class QualTeamModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'qual_code', 'qual_web', 'qual_game', 'qual_thunt', 'qual_photo', 'qual_quiz', 'status', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['user_id', 'qual_code', 'qual_web', 'qual_game', 'qual_mad' ,'qual_thunt', 'qual_photo', 'qual_quiz', 'status', 'created_at', 'updated_at'];
 
     protected bool $allowEmptyInserts = false;
 

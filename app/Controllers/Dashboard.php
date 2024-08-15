@@ -52,7 +52,8 @@ class Dashboard extends BaseController
             'phone_number' => esc($user['phone_number']),
             'user_type' => $user['user_type'],
             'isenrolled' => $this->isEnrolled($user['id']),
-            'accommodation_needed' => $this->isAccommodationNeeded($user['id'])
+            'accommodation_needed' => $this->isAccommodationNeeded($user['id']),
+            'isPresent' => $user['present'],
         ];
     }
  $response = [
@@ -75,7 +76,8 @@ public function getAllAccommodationData()
             'numofboys' => esc($accommodation['numofboys']),
             'numofgirls' => esc($accommodation['numofgirls']),
             'team_name' => esc($accommodation['team_name']),
-            
+            'emg_contact' => esc($accommodation['emg_contact']),
+            'req_food' => esc($accommodation['req_food']),
             // Add other fields here
         ];
     }
@@ -139,6 +141,10 @@ public function getAllEventRegistrationData()
             'mad_mem_contact_3' => esc($event['mad_mem_contact_3']),
             'mad_mem_4' => esc($event['mad_mem_4']),
             'mad_mem_contact_4' => esc($event['mad_mem_contact_4']),
+            'mad_mem_5' => esc($event['mad_mem_5']),
+            'mad_mem_contact_5' => esc($event['mad_mem_contact_5']),
+            'mad_mem_6' => esc($event['mad_mem_6']),
+            'mad_mem_contact_6' => esc($event['mad_mem_contact_6']),
             // Add other fields here
         ];
     }
