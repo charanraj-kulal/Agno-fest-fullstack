@@ -66,50 +66,7 @@
             </div>
         </div>       
                             
-        
-        <!-- <div class="container-fluid py-5">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa-solid fa-3x fa-calendar-days text-primary mb-4"></i>
-                                <h5>Events</h5>
-                                <p>It’s time to get your game face on</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                                <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Service End -->
+       
 
 
         <!-- About Start -->
@@ -357,11 +314,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr Dr M. Venissa A. C.</h5>
                                 <small>Principal</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -371,11 +324,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
                                 <small>Vice Principal</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -385,11 +334,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
                                 <small>Administrator</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
@@ -399,11 +344,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr Dr M. Vinora A. C.</h5>
                                 <small>PG Co-ordinator</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -414,18 +355,14 @@
                         <h1 class="committee-header mb-5">STAFF COORDINATORS</h1>
                     </div>
                     <div class="g-4 staff-container ">
-                        <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-6 staff wow fadeInUp" data-wow-delay="0.1s">
                             <div class="team-item text-center rounded overflow-hidden">
                                 <div class="rounded-circle overflow-hidden m-4">
                                     <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="">
                                 </div>
                                 <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
                                 <small>HOD & Assistant Professor</small>
-                                <div class="mt-4 d-flex justify-content-center ">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
@@ -435,11 +372,7 @@
                                 </div>
                                 <h5 class="mb-0">Mrs Akshatha Shetty</h5>
                                 <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
@@ -449,41 +382,10 @@
                                 </div>
                                 <h5 class="mb-0">Mrs Baji Raina Banu</h5>
                                 <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshitha.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Ms Akshitha Menon</h5>
-                                <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ramya.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Ms Ramya Balyaya</h5>
-                                <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                       
                         
                     </div>
                     <!-- student coordinators  -->
@@ -492,18 +394,14 @@
                         <h1 class="committee-header mb-5">STUDENT COORDINATORS</h1>
                     </div>
                     <div class="g-4 staff-container ">
-                        <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-6 staff wow fadeInUp" data-wow-delay="0.1s">
                             <div class="team-item text-center rounded overflow-hidden">
                                 <div class="rounded-circle overflow-hidden m-4">
                                     <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/susan.jpg') ?>" alt="">
                                 </div>
                                 <h5 class="mb-0">Mr Sushan Roy Pinto</h5>
                                 <small>President</small>
-                                <div class="mt-5 d-flex justify-content-center ">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
@@ -513,11 +411,7 @@
                                 </div>
                                 <h5 class="mb-0">Dev Kiran Nayak</h5>
                                 <small>Class Representative</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
@@ -527,47 +421,35 @@
                                 </div>
                                 <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
                                 <small>Class Representative</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthi.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mr Karthi Shettygar</h5>
-                                <small>II MCA</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ganesh.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mr Ganesh Nayak</h5>
-                                <small>II MCA</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        
                         
                     </div>
                 </div>
             </div>
         </section>
         <!-- Team End -->
+          <!-- Event  Start -->
+        <section id="Map">
+            <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="text-center">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">College Location</h5>
+                        <h1 class="mb-5">Here We Are!!</h1>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="map-div">
+                            <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.488933821107!2d74.85668087491663!3d12.876251487430364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a36eaaaaaab%3A0x2f73de40395a69a3!2sSt.%20Agnes%20College(Autonomous)!5e0!3m2!1sen!2sin!4v1723784234752!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- EVENT End -->
 
 
        

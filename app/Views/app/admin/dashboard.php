@@ -173,7 +173,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="editCollegeName">College Name</label>
-                                                <input  type="text" class="form-control input100" id="editCollegeName" name="editCollegeName" readonly>
+                                                <input  type="text" class="form-control input100" style="color: black;" id="editCollegeName" name="editCollegeName" readonly>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-8 col-sm-6 col-4">
@@ -243,9 +243,11 @@
                                      <p style="color:#ff5c40"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 10px;"></i>By closing your account, all your enrollment and accommodation data will be permanently deleted. This action is irreversible.  </p>   
                                     </div>
                                     <div align="center">
+                                        <div class="modal-buttons">
                                         <div style="color:#ff5c40" id="closeAccount" class='button positive'><i class="fa-solid fa-circle-check"></i>Yes</div>
-                                        <span style="margin-left:40px; margin-right:40px"></span>
+                                        
                                         <label  class='button' for="cls_dialog_state"><i class="fa-solid fa-circle-xmark"></i> No </label>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -1234,6 +1236,7 @@
                                                         <table class="table table-bordered" id="allEventTable">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>Ticket Number</th>
                                                                     <th>Team Name</th>
                                                                     <th>Coding Member 1</th>
                                                                     <th>Coding Member Contact 1</th>
@@ -1415,7 +1418,7 @@
                             <ul class="navbar-nav align-items-center right-nav-link">
                                 <p class="team-name mt-2">Welcome Team!!.. <span class="header-team-name"> <?php echo session('team_name'); ?> </span></p>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-toggle="dropdown" aria-expanded="true">
                                         <span class="user-profile"><img src="<?= base_url('assets/web/imgs/user3.png')?>" class="img-circle" alt="user avatar"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">

@@ -32,6 +32,9 @@ $(document).ready(function () {
       var newRow =
         "<tr>" +
         "<td>" +
+        event.ticket_number +
+        "</td>" +
+        "<td>" +
         event.team_name +
         "</td>" +
         "<td>" +
@@ -193,6 +196,7 @@ $(document).ready(function () {
 
     // Add table headers for event table
     var headers = [
+      "Ticket Number",
       "Team Name",
       "Coding Member 1",
       "Coding Member Contact 1",

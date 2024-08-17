@@ -101,7 +101,7 @@ public function getAllEventRegistrationData()
     $eventRegData = [];
     foreach ($eventRegistrations as $event) {
         $eventRegData[] = [
-          
+            'ticket_number' => esc($event['ticket_number']),
             'team_name' => esc($event['team_name']),
             'coding_mem_1' => esc($event['coding_mem_1']),
             'coding_mem_contact_1' => esc($event['coding_mem_contact_1']),
