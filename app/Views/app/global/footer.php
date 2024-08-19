@@ -76,7 +76,7 @@
     <script src="<?= base_url('assets/web/vendors/tempusdominus/js/moment-timezone.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/vendors/tempusdominus/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
 
-   
+    <script src="<?= base_url('assets/web/js/readmore.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/landingpage.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/countdown1.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/jquery-ui.js') ?>"></script>
@@ -88,13 +88,8 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
 
- <script> 
-        <script> jQuery('#waterdrop').raindrops({
-            color:'rgb(36, 36, 36)', 
-            canvasHeight:150, 
-            density: 0.1, 
-            frequency: 20});
-        </script>
+ 
+      
 </body>
 
 </html>

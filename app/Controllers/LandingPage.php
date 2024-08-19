@@ -14,11 +14,5 @@ class LandingPage extends BaseController
         . view('app/landingpage/landing-page')
         . view('app/global/footer');
     }
-    public function aboutus()
-    {
-        return view('app/global/header')
-        // . view('app/global/sidebar')
-        . view('app/common/aboutus')
-        . view('app/global/footer');
-    }
+   
 }

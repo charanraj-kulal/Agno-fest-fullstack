@@ -48,7 +48,7 @@
                         <div class="counter main-example text-center text-lg-start">
                             <h1 class="display-1 text-center text-white animated slideInLeft"><strong>The Event Starts In.</strong></h1>
                             <h1 class="display-5 text-center text-white animated slideInLeft"><strong>Every Second Counts...</strong></h1>
-                            <div class="text-center countdown-container" data-timer="2024/08/16" id="main-example"></div>
+                            <div class="text-center countdown-container" data-timer="2024/09/16" id="main-example"></div>
                         </div>
                         <div class="counter">
                             <script type="text/template" id="main-example-template">
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             
-                            <a href="<?= base_url('about-us') ?>" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
+                            <a href="https://www.stagnescollege.edu.in/" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
                             
                                     
                             
@@ -127,7 +127,7 @@
         </section>
         <!-- About End -->
 
-         <!-- Event  Start -->
+        <!-- Event  Start -->
         <section id="events"></section>
             <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
                 <div class="container">
@@ -140,80 +140,91 @@
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/coding2-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">khodhasangam</h3>
-                                <h3 class="text-center">CODING</h3>
+                                <h3 class="text-center">CODING</h3><br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                            <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(1)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
-                                </div>
+                        </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/Quiz-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Gyanvedha</h3>
-                                <h3 class="text-center">IT QUIZ</h3>
+                                <h3 class="text-center">IT QUIZ</h3><br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(2)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/gaming2-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">ANVESHAN</h3>
+                                <h3 class="text-center">TREASURE HUNT</h3> <br>
+                            </div>
+                           <div class="d-flex align-items-center justify-content-center my-2" >
+                            
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(4)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/videography-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
-                                <h3 class="sanskrit-name text-center">Tattva Chitram</h3>
-                                <h3 class="text-center">VIDEOGRAPHY</h3>
+                                <h3 class="sanskrit-name text-center">Srujanatmak Vignapan</h3>
+                                <h3 class="text-center">MAD AD</h3>
+                                <br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(7)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/photography-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
-                                <h3 class="sanskrit-name text-center">Rasadarpana</h3>
-                                <h3 class="text-center">PHOTOGRAPHY</h3>
+                                <h3 class="sanskrit-name text-center">TATVA CHITRAM</h3>
+                                <h3 class="text-center">PHOTOGRAPHY & VIDEOGRAPHY</h3>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(5)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
@@ -221,19 +232,18 @@
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Shreshta Nirvahak</h3>
                                 <h3 class="text-center">IT MANAGER</h3>
+                                <br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(3)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
@@ -241,21 +251,79 @@
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Kurukshetra</h3>
                                 <h3 class="text-center">GAMING</h3>
+                                <br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(4)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- readmore overlay  -->
+                <div id="readmore-card-overlay">
+                    <div class="card-readmore-overlay">
+                    
+                            <span class="close-btn" onclick="toggleOverlayMcaRules()">&times;</span>
+                    
+
+                        <section class="text-contents-readmore">
+
+                            <div class="title-text-readmore" id="mca-text-container">
+                                <h3 id="title-readmore"></h3>
+                                <p id="title-readmore-norm"></p>
+                                <ul id="mca-list"></ul>
+
+                                <div class="event-heads-container">
+                                    <!-- <div class="centering-heads">
+                                        <h3 id="heads-text">Event Heads: </h3>
+                                    </div> -->
+
+
+                                    <div class="event-head1-container">
+                                        <div class="event-head1-headname">
+                                            <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
+                                            <h3 id="event-head1-name"></h3>
+                                        </div>
+                                        <div class="event-head1-phone">
+                                           <i class="fa-solid fa-phone" style="color: #FFFFFF;"></i>
+
+                                            <h3 id="event-head1-phn-number"></h3>
+
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="event-head2-container">
+                                        <div class="event-head1-headname">
+                                            <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
+                                            <h3 id="event-head2-name"></h3>
+                                        </div>
+                                        
+                                        <div class="event-head1-phone">
+                                            <i class="fa-solid fa-phone" style="color: #FFFFFF;"></i>
+
+                                            <h3 id="event-head2-phn-number"></h3>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </section>
                     </div>
                 </div>
             </div>
@@ -431,13 +499,34 @@
             </div>
         </section>
         <!-- Team End -->
+        <!-- Socia icons start  -->
+        <section id="Social-icon">
+            <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="text-center">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Social Connections</h5>
+                        <h1 class="mb-5">Connect with Us..!!</h1>
+                    </div>
+                    <div class="social-icons-container">
+                        <ul class="social-icon-ul">
+                            <li><a href="#"><i class="fa-brands fa-instagram instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
+                           
+                            <li><a href="#"><i class="fa-brands fa-youtube youtube"></i></a></li>
+                        </ul>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- Socia icons End  -->
           <!-- Event  Start -->
         <section id="Map">
             <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
                 <div class="container">
                     <div class="text-center">
                         <h5 class="section-title ff-secondary text-center text-primary fw-normal">College Location</h5>
-                        <h1 class="mb-5">Here We Are!!</h1>
+                        <h1 class="mb-5">We Are Here!!</h1>
                     </div>
                     
                     <div class="row">
