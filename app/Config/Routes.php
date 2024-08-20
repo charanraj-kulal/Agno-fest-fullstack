@@ -23,7 +23,7 @@ $routes->get('login', 'User::login_view');
 
 //landing page routes
 $routes->get('/', 'LandingPage::index');
-$routes->get('/about-us', 'LandingPage::aboutus');
+
 
 
 $routes->group('dashboard', ['filter' => 'Auth'], function ($routes) {

@@ -48,7 +48,7 @@
                         <div class="counter main-example text-center text-lg-start">
                             <h1 class="display-1 text-center text-white animated slideInLeft"><strong>The Event Starts In.</strong></h1>
                             <h1 class="display-5 text-center text-white animated slideInLeft"><strong>Every Second Counts...</strong></h1>
-                            <div class="text-center countdown-container" data-timer="2024/08/16" id="main-example"></div>
+                            <div class="text-center countdown-container" data-timer="2024/09/16" id="main-example"></div>
                         </div>
                         <div class="counter">
                             <script type="text/template" id="main-example-template">
@@ -66,50 +66,7 @@
             </div>
         </div>       
                             
-        
-        <!-- <div class="container-fluid py-5">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa-solid fa-3x fa-calendar-days text-primary mb-4"></i>
-                                <h5>Events</h5>
-                                <p>It’s time to get your game face on</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                                <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Service End -->
+       
 
 
         <!-- About Start -->
@@ -159,7 +116,7 @@
                                 </div>
                             </div>
                             
-                            <a href="<?= base_url('about-us') ?>" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
+                            <a href="https://www.stagnescollege.edu.in/" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
                             
                                     
                             
@@ -170,93 +127,104 @@
         </section>
         <!-- About End -->
 
-         <!-- Event  Start -->
-        <section id="events"></section>
+        <!-- Event  Start -->
+        <section id="events">
             <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
                 <div class="container">
                     <div class="text-center">
                         <h5 class="section-title ff-secondary text-center text-primary fw-normal">Events</h5>
-                        <h1 class="mb-5">Events to register!!!</h1>
+                        <h1 class="mb-5 section-sub-title">Events to register!!!</h1>
                     </div>
                     <div class="owl-carousel testimonial-carousel">
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/coding2-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">khodhasangam</h3>
-                                <h3 class="text-center">CODING</h3>
+                                <h3 class="text-center">CODING</h3><br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                            <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(1)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
-                                </div>
+                        </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/Quiz-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Gyanvedha</h3>
-                                <h3 class="text-center">IT QUIZ</h3>
+                                <h3 class="text-center">IT QUIZ</h3><br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(2)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/gaming2-nobg.png') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">ANVESHAN</h3>
+                                <h3 class="text-center">TREASURE HUNT</h3> <br>
+                            </div>
+                           <div class="d-flex align-items-center justify-content-center my-2" >
+                            
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(4)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/videography-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
-                                <h3 class="sanskrit-name text-center">Tattva Chitram</h3>
-                                <h3 class="text-center">VIDEOGRAPHY</h3>
+                                <h3 class="sanskrit-name text-center">Srujanatmak Vignapan</h3>
+                                <h3 class="text-center">MAD AD</h3>
+                                <br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(7)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/photography-nobg.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
-                                <h3 class="sanskrit-name text-center">Rasadarpana</h3>
-                                <h3 class="text-center">PHOTOGRAPHY</h3>
+                                <h3 class="sanskrit-name text-center">TATVA CHITRAM</h3>
+                                <h3 class="text-center">PHOTOGRAPHY & VIDEOGRAPHY</h3>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(5)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
@@ -264,19 +232,18 @@
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Shreshta Nirvahak</h3>
                                 <h3 class="text-center">IT MANAGER</h3>
+                                <br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(3)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
@@ -284,20 +251,78 @@
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Kurukshetra</h3>
                                 <h3 class="text-center">GAMING</h3>
+                                <br>
                             </div>
-                            <div class="d-flex align-items-center" >
+                           <div class="d-flex align-items-center justify-content-center my-2" >
                             
-                                <div onclick="toggleOverlayUg()" id="readmore-btn" class="button-inside-card align-items-center">
-                                    <button class="button-card-inside">
-                                        Read More
-                                        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                                            <path clip-rule="evenodd"
-                                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                                fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(4)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">View More</span>
+                                </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- readmore overlay  -->
+                <div id="readmore-card-overlay">
+                    <div class="card-readmore-overlay">
+                    
+                            <span class="close-btn" onclick="toggleOverlayMcaRules()">&times;</span>
+                    
+
+                        <div class="text-contents-readmore">
+
+                            <div class="title-text-readmore" id="mca-text-container">
+                                <h3 id="title-readmore"></h3>
+                                <p id="title-readmore-norm"></p>
+                                <ul id="mca-list"></ul>
+                                   <h2 class="event-head-heading justify-content-center">Event Heads</h2>
+                                <div class="event-heads-container">
+                                    <!-- <div class="centering-heads">
+                                        <h3 id="heads-text">Event Heads: </h3>
+                                    </div> -->
+
+                                 
+                                    <div class="event-head1-container">
+                                        <div class="event-head1-headname">
+                                            <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
+                                            <h3 id="event-head1-name"></h3>
+                                        </div>
+                                        <div class="event-head1-phone">
+                                           <i class="fa-solid fa-phone" style="color: #FFFFFF;"></i>
+
+                                            <h3 id="event-head1-phn-number"></h3>
+
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="event-head2-container">
+                                        <div class="event-head1-headname">
+                                            <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
+                                            <h3 id="event-head2-name"></h3>
+                                        </div>
+                                        
+                                        <div class="event-head1-phone">
+                                            <i class="fa-solid fa-phone" style="color: #FFFFFF;"></i>
+
+                                            <h3 id="event-head2-phn-number"></h3>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -342,7 +367,7 @@
 
 
         <!-- Team Start -->
-        <section id="teams"></section>
+        <section id="teams">
             <div class="container-fluid pt-5 pb-3">
                 <div class="container">
                     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -357,11 +382,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr Dr M. Venissa A. C.</h5>
                                 <small>Principal</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -371,11 +392,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
                                 <small>Vice Principal</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -385,11 +402,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
                                 <small>Administrator</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
@@ -399,11 +412,7 @@
                                 </div>
                                 <h5 class="mb-0">Sr Dr M. Vinora A. C.</h5>
                                 <small>PG Co-ordinator</small>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -414,18 +423,14 @@
                         <h1 class="committee-header mb-5">STAFF COORDINATORS</h1>
                     </div>
                     <div class="g-4 staff-container ">
-                        <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-6 staff wow fadeInUp" data-wow-delay="0.1s">
                             <div class="team-item text-center rounded overflow-hidden">
                                 <div class="rounded-circle overflow-hidden m-4">
                                     <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="">
                                 </div>
                                 <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
                                 <small>HOD & Assistant Professor</small>
-                                <div class="mt-4 d-flex justify-content-center ">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
@@ -435,11 +440,7 @@
                                 </div>
                                 <h5 class="mb-0">Mrs Akshatha Shetty</h5>
                                 <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
@@ -449,41 +450,10 @@
                                 </div>
                                 <h5 class="mb-0">Mrs Baji Raina Banu</h5>
                                 <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshitha.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Ms Akshitha Menon</h5>
-                                <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ramya.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Ms Ramya Balyaya</h5>
-                                <small>Assistant Professor</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                       
                         
                     </div>
                     <!-- student coordinators  -->
@@ -492,18 +462,14 @@
                         <h1 class="committee-header mb-5">STUDENT COORDINATORS</h1>
                     </div>
                     <div class="g-4 staff-container ">
-                        <div class="col-lg-3 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-6 staff wow fadeInUp" data-wow-delay="0.1s">
                             <div class="team-item text-center rounded overflow-hidden">
                                 <div class="rounded-circle overflow-hidden m-4">
                                     <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/susan.jpg') ?>" alt="">
                                 </div>
                                 <h5 class="mb-0">Mr Sushan Roy Pinto</h5>
                                 <small>President</small>
-                                <div class="mt-5 d-flex justify-content-center ">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
@@ -513,11 +479,7 @@
                                 </div>
                                 <h5 class="mb-0">Dev Kiran Nayak</h5>
                                 <small>Class Representative</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
@@ -527,47 +489,56 @@
                                 </div>
                                 <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
                                 <small>Class Representative</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
+                              
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthi.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mr Karthi Shettygar</h5>
-                                <small>II MCA</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/ganesh.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mr Ganesh Nayak</h5>
-                                <small>II MCA</small>
-                                <div class="mt-5 d-flex justify-content-center mt-3">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        
                         
                     </div>
                 </div>
             </div>
         </section>
         <!-- Team End -->
+        <!-- Socia icons start  -->
+        <section id="Social-icon">
+            <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="text-center">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Social Connections</h5>
+                        <h1 class="mb-5 section-sub-title">Connect with Us..!!</h1>
+                    </div>
+                    <div class="social-icons-container">
+                        <ul class="social-icon-ul">
+                            <li><a href="#"><i class="fa-brands fa-instagram instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
+                           
+                            <li><a href="#"><i class="fa-brands fa-youtube youtube"></i></a></li>
+                        </ul>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- Socia icons End  -->
+          <!-- Event  Start -->
+        <section id="Map">
+            <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="text-center">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">College Location</h5>
+                        <h1 class="mb-5 section-sub-title">We Are Here!!</h1>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="map-div">
+                            <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.488933821107!2d74.85668087491663!3d12.876251487430364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a36eaaaaaab%3A0x2f73de40395a69a3!2sSt.%20Agnes%20College(Autonomous)!5e0!3m2!1sen!2sin!4v1723784234752!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- EVENT End -->
 
 
        

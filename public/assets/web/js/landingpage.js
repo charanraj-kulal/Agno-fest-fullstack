@@ -119,4 +119,41 @@
       },
     },
   });
+
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top <= 150 && // Adjusted to trigger earlier
+      rect.bottom >= 150 // Adjusted to keep section active while scrolling
+    );
+  }
+
+  // Function to update active nav item based on scroll position
+  function updateActiveNavItem() {
+    $("section[id]").each(function () {
+      var sectionId = $(this).attr("id");
+      console.log(sectionId);
+      if (isElementInViewport(this)) {
+        $(".nav-item.nav-link").removeClass("active");
+        $('a.nav-item.nav-link[href="#' + sectionId + '"]').addClass("active");
+      }
+    });
+  }
+
+  // Call the function on scroll and on page load
+  $(window).on("scroll load resize", updateActiveNavItem);
+
+  // Smooth scrolling for nav links
+  $('a.nav-item.nav-link[href^="#"]').on("click", function (e) {
+    e.preventDefault();
+    var target = $(this.hash);
+    if (target.length) {
+      $("html, body").animate(
+        {
+          scrollTop: target.offset().top - 100, // Adjust for navbar height
+        },
+        1000
+      );
+    }
+  });
 })(jQuery);

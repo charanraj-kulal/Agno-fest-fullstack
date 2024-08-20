@@ -1,54 +1,71 @@
-    <div id="waterdrop"></div>
-    
-        <footer>
+
+    <div id="waterdrop" style="color: black;"></div>
+  
         <div class="footer-container container-fluid text-light footer pt- mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnisia</h4>
-                        <a class="btn btn-link" href="#about">About Us</a>
-                        <a class="btn btn-link" href="#events">Events</a>
-                        <a class="btn btn-link" href="#">more about us</a>
-                        <a class="btn btn-link" href="#">Rules</a>
-                        <a class="btn btn-link" href="#">Terms & Condition</a>
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
+                       
+                            <a class="btn btn-link" href="#home">Home</a>
+                            <a class="btn btn-link" href="#about">About Us</a>
+                            <a class="btn btn-link" href="#events">Events</a>
+                            <a class="btn btn-link" href="#teams">Teams</a>
+                            <a class="btn btn-link" href="https://www.stagnescollege.edu.in/">more-about-us</a>
+                            <a class="btn btn-link" href="#">Terms & Condition</a>
+                    
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
+                       
+                            <a class="btn btn-link" href="#home">Home</a>
+                            <a class="btn btn-link" href="#about">About Us</a>
+                            <a class="btn btn-link" href="#events">Events</a>
+                            <a class="btn btn-link" href="#teams">Teams</a>
+                            <a class="btn btn-link" href="https://www.stagnescollege.edu.in/">more-about-us</a>
+                            <a class="btn btn-link" href="#">Terms & Condition</a>
+                    
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>St Agnes Benore Mangalore</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9353649294</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>query@stagnes.edu.in</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>St Agnes College(Autonomous).
+Bendur, Mangaluru – 575002.</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 824 221 8414 </p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>office@stagnescollege.edu.in</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-whatsapp"></i></a>
                             <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                         
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Event on</h4>
-                        <h5 class="text-light fw-normal">Monday - Tuesday</h5>
-                        <p>09AM - 05PM</p>
+                        <h5 class="text-light fw-normal">19 & 20 September 2024</h5>
+                        <h5 class="text-light fw-normal">Thursday - Friday</h5>
+                        <p>09 AM - 05 PM</p>
                        
                         
                     </div>
                    
                 </div>
             </div>
+            <hr>
             <div class="container align-item-center">
                 <div class="copyright">
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Agnisia</a>, All Right Reserved. <br> 
+                        <div class="col-md-12 text-center  mb-3 mb-md-0">
+                            &copy; <a  href="#">Agnesia</a>, All Right Reserved. <br> 
 							
-							Designed By <a class="border-bottom" href="https://charanraj-kulal.github.io/charan_portfolio_2k24/">charanraj & Venkatesh</a><br><br>
-                            Distributed By <a class="border-bottom" href="<?= base_url('/') ?>"> <target="_blank">MCA UNited</a>
+							Made with &#x1F90D; by <a href="https://charanraj-kulal.github.io/charan_portfolio_2k24/">CHARANRAJ</a><br><br>
+                           
                         </div>
                         
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+
     <!-- Footer End -->
 
 
@@ -76,7 +93,7 @@
     <script src="<?= base_url('assets/web/vendors/tempusdominus/js/moment-timezone.min.js') ?>"></script>
     <script src="<?= base_url('assets/web/vendors/tempusdominus/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
 
-   
+    <script src="<?= base_url('assets/web/js/readmore.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/landingpage.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/countdown1.js') ?>"></script>
     <script src="<?= base_url('assets/web/js/jquery-ui.js') ?>"></script>
@@ -85,16 +102,11 @@
     <script src="<?= base_url('assets/web/js/preventlinks.js') ?>"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
 
- <script> 
-        <script> jQuery('#waterdrop').raindrops({
-            color:'rgb(36, 36, 36)', 
-            canvasHeight:150, 
-            density: 0.1, 
-            frequency: 20});
-        </script>
+    <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20});
+    </script>
 </body>
 
 </html>
