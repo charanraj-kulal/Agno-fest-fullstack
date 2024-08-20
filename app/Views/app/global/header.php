@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Agnisia - National Level Fest</title>
+    <title>Agnesia - National Level Fest</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -28,6 +28,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<?= base_url('assets/web/css/bootstrap.min.css') ?>" rel="stylesheet">
 
+ 
+
     <!-- Template Stylesheet -->
     <link href="<?= base_url('assets/web/css/landingpage.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/web/css/countdown.css') ?>" rel="stylesheet">
@@ -35,6 +37,7 @@
 </head>
 
 <body>
+    
     <div class=" container-fluid bg-dark p-0 main-contents">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -51,7 +54,7 @@
                     <span class="close-btn" onclick="closePopup()">&times;</span>
                     <div class="popup-content">
                         <p class="pop-txt1">Early Bird Tickets!!
-                             <br>Grab your tickets for AGNISIA at ₹1<span class="flicker-text">6</span>00 before
+                             <br>Grab your tickets for AGNESIA at ₹1<span class="flicker-text">6</span>00 before
                              <br> <b><h1 class="pop-flicker-text">13 SEPTEMBER 2024</h1></b>
                         </p>
                        <p class="pop-txt2">Don't miss your chance to be part of an unforgettable experience! <br> Register now and dive into an exciting, enriching adventure that's waiting for you!</p>
@@ -77,7 +80,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="logo-text  m-0">Agnisia</h1>
+                    <h1 class="logo-text  m-0">AgnEsia</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

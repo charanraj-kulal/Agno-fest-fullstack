@@ -128,12 +128,12 @@
         <!-- About End -->
 
         <!-- Event  Start -->
-        <section id="events"></section>
+        <section id="events">
             <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
                 <div class="container">
                     <div class="text-center">
                         <h5 class="section-title ff-secondary text-center text-primary fw-normal">Events</h5>
-                        <h1 class="mb-5">Events to register!!!</h1>
+                        <h1 class="mb-5 section-sub-title">Events to register!!!</h1>
                     </div>
                     <div class="owl-carousel testimonial-carousel">
                         <div class="testimonial-item bg-transparent border rounded p-0">
@@ -275,19 +275,19 @@
                             <span class="close-btn" onclick="toggleOverlayMcaRules()">&times;</span>
                     
 
-                        <section class="text-contents-readmore">
+                        <div class="text-contents-readmore">
 
                             <div class="title-text-readmore" id="mca-text-container">
                                 <h3 id="title-readmore"></h3>
                                 <p id="title-readmore-norm"></p>
                                 <ul id="mca-list"></ul>
-
+                                   <h2 class="event-head-heading justify-content-center">Event Heads</h2>
                                 <div class="event-heads-container">
                                     <!-- <div class="centering-heads">
                                         <h3 id="heads-text">Event Heads: </h3>
                                     </div> -->
 
-
+                                 
                                     <div class="event-head1-container">
                                         <div class="event-head1-headname">
                                             <i class="fa-solid fa-user" style="color: #FFFFFF;"></i>
@@ -323,7 +323,7 @@
                             </div>
 
 
-                        </section>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -367,7 +367,7 @@
 
 
         <!-- Team Start -->
-        <section id="teams"></section>
+        <section id="teams">
             <div class="container-fluid pt-5 pb-3">
                 <div class="container">
                     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -505,7 +505,7 @@
                 <div class="container">
                     <div class="text-center">
                         <h5 class="section-title ff-secondary text-center text-primary fw-normal">Social Connections</h5>
-                        <h1 class="mb-5">Connect with Us..!!</h1>
+                        <h1 class="mb-5 section-sub-title">Connect with Us..!!</h1>
                     </div>
                     <div class="social-icons-container">
                         <ul class="social-icon-ul">
@@ -526,7 +526,7 @@
                 <div class="container">
                     <div class="text-center">
                         <h5 class="section-title ff-secondary text-center text-primary fw-normal">College Location</h5>
-                        <h1 class="mb-5">We Are Here!!</h1>
+                        <h1 class="mb-5 section-sub-title">We Are Here!!</h1>
                     </div>
                     
                     <div class="row">

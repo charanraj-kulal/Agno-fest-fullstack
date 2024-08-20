@@ -21,6 +21,26 @@
   src: url("../fonts/custom/Flexi_IBM_VGA_False.ttf");
 }
 @font-face {
+  font-family: Bitter-black;
+  src: url("../fonts/custom/Bitter/static/Bitter-Black.ttf");
+}
+@font-face {
+  font-family: Bitter-bold;
+  src: url("../fonts/custom/Bitter/static/Bitter-Bold.ttf");
+}
+@font-face {
+  font-family: Bitter-semibold;
+  src: url("../fonts/custom/Bitter/static/Bitter-SemiBold.ttf");
+}
+@font-face {
+  font-family: Bitter-medium;
+  src: url("../fonts/custom/Bitter/static//Bitter-Medium.ttf");
+}
+@font-face {
+  font-family: Bitter-light;
+  src: url("../fonts/custom/Bitter/static/Bitter-Light.ttf");
+}
+@font-face {
   font-family: IBM437;
   src: url("../fonts/custom/Flexi_IBM_VGA_False_437.ttf");
 }
@@ -60,7 +80,9 @@
   border-radius: 20px;
   border: 1px solid white;
 }
-
+body {
+  scroll-behavior: smooth;
+}
 .txt-shadow-black {
   text-shadow: 5px 5px 12px black;
 }
@@ -305,15 +327,17 @@
 }
 
 .pop-txt1 {
-  font-family: "Sacramento", cursive;
+  font-family: Bitter-bold;
   margin: 5vh 5vw;
   color: #fff;
+  letter-spacing: 1.5px;
 }
 
 .pop-txt2 {
-  font-family: "Sacramento", cursive;
+  font-family: Bitter-light;
   margin: 5vh 5vw;
   color: #fff;
+  letter-spacing: 1.5px;
 }
 .glowing-btn {
   position: relative;
@@ -508,7 +532,28 @@
     font-size: 0.6em;
   }
 }
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .popup-container {
+    width: 90%; /* Reduce width for smaller screens */
+    padding: 3vh 1vw; /* Adjust padding */
+  }
 
+  .close-btn {
+    font-size: 36px; /* Reduce close button size */
+  }
+
+  .glowing-btn {
+    font-size: 1em; /* Adjust button font size */
+    padding: 10px 15px;
+  }
+
+  .pop-txt1,
+  .pop-txt2 {
+    font-size: 18px; /* Adjust text size */
+    letter-spacing: 1.3px;
+  }
+}
 /*** Button ***/
 .btn {
   font-family: "Nunito", sans-serif;
@@ -580,7 +625,7 @@
   font-weight: 900;
   outline: none;
   transition: 0.5s;
-  font-family: IBM;
+  font-family: Bitter-semibold;
 }
 .nav-btn {
   position: relative;
@@ -595,7 +640,7 @@
   transition: 0.2s;
   border-radius: 5px;
   margin-left: 100px;
-  font-family: IBM;
+  font-family: Bitter-semibold;
 }
 .nav-btn:hover {
   letter-spacing: 0.2rem;
@@ -1441,13 +1486,15 @@
 .section-title.text-end::after {
   display: none;
 }
-
+.section-sub-title {
+  font-family: Bitter-bold;
+}
 .mandal-1 {
   opacity: 1;
 }
 /* counter  */
 .counter {
-  font-family: IBM;
+  font-family: Bitter-semibold;
 }
 
 /* about us  */
@@ -1573,7 +1620,7 @@
   font-family: lt_regular;
 }
 
-/* overlay css  */
+/* overlay css */
 #readmore-card-overlay {
   display: none;
   position: fixed;
@@ -1581,46 +1628,63 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 7;
+  overflow: hidden; /* Prevent scrollbars during animation */
 }
 
 .card-readmore-overlay {
   box-sizing: border-box;
   height: auto;
-  width: auto;
+  width: 90%; /* Use percentage for responsiveness */
+  max-width: 800px; /* Set a max-width for larger screens */
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.407);
   border: 1px solid white;
-  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
+  box-shadow: -50px 0 200px -100px #5752f8, 50px 0 200px -100px #ebff36;
+  backdrop-filter: blur(10px);
   border-radius: 17px;
   text-align: center;
-  transition: all 0.5s;
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   font-weight: bolder;
   color: black;
-  margin: 0 5vw;
-  padding: 5vh 0;
+  margin: 5vh auto;
+  padding: 5vh 2vw;
   z-index: 6;
+
+  /* Combined rotate and slide down animation */
+  animation: rotateSlideDown 0.6s ease-in-out;
+  animation-fill-mode: forwards;
+  transform-style: preserve-3d;
 }
 
-.card-readmore-overlay:hover {
-  border: 2px solid #ff0000;
-  box-sizing: border-box;
+/* Keyframes for combined rotate and slide down animation */
+@keyframes rotateSlideDown {
+  0% {
+    transform: rotateY(180deg) translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateY(90deg) translateY(30%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateY(0deg) translateY(0);
+    opacity: 1;
+  }
 }
 
 .close-btn {
   position: absolute;
-  /* top: 10px; */
   right: 10px;
+  top: 10px; /* Adjusted for smaller screens */
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 17px;
@@ -1632,42 +1696,26 @@
   font-family: "Samarkan";
   color: #fff;
   text-align: center;
-  font-size: 3rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-size: 2rem; /* Responsive font size */
   margin-bottom: 1vh;
   padding: 0 20px;
 }
 
-#mca-list {
-  margin-top: 4vh;
-  margin-right: 2vh;
-  max-width: 45vw;
-}
-
 .title-text-readmore p {
-  font-family: "IBM";
+  font-family: "Bitter-semibold";
   color: #fff;
   text-align: center;
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 1vh;
+  font-size: 1.5rem; /* Responsive font size */
 }
 
 .title-text-readmore li {
-  font-family: "Graduate";
+  font-family: Bitter-medium;
   color: #fff;
   text-align: left;
   font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   margin-bottom: 1vh;
-  margin-left: 5vh;
   padding: 0.4rem;
+  letter-spacing: 1.5px;
 }
 
 .centering-heads {
@@ -1677,87 +1725,100 @@
 }
 
 #heads-text {
-  font-family: "IBM";
+  font-family: "Bitter-semibold";
   color: #fff;
   text-align: center;
   font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .event-heads-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 5vh;
+  margin-top: 2vh;
   padding: 0 12px;
 }
-
-.event-head1-container {
-  display: flex;
-  flex-direction: column;
+.event-head-heading {
+  font-family: "Bitter-semibold";
+  color: #fff;
+  text-align: center;
+  margin-top: 5vh;
 }
-
+.event-head1-container,
 .event-head2-container {
   display: flex;
   flex-direction: column;
 }
 
-.event-head1-phone {
+.event-head1-phone,
+.event-head1-headname {
   display: flex;
   flex-direction: row;
   justify-content: start;
   margin-top: 0.5vw;
 }
-.event-head1-headname {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-}
 
-#event-head1-name {
-  font-family: "IBM";
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-left: 0.5vw;
-}
-
-#event-head1-phn-number {
-  font-family: "IBM";
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-left: 0.5vw;
-}
-
-#event-head2-name {
-  font-family: "IBM";
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-left: 0.5vw;
-}
-
+/* Responsive typography */
+#event-head1-name,
+#event-head1-phn-number,
+#event-head2-name,
 #event-head2-phn-number {
-  font-family: "IBM";
+  font-family: "Bitter-semibold";
   color: #fff;
-  text-align: center;
   font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
   margin-left: 0.5vw;
+}
+
+/* Media Queries for responsive adjustments */
+@media (max-width: 768px) {
+  .card-readmore-overlay {
+    width: 80%;
+    padding: 4vh 5vw;
+    margin: 2vh auto;
+  }
+
+  .title-text-readmore h3 {
+    font-size: 1.8rem;
+  }
+  .sanskrit-name {
+    font-size: 1.8rem;
+  }
+  .hero {
+    font-size: 4rem !important;
+  }
+  .title-text-readmore p {
+    font-size: 1.3rem;
+  }
+  .event-head-heading {
+    font-size: 1.8rem;
+  }
+  #heads-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-readmore-overlay {
+    width: 90%;
+    padding: 3vh 4vw;
+  }
+
+  .title-text-readmore h3 {
+    font-size: 1.5rem;
+  }
+
+  .title-text-readmore p {
+    font-size: 1.1rem;
+  }
+
+  .event-heads-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #heads-text {
+    font-size: 1.1rem;
+  }
 }
 
 /*** Youtube Video ***/
@@ -1888,7 +1949,8 @@
   margin-left: 30px;
 }
 .committee-header {
-  font-family: IBM;
+  font-family: Bitter-semibold;
+  margin-top: 4rem;
 }
 .team-item {
   background: rgba(54, 54, 54, 0.3);
@@ -2312,15 +2374,17 @@ button.view-more-btn:hover .button-text {
   scroll-behavior: smooth;
 }
 /*** Footer ***/
+
+.footer-container {
+  background: rgb(0, 0, 0);
+}
 #waterdrop {
   height: 30px;
+  margin-bottom: -3.5%;
 }
 
 #waterdrop canvas {
   bottom: -70px !important;
-}
-.footer-container {
-  background: rgb(36, 36, 36);
 }
 .footer .btn.btn-social {
   margin-right: 5px;
@@ -2348,6 +2412,7 @@ button.view-more-btn:hover .button-text {
   font-size: 15px;
   font-weight: normal;
   text-transform: capitalize;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -2367,11 +2432,12 @@ button.view-more-btn:hover .button-text {
 .footer .copyright {
   padding: 25px 0;
   font-size: 15px;
-  border-top: 1px solid rgba(256, 256, 256, 0.1);
+  /* border-top: 1px solid rgba(256, 256, 256, 0.1); */
 }
 
 .footer .copyright a {
   color: var(--light);
+  text-decoration: none;
 }
 
 .footer .footer-menu a {

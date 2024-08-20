@@ -111,31 +111,40 @@ const mcaHPhn2List = document.querySelector(
   ".event-head2-container #event-head2-phn-number"
 );
 
-function toggleOverlayMcaRules(eventIndex) {
+function toggleOverlayMcaRules(eventIndex = null) {
   var overlay = document.getElementById("readmore-card-overlay");
+
+  // Toggle the overlay visibility
   overlay.style.display =
     overlay.style.display === "none" || overlay.style.display === ""
       ? "flex"
       : "none";
 
+  // If no eventIndex is passed, do nothing else (likely closing the overlay)
+  if (eventIndex === null) {
+    return;
+  }
+
   mcaRList.innerHTML = "";
 
-  mcaIdx = eventIndex; // Set the current event index
+  const currentEvent = mcaEventList[eventIndex];
 
-  const currentEvent = mcaEventList[mcaIdx];
-  const currentEventIndex = mcaEventList.indexOf(currentEvent);
-  const rules = mcaListRules[currentEventIndex] || [
-    "No specific rules available",
-  ];
+  // Check if the event exists
+  if (!currentEvent) {
+    console.error("Invalid event index:", eventIndex);
+    return;
+  }
 
-  mcaRCard.innerText = mcaEventList[mcaIdx];
-  mcaRNCard.innerText = "(" + mcaEventListNorm[mcaIdx] + ")";
+  const rules = mcaListRules[eventIndex] || ["No specific rules available"];
 
-  mcaHName1List.innerText = mcaHeads[mcaIdx][0];
-  mcaHName2List.innerText = mcaHeads[mcaIdx][1];
+  mcaRCard.innerText = currentEvent;
+  mcaRNCard.innerText = "(" + mcaEventListNorm[eventIndex] + ")";
 
-  mcaHPhn1List.innerText = mcaPhone[mcaIdx][0];
-  mcaHPhn2List.innerText = mcaPhone[mcaIdx][1];
+  mcaHName1List.innerText = mcaHeads[eventIndex][0];
+  mcaHName2List.innerText = mcaHeads[eventIndex][1];
+
+  mcaHPhn1List.innerText = mcaPhone[eventIndex][0];
+  mcaHPhn2List.innerText = mcaPhone[eventIndex][1];
 
   rules.forEach((rule) => {
     const li = document.createElement("li");
