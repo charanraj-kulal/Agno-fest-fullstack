@@ -1021,126 +1021,68 @@
                     <div class="card mt-6 dashboard-cards forallsec hide" id="settings-section-id">
                         <div class="card-body">
                             <div class="settings-section">
-                                <div class="section-heading mb-4">
-                                    <p class="enroll-title">ACCOUNT INFO</p>
+                            <div class="section-heading mb-4">
+                                <h2 class="enroll-title">ACCOUNT INFO</h2>
+                            </div>
+
+                            <div class="settings-content-div mb-4">
+                                <div class="settings-item">
+                                <span class="settings-label">College Name</span>
+                                <span class="settings-value" id="set-clg-name">: <?php echo session('college_name'); ?></span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Team Name</span>
+                                <span class="settings-value" id="set-team-name">: <?php echo session('team_name'); ?></span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Registration Status</span>
+                                <span class="settings-value" id="set-reg-status">: Not Completed!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Ticket Number</span>
+                                <span class="settings-value" id="ticket-number">: N/A</span>
                                 </div>
 
-                                <div  class="settings-content-div bqnier  mb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="settings-txt1">College Name:</td>
-                                                <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Team Name:</td>
-                                                <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Registration Status</td>
-                                                <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Ticket Number</td>
-                                                <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
-                                            </tr>
-                                            
-                                        <tbody>
-                                    </table>
-                                    <div align="center" class="settings-buttons text-center mt-4">
-                                        <button class="btn btn-light" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
-                                        <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
-                                    </div>
-                                     
+                                <div class="settings-buttons">
+                                <button class="btn btn-light" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
+                                <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
                                 </div>
-                                
-                                 <div class="section-heading mb-4">
-                                    <p class="enroll-title">QUALIFIED TEAMS FOR DAY 2</p>
+                            </div>
+
+                            <div class="section-heading mb-4">
+                                <h2 class="enroll-title">QUALIFIED TEAMS FOR DAY 2</h2>
+                            </div>
+
+                            <div class="settings-content-div mb-4">
+                                <div class="settings-item">
+                                <span class="settings-label">Coding</span>
+                                <span class="settings-value" id="set-qual_code">: Not Yet Disclosed..!</span>
                                 </div>
-
-                                <div  class="settings-content-div bqnier  mb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="settings-txt1">Coding</td>
-                                                <td><p class="settings-txt" id="set-qual_code">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Web Design</td>
-                                                <td><p class="settings-txt" id="set-qual_web">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Gaming</td>
-                                                <td><p class="settings-txt" id="set-qual_game">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Mad ad</td>
-                                                <td><p class="settings-txt" id="set-qual_mad">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Treasure Hunt</td>
-                                                <td><p class="settings-txt" id="set-qual_thunt">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Photography & Videography</td>
-                                                <td><p class="settings-txt" id="set-qual_photo">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">IT Quiz</td>
-                                                <td><p class="settings-txt" id="set-qual_quiz">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                  
+                                <div class="settings-item">
+                                <span class="settings-label">Web Design</span>
+                                <span class="settings-value" id="set-qual_web">: Not Yet Disclosed..!</span>
                                 </div>
-
-                                <!-- <div class="contactus-section-new bqnier">
-                                    <div class="section-heading mb-4">
-                                        <p class="enroll-title">CONTACT US</p>
-                                    </div>
-
-                                    <div class="contact-sec1 mb-4">
-                                        <p class="contact-txthead mb-2 me-2"><b>Website Admins</b></p>
-                                        <div class="contact-con-div">
-                                            <table align="center">
-                                                <tr>
-                                                    <td class="con-txt1">Charanraj:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Venkatesh:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <div class="contact-sec2 mb-4">
-                                        <p class="contact-txthead mb-2"><b>Staff Coordinators</b></p>
-                                        <div class="contact-con-div">
-                                            <table align="center">
-                                                <tr>
-                                                    <td class="con-txt1">Mrs. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Mr. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Mr. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Mrs. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div> -->
+                                <div class="settings-item">
+                                <span class="settings-label">Gaming</span>
+                                <span class="settings-value" id="set-qual_game">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Mad ad</span>
+                                <span class="settings-value" id="set-qual_mad">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Treasure Hunt</span>
+                                <span class="settings-value" id="set-qual_thunt">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Photography & Videography</span>
+                                <span class="settings-value" id="set-qual_photo">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">IT Quiz</span>
+                                <span class="settings-value" id="set-qual_quiz">: Not Yet Disclosed..!</span>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
