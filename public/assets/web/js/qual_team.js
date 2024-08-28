@@ -46,7 +46,7 @@ $(document).ready(function () {
                 selectElement.append(option);
               });
               selectElement.trigger("change");
-              console.log(key);
+
               // Update the text display
               var displayElement = $("#set-" + key);
               displayElement.text(

@@ -1,6 +1,14 @@
 (function ($) {
-  "use strict";
+  ("use strict");
+  // loader
+  const loader = document.querySelector(".loader");
+  function showLoader() {
+    loader.style.display = "block";
+  }
 
+  function hideLoader() {
+    loader.style.display = "none";
+  }
   /*==================================================================
     [ Focus input ]*/
   $(".input100").each(function () {
@@ -84,12 +92,14 @@
 
   // AJAX form submission
   function submitRegForm(form) {
+    showLoader();
     $.ajax({
       url: form.attr("action"),
       type: "POST",
       data: form.serialize(),
       dataType: "json",
       success: function (response) {
+        hideLoader();
         if (response.success) {
           showAlert(response.message, true);
           // Redirect to login page after a delay
@@ -101,6 +111,7 @@
         }
       },
       error: function (xhr, status, error) {
+        hideLoader();
         console.error(xhr.responseText);
         showAlert("An error occurred while processing your request.", false);
       },

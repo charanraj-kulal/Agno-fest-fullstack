@@ -10,6 +10,8 @@ function validateTextInput(inputElement) {
   inputElement.value = inputElement.value.replace(/\d/g, "");
 }
 $(document).ready(function () {
+  // loader
+  const loader = document.querySelector(".loader");
   // coding
   const codingMem1 = document.getElementById("coding-mem1");
   const codingMemCon1 = document.getElementById("coding-mem1-con1");
@@ -139,11 +141,13 @@ $(document).ready(function () {
 
   //payment integration
   function initiateRazorpayPayment() {
+    loader.style.display = "block";
     $.ajax({
       url: "dashboard/razorpay/initiate",
       type: "POST",
       dataType: "json",
       success: function (response) {
+        loader.style.display = "none";
         var options = response;
         options.handler = function (response) {
           verifyPayment(response);
@@ -152,6 +156,7 @@ $(document).ready(function () {
         rzp.open();
       },
       error: function (xhr, status, error) {
+        loader.style.display = "none";
         console.error(error);
         showAlert("Failed to initiate payment. Please try again.", false);
       },
@@ -159,11 +164,13 @@ $(document).ready(function () {
   }
 
   function verifyPayment(response) {
+    loader.style.display = "block";
     $.ajax({
       url: "dashboard/razorpay/verify",
       type: "POST",
       data: response,
       success: function (result) {
+        loader.style.display = "none";
         if (result.success) {
           formData = getFormData();
           if (checkValidation(formData)) {
@@ -174,6 +181,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
+        loader.style.display = "none";
         console.error(error);
         showAlert(
           "Payment verification failed. Please contact support.",
@@ -186,28 +194,24 @@ $(document).ready(function () {
   //submit listner
   $("#payment-btn").click(function (e) {
     e.preventDefault();
+    loader.style.display = "block";
     var formData = getFormData();
     if (checkValidation(formData)) {
       initiateRazorpayPayment();
+    } else {
+      loader.style.display = "none";
     }
   });
-
-  $("#enroll-save-btn").click(function (e) {
-    e.preventDefault();
-    var formData = getFormData();
-    if (checkValidation(formData)) {
-      submitEnrollForm(formData);
-    }
-  });
-
   // Function to submit the enroll form via AJAX
   function submitEnrollForm(formData) {
+    loader.style.display = "block";
     $.ajax({
       url: "dashboard/event-register",
       type: "POST",
       dataType: "json",
       data: formData,
       success: function (response) {
+        loader.style.display = "none";
         if (response.success) {
           showAlert(response.message, true);
           updateUIAfterPayment(response.ticket_number);
@@ -217,11 +221,43 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
+        loader.style.display = "none";
         console.error("Error:", error);
         showAlert("An error occurred while processing your request.", false);
       },
     });
   }
+  $(document).ready(function () {
+    var formData; // Declare formData globally so both click and keydown can access it
+
+    // Handle the click event for the "Save" button
+    $("#enroll-save-btn").click(function (e) {
+      e.preventDefault();
+      loader.style.display = "block";
+
+      formData = getFormData();
+      if (checkValidation(formData)) {
+        submitEnrollForm(formData);
+      } else {
+        loader.style.display = "none";
+      }
+    });
+
+    // Handle the Ctrl+S keydown event
+    document.addEventListener("keydown", function (event) {
+      if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+        loader.style.display = "block";
+
+        formData = getFormData();
+        if (checkValidation(formData)) {
+          submitEnrollForm(formData);
+        } else {
+          loader.style.display = "none";
+        }
+      }
+    });
+  });
 
   function updateUIAfterPayment(ticketNumber) {
     $("#payment-btn").hide();
@@ -698,11 +734,13 @@ $(document).ready(function () {
 
   // Perform AJAX request to fetch data
   function fetchData() {
+    // loader.style.display = "block";
     $.ajax({
       url: "dashboard/fetchEnrollData", // Update 'controller-name' with your actual controller name
       type: "GET",
       dataType: "json",
       success: function (response) {
+        // loader.style.display = "none";
         if (response.success) {
           // Populate text boxes with data
           var data = response.data;
@@ -790,6 +828,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
+        // loader.style.display = "none";
         showAlert("An error occurred while processing your request.", false);
       },
     });

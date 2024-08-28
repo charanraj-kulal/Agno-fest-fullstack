@@ -765,6 +765,19 @@ body.bg-theme14 {
 body.bg-theme15 {
   background-image: linear-gradient(45deg, #6a11cb, #2575fc);
 }
+
+/* loader  */
+.loader,
+#loader-lottie-div-payment {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  display: none;
+  z-index: 9999;
+}
 /* modal  */
 #dialog {
   position: fixed;
@@ -844,9 +857,9 @@ body.bg-theme15 {
 }
 
 h2#dlg-header {
-  font: 200 1.8em/1em Raleway, Open Sans, Arial, Sans-Serif;
+  font: 200 1.8em/1em lt_regular;
   text-transform: initial;
-  letter-spacing: -0.025em;
+
   margin: 0 0 1rem;
   color: white;
 }
@@ -893,7 +906,7 @@ a.button {
   padding: 0.5em 1em;
   box-sizing: border-box;
   margin: 0.5rem;
-  background: #0f0f0f;
+  background: #000000;
   color: #ffffff;
   text-decoration: none;
   letter-spacing: 0.075em;
@@ -909,9 +922,10 @@ a.button {
 
 .button:hover,
 a.button:hover {
-  color: #a0a0a0;
-  background: #ff1313;
+  color: #ff0000;
+  background: #fffefe;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease-in-out;
 }
 
 .button.positive,
@@ -923,8 +937,21 @@ a.button.positive {
 .button.positive:hover,
 a.button.positive:hover {
   border-color: #468fb6;
-  color: #fff;
-  background-color: #468fb6;
+  color: #000000;
+  background-color: #ffffff;
+}
+.button.negetive,
+a.button.negetive {
+  border-color: #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.button.negetive:hover,
+a.button.negetive:hover {
+  border-color: #468fb6;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 @media (max-width: 768px) {

@@ -196,7 +196,6 @@ $(document).ready(function () {
 
     // Add table headers for event table
     var headers = [
-      "Ticket Number",
       "Team Name",
       "Coding Member 1",
       "Coding Member Contact 1",
@@ -249,14 +248,15 @@ $(document).ready(function () {
     // Push table rows to the data array for event table
     $("#eventTableBody tr").each(function () {
       var row = [];
+      // Skip the ticket_number by starting from the second cell (index 1)
       $(this)
         .find("td")
+        .slice(1)
         .each(function () {
           row.push($(this).text());
         });
       data.push(row);
     });
-
     // Insert two empty rows at the end of each table for Day 1 and Day 2
     data.push([
       "Day 1",
