@@ -8,7 +8,7 @@
   <meta name="author" content=""/>
   <title>Dashboard - Agnisia</title>
   <!-- loader-->
-
+  <script type="module" src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
   <link href="<?= base_url('assets/web/css/pace.min.css') ?>" rel="stylesheet"/>
   <script src="<?= base_url('assets/web/js/pace.min.js') ?>"></script>
   
@@ -39,6 +39,16 @@
 </head>
 
 <body class="bg-theme bg-theme1">
+     <div id="loader-lottie-div" class="loader" style="display: none;">
+        <dotlottie-player 
+            src="<?= base_url('assets/web/imgs/loader/loader2.lottie')?>"
+            background="transparent"
+            
+            style="width: 200px; height: 200px;"
+            loop
+            autoplay
+        ></dotlottie-player>
+    </div>
     <div class="info">
         <div class="info__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none">
@@ -56,6 +66,7 @@
             </svg>
         </div>
     </div>
+    
 <?php $userid= session('id'); ?>
  <!-- Edit User Modal -->
 
@@ -221,9 +232,11 @@
                                         <input type="password" class="form-control input100" id="confirmPassword" name="confirmPassword">
                                     </div>
                                     <div align="center">
-                                        <div id="changePassword" class='button positive'><i class="fa fa-check"></i>Change Password</div>
-                                        <span style="margin-left:20px; margin-right:20px"></span>
-                                        <label class='button' for="pswd_dialog_state"><i class="fa fa-times"></i> Cancel</label>
+                                        <div class="modal-buttons">
+                                            <div style="background-color:#008000; color:white"  id="changePassword" class='button positive'><i class="fa fa-check" style="margin-right: 10px;"></i>Change</div>
+                                            <span style="margin-left:20px; margin-right:20px"></span>
+                                            <label style="background-color:#FF0000; color:white" class='button' for="pswd_dialog_state"><i class="fa fa-times" style="margin-right: 10px;"></i> Cancel</label>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -240,13 +253,36 @@
                             <div class="modal-body">
                                 <form id="confirmform">
                                     <div class="form-group-pswd">
-                                     <p style="color:#ff5c40"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 10px;"></i>By closing your account, all your enrollment and accommodation data will be permanently deleted. This action is irreversible.  </p>   
+                                     <p style="color:#FFCC00"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 10px;"></i>By closing your account, all your enrollment and accommodation data will be permanently deleted. This action is irreversible.  </p>   
                                     </div>
                                     <div align="center">
                                         <div class="modal-buttons">
-                                        <div style="color:#ff5c40" id="closeAccount" class='button positive'><i class="fa-solid fa-circle-check"></i>Yes</div>
                                         
-                                        <label  class='button' for="cls_dialog_state"><i class="fa-solid fa-circle-xmark"></i> No </label>
+                                        
+                                        <label  class='button negetive' for="cls_dialog_state"><i class="fa-solid fa-circle-xmark" style="margin-right: 10px;"></i> Cancel </label>
+                                        <div style="background-color:#FF0000; color:white" id="closeAccount" class='button positive'><i class="fa-solid fa-circle-check" style="margin-right: 10px;"></i>Confirm</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- delete user confirmation modal   -->
+                    <input type="checkbox" name="dialog_state" id="del_user_dialog_state" class="dialog_state">
+                    <div id='dialog'>
+                        <label id="dlg-back" for="cls_dialog_state"></label>
+                        <div id='dlg-wrap'>
+                            <label id="dlg-close" for="del_user_dialog_state"><i class="fa fa-times"></i></label>
+                            <h2 id='dlg-header'>Confirm to delete selected user?</h2>
+                            <div class="modal-body">
+                                <form id="confirmform">
+                                    <div class="form-group-pswd">
+                                     <p style="color:#FFCC00"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 10px;"></i>Are you sure want to delete this user?</p>   
+                                    </div>
+                                    <div align="center">
+                                        <div class="modal-buttons">
+                                            <label  class='button' for="del_user_dialog_state"><i class="fa-solid fa-circle-xmark"></i> Cancel </label>
+                                            <div style="background-color:#FF0000; color:white" id="deleteUser" class='button positive'><i class="fa-solid fa-circle-check"style="margin-right: 10px;"></i>confirm</div>
                                         </div>
                                     </div>
                                 </form>
@@ -259,11 +295,8 @@
                         <div cass="card-content">
                             <div class="row row-group m-0">
                                 <div class="enroll-section" >
-
-                                    <div id="loader-lottie-div" class="loader">
-                                        <dotlottie-player id="loader-lottie" autoplay loop mode="normal"
-                                            src="/assets/icon/loader-yellow.lottie" style="width: 70px;height:70px;"></dotlottie-player>
-                                    </div>
+                                   
+                                   
 
                                     <div class="section-heading">
                                         <p class="enroll-title">EVENT REGISTRATION FORM</p>
@@ -1021,126 +1054,68 @@
                     <div class="card mt-6 dashboard-cards forallsec hide" id="settings-section-id">
                         <div class="card-body">
                             <div class="settings-section">
-                                <div class="section-heading mb-4">
-                                    <p class="enroll-title">ACCOUNT INFO</p>
+                            <div class="section-heading mb-4">
+                                <h2 class="enroll-title">ACCOUNT INFO</h2>
+                            </div>
+
+                            <div class="settings-content-div mb-4">
+                                <div class="settings-item">
+                                <span class="settings-label">College Name</span>
+                                <span class="settings-value" id="set-clg-name">: <?php echo session('college_name'); ?></span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Team Name</span>
+                                <span class="settings-value" id="set-team-name">: <?php echo session('team_name'); ?></span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Payment Status</span>
+                                <span class="settings-value" id="set-reg-status">: Not Completed!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Ticket Number</span>
+                                <span class="settings-value" id="ticket-number">: N/A</span>
                                 </div>
 
-                                <div  class="settings-content-div bqnier  mb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="settings-txt1">College Name:</td>
-                                                <td><p class="settings-txt" id="set-clg-name">: <?php echo session('college_name'); ?></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Team Name:</td>
-                                                <td><p class="settings-txt" id="set-team-name">: <?php echo session('team_name'); ?></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Registration Status</td>
-                                                <td><p class="settings-txt" id="set-reg-status">: Not Completed!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Ticket Number</td>
-                                                <td><p class="settings-txt" id="ticket-number">: N/A</p></td>
-                                            </tr>
-                                            
-                                        <tbody>
-                                    </table>
-                                    <div align="center" class="settings-buttons text-center mt-4">
-                                        <button class="btn btn-light" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
-                                        <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
-                                    </div>
-                                     
+                                <div class="settings-buttons">
+                                <button class="btn btn-light" id="changePasswordBtn"><i class="fa-solid fa-user-pen"></i> Change Password</button>
+                                <button class="btn btn-light" id="closeAccountBtn"><i class="fa-solid fa-circle-xmark"></i> Close Account</button>
                                 </div>
-                                
-                                 <div class="section-heading mb-4">
-                                    <p class="enroll-title">QUALIFIED TEAMS FOR DAY 2</p>
+                            </div>
+
+                            <div class="section-heading mb-4">
+                                <h2 class="enroll-title">QUALIFIED TEAMS FOR DAY 2</h2>
+                            </div>
+
+                            <div class="settings-content-div mb-4">
+                                <div class="settings-item">
+                                <span class="settings-label">Coding</span>
+                                <span class="settings-value" id="set-qual_code">: Not Yet Disclosed..!</span>
                                 </div>
-
-                                <div  class="settings-content-div bqnier  mb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="settings-txt1">Coding</td>
-                                                <td><p class="settings-txt" id="set-qual_code">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Web Design</td>
-                                                <td><p class="settings-txt" id="set-qual_web">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Gaming</td>
-                                                <td><p class="settings-txt" id="set-qual_game">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Mad ad</td>
-                                                <td><p class="settings-txt" id="set-qual_mad">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Treasure Hunt</td>
-                                                <td><p class="settings-txt" id="set-qual_thunt">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">Photography & Videography</td>
-                                                <td><p class="settings-txt" id="set-qual_photo">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="settings-txt1">IT Quiz</td>
-                                                <td><p class="settings-txt" id="set-qual_quiz">: Not Yet Disclosed..!</p></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                  
+                                <div class="settings-item">
+                                <span class="settings-label">Web Design</span>
+                                <span class="settings-value" id="set-qual_web">: Not Yet Disclosed..!</span>
                                 </div>
-
-                                <!-- <div class="contactus-section-new bqnier">
-                                    <div class="section-heading mb-4">
-                                        <p class="enroll-title">CONTACT US</p>
-                                    </div>
-
-                                    <div class="contact-sec1 mb-4">
-                                        <p class="contact-txthead mb-2 me-2"><b>Website Admins</b></p>
-                                        <div class="contact-con-div">
-                                            <table align="center">
-                                                <tr>
-                                                    <td class="con-txt1">Charanraj:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Venkatesh:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <div class="contact-sec2 mb-4">
-                                        <p class="contact-txthead mb-2"><b>Staff Coordinators</b></p>
-                                        <div class="contact-con-div">
-                                            <table align="center">
-                                                <tr>
-                                                    <td class="con-txt1">Mrs. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Mr. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Mr. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="con-txt1">Mrs. Staff:</td>
-                                                    <td class="con-txt2">+91 935473892</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div> -->
+                                <div class="settings-item">
+                                <span class="settings-label">Gaming</span>
+                                <span class="settings-value" id="set-qual_game">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Mad ad</span>
+                                <span class="settings-value" id="set-qual_mad">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Treasure Hunt</span>
+                                <span class="settings-value" id="set-qual_thunt">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">Photography & Videography</span>
+                                <span class="settings-value" id="set-qual_photo">: Not Yet Disclosed..!</span>
+                                </div>
+                                <div class="settings-item">
+                                <span class="settings-label">IT Quiz</span>
+                                <span class="settings-value" id="set-qual_quiz">: Not Yet Disclosed..!</span>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>

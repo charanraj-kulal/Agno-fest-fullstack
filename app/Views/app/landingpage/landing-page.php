@@ -98,7 +98,7 @@
                             <div class="row g-4 mb-4">
                                 <div class="col-sm-6">
                                     <div class="d-flex align-items-center border-start border-5 border-light px-3">
-                                        <h1 class="flex-shrink-0 display-5 text-warning mb-0" data-toggle="counter-up">15</h1><p class="text-warning">+</p>
+                                        <h1 class="flex-shrink-0 display-5 text-warning mb-0" data-toggle="counter-up">8</h1><p class="text-warning">+</p>
                                         <div class="ps-4">
                                             <p class="mb-0">Events to</p>
                                             <h6 class="text-uppercase mb-0">Participate</h6>
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="d-flex align-items-center border-start border-5 border-light px-3">
-                                        <h1 class="flex-shrink-0 display-5 text-warning mb-0" data-toggle="counter-up">30</h1><p class="text-warning">+</p>
+                                        <h1 class="flex-shrink-0 display-5 text-warning mb-0" data-toggle="counter-up">10</h1><p class="text-warning">+</p>
                                         <div class="ps-4">
                                             <p class="mb-0">Trophies to</p>
                                             <h6 class="text-uppercase mb-0">Win</h6>

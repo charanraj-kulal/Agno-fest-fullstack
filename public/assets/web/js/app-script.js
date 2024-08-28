@@ -1,6 +1,15 @@
 $(function () {
   ("use strict");
+  // loader
+  const loader = document.querySelector(".loader");
 
+  function showLoader() {
+    loader.style.display = "block";
+  }
+
+  function hideLoader() {
+    loader.style.display = "none";
+  }
   //sidebar menu js
   $.sidebarMenu($(".sidebar-menu"));
 
@@ -52,6 +61,35 @@ $(function () {
     $("#closeAccountBtn").click(function () {
       $("#cls_dialog_state").prop("checked", true); // Check the checkbox to show the modal
     });
+    // When the 'Yes' button is clicked in the modal
+    $("#deleteUser").click(function () {
+      if (window.selectedUserId) {
+        deleteUser(window.selectedUserId);
+      }
+
+      // Hide the modal after confirmation
+      $("#del_user_dialog_state").prop("checked", false);
+    });
+
+    // Close the dialog when the Esc key is pressed
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        // Check if any modal dialog is open and close it
+        if ($("#dialog_state").prop("checked")) {
+          $("#dialog_state").prop("checked", false); // Close the Edit User modal
+        }
+        if ($("#pswd_dialog_state").prop("checked")) {
+          $("#pswd_dialog_state").prop("checked", false); // Close the Change Password modal
+        }
+        if ($("#cls_dialog_state").prop("checked")) {
+          $("#cls_dialog_state").prop("checked", false); // Close the Close Account modal
+        }
+        if ($("#del_user_dialog_state").prop("checked")) {
+          $("#del_user_dialog_state").prop("checked", false); // Close the Delete User modal
+        }
+      }
+    });
+
     //end of change password
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 300) {
@@ -71,7 +109,11 @@ $(function () {
     // call deleteUser to delete user
     $(document).on("click", ".delete-user-btn", function () {
       var userId = $(this).data("user-id");
-      deleteUser(userId);
+      // Store userId in a global variable for deletion later
+      window.selectedUserId = userId;
+
+      // Show the modal as toast by checking the checkbox
+      $("#del_user_dialog_state").prop("checked", true);
     });
 
     //show data in modal
@@ -98,12 +140,14 @@ $(function () {
 
   // AJAX function to close account
   function closeAccount() {
+    showLoader();
     $.ajax({
       url: "dashboard/close-account",
       method: "POST",
       success: function (response) {
         // Show alert based on response
         if (response.success) {
+          hideLoader();
           showAlert("Your account has been deleted successfully.", true);
           // Redirect to login page after 3 seconds
           setTimeout(function () {
@@ -114,6 +158,7 @@ $(function () {
         }
       },
       error: function (xhr, status, error) {
+        hideLoader();
         showAlert("Failed to delete account. Please try again later.", false);
       },
     });
@@ -129,6 +174,7 @@ $(function () {
       showAlert("Please fill in all fields.", false);
       return;
     }
+    showLoader();
     // Make AJAX request to change password
     $.ajax({
       url: "dashboard/update-password",
@@ -139,6 +185,7 @@ $(function () {
         confirmPassword: confirmPassword,
       },
       success: function (response) {
+        hideLoader();
         // Close the modal
         $("#password_dialog_state").prop("checked", false);
         // Show alert based on response
@@ -150,6 +197,7 @@ $(function () {
         }
       },
       error: function (xhr, status, error) {
+        hideLoader();
         showAlert("Failed to change password. Please try again later.", false);
       },
     });
@@ -162,6 +210,7 @@ $(function () {
     var collegeName = $("#editCollegeName").val();
     var email = $("#editEmail").val();
     var userType = $("#editUserRole").val();
+    showLoader();
 
     // Send AJAX request to update user details
     $.ajax({
@@ -178,7 +227,7 @@ $(function () {
       success: function (response) {
         if (response.success) {
           // If update successful, reload user data
-
+          hideLoader();
           showAlert(response.message, true);
           fetchUsers();
           // Close the dialog box
@@ -189,6 +238,7 @@ $(function () {
         }
       },
       error: function (xhr, status, error) {
+        hideLoader();
         // Handle error
         console.error(error);
       },
@@ -197,6 +247,7 @@ $(function () {
 
   //fetch user details of user
   function fetchUserDetails(userId) {
+    showLoader();
     $.ajax({
       url: "/dashboard/getUserDetails/" + userId, // Assuming you have a route for fetching user details by ID
       type: "POST",
@@ -205,6 +256,7 @@ $(function () {
         "user-id": userId,
       },
       success: function (response) {
+        hideLoader();
         if (response.users) {
           var user = response.users;
           userIdToUpdate = user.id; // Assuming user data is returned directly
@@ -221,16 +273,19 @@ $(function () {
       },
       error: function (xhr, status, error) {
         // Handle error
+        hideLoader();
         console.error(error);
       },
     });
   }
   //delete user function
   function deleteUser(userId) {
+    showLoader();
     $.ajax({
       url: "/dashboard/deleteUser/" + userId,
       type: "GET",
       success: function (response) {
+        hideLoader();
         if (response.success) {
           // Handle success response
           showAlert(response.message, true);
@@ -245,6 +300,7 @@ $(function () {
         // Reload the table after successful deletion
       },
       error: function (xhr, status, error) {
+        hideLoader();
         // Handle error
         console.error(error);
       },

@@ -98,21 +98,28 @@ class EventRegister extends BaseController
             ];
             
 
-           if ($existingData) {
+            if ($existingData) {
                 $updated = $Event->update($existingData['id'], $eventdata);
                 $message = $updated ? 'Data updated successfully!!' : 'Failed to update data!!';
                 $ticketNumber = $existingData['ticket_number'];
             } else {
                 $eventdata['created_at'] = date('Y-m-d H:i:s');
-                $eventdata['ticket_number'] = 'TCKN' . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
+
+                // Generate a unique ticket number
+                do {
+                    $ticketNumber = 'TCKN' . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
+                    $isTicketNumberExists = $Event->where('ticket_number', $ticketNumber)->first();
+                } while ($isTicketNumberExists);
+
+                // Assign the unique ticket number
+                $eventdata['ticket_number'] = $ticketNumber;
+
                 $inserted = $Event->insert($eventdata);
                 $message = $inserted ? 'Data added successfully!!' : 'Failed to add data!!';
-                $ticketNumber = $eventdata['ticket_number']; // New ticket number
 
                 if ($inserted) {
                     $eventsessdata = ['isEnrolled' => true];
                     $session->set($eventsessdata);
-                   
                 }
             }
 

@@ -245,6 +245,18 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
+/* loader  */
+.loader,
+#loader-lottie-div-payment {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  display: none;
+  z-index: 9999;
+}
 .limiter {
   z-index: 1;
   width: 100%;

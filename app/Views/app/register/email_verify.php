@@ -17,12 +17,25 @@
     <!-- Material Design Iconic Font CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/fonts/iconic/css/material-design-iconic-font.min.css') ?>">
 
+    <!-- loader-->
+    <script type="module" src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
+
     <!-- Your Custom CSS Files -->
     <link rel="stylesheet"  href="<?= base_url('assets/web/css/util.css') ?>">
     <link rel="stylesheet"  href="<?= base_url('assets/web/css/main.css') ?>">
 
 </head>
 <body>
+    <div id="loader-lottie-div" class="loader" style="display: none;">
+        <dotlottie-player 
+            src="<?= base_url('assets/web/imgs/loader/loader2.lottie')?>"
+            background="transparent"
+            
+            style="width: 200px; height: 200px;"
+            loop
+            autoplay
+        ></dotlottie-player>
+    </div>
     <div class="info">
         <div class="info__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none">

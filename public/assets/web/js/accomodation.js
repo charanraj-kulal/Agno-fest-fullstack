@@ -2,6 +2,8 @@
 const accomodationBtn = document.getElementById("accomodation-btn");
 const agreeCheckbox = document.getElementById("user-checkbox2");
 const foodCheckbox = document.getElementById("user-checkbox1");
+// loader
+const loader = document.querySelector(".loader");
 
 // Enable/disable save button based on T&C checkbox
 agreeCheckbox.addEventListener("change", function () {
@@ -10,6 +12,7 @@ agreeCheckbox.addEventListener("change", function () {
 
 accomodationBtn.addEventListener("click", (e) => {
   e.preventDefault(); // Prevent default button behavior
+  loader.style.display = "block"; // Show loader
 
   const boyDisplay = document.getElementById("no-b").value;
   const girlDisplay = document.getElementById("no-g").value;
@@ -20,16 +23,19 @@ accomodationBtn.addEventListener("click", (e) => {
   var totalMembers = numOfBoys + numOfGirls;
 
   if (isNaN(numOfBoys) || isNaN(numOfGirls)) {
+    loader.style.display = "none"; // Hide loader
     showAlert("Please enter valid numbers for boys and girls.", false);
     return;
   }
 
   if (totalMembers > 15) {
+    loader.style.display = "none"; // Hide loader
     showAlert("The total number of boys and girls cannot exceed 15.", false);
     return;
   }
 
   if (numOfBoys < 0 || numOfGirls < 0) {
+    loader.style.display = "none"; // Hide loader
     showAlert(
       "Both the number of boys and girls should be positive or zero.",
       false
@@ -38,6 +44,7 @@ accomodationBtn.addEventListener("click", (e) => {
   }
 
   if (totalMembers === 0) {
+    loader.style.display = "none"; // Hide loader
     showAlert("Please enter the number of boys or girls.", false);
     return;
   }
@@ -62,6 +69,7 @@ function submitAccommodationForm(numOfBoys, numOfGirls, emg_contact_data) {
     data: accommodationData,
     dataType: "json",
     success: function (response) {
+      loader.style.display = "none"; // Hide loader
       if (response.success) {
         showAlert(response.message, true);
         updateUIAfterPayment();
@@ -70,14 +78,17 @@ function submitAccommodationForm(numOfBoys, numOfGirls, emg_contact_data) {
       }
     },
     error: function (xhr, status, error) {
+      loader.style.display = "none"; // Hide loader
       console.error(error);
       showAlert("An error occurred while processing your request.", false);
     },
   });
 }
+
 function updateUIAfterPayment() {
   $("#accomodation-btn").text("UPDATE");
 }
+
 // Perform AJAX request to fetch data
 function fetchData() {
   $.ajax({
@@ -112,6 +123,7 @@ function fetchData() {
     },
   });
 }
+
 fetchData();
 
 function showAlert(message, isSuccess) {
