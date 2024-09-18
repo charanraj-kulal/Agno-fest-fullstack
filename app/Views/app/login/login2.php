@@ -7,8 +7,8 @@
     <meta name="description" content="Login to AGNISIA - Your trusted platform">
     <meta name="keywords" content="login, AGNISIA, secure login">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?= base_url('images/icons/favicon.ico') ?>"/>
+   <!-- Favicon -->
+  <link href="<?= base_url('assets/web/imgs/favicon.png') ?>" rel="icon">
 
     <!-- loader-->
     <script type="module" src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
@@ -78,14 +78,14 @@
             <div id="particles-js">
                 <div class="wrap-login100">
                     <div class="login100-form">
-                        <div id="lottie-animation" style="width: 100%; height: 200px; margin: 20px 0;">
+                        <!-- <div id="lottie-animation" style="width: 100%; height: 200px; margin: 20px 0;"> -->
 
                             <form class="validate-form" id="loginVerifyForm" action="<?= base_url('login/auth') ?>" method="post">
                                 <span class="login100-form-title p-b-10">
                                     Welcome to AGNISIA
                                 </span>
                                 <span class="login100-form-title p-b-15">
-                                    <i class="zmdi zmdi-font"></i>
+                                    <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" style="width: 50px;" alt="logo icon">
                                 </span>
             
                                 <div class="wrap-input100 validate-input" data-validate = "Enter valid email">
@@ -121,7 +121,7 @@
                                     </a>
                                 </div>
                             </form>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
