@@ -1,15 +1,12 @@
 
-    <div id="waterdrop" style="color: black;"></div>
+   <div id="waterdrop" class="d-none d-md-block" style="color: black;"></div>
+
   
         <div class="footer-container container-fluid text-light footer pt- mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
-                        <img src="<?= base_url('assets/web/imgs/logo-no-bg.png') ?>" style="width: 150px; margin-top: 40px;" alt="logo icon">
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
+                    
+                    <div class="col-lg-4 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
                        
                             <a class="btn btn-link" href="#home">Home</a>
@@ -17,10 +14,10 @@
                             <a class="btn btn-link" href="#events">Events</a>
                             <a class="btn btn-link" href="#teams">Teams</a>
                             <a class="btn btn-link" href="https://www.stagnescollege.edu.in/">more-about-us</a>
-                            <a class="btn btn-link" href="#">Terms & Condition</a>
+                            
                     
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>St Agnes College(Autonomous).
 Bendur, Mangaluru – 575002.</p>
@@ -33,7 +30,7 @@ Bendur, Mangaluru – 575002.</p>
                          
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Event on</h4>
                         <h5 class="text-light fw-normal">03 & 04 OCTOBER 2024</h5>
                         <h5 class="text-light fw-normal">Thursday - Friday</h5>

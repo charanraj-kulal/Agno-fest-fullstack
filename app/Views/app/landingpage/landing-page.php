@@ -28,9 +28,9 @@
 
                         </div>
                         <div class="col-lg-6 text-center text-lg-end ">
-                            <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
+                            <img class="img-fluid mandal-1 d-none d-sm-none d-md-block" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
                         
-                            <!-- <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt=""> -->
+                   
                         </div>
                     </div>
                 </div>
