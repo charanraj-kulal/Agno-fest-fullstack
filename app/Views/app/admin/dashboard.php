@@ -930,11 +930,11 @@
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The registration fee stands at ₹1,500 per Team.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The registration fee stands at ₹1,600 per Team.
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Teams must confirm their participation through <a href='/pages/login' style="color:#4af3ff" id='linktologin'>Website.</a>
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Teams must confirm their participation through <a href='/' style="color:#4af3ff" id='linktologin'>Website.</a>
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
