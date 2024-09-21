@@ -48,7 +48,7 @@
         <!-- Spinner End -->
 
         <!-- popup overlay start -->
-        <div class="overlay overlay-popup" onclick="closePopup()"></div>
+        <!-- <div class="overlay overlay-popup" onclick="closePopup()"></div>
             <div class="popup-container-main">
                 <div id="popup-container" class="popup-container">
                     <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -73,7 +73,7 @@
                         <?php } ?>
                 </div>
             </div>
-        </div>
+        </div> -->
          <!-- popup overlay end -->
 
         <!-- Navbar & Hero Start -->
