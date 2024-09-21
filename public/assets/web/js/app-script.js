@@ -15,7 +15,8 @@ $(function () {
 
   $(document).ready(function () {
     var navbar = $(".topbar-nav .navbar"); // Corrected selector
-    // scroll shade
+
+    // Scroll shadow effect
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 60) {
         navbar.addClass("shadow-black");
@@ -23,19 +24,18 @@ $(function () {
         navbar.removeClass("shadow-black");
       }
     });
-    // === toggle-menu js
+
+    // === Toggle menu (sidebar) ===
     $(".toggle-menu").on("click", function (e) {
       e.preventDefault();
+      e.stopPropagation(); // Stop the event from bubbling to other elements
       $("#wrapper").toggleClass("toggled");
     });
 
     // Close sidebar when clicking outside or on nav items
     $(document).on("click", function (e) {
       if ($("#wrapper").hasClass("toggled")) {
-        if (
-          !$(e.target).closest(".sidebar-wrapper").length &&
-          !$(e.target).closest(".toggle-menu").length
-        ) {
+        if (!$(e.target).closest(".sidebar-wrapper, .toggle-menu").length) {
           $("#wrapper").removeClass("toggled");
         }
       }
@@ -53,44 +53,41 @@ $(function () {
       $("#wrapper").removeClass("toggled");
     });
 
-    //change password modal
+    // Change password modal
     $("#changePasswordBtn").click(function () {
-      $("#pswd_dialog_state").prop("checked", true); // Check the checkbox to show the modal
+      $("#pswd_dialog_state").prop("checked", true); // Show the modal
     });
-    // close account confirm modal
+
+    // Close account confirm modal
     $("#closeAccountBtn").click(function () {
-      $("#cls_dialog_state").prop("checked", true); // Check the checkbox to show the modal
+      $("#cls_dialog_state").prop("checked", true); // Show the modal
     });
-    // When the 'Yes' button is clicked in the modal
+
+    // Delete user modal confirmation
     $("#deleteUser").click(function () {
       if (window.selectedUserId) {
         deleteUser(window.selectedUserId);
       }
-
-      // Hide the modal after confirmation
-      $("#del_user_dialog_state").prop("checked", false);
+      $("#del_user_dialog_state").prop("checked", false); // Hide the modal after confirmation
     });
 
-    // Close the dialog when the Esc key is pressed
+    // Close modals when the Esc key is pressed
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
-        // Check if any modal dialog is open and close it
-        if ($("#dialog_state").prop("checked")) {
-          $("#dialog_state").prop("checked", false); // Close the Edit User modal
-        }
-        if ($("#pswd_dialog_state").prop("checked")) {
-          $("#pswd_dialog_state").prop("checked", false); // Close the Change Password modal
-        }
-        if ($("#cls_dialog_state").prop("checked")) {
-          $("#cls_dialog_state").prop("checked", false); // Close the Close Account modal
-        }
-        if ($("#del_user_dialog_state").prop("checked")) {
-          $("#del_user_dialog_state").prop("checked", false); // Close the Delete User modal
-        }
+        [
+          "#dialog_state",
+          "#pswd_dialog_state",
+          "#cls_dialog_state",
+          "#del_user_dialog_state",
+        ].forEach(function (modal) {
+          if ($(modal).prop("checked")) {
+            $(modal).prop("checked", false); // Close modals
+          }
+        });
       }
     });
 
-    //end of change password
+    // Back to top button
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 300) {
         $(".back-to-top").fadeIn();
@@ -106,36 +103,36 @@ $(function () {
 
     // Call fetchUsers() when the page loads
     fetchUsers();
-    // call deleteUser to delete user
+
+    // Delete user functionality
     $(document).on("click", ".delete-user-btn", function () {
       var userId = $(this).data("user-id");
-      // Store userId in a global variable for deletion later
       window.selectedUserId = userId;
-
-      // Show the modal as toast by checking the checkbox
-      $("#del_user_dialog_state").prop("checked", true);
+      $("#del_user_dialog_state").prop("checked", true); // Show the delete modal
     });
 
-    //show data in modal
+    // Edit user functionality
     $(document).on("click", ".edit-user-btn", function () {
       var userId = $(this).data("user-id");
+      fetchUserDetails(userId); // Fetch user details for editing
+    });
 
-      // Fetch user data by userId via AJAX and populate the modal
-      fetchUserDetails(userId);
-    });
+    // Update user functionality
     $(document).on("click", "#updateUser", function () {
-      // Fetch user data by userId via AJAX and populate the modal
-      updateUserDetails();
+      updateUserDetails(); // Update user details
     });
+
+    // Update password functionality
     $(document).on("click", "#changePassword", function () {
-      // Fetch user data by userId via AJAX and populate the modal
-      updatePassword();
+      updatePassword(); // Change user password
     });
+
+    // Close account functionality
     $(document).on("click", "#closeAccount", function () {
-      // Fetch user data by userId via AJAX and populate the modal
-      closeAccount();
+      closeAccount(); // Close user account
     });
   });
+
   var userIdToUpdate;
 
   // AJAX function to close account

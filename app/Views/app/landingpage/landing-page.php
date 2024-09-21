@@ -46,9 +46,9 @@
                     <div class="col-lg-12 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Counter Section Begin  **edited-->
                         <div class="counter main-example text-center text-lg-start">
-                            <h1 class="display-1 text-center text-white animated slideInLeft"><strong>The Event Starts In.</strong></h1>
+                            <h1 class="display-1 text-center text-white animated slideInLeft"><strong>Event Starts In</strong></h1>
                             <h1 class="display-5 text-center text-white animated slideInLeft"><strong>Every Second Counts...</strong></h1>
-                            <div class="text-center countdown-container" data-timer="2024/09/16" id="main-example"></div>
+                            <div class="text-center countdown-container" data-timer="2024/10/03" id="main-example"></div>
                         </div>
                         <div class="counter">
                             <script type="text/template" id="main-example-template">
@@ -371,7 +371,7 @@
             <div class="container-fluid pt-5 pb-3">
                 <div class="container">
                     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <h5 class=" section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
+                        <h5 class=" section-title ff-secondary text-center text-primary fw-normal">COMMITTEE</h5>
                         <h1 class="committee-header mb-5">ORGANIZING COMMITTEE</h1>
                     </div>
                     <div class="row g-4">

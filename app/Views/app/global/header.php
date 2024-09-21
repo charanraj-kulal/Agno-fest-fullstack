@@ -55,7 +55,7 @@
                     <div class="popup-content">
                         <p class="pop-txt1">Early Bird Tickets!!
                              <br>Grab your tickets for AGNESIA at ₹1<span class="flicker-text">6</span>00 before
-                             <br> <b><h1 class="pop-flicker-text">13 SEPTEMBER 2024</h1></b>
+                             <br> <b><h1 class="pop-flicker-text">03 OCTOBER 2024</h1></b>
                         </p>
                        <p class="pop-txt2">Don't miss your chance to be part of an unforgettable experience! <br> Register now and dive into an exciting, enriching adventure that's waiting for you!</p>
 
@@ -80,7 +80,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="logo-text  m-0">AgnEsia</h1>
+                    <h1 class="logo-text  m-0">Agnesia</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

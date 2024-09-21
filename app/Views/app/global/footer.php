@@ -6,15 +6,9 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
-                       
-                            <a class="btn btn-link" href="#home">Home</a>
-                            <a class="btn btn-link" href="#about">About Us</a>
-                            <a class="btn btn-link" href="#events">Events</a>
-                            <a class="btn btn-link" href="#teams">Teams</a>
-                            <a class="btn btn-link" href="https://www.stagnescollege.edu.in/">more-about-us</a>
-                            <a class="btn btn-link" href="#">Terms & Condition</a>
-                    
+                        <img src="<?= base_url('assets/web/imgs/logo-no-bg.png') ?>" style="width: 150px; margin-top: 40px;" alt="logo icon">
                     </div>
+
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
                        
@@ -41,7 +35,7 @@ Bendur, Mangaluru – 575002.</p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Event on</h4>
-                        <h5 class="text-light fw-normal">19 & 20 September 2024</h5>
+                        <h5 class="text-light fw-normal">03 & 04 OCTOBER 2024</h5>
                         <h5 class="text-light fw-normal">Thursday - Friday</h5>
                         <p>09 AM - 05 PM</p>
                        
@@ -57,7 +51,7 @@ Bendur, Mangaluru – 575002.</p>
                         <div class="col-md-12 text-center  mb-3 mb-md-0">
                             &copy; <a  href="#">Agnesia</a>, All Right Reserved. <br> 
 							
-							Made with &#x1F90D; by <a href="https://charanraj-kulal.github.io/charan_portfolio_2k24/">CHARANRAJ</a><br><br>
+							Made with &#x1F90D; by <a href="https://charanraj-portfolio.vercel.app/">CHARANRAJ</a><br><br>
                            
                         </div>
                         

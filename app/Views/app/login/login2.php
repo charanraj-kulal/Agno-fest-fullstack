@@ -85,7 +85,9 @@
                                     Welcome to AGNISIA
                                 </span>
                                 <span class="login100-form-title p-b-15">
-                                    <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" style="width: 50px;" alt="logo icon">
+                                    
+                                    <i class="zmdi zmdi-account"></i>
+                    
                                 </span>
             
                                 <div class="wrap-input100 validate-input" data-validate = "Enter valid email">

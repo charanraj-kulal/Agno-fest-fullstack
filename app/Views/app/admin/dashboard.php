@@ -84,10 +84,9 @@
                 <div class="sidebar-contents">
                     <div class="brand-logo">
                         <a href="<?= base_url('/') ?>">
-                            <img src="<?= base_url('assets/web/imgs/favicon.png') ?>" class="logo-icon" alt="logo icon">
-                            <h5 class="logo-text">Agnisia</h5>
+                            <img src="<?= base_url('assets/web/imgs/logo-no-bg-letters.png') ?>" class="logo-icon" alt="logo icon">
+                          
                         </a>
-        
                     </div>
                     <ul class="sidebar-menu do-nicescrol">
                         <li class="sidebar-header">MAIN NAVIGATION</li>
@@ -209,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                                
+                    <!-- change user details modal  -->          
                     <!-- change password modal  -->
                     <input type="checkbox" name="dialog_state" id="pswd_dialog_state" class="dialog_state">
                     <div id='dialog'>
@@ -242,7 +241,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- change password modal  -->
                     <!-- confirmation modal for closing account  -->
                     <input type="checkbox" name="dialog_state" id="cls_dialog_state" class="dialog_state">
                     <div id='dialog'>
@@ -267,6 +266,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- confirmation modal for closing account  -->
                      <!-- delete user confirmation modal   -->
                     <input type="checkbox" name="dialog_state" id="del_user_dialog_state" class="dialog_state">
                     <div id='dialog'>
@@ -289,7 +289,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- delete user confirmation modal   -->
                     <!-- enroll starts -->
                     <div class="card mt-3 enroll-dashboard-cards" id="enroll-section-id">
                         <div cass="card-content">
@@ -309,7 +309,7 @@
                                                 <!-- coding -->
                                                 <div class="event">
                                                     <div class="event-name">
-                                                        <p class="sanskrit-name">Kodhasangam</p>
+                                                        <p class="sanskrit-name">drudavishti</p>
                                                         <p class="normal-name">CODING</p>
                                                     </div>
                                                         <div class="member">
@@ -786,37 +786,40 @@
                         </div>
                     </div>
                     <!-- end of enroll  -->
-
+                    
                     <!-- start of edit user -->
-                    <div class="card mt-3 dashboard-cards forallsec hide " id="manageuser-section-id">
-                        <div class="card-content ">
-                            <div class="row row-group m-0">
-                                <div class="manageuser-section" >
-                                    <div class="section-heading">
-                                        <p class="enroll-title">USERS</p>
-                                    </div>
-                                    <div class="forms-events">
-                                        
-                                        <div class="col-lg-12 col-md-8 col-sm-6 col-4">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 align="center" class="card-title">Edit Users</h5>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered" id="userTable">
-                                                            <thead>
-                                                                <tr align="center">
-                                                                    <th>Name</th>
-                                                                    <th>College Name</th>
-                                                                    <th>Email</th>
-                                                                    <th>User Role</th>
-                                                                    <th>Action</th>
-                                                                    
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            
-                                                            </tbody>
-                                                        </table>
+                    <?php
+                        if (isset($_SESSION['user_type'])) {
+                                $userType = $_SESSION['user_type'];
+                                if ($userType == 2) : ?> 
+                        <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                            <div class="card-content">
+                                <div class="row row-group m-0">
+                                    <div class="manageuser-section">
+                                        <div class="section-heading">
+                                            <p class="enroll-title">USERS</p>
+                                        </div>
+                                        <div class="forms-events">
+                                            <div class="col-lg-12 col-md-8 col-sm-6 col-4">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h5 align="center" class="card-title">Edit Users</h5>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered" id="userTable">
+                                                                <thead>
+                                                                    <tr align="center">
+                                                                        <th>Name</th>
+                                                                        <th>College Name</th>
+                                                                        <th>Email</th>
+                                                                        <th>User Role</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <!-- Table content will go here -->
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -825,13 +828,19 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <?php elseif ($userType == 1) : ?>
+                                <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                                    <p>You don't have enough permission to view this page</p>
+                                </div>
+                        <?php endif; ?>
+                    <?php } ?>
+                    <!-- end of edit user -->
 
-                    <!-- end of edit user  -->
                    
                     
 
                     <!-- start of accomodation -->
+                     
                     <form id="accomodateForm" novalidate>
                         <div class="card mt-3 dashboard-cards forallsec hide" id="accomodation-section-id">
                             <div class="row row-group m-0">
@@ -968,85 +977,96 @@
                     </div>
                     <!-- end of rules   -->
                     
+
                     <!-- start of Manage Qual Teams -->
-                    <div class="card mt-6 dashboard-cards forallsec hide" id="qual-section-id">
-                        <div class="card-content">
-                            <div class="row row-group m-0">
-                                <div class="qual-section">
-                                    <div class="d-flex justify-content-center main">
-                                        <div class="content mt-5 mb-5 text-light">
-                                            <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">Manage Qualified Team</h1>
-                                            <form id="qualTeamsForm">
-                                                <div class="form-group">
-                                                    <table class="qual-selection-table">
-                                                        <tr>
-                                                            <th>Select Qualified Teams for coding:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="code-qualTeams" name="qual_code[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Select Qualified Teams for webdesign:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="web-qualTeams" name="qual_web[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Select Qualified Teams for Gaming:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="game-qualTeams" name="qual_game[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                         <tr>
-                                                            <th>Select Qualified Teams for Mad AD:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="mad-qualTeams" name="qual_mad[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Select Qualified Teams for Treasure Hunt:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="thunt-qualTeams" name="qual_thunt[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Select Qualified Teams for Photography & Videography:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="photo-qualTeams" name="qual_photo[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Select Qualified Teams for IT Quiz:</th>
-                                                            <td>
-                                                                <select class="form-control qual-select" id="quiz-qualTeams" name="qual_quiz[]" multiple>
-                                                                    <!-- Options will be populated dynamically -->
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="table-button text-center mt-4">
-                                                    <button type="submit" class="btn btn-light">Save Qualified Teams</button>
-                                                </div>
-                                            </form>
+                     <?php
+                        if (isset($_SESSION['user_type'])) {
+                                $userType = $_SESSION['user_type'];
+                                if ($userType == 2) : ?> 
+                        <div class="card mt-6 dashboard-cards forallsec hide" id="qual-section-id">
+                            <div class="card-content">
+                                <div class="row row-group m-0">
+                                    <div class="qual-section">
+                                        <div class="d-flex justify-content-center main">
+                                            <div class="content mt-5 mb-5 text-light">
+                                                <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">Manage Qualified Team</h1>
+                                                <form id="qualTeamsForm">
+                                                    <div class="form-group">
+                                                        <table class="qual-selection-table">
+                                                            <tr>
+                                                                <th>Select Qualified Teams for coding:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="code-qualTeams" name="qual_code[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Select Qualified Teams for webdesign:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="web-qualTeams" name="qual_web[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Select Qualified Teams for Gaming:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="game-qualTeams" name="qual_game[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Select Qualified Teams for Mad AD:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="mad-qualTeams" name="qual_mad[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Select Qualified Teams for Treasure Hunt:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="thunt-qualTeams" name="qual_thunt[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Select Qualified Teams for Videography:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="photo-qualTeams" name="qual_photo[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Select Qualified Teams for IT Quiz:</th>
+                                                                <td>
+                                                                    <select class="form-control qual-select" id="quiz-qualTeams" name="qual_quiz[]" multiple>
+                                                                        <!-- Options will be populated dynamically -->
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="table-button text-center mt-4">
+                                                        <button type="submit" class="btn btn-light">Save Qualified Teams</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php elseif ($userType == 1) : ?>
+                                <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                                    <p>You don't have enough permission to view this page</p>
+                                </div>
+                        <?php endif; ?>
+                    <?php } ?>
 
                     <!-- end of Manage Qual Teams   -->
 
@@ -1108,7 +1128,7 @@
                                 <span class="settings-value" id="set-qual_thunt">: Not Yet Disclosed..!</span>
                                 </div>
                                 <div class="settings-item">
-                                <span class="settings-label">Photography & Videography</span>
+                                <span class="settings-label">Videography</span>
                                 <span class="settings-value" id="set-qual_photo">: Not Yet Disclosed..!</span>
                                 </div>
                                 <div class="settings-item">
@@ -1123,6 +1143,10 @@
                     <!-- end of site settings   -->
 
                     <!-- start of all students reports -->
+                     <?php
+                        if (isset($_SESSION['user_type'])) {
+                                $userType = $_SESSION['user_type'];
+                                if ($userType == 2) : ?> 
                     <div class="card mt-6 dashboard-cards  forallsec hide" id="all-students-reports-section-id">
                         <div class="card-content">
                             <div class="row row-group m-0">
@@ -1182,84 +1206,152 @@
                             </div>
                         </div>
                     </div>
+                    <?php elseif ($userType == 1) : ?>
+                                <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                                    <p>You don't have enough permission to view this page</p>
+                                </div>
+                        <?php endif; ?>
+                    <?php } ?>
                     <!-- end of all students  reports   -->                   
                     
                     <!-- start of all event reg reports -->
-                    <div class="card mt-6 dashboard-cards forallsec hide" id="all-events-reports-section-id">
-                        <div class="card-content">
-                            <div class="row row-group m-0">
-                                
-                                <div class="manageevent-section">
+                    <?php
+                        if (isset($_SESSION['user_type'])) {
+                                $userType = $_SESSION['user_type'];
+                                if ($userType == 2) : ?> 
+                        <div class="card mt-6 dashboard-cards forallsec hide" id="all-events-reports-section-id">
+                            <div class="card-content">
+                                <div class="row row-group m-0">
+                                    
+                                    <div class="manageevent-section">
+                                        <div class="section-heading">
+                                            <p class="enroll-title">ALL EVENT REPORTS</p>
+                                        </div>
+                                        <div class="forms-events">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h5 align="center" class="card-title">All Event Reports</h5>
+                                                        <div id="searchBarContainer" class="fixed-center">
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" id="eventsearchInput" class="form-control" placeholder="Search...">
+                                                                <span style="margin: 0 8px;"></span>
+                                                                <button id="all-event-report-export-pdf-btn" class="btn btn-light">
+                                                                    <i class="fa-solid fa-file-pdf"></i> PDF
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered" id="allEventTable">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Ticket Number</th>
+                                                                        <th>Team Name</th>
+                                                                        <th>Coding Member 1</th>
+                                                                        <th>Coding Member Contact 1</th>
+                                                                        <th>Coding Member 2</th>
+                                                                        <th>Coding Member Contact 2</th>
+                                                                        <th>Quiz Member 1</th>
+                                                                        <th>Quiz Member Contact 1</th>
+                                                                        <th>Quiz Member 2</th>
+                                                                        <th>Quiz Member Contact 2</th>
+                                                                        <th>Web Member 1</th>
+                                                                        <th>Web Member Contact 1</th>
+                                                                        <th>Web Member 2</th>
+                                                                        <th>Web Member Contact 2</th>
+                                                                        <th>Game Member 1</th>
+                                                                        <th>Game Member Contact 1</th>
+                                                                        <th>Game Member 2</th>
+                                                                        <th>Game Member Contact 2</th>
+                                                                        <th>Game Member 3</th>
+                                                                        <th>Game Member Contact 3</th>
+                                                                        <th>Game Member 4</th>
+                                                                        <th>Game Member Contact 4</th>
+                                                                        <th>IT Manager Member 1</th>
+                                                                        <th>IT Manager Member Contact 1</th>
+                                                                        <th>Photo Member 1</th>
+                                                                        <th>Photo Member Contact 1</th>
+                                                                        <th>Photo Member 2</th>
+                                                                        <th>Photo Member Contact 2</th>
+                                                                        <th>Mad AD Member 1</th>
+                                                                        <th>Mad AD Member Contact 1</th>
+                                                                        <th>Mad AD Member 2</th>
+                                                                        <th>Mad AD Member Contact 2</th>
+                                                                        <th>Mad AD Member 3</th>
+                                                                        <th>Mad AD Member Contact 3</th>
+                                                                        <th>Mad AD Member 4</th>
+                                                                        <th>Mad AD Member Contact 4</th>
+                                                                        <th>Mad AD Member 5</th>
+                                                                        <th>Mad AD Member Contact 5</th>
+                                                                        <th>Mad AD Member 6</th>
+                                                                        <th>Mad AD Member Contact 6</th>
+                                                                        <th>Treasure Hunt Member 1</th>
+                                                                        <th>Treasure Hunt Member Contact 1</th>
+                                                                        <th>Treasure Hunt Member 2</th>
+                                                                        <th>Treasure Hunt Member Contact 2</th>
+                                                                        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="eventTableBody">
+                                                                    <!-- data updated via ajax  -->
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php elseif ($userType == 1) : ?>
+                                <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                                    <p>You don't have enough permission to view this page</p>
+                                </div>
+                        <?php endif; ?>
+                    <?php } ?>
+                    <!-- end of all event reg  reports   --> 
+
+                    <!-- start of all accomodation reports -->
+                    <?php
+                        if (isset($_SESSION['user_type'])) {
+                                $userType = $_SESSION['user_type'];
+                                if ($userType == 2) : ?> 
+                        <div class="card mt-6 dashboard-cards  forallsec hide" id="all-accomodations-reports-section-id">
+                            <div class="card-content">
+                                <div class="row row-group m-0">
+                                    <div class="manageuser-section" >
                                     <div class="section-heading">
-                                        <p class="enroll-title">ALL EVENT REPORTS</p>
+                                        <p class="enroll-title">ALL ACCOMMODATION REPORTS</p>
                                     </div>
                                     <div class="forms-events">
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                                        <div class="col-lg-12 col-md-8 col-sm-6 col-5">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 align="center" class="card-title">All Event Reports</h5>
+                                                    <h5 align="center" class="card-title">All Accommodation Reports</h5>
                                                     <div id="searchBarContainer" class="fixed-center">
                                                         <div class="input-group mb-3">
-                                                            <input type="text" id="eventsearchInput" class="form-control" placeholder="Search...">
+                                                            <input type="text" id="accommodationSearchInput" class="form-control" placeholder="Search...">
                                                             <span style="margin: 0 8px;"></span>
-                                                            <button id="all-event-report-export-pdf-btn" class="btn btn-light">
+                                                            <button id="all-accommodation-report-export-pdf-btn" class="btn btn-light">
                                                                 <i class="fa-solid fa-file-pdf"></i> PDF
                                                             </button>
                                                         </div>
                                                     </div>
                                                     <div class="table-responsive">
-                                                        <table class="table table-bordered" id="allEventTable">
+                                                        <table class="table table-bordered" id="allAccommodationTable">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Ticket Number</th>
                                                                     <th>Team Name</th>
-                                                                    <th>Coding Member 1</th>
-                                                                    <th>Coding Member Contact 1</th>
-                                                                    <th>Coding Member 2</th>
-                                                                    <th>Coding Member Contact 2</th>
-                                                                    <th>Quiz Member 1</th>
-                                                                    <th>Quiz Member Contact 1</th>
-                                                                    <th>Quiz Member 2</th>
-                                                                    <th>Quiz Member Contact 2</th>
-                                                                    <th>Web Member 1</th>
-                                                                    <th>Web Member Contact 1</th>
-                                                                    <th>Web Member 2</th>
-                                                                    <th>Web Member Contact 2</th>
-                                                                    <th>Game Member 1</th>
-                                                                    <th>Game Member Contact 1</th>
-                                                                    <th>Game Member 2</th>
-                                                                    <th>Game Member Contact 2</th>
-                                                                    <th>Game Member 3</th>
-                                                                    <th>Game Member Contact 3</th>
-                                                                    <th>Game Member 4</th>
-                                                                    <th>Game Member Contact 4</th>
-                                                                    <th>IT Manager Member 1</th>
-                                                                    <th>IT Manager Member Contact 1</th>
-                                                                    <th>Photo Member 1</th>
-                                                                    <th>Photo Member Contact 1</th>
-                                                                    <th>Photo Member 2</th>
-                                                                    <th>Photo Member Contact 2</th>
-                                                                    <th>Mad AD Member 1</th>
-                                                                    <th>Mad AD Member Contact 1</th>
-                                                                    <th>Mad AD Member 2</th>
-                                                                    <th>Mad AD Member Contact 2</th>
-                                                                    <th>Mad AD Member 3</th>
-                                                                    <th>Mad AD Member Contact 3</th>
-                                                                    <th>Mad AD Member 4</th>
-                                                                    <th>Mad AD Member Contact 4</th>
-                                                                    <th>Mad AD Member 5</th>
-                                                                    <th>Mad AD Member Contact 5</th>
-                                                                    <th>Mad AD Member 6</th>
-                                                                    <th>Mad AD Member Contact 6</th>
-                                                                    <th>Treasure Hunt Member 1</th>
-                                                                    <th>Treasure Hunt Member Contact 1</th>
-                                                                    <th>Treasure Hunt Member 2</th>
-                                                                    <th>Treasure Hunt Member Contact 2</th>
-                                                                    
+                                                                    <th>Number of Boys</th>
+                                                                    <th>Number of Girls</th>
+                                                                    <th>EMG Contact</th>
+                                                                    <th>Require Food</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="eventTableBody">
-                                                                <!-- data updated via ajax  -->
+                                                            <tbody id="accommodationTableBody">
+                                                                <!-- Data will be updated via AJAX -->
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -1270,102 +1362,64 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- end of all event reg  reports   --> 
-
-                    <!-- start of all accomodation reports -->
-                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-accomodations-reports-section-id">
-                        <div class="card-content">
-                            <div class="row row-group m-0">
-                                <div class="manageuser-section" >
-                                <div class="section-heading">
-                                    <p class="enroll-title">ALL ACCOMMODATION REPORTS</p>
+                    <?php elseif ($userType == 1) : ?>
+                                <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                                    <p>You don't have enough permission to view this page</p>
                                 </div>
-                                <div class="forms-events">
-                                    <div class="col-lg-12 col-md-8 col-sm-6 col-5">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 align="center" class="card-title">All Accommodation Reports</h5>
-                                                <div id="searchBarContainer" class="fixed-center">
-                                                    <div class="input-group mb-3">
-                                                        <input type="text" id="accommodationSearchInput" class="form-control" placeholder="Search...">
-                                                        <span style="margin: 0 8px;"></span>
-                                                        <button id="all-accommodation-report-export-pdf-btn" class="btn btn-light">
-                                                            <i class="fa-solid fa-file-pdf"></i> PDF
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered" id="allAccommodationTable">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Team Name</th>
-                                                                <th>Number of Boys</th>
-                                                                <th>Number of Girls</th>
-                                                                <th>EMG Contact</th>
-                                                                <th>Require Food</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="accommodationTableBody">
-                                                            <!-- Data will be updated via AJAX -->
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endif; ?>
+                    <?php } ?>
                     <!-- end of all students  reports   --> 
 
                     <!-- start of all total  reports -->
-                    <div class="card mt-6 dashboard-cards  forallsec hide" id="all-total-reports-section-id">
-                        <div class="card-content">
-                            <div class="row row-group m-0">
-                                <div class="manageuser-section" >
-                                    <div class="section-heading">
-                                        <p class="enroll-title">TOTAL REPORTS</p>
-                                    </div>
-                                    <div class="forms-events">
-                                        
-                                        <div class="col-lg-12 col-md-8 col-sm-6 col-4">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 align="center" class="card-title">All Users</h5>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered" id="allUserTable">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Name</th>
-                                                                    <th>College Name</th>
-                                                                    <th>Email</th>
-                                                                    <th>Team Name</th>
-                                                                    <th>Phone No</th>
-                                                                    <th>User Role</th>
-                                                                    <th>Enrolled</th>
-                                                                    <th>Accomodation needed</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php foreach ($users as $user) : ?>
+                     <?php
+                        if (isset($_SESSION['user_type'])) {
+                                $userType = $_SESSION['user_type'];
+                                if ($userType == 2) : ?> 
+                        <div class="card mt-6 dashboard-cards  forallsec hide" id="all-total-reports-section-id">
+                            <div class="card-content">
+                                <div class="row row-group m-0">
+                                    <div class="manageuser-section" >
+                                        <div class="section-heading">
+                                            <p class="enroll-title">TOTAL REPORTS</p>
+                                        </div>
+                                        <div class="forms-events">
+                                            
+                                            <div class="col-lg-12 col-md-8 col-sm-6 col-4">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h5 align="center" class="card-title">All Users</h5>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered" id="allUserTable">
+                                                                <thead>
                                                                     <tr>
-                                                                        <td><?= esc($user['name']) ?></td>
-                                                                        <td><?= esc($user['college_name']) ?></td>
-                                                                        <td><?= esc($user['email']) ?></td>
-                                                                        <td><?= esc($user['team_name']) ?></td>
-                                                                        <td><?= esc($user['phone_number']) ?></td>
-                                                                        <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
-                                                                        <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
-                                                                        <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
+                                                                        <th>Name</th>
+                                                                        <th>College Name</th>
+                                                                        <th>Email</th>
+                                                                        <th>Team Name</th>
+                                                                        <th>Phone No</th>
+                                                                        <th>User Role</th>
+                                                                        <th>Enrolled</th>
+                                                                        <th>Accomodation needed</th>
                                                                     </tr>
-                                                                <?php endforeach; ?>
-                                                            </tbody>
-                                                        </table>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php foreach ($users as $user) : ?>
+                                                                        <tr>
+                                                                            <td><?= esc($user['name']) ?></td>
+                                                                            <td><?= esc($user['college_name']) ?></td>
+                                                                            <td><?= esc($user['email']) ?></td>
+                                                                            <td><?= esc($user['team_name']) ?></td>
+                                                                            <td><?= esc($user['phone_number']) ?></td>
+                                                                            <td><?= ($user['user_type'] == 1) ? 'Student' : 'Admin' ?></td>
+                                                                            <td><?= isset($user['isenrolled']) && $user['isenrolled'] == 1 ? 'Yes' : 'No' ?></td>
+                                                                            <td><?= isset($user['accomodation_needed']) ? ($user['accomodation_needed'] ? 'Yes' : 'No') : 'No' ?></td>
+                                                                        </tr>
+                                                                    <?php endforeach; ?>
+                                                                </tbody>
+                                                            </table>
 
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1374,7 +1428,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php elseif ($userType == 1) : ?>
+                                <div class="card mt-3 dashboard-cards forallsec hide" id="manageuser-section-id">
+                                    <p>You don't have enough permission to view this page</p>
+                                </div>
+                        <?php endif; ?>
+                    <?php } ?>
                 </div>
                     <!-- end of all students  reports   --> 
                                                                 
@@ -1412,10 +1471,17 @@
                                         </li>
                                         <li class="dropdown-divider"></li>
                                         <li class="dropdown-item">
+                                            <a href="<?= base_url('/') ?>">
+                                                <i class="icon-home mr-2"></i> Home
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item">
                                             <a href="<?= base_url('logout') ?>">
                                                 <i class="icon-power mr-2"></i> Logout
                                             </a>
                                         </li>
+                                         
                                     </ul>
                                 </li>
 
