@@ -3,10 +3,34 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Agnesia - National Level Fest</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <title>Aavirbhav - National Level IT Fest</title>
+    
+    <!-- General Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Aavirbhav, IT Fest, National Level Fest, Technology Event, Coding Competition, Web Development Contest, Gaming Competitions, College IT Events">
+    <meta name="description" content="Aavirbhav-2k24 is a national-level IT fest bringing together tech enthusiasts for competitions in coding, web development, gaming, and more. Join us for an exciting showcase of skills and innovation.">
+    <meta name="author" content="Aavirbhav Team">
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Aavirbhav - National Level IT Fest">
+    <meta property="og:description" content="Join us at Aavirbhav, the premier national-level IT fest featuring exciting coding, web development, gaming, and innovation competitions.">
+    <meta property="og:image" content="https://ik.imagekit.io/charanraj/UI/image%20(6).png">
+    <meta property="og:url" content="https://aavirbhav.tech/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aavirbhav IT Fest">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aavirbhav - National Level IT Fest">
+    <meta name="twitter:description" content="Discover Aavirbhav, the national-level IT fest where you can showcase your skills in coding, web design, gaming, and more.">
+    <meta name="twitter:image" content="https://ik.imagekit.io/charanraj/UI/image%20(6).png">
+    <meta name="twitter:site" content="@AavirbhavFest"> <!-- Replace with your Twitter handle -->
+    <meta name="twitter:creator" content="@AavirbhavTeam">
+
+    <!-- Additional SEO -->
+    <link rel="canonical" href="https://aavirbhav.tech/">
+    <meta name="robots" content="index, follow">
 
     <!-- Favicon -->
     <link href="<?= base_url('assets/web/imgs/favicon.png') ?>" rel="icon">
@@ -54,7 +78,7 @@
                     <span class="close-btn" onclick="closePopup()">&times;</span>
                     <div class="popup-content">
                         <p class="pop-txt1">Early Bird Tickets!!
-                             <br>Grab your tickets for AGNESIA at ₹1<span class="flicker-text">6</span>00 before
+                             <br>Grab your tickets for Aavirbhav at ₹1<span class="flicker-text">6</span>00 before
                              <br> <b><h1 class="pop-flicker-text">03 OCTOBER 2024</h1></b>
                         </p>
                        <p class="pop-txt2">Don't miss your chance to be part of an unforgettable experience! <br> Register now and dive into an exciting, enriching adventure that's waiting for you!</p>
@@ -80,7 +104,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="logo-text  m-0">Agnesia</h1>
+                    <h1 class="logo-text  m-0">Aavirbhav</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
