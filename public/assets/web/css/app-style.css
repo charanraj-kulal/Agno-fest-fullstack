@@ -3404,7 +3404,7 @@ table.grid td {
 
 .event {
   border-radius: 17px;
-  border: 1px solid white;
+  border: 1px solid gray;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   height: auto;
@@ -3932,7 +3932,7 @@ input {
 
 @media (max-width: 768px) {
   .settings-section {
-    width: 450px;
+    width: 380px;
   }
   .settings-item {
     flex-direction: row;
@@ -4275,63 +4275,45 @@ input {
   .accom-animated-button {
     font-size: 10px !important;
   }
-}
-/* site settings  */
-/* @media (max-width: 767px) {
+
+  /* setting div  */
   .settings-content-div {
-    margin: 3vh 0 8%;
+    margin: 7vh 0 12%;
+    padding: 20px;
   }
 
-  .settings-txt1 {
-    font-size: 0.8rem;
-  }
   .settings-txt {
-    font-size: 0.7rem;
+    font-size: 3vw;
   }
 
   #set-team-name {
-    font-size: 0.8rem;
+    font-size: 3vw;
   }
 
   #set-reg-status {
-    font-size: 0.8rem;
+    font-size: 3vw;
   }
 
   .rule-text {
-    font-size: 0.8rem;
-    line-height: 2rem;
+    font-size: 3vw;
+    line-height: 2.2rem;
   }
 
   .contact-sec1,
   .contact-sec2 {
-    margin: 3vh 3%;
+    margin: 4vh 4%;
   }
 
   .contact-txthead {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .con-txt1,
   .con-txt2 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
-  .settings-buttons {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    justify-content: center;
-    align-items: center;
-  }
+}
 
-  .settings-buttons > button {
-    font-size: 0.5rem;
-    padding: 5px;
-    width: 90%;
-  }
-  .table-responsive {
-    width: 80%;
-  }
-} */
 @media (min-width: 768px) and (max-width: 1199px) {
   .settings-content-div {
     margin: 7vh 0 12%;

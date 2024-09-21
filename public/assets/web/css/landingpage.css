@@ -2022,6 +2022,8 @@ body {
   /* height: calc(100% - 38px); */
   transition: 0.5s;
   padding-bottom: 20px;
+  min-height: 280px;
+  margin-bottom: 20px;
 }
 
 .team-item img {

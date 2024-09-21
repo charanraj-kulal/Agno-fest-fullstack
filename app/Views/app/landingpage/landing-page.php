@@ -28,9 +28,9 @@
 
                         </div>
                         <div class="col-lg-6 text-center text-lg-end ">
-                            <img class="img-fluid mandal-1" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
+                            <img class="img-fluid mandal-1 d-none d-sm-none d-md-block" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt="">
                         
-                            <!-- <img class="img-fluid mandal-2" src="<?= base_url('assets/web/imgs/image-mandal-3.png') ?>" alt=""> -->
+                   
                         </div>
                     </div>
                 </div>
@@ -367,138 +367,114 @@
 
 
         <!-- Team Start -->
-        <section id="teams">
-            <div class="container-fluid pt-5 pb-3">
-                <div class="container">
-                    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <h5 class=" section-title ff-secondary text-center text-primary fw-normal">COMMITTEE</h5>
-                        <h1 class="committee-header mb-5">ORGANIZING COMMITTEE</h1>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/principal2.jpg') ?>">
-                                </div>
-                                <h5 class="mb-0">Sr Dr M. Venissa A. C.</h5>
-                                <small>Principal</small>
-                               
+       
+       <section id="teams" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h5 class="section-title ff-secondary text-primary fw-normal">Committee</h5>
+                    <h1 class="committee-header wow fadeInUp" data-wow-delay="0.1s">ORGANIZING COMMITTEE</h1>
+                </div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-6 col-md-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/principal2.jpg') ?>" alt="Sr Dr M. Venissa A. C.">
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.jpg') ?>">
-                                </div>
-                                <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
-                                <small>Vice Principal</small>
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/pgco2.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
-                                <small>Administrator</small>
-                               
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/admin2.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Sr Dr M. Vinora A. C.</h5>
-                                <small>PG Co-ordinator</small>
-                               
-                            </div>
+                            <h5 class="mb-0">Sr Dr M. Venissa A. C.</h5>
+                            <small>Principal</small>
                         </div>
                     </div>
+                    <div class="col-6 col-md-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.jpg') ?>" alt="Sr M. Clera Rodrigues A. C">
+                            </div>
+                            <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
+                            <small>Vice Principal</small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/admin2.jpg') ?>" alt="Sr M. Carmel Rita A.C">
+                            </div>
+                            <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/pgco2.jpg') ?>" alt="Sr Dr M. Vinora A. C.">
+                            </div>
+                            <h5 class="mb-0">Sr Dr M. Vinora A. C.</h5>
+                            <small>PG Co-ordinator</small>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- faculty coordinators -->
-                    <div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
-                        
-                        <h1 class="committee-header mb-5">STAFF COORDINATORS</h1>
+                <!-- faculty coordinators -->
+                <div class="text-center mt-5 mb-5">
+                    <h1 class="committee-header wow fadeInUp" data-wow-delay="0.1s">STAFF COORDINATORS</h1>
+                </div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="Mrs Panchajanyeswari M Achar">
+                            </div>
+                            <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
+                            <small>HOD & Assistant Professor</small>
+                        </div>
                     </div>
-                    <div class="g-4 staff-container ">
-                        <div class="col-lg-3 col-md-6 staff wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
-                                <small>HOD & Assistant Professor</small>
-                                
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshatha-mam.jpg') ?>" alt="Mrs Akshatha Shetty">
                             </div>
+                            <h5 class="mb-0">Mrs Akshatha Shetty</h5>
+                            <small>Assistant Professor</small>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshatha-mam.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mrs Akshatha Shetty</h5>
-                                <small>Assistant Professor</small>
-                              
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid rounded-circle" src="<?= base_url('assets/web/imgs/committee/Raina-mam.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mrs Baji Raina Banu</h5>
-                                <small>Assistant Professor</small>
-                              
-                            </div>
-                        </div>
-                       
-                        
                     </div>
-                    <!-- student coordinators  -->
-                    <div class="text-center wow fadeInUp mt-3" data-wow-delay="0.1s">
-                        
-                        <h1 class="committee-header mb-5">STUDENT COORDINATORS</h1>
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Raina-mam.jpg') ?>" alt="Mrs Baji Raina Banu">
+                            </div>
+                            <h5 class="mb-0">Mrs Baji Raina Banu</h5>
+                            <small>Assistant Professor</small>
+                        </div>
                     </div>
-                    <div class="g-4 staff-container ">
-                        <div class="col-lg-3 col-md-6 staff wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/susan.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Mr Sushan Roy Pinto</h5>
-                                <small>President</small>
-                              
+                </div>
+                
+                <!-- student coordinators  -->
+                <div class="text-center mt-5 mb-5">
+                    <h1 class="committee-header wow fadeInUp" data-wow-delay="0.1s">STUDENT COORDINATORS</h1>
+                </div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden student-coordinator">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpeg') ?>" alt="Karthik">
                             </div>
+                            <h5 class="mb-0">Karthik</h5>
+                            <small>Student Coordinator</small>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/dev.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Dev Kiran Nayak</h5>
-                                <small>Class Representative</small>
-                              
+                    </div>
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item text-center rounded overflow-hidden student-coordinator">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="Ms Vaishnavi Shenoy">
                             </div>
+                            <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
+                            <small>Student Coordinator</small>
                         </div>
-                        <div class="col-lg-3 col-md-6 staff-item wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="team-item text-center rounded overflow-hidden">
-                                <div class="rounded-circle overflow-hidden m-4">
-                                    <img class="img-fluid rounded-circle" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="">
-                                </div>
-                                <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
-                                <small>Class Representative</small>
-                              
-                            </div>
-                        </div>
-                        
-                        
                     </div>
                 </div>
             </div>
         </section>
         <!-- Team End -->
+        
         <!-- Socia icons start  -->
         <section id="Social-icon">
             <div class="container-fluid py-5 wow fadeInUp"  data-wow-delay="0.1s">
