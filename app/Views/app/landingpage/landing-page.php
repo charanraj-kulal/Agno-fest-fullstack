@@ -77,16 +77,16 @@
                         <div class="col-lg-6">
                             <div class="row g-3">
                                 <div class="col-6 text-start">
-                                    <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= base_url('assets/web/imgs/events/coding2-nobg.png') ?>">
+                                    <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= base_url('assets/web/imgs/events/coding_logo.png') ?>">
                                 </div>
                                 <div class="col-6 text-start">
-                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="<?= base_url('assets/web/imgs/events/Quiz-nobg.png') ?>" style="margin-top: 25%;">
+                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="<?= base_url('assets/web/imgs/events/it_manager_logo.png') ?>" style="margin-top: 25%;">
                                 </div>
                                 <div class="col-6 text-end">
-                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="<?= base_url('assets/web/imgs/events/gaming2-nobg.png') ?>">
+                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="<?= base_url('assets/web/imgs/events/TT_logo.jpg') ?>">
                                 </div>
                                 <div class="col-6 text-end">
-                                    <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="<?= base_url('assets/web/imgs/events/It manager-nobg.png') ?>">
+                                    <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="<?= base_url('assets/web/imgs/events/gaming_logo.png') ?>">
                                 </div>
                             </div>
                         </div>
@@ -209,11 +209,12 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="testimonial-item bg-transparent border rounded p-0">
+                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/videography_logo.jpg') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">TATVA CHITRAM</h3>
                                 <h3 class="text-center">VIDEOGRAPHY</h3>
+                                <br>
                             </div>
                            <div class="d-flex align-items-center justify-content-center my-2" >
                             
@@ -227,6 +228,7 @@
                                 </button>
                             </div>
                         </div>
+                       
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/It_manager_logo.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
@@ -423,7 +425,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Hod.jpg') ?>" alt="Mrs Panchajanyeswari M Achar">
                             </div>
-                            <h5 class="mb-0">Mrs Panchajanyeswari M Achar</h5>
+                            <h5 class="mb-0">Mrs. Panchajanyeswari M Achar</h5>
                             <small>HOD & Assistant Professor</small>
                         </div>
                     </div>
@@ -432,7 +434,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/akshatha-mam.jpg') ?>" alt="Mrs Akshatha Shetty">
                             </div>
-                            <h5 class="mb-0">Mrs Akshatha Shetty</h5>
+                            <h5 class="mb-0">Mrs. Akshatha Shetty</h5>
                             <small>Assistant Professor</small>
                         </div>
                     </div>
@@ -441,7 +443,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/Raina-mam.jpg') ?>" alt="Mrs Baji Raina Banu">
                             </div>
-                            <h5 class="mb-0">Mrs Baji Raina Banu</h5>
+                            <h5 class="mb-0">Mrs. Baji Raina Banu</h5>
                             <small>Assistant Professor</small>
                         </div>
                     </div>
@@ -457,7 +459,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpg') ?>" alt="Karthik">
                             </div>
-                            <h5 class="mb-0">Karthik</h5>
+                            <h5 class="mb-0">Mr. Karthik</h5>
                             <small>Student Coordinator</small>
                         </div>
                     </div>
@@ -466,7 +468,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="Ms Vaishnavi Shenoy">
                             </div>
-                            <h5 class="mb-0">Ms Vaishnavi Shenoy</h5>
+                            <h5 class="mb-0">Ms. Vaishnavi Shenoy</h5>
                             <small>Student Coordinator</small>
                         </div>
                     </div>

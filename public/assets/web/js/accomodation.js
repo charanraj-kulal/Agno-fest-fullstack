@@ -22,15 +22,24 @@ accomodationBtn.addEventListener("click", (e) => {
   var numOfGirls = parseInt(girlDisplay);
   var totalMembers = numOfBoys + numOfGirls;
 
+  // Emergency contact number validation
+  const contactRegex = /^[0-9]{10}$/; // Only digits and exactly 10 in length
+
   if (isNaN(numOfBoys) || isNaN(numOfGirls)) {
     loader.style.display = "none"; // Hide loader
     showAlert("Please enter valid numbers for boys and girls.", false);
     return;
   }
 
-  if (totalMembers > 15) {
+  if (!contactRegex.test(emg_contact_data)) {
     loader.style.display = "none"; // Hide loader
-    showAlert("The total number of boys and girls cannot exceed 15.", false);
+    showAlert("Please enter a valid 10-digit emergency contact number.", false);
+    return;
+  }
+
+  if (totalMembers > 21) {
+    loader.style.display = "none"; // Hide loader
+    showAlert("The total number of boys and girls cannot exceed 21.", false);
     return;
   }
 

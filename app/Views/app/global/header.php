@@ -115,7 +115,7 @@
                         <a href="#home" class="nav-item nav-link land-nav active">Home</a>
                         <a href="#about" class="nav-item nav-link land-nav">About</a>
                         <a href="#events" class="nav-item nav-link land-nav">Events</a>
-                        <a href="#teams" class="nav-item nav-link land-nav">Teams</a>
+                        <a href="#teams" class="nav-item nav-link land-nav">Committee</a>
                     </div>
                     <?php if( isset($_SESSION['isLoggedIn']) && !empty($_SESSION['isLoggedIn']) )
                         {

@@ -43,7 +43,62 @@ class User extends BaseController
         } else {
             $otp = mt_rand(100000, 999999);
             $otpCreatedAt = time();
-            $teamNames = ['Atom', 'Server savers', 'Backup', 'Iteration', 'Code red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders'];
+            $teamNames = [
+                'Atom', 'Server Savers', 'Backup', 'Iteration', 'Code Red', 'Focus', 'Typers', 'Synergy', 'Logs', 'Believers', 
+                'Team Byte', 'Makers', 'BugSquashers', 'Mind Benders', 'Data Pirates', 'Algorithm Avengers', 'Compile Kings', 
+                'Byte Me', 'Quantum Quants', 'Infinite Loopers', '404 Not Found', 'Digital Dynamos', 'Kernel Crashers', 'Code Crackers', 
+                'Debugger Divas', 'Binary Beast', 'Cache Cow', 'Logic Lords', 'Script Kiddies', 'Bits Please', 'Hacktivators', 
+                'Firewalls', 'Recursive Rebels', 'Tech Titans', 'Byte Club', 'Syntax Sultans', 'Trojan Coders', 'Clever Coders', 
+                'Ping Pals', 'Firewall Force', 'Null Pointers', 'Dev Dudes', 'Stack Overflow', 'Ctrl+Alt+Elite', 'Compile Time', 
+                'RAM Raiders', 'Bit by Bit', 'Code Breakers', 'Source Seekers', 'Bit Masters', 'Hard Drive Heroes', 'Commandos', 
+                'CPU Central', 'String Chasers', 'Gateway Gurus', 'Version Control', 'Interface Innovators', 'Tech Ninjas', 
+                'Digital Dreamers', 'Code Masters', 'The Debuggers', 'Tech Warriors', 'Static Souls', 'Ping Commanders', 'LAN Lords', 
+                'Overclockers', 'Bytes and Pieces', 'HTML Heroes', 'Backbone Battalion', 'Chip Chasers', 'Data Ducks', 'Hard Disk Hustlers', 
+                'Null Terminators', 'Virtual Avengers', 'Compile Success', 'Encryption Experts', 'Pixel Pushers', 'Tech Wizards', 
+                'Beta Testers', 'Hacknocrats', 'Cyberspace Cadets', 'UI Gurus', 'Daemon Divas', 'App Ninjas', 'Hash Slingers', 
+                'Function Founders', 'Cursor Crusaders', 'Socket Squad', 'Code Wizards', 'Logic Legends', 'Hexadecimal Heroes', 
+                'Server Surge', 'Queue Masters', 'Kernel Kings', 'Backend Bandits', 'Packet Sniffers', 'Algorithm Alchemists', 
+                'Array Rangers', 'Assembly Assassins', 'Gigabyte Gladiators', 'Pixel Pirates', 'Data Processors', 'Web Wizards', 
+                'Node Ninjas', 'Byte Blasters', 'Command Line Legends', 'Cyber Knights', 'Code Ninjas', 'Database Dynamos', 'Pixel Pros', 'Cloud Controllers', 'Byte Raiders', 
+                'Ethernet Engineers', 'Algorithm Architects', 'Script Soldiers', 'Server Squad', 'Debugging Demons', 
+                'Runtime Rebels', 'IP Innovators', 'Cyber Commandos', 'Data Defenders', 'Source Code Sorcerers', 
+                'The Nullifiers', 'Bit Busters', 'Hardcore Coders', 'IP Masters', 'Server Gurus', 'Syntax Surge', 
+                'Compile Crushers', 'Bug Bashers', 'Binary Breakers', 'Cloud Chasers', 'Tech Surge', 'Digital Innovators', 
+                'Static Shock', 'Bit Battalion', 'Data Surge', 'Crash Override', 'Java Jugglers', 'Tech Savvy', 'SQL Sorcerers', 
+                'Byte Knights', 'Cloud Raiders', 'Circuit Breakers', 'Memory Leakers', 'Stack Smashers', 'Pixel Prophets', 
+                'Tech Terminators', 'Program Prophets', 'Data Surgeons', 'Shell Shock', 'Infinite Loopers', 'Object Overload', 
+                'CPU Coders', 'Hex Hackers', 'FrontEnd Fanatics', 'Port Pioneers', 'Backbone Warriors', 'Malware Militia', 
+                'Socket Sages', 'Bandwidth Brigade', 'System Overload', 'Data Dragons', 'Microchip Mavericks', 'Protocol Pirates', 
+                'Root Routers', 'Fusion Devs', 'Digital Sultans', 'API Enthusiasts', 'Web Warlords', 'Cache Controllers', 
+                'Protocol Pioneers', 'The Grid Guardians', 'Bootstrap Brawlers', 'Data Cyclones', 'Quantum Quizzers', 'Ping Kings', 
+                'Code Warriors', 'Kernel Krew', 'Data Cyclers', 'Cybernetic Crew', 'Tech Tacticians', 'Firmware Fixers', 
+                'Program Predators', 'Full Stack Fighters', 'SQL Surge', 'Cloud Crusaders', 'Source Code Sentries', 'Keygen Coders', 
+                'ByteForce', 'Cipher Sleuths', 'Ping Pongers', 'Tech Pulse', 'Binary Commandos', 'Cross-Platform Coders', 
+                'Cloud Hustlers', 'The Firewalls', 'Web Architects', 'Static Ninjas', 'Database Disruptors', 'Hard Drive Hustlers', 
+                'Server Soldiers', 'Object-Oriented Overlords', 'Tech Terrors', 'Code Crafters', 'Bitwise Operators', 
+                'Function Fanatics', 'Bit Manipulators', 'Cyber Sprinters', 'Algorithm Gurus', 'Syntax Strategists', 
+                'Data Miners', 'File Finders', 'Semaphore Soldiers', 'AI Adepts', 'Stack Attackers', 'Tech Whisperers', 
+                'Bit Crushers', 'Script Hackers', 'Binary Soldiers', 'Frontend Frenzy', 'Packet Stormers', 'Webstorm Troopers', 
+                'Algorithm Enforcers', 'Program Prowess', 'Bug Snipers', 'Data Samurais', 'Gigabyte Gladiators', 'Pixel Pushers', 
+                'Malware Mages', 'Techie Titans', 'Version Victors', 'App Attackers', 'Module Masters', 'Socket Surge', 
+                'API Wranglers', 'HTML Hackers', 'Script Wizards', 'The Code Collective', 'Systematic Solvers', 'Data Dispatchers', 
+                'Quantum Hackers', 'Debug Divas', 'Cache Commandos', 'Machine Masters', 'Cyber Stallions', 'Cloud Mavericks', 
+                'Byte Busters', 'Scripted Soldiers', 'Logic Legends', 'Full Stack Squad', 'Source Code Savants', 'Data Decoders', 
+                'Code Wizards', 'LAN Crushers', 'Binary Wranglers', 'Malware Avengers', 'RAM Racers', 'Data Doctors', 
+                'Program Pulsers', 'Command Chain', 'Logic Legion', 'Dev Dominators', 'Variable Vigilantes', 'Cache Collectors', 
+                'Stack Savants', 'Ping Predators', 'Data Gladiators', 'Cyber Squad', 'Tech Savers', 'Bitstorm Warriors', 
+                'Cloud Kings', 'Data Demolishers', 'The Kernel Knights', 'Hex Hounds', 'Data Vortex', 'Input Overload', 
+                'Digital Warriors', 'Recursive Rebels', 'System Savvy', 'Protocol Pirates', 'Byte Blazers', 'Gateway Gurus', 
+                'Code Chefs', 'Processor Pirates', 'IP Avengers', 'Debugging Defenders', 'Firewall Fighters', 'Static Soldiers', 
+                'Bug Fixers', 'Circuit Crushers', 'Tech Pioneers', 'Cloud Crusaders', 'Bug Busters', 'Database Dynamos', 
+                'Cyber Sentinels', 'Infinite Loaders', 'Syntax Soldiers', 'Queue Quizzers', 'The Digital Dream Team', 'Server Sleuths', 
+                'Data Cyclones', 'HTML Heroes', 'Data Detectives', 'The CPU Crew', 'Tech Thunder', 'Packet Pioneers', 
+                'Code Crashers', 'Bit Legends', 'IP Masters', 'Web Wizards', 'Java Junkies', 'Tech Geniuses', 'System Savants', 
+                'Bit Blasters', 'Cloud Ninjas', 'Source Code Seers', 'Digital Dreamers', 'BackEnd Bosses', 'Server Surge', 
+                'Cyber Sultans', 'Command Coders', 'Function Masters', 'AI Avengers', 'Hard Drive Hustlers', 'Tech Phantoms', 
+                'Ping Pathfinders', 'UI Unifiers', 'LAN Legends', 'CPU Sorcerers'
+            ];
+
             shuffle($teamNames);
 
             $uniqueTeamNames = [];
