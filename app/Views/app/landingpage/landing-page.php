@@ -4,7 +4,7 @@
                 <div class="row  g-5">
                     <div class="col-lg-6 text-center text-lg-start">
                         <div class="hero-container">
-                            <div class="environment"></div>
+                            
                             <h2 class="sanskrit-name hero glitch layers" data-text="AAVIRBHAV"><span>AAVIRBHAV</span></h2>
                         </div>
                         
@@ -38,7 +38,7 @@
         </section>
     </div>
         
-        <!-- Service Start -->
+      
         <!-- Counter Section Begin  **edited-->
         <div class="container-fluid">
             <div class="container">
@@ -137,9 +137,9 @@
                     </div>
                     <div class="owl-carousel testimonial-carousel">
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/coding2-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/coding_logo.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
-                                <h3 class="sanskrit-name text-center">khodhasangam</h3>
+                                <h3 class="sanskrit-name text-center">Drudavishti</h3>
                                 <h3 class="text-center">CODING</h3><br>
                             </div>
                             <div class="d-flex align-items-center justify-content-center my-2" >
@@ -150,12 +150,12 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/Quiz-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/it_quiz_logo.jpeg') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Gyanvedha</h3>
                                 <h3 class="text-center">IT QUIZ</h3><br>
@@ -168,12 +168,12 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/gaming2-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/TT_logo.jpg') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">ANVESHAN</h3>
                                 <h3 class="text-center">TREASURE HUNT</h3> <br>
@@ -186,12 +186,12 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/videography-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/mad_ad_logo.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Srujanatmak Vignapan</h3>
                                 <h3 class="text-center">MAD AD</h3>
@@ -205,15 +205,15 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/photography-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/videography_logo.jpg') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">TATVA CHITRAM</h3>
-                                <h3 class="text-center">PHOTOGRAPHY & VIDEOGRAPHY</h3>
+                                <h3 class="text-center">VIDEOGRAPHY</h3>
                             </div>
                            <div class="d-flex align-items-center justify-content-center my-2" >
                             
@@ -223,14 +223,14 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/It manager-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/It_manager_logo.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
-                                <h3 class="sanskrit-name text-center">Shreshta Nirvahak</h3>
+                                <h3 class="sanskrit-name text-center">Yantra vimarsha</h3>
                                 <h3 class="text-center">IT MANAGER</h3>
                                 <br>
                             </div>
@@ -242,12 +242,12 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
-                            <img class="img-fluid mx-auto d-block flex-shrink-1" src="<?= base_url('assets/web/imgs/events/gaming2-nobg.png') ?>" alt="">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/gaming_logo.png') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
                                 <h3 class="sanskrit-name text-center">Kurukshetra</h3>
                                 <h3 class="text-center">GAMING</h3>
@@ -261,7 +261,7 @@
                                     <span class="icon arrow"></span>
                                     </span>
                                     </div>
-                                    <span class="button-text">View More</span>
+                                    <span class="button-text">Read More</span>
                                 </button>
                             </div>
                         </div>
@@ -455,7 +455,7 @@
                     <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="team-item text-center rounded overflow-hidden student-coordinator">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpeg') ?>" alt="Karthik">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpg') ?>" alt="Karthik">
                             </div>
                             <h5 class="mb-0">Karthik</h5>
                             <small>Student Coordinator</small>

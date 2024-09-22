@@ -72,13 +72,13 @@
         <!-- Spinner End -->
 
         <!-- popup overlay start -->
-        <!-- <div class="overlay overlay-popup" onclick="closePopup()"></div>
+        <div class="overlay overlay-popup" onclick="closePopup()"></div>
             <div class="popup-container-main">
                 <div id="popup-container" class="popup-container">
                     <span class="close-btn" onclick="closePopup()">&times;</span>
                     <div class="popup-content">
                         <p class="pop-txt1">Early Bird Tickets!!
-                             <br>Grab your tickets for Aavirbhav at ₹1<span class="flicker-text">6</span>00 before
+                             <br>Grab your tickets for Aavirbhav at ₹1<span class="flicker-text">5</span>00 before
                              <br> <b><h1 class="pop-flicker-text">03 OCTOBER 2024</h1></b>
                         </p>
                        <p class="pop-txt2">Don't miss your chance to be part of an unforgettable experience! <br> Register now and dive into an exciting, enriching adventure that's waiting for you!</p>
@@ -97,14 +97,14 @@
                         <?php } ?>
                 </div>
             </div>
-        </div> -->
+        </div>
          <!-- popup overlay end -->
 
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="logo-text  m-0">Aavirbhav</h1>
+                    <h1 class="logo-text  m-0">Agnesia</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

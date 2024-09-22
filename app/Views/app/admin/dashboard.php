@@ -887,18 +887,18 @@
                                         </div>
                                         </div>
 
-                                    <div class="acc-nums-txt1 bqnier">
-                                        <p class="acc-check-txt1"> Any queries regarding accommodation, please reach out to the number given below</p>
+                                    <div class="acc-nums-txt1">
+                                        <p class="acc-check-txt1"><span class="note-text">Note:</span> Any queries regarding accommodation, please reach out to the number given below</p>
                                     </div>
 
-                                    <div align="center" class="acc-contacts bqnier">
+                                    <div align="center" class="acc-contacts">
                                         <div class="acc-con">
-                                            <p class="acc-con-name">XXX</p>
-                                            <p class="acc-con-number">+91 9353649294</p>
+                                            <p class="acc-con-name">Ms. Vaishnavi Shenoy</p>
+                                            <p class="acc-con-number">+91 8310985191</p>
                                         </div>
                                         <div class="acc-con">
-                                            <p class="acc-con-name">YYYY</p>
-                                            <p class="acc-con-number">+91 9353649294</p>
+                                            <p class="acc-con-name">Mr. Karthik</p>
+                                            <p class="acc-con-number">+91 9481539064</p>
                                         </div>
                                     </div>
 
@@ -922,15 +922,18 @@
                                             <div class="ms-2 me-2">
                                                     <ul class="list-rules-ul">
                                                         <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">"AAVIRBHAV-2K24" is open to  MCA students.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The number of participants from each college is limited to 15 students.
+
                                                             </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">A maximum of 15 participants are allowed per team.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Only one team is allowed to participate from a college.
+
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The registration fee stands at ₹1,600 per Team.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The registration fee is ₹1,500 per team.
+
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
@@ -938,24 +941,26 @@
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">All the participants need to be present by 9.00 AM.</li>
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The fest is open to students from MCA and MSc (Computer Science related branches).</li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants are advised to carry their college ID card and Permission
-                                                            letter on the day of the event.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Each participant should carry identity proof and an authorization letter from either the Head of Department or Principal.
+
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">For the Overall Championship, a team must participate in all events.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants of Shreshta Nirvahak and Tattva Chitram are not allowed to participate in any other events.
+
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants in IT Manager, Photography, Coding, and Web designing are not
-                                                            permitted to participate in other events.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The details of the rounds will be revealed on the spot.
+
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">All participants must be present on campus for both event days.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The judges’ decision is final and binding.
+
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
@@ -963,10 +968,22 @@
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Cash prizes and trophies will be given to the overall champions and
-                                                            runners-up.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">All the events will commence at the scheduled time; Punctuality will be appreciated.
+
+                                                        </li>
+                                                        </div> 
+                                                        <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Rules are subject to changes at the discretion of the Organizers.
+
                                                         </li>
                                                         </div>
+                                                        <div class="list-rule-group">
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Criteria for Overall championship include participation in all the events as well as the total scores obtained in the competitions.
+
+                                                        </li>
+                                                        </div>
+                                                        
+                                                        
                                                     </ul>
                                             </div>
                                         </div>    

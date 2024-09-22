@@ -122,6 +122,15 @@
                                         Sign Up
                                     </a>
                                 </div>
+                                <div class="text-center p-t-10">
+                                    <span class="txt1">
+                                        <i class="zmdi zmdi-arrow-left"></i>
+                                        Back to 
+                                    </span>
+                                    <a class="txt2" href="<?= base_url('/') ?>">
+                                        Home
+                                    </a>
+                                </div>
                             </form>
                         <!-- </div> -->
                     </div>
