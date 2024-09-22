@@ -95,7 +95,7 @@
                                     <span class="focus-input100" data-placeholder="Email"></span>
                                 </div>
             
-                                <div class="wrap-input100 validate-input" data-validate="Minimus password 8 charecter">
+                                <div class="wrap-input100 validate-input" data-validate="Enter atleast 8 charecter">
                                     <span class="btn-show-pass">
                                         <i class="zmdi zmdi-eye" id="togglePassword"></i>
                                     </span>
