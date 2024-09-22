@@ -1,3 +1,10 @@
+function validateNumericInput(inputElement) {
+  inputElement.value = inputElement.value.replace(/\D/g, "");
+}
+
+function validateTextInput(inputElement) {
+  inputElement.value = inputElement.value.replace(/\d/g, "");
+}
 (function ($) {
   ("use strict");
   // loader

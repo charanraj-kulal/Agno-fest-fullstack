@@ -94,7 +94,7 @@
                             <h5 class="section-title ff-secondary text-start text-light fw-normal">About event</h5>
                             <h1 class="abt-header display-5 mb-4">Welcome to <span class="sanskrit-name-abt">AAVIRBHAV</span> </h1>
                             <p class="abt-sub display-7 mb-1">DIVE INTO </p>
-                            <p class="abt-sub display-7 mb-4">EXITING COMPITION AND SHOWCASE YOUR TALENT WITH REWARDS AND CASH PRIZE</p>
+                            <p class="abt-sub display-7 mb-4">EXCITING COMPETITION TO SHOWCASE YOUR TALENT WITH REWARDS.</p>
                             <div class="row g-4 mb-4">
                                 <div class="col-sm-6">
                                     <div class="d-flex align-items-center border-start border-5 border-light px-3">
@@ -154,6 +154,24 @@
                                 </button>
                             </div>
                         </div>
+                         <div class="testimonial-item bg-transparent border rounded p-0">
+                            <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/web_design_logo.jpg') ?>" alt="">
+                            <div class="align-item-center" style="border-bottom: 5px solid white">
+                                <h3 class="sanskrit-name text-center">Vebkalpana</h3>
+                                <h3 class="text-center">Web Designing</h3><br>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center my-2" >
+                            
+                                
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(0)">
+                                    <div class="me-2"><span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                    </span>
+                                    </div>
+                                    <span class="button-text">Read More</span>
+                                </button>
+                            </div>
+                        </div>
                         <div class="testimonial-item bg-transparent border rounded p-0">
                             <img class="img-fluid mx-auto d-block flex-shrink-1 mb-2" src="<?= base_url('assets/web/imgs/events/it_quiz_logo.jpeg') ?>" alt="">
                             <div class="align-item-center" style="border-bottom: 5px solid white">
@@ -181,7 +199,7 @@
                            <div class="d-flex align-items-center justify-content-center my-2" >
                             
                                 
-                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(4)">
+                                <button  class="view-more-btn" onclick="toggleOverlayMcaRules(6)">
                                     <div class="me-2"><span class="circle" aria-hidden="true">
                                     <span class="icon arrow"></span>
                                     </span>
@@ -389,7 +407,7 @@
                     <div class="col-6 col-md-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.jpg') ?>" alt="Sr M. Clera Rodrigues A. C">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.png') ?>" alt="Sr Roopa Rodrigues A. C">
                             </div>
                             <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
                             <small>Vice Principal</small>
@@ -454,16 +472,7 @@
                     <h1 class="committee-header wow fadeInUp" data-wow-delay="0.1s">STUDENT COORDINATORS</h1>
                 </div>
                 <div class="row justify-content-center g-4">
-                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden student-coordinator">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpg') ?>" alt="Karthik">
-                            </div>
-                            <h5 class="mb-0">Mr. Karthik</h5>
-                            <small>Student Coordinator</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                     <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="team-item text-center rounded overflow-hidden student-coordinator">
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="Ms Vaishnavi Shenoy">
@@ -472,6 +481,17 @@
                             <small>Student Coordinator</small>
                         </div>
                     </div>
+                    
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden student-coordinator">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpg') ?>" alt="Karthik">
+                            </div>
+                            <h5 class="mb-0">Mr. Karthik K R</h5>
+                            <small>Student Coordinator</small>
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
         </section>
@@ -487,10 +507,10 @@
                     </div>
                     <div class="social-icons-container">
                         <ul class="social-icon-ul">
-                            <li><a href="#"><i class="fa-brands fa-instagram instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
+                            <li><a href="https://www.instagram.com/agnesia.aavirbhav"><i class="fa-brands fa-instagram instagram"></i></a></li>
+                            <li><a href="https://wa.me/919481539064?text=Hello%20Aavirbhav%20team!%20I%20would%20like%20to%20know%20more%20about%20the%20event."><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
                            
-                            <li><a href="#"><i class="fa-brands fa-youtube youtube"></i></a></li>
+                            
                         </ul>
                     </div>
                 

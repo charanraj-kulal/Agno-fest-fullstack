@@ -84,13 +84,13 @@
                         <tr>
                             <td>
                                 <div class="wrap-input100 validate-input" data-validate="Enter your name">
-                                    <input class="input100" type="text" name="name">
+                                    <input class="input100" type="text" name="name" oninput="validateTextInput(this)">
                                     <span class="focus-input100" data-placeholder="Name"></span>
                                 </div>
                             </td>
                             <td>
                                 <div class="wrap-input100 validate-input" data-validate="Enter your college name">
-                                    <input class="input100" type="text" name="college_name">
+                                    <input class="input100" type="text" name="college_name" oninput="validateTextInput(this)">
                                     <span class="focus-input100" data-placeholder="College Name"></span>
                                 </div>
                             </td>
@@ -98,7 +98,7 @@
                         <tr>
                             <td>
                                 <div class="wrap-input100 validate-input" data-validate="Enter valid phone number">
-                                    <input class="input100" type="text" name="phone_number">
+                                    <input class="input100" type="tel" inputmode="numeric" pattern="[6789][0-9]{9}" maxlength="10" oninput="validateNumericInput(this)" name="phone_number">
                                     <span class="focus-input100" data-placeholder="Phone Number"></span>
                                 </div>
                             </td>

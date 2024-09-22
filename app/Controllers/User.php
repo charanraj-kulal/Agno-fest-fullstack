@@ -134,18 +134,18 @@ class User extends BaseController
             if ($userId) {
                 //mail integration 
                     $email = \Config\Services::email();
-                    $email->setFrom('c191542709@gmail.com', 'Agnisia');
+                    $email->setFrom('c191542709@gmail.com', 'aavirbhav');
                     $email->setTo($regemail);
-                    $email->setSubject('Registration succesfull for AGNISIA-2K24');
+                    $email->setSubject('Registration succesfull for AAVIRBHAV-2K24');
                     $viewData['user'] = $user; // Pass data to the view
-                    $message = view('app/email/verify_email', $viewData);
+                    $message = view('app/email/welcome_email_2', $viewData);
                     $email->setMessage($message);
                     $email->send();
                 // Send email
                 // Redirect to verify-email page
                 return $this->response->setJSON([
                     'success' => true,
-                    'message' => 'User created successfully. Please check your email for OTP verification.'
+                    'message' => 'Registration successfull. Please check your email for Email verification.'
                 ]);
             } else {
                 return $this->response->setJSON([
@@ -174,11 +174,11 @@ class User extends BaseController
                     'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt)
                 ]);
                 $email = \Config\Services::email();
-                    $email->setFrom('c191542709@gmail.com', 'Agnisia');
+                    $email->setFrom('c191542709@gmail.com', 'Aavirbhav');
                     $email->setTo($regemail);
-                    $email->setSubject('Registration succesfull for AGNISIA-2K24');
+                    $email->setSubject('Registration succesfull for AAVIRBHAV-2K24');
                     $viewData['user'] = $user; // Pass data to the view
-                    $message = view('app/email/verify_email', $viewData);
+                    $message = view('app/email/welcome_email_2', $viewData);
                     $email->setMessage($message);
                     $email->send();
                 return $this->response->setJSON([
