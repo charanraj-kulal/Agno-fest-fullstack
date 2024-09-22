@@ -24,10 +24,9 @@ Bendur, Mangaluru – 575002.</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 824 221 8414 </p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>office@stagnescollege.edu.in</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-whatsapp"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
-                         
+                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/agnesia.aavirbhav"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://wa.me/919481539064?text=Hello%20Aavirbhav%20team!%20I%20would%20like%20to%20know%20more%20about%20the%20event."><i class="fab fa-whatsapp"></i></a>
+                            
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">

@@ -17,7 +17,7 @@ const mcaEventListNorm = [
   "IT MANAGER",
 
   "GAMING",
-  "PHOTOGRAPHY & VIDEOGRAPHY",
+  "VIDEOGRAPHY",
 
   "TREASURE HUNT",
   "MAD ADS",
@@ -82,7 +82,7 @@ const mcaPhone = [
   [["8606086464"], ["7019172013"]], //Coding
   [["9880835039"], ["9538581110"]], //It Quiz
   [["9611622784"], ["9148661549"]], //It Manager
-  [["8618779013"], ["6363098288"]], //Gaming
+  [["8296089450"], ["6363098288"]], //Gaming
   [["9353649294"], ["6366048729"]], //Photo & Video
   [["8921185809"], ["7795392418"]], //Treasure Hunt
   [["8431657008"], ["6363769284"]], //Mad ad
