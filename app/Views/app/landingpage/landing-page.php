@@ -80,7 +80,7 @@
                                     <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?= base_url('assets/web/imgs/events/coding_logo.png') ?>">
                                 </div>
                                 <div class="col-6 text-start">
-                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="<?= base_url('assets/web/imgs/events/it_manager_logo.png') ?>" style="margin-top: 25%;">
+                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="<?= base_url('assets/web/imgs/events/It_manager_logo.png') ?>" style="margin-top: 25%;">
                                 </div>
                                 <div class="col-6 text-end">
                                     <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="<?= base_url('assets/web/imgs/events/TT_logo.jpg') ?>">
