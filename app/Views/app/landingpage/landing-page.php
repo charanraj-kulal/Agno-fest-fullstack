@@ -407,7 +407,7 @@
                     <div class="col-6 col-md-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="team-item text-center rounded overflow-hidden">
                             <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.jpg') ?>" alt="Sr M. Clera Rodrigues A. C">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.png') ?>" alt="Sr Roopa Rodrigues A. C">
                             </div>
                             <h5 class="mb-0">Sr M. Clera Rodrigues A. C</h5>
                             <small>Vice Principal</small>
@@ -472,16 +472,7 @@
                     <h1 class="committee-header wow fadeInUp" data-wow-delay="0.1s">STUDENT COORDINATORS</h1>
                 </div>
                 <div class="row justify-content-center g-4">
-                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden student-coordinator">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpg') ?>" alt="Karthik">
-                            </div>
-                            <h5 class="mb-0">Mr. Karthik</h5>
-                            <small>Student Coordinator</small>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                     <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="team-item text-center rounded overflow-hidden student-coordinator">
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vaish.jpg') ?>" alt="Ms Vaishnavi Shenoy">
@@ -490,6 +481,17 @@
                             <small>Student Coordinator</small>
                         </div>
                     </div>
+                    
+                    <div class="col-6 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden student-coordinator">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/karthik.jpg') ?>" alt="Karthik">
+                            </div>
+                            <h5 class="mb-0">Mr. Karthik K R</h5>
+                            <small>Student Coordinator</small>
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
         </section>

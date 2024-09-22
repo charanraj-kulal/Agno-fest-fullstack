@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?= base_url('images/icons/favicon.ico') ?>"/>
+  <link href="<?= base_url('assets/web/imgs/favicon.png') ?>" rel="icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/web/css/bootstrap.min.css') ?>">

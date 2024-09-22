@@ -5,7 +5,10 @@
   font-family: Poppins-Regular;
   src: url("../fonts/poppins/Poppins-Regular.ttf");
 }
-
+@font-face {
+  font-family: Samarkan;
+  src: url("../fonts/samarkan/SAMAN___.TTF");
+}
 @font-face {
   font-family: Poppins-Medium;
   src: url("../fonts/poppins/Poppins-Medium.ttf");
@@ -40,7 +43,15 @@ html {
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   line-height: 1.6;
 }
-
+.sanskrit-name {
+  font-family: "Samarkan";
+  /* font-size: 1.3vw; */
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  font-size: 45px;
+}
 /*---------------------------------------------*/
 a {
   font-family: Poppins-Regular;

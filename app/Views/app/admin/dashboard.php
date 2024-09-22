@@ -897,7 +897,7 @@
                                             <p class="acc-con-number">+91 8310985191</p>
                                         </div>
                                         <div class="acc-con">
-                                            <p class="acc-con-name">Mr. Karthik</p>
+                                            <p class="acc-con-name">Mr. Karthik K R</p>
                                             <p class="acc-con-number">+91 9481539064</p>
                                         </div>
                                     </div>
