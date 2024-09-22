@@ -38,7 +38,6 @@ const mcaListRules = [
     "Teams of 2 members.",
     "Topics will include IT and general knowledge.",
     "Mobile phones and electronic devices are not allowed during the quiz.",
-    "The host reserves the right to modify rules if needed.",
   ], //Rules for IT QUiz
   [
     "One participant from each college is mandatory.",
@@ -48,8 +47,7 @@ const mcaListRules = [
   [
     "A team must consist of 4 members.",
     "Participants must bring their own devices.",
-    "The use of ipads and triggers are not allowed.",
-    "No internet will be provided; participants must use their own connections.",
+    "The use of ipads and triggers are not allowed and no internet will be provided.",
   ], //Rules for Gaming
   [
     "A team must consist of 2 members.",
@@ -69,22 +67,22 @@ const mcaListRules = [
 ];
 
 const mcaHeads = [
-  [["Jeevan"], ["Lolita"]], //Web design
-  [["Gokul Baradan"], ["Devpriya Nayak"]], //Coding
-  [["Shaaz"], ["Ashwitha"]], //It quiz
-  [["Sushan Roy pinto"], ["Bindya"]], //It Manager
-  [["Rakesh"], ["Ashwitha"]], //Gaming changes
-  [["Charanraj"], ["Shreepadma"]], //Photo &Video
-  [["Devkiran Nayak"], ["Niharika"]], //Treasure Hunt
-  [["Manish"], ["Envita"]], //Mad Ad
+  [["Mr. Jeevan"], ["Ms. Lolita Serrao"]], //Web design
+  [["Mr. Gokul Baradan"], ["Ms. Devpriya Nayak"]], //Coding
+  [["Mr. Mohammed Shaaz"], ["Ms. Ashwitha Shetty"]], //It quiz
+  [["Mr. Sushan Roy pinto"], ["Ms. Bindiya Kulal"]], //It Manager
+  [["Mr. Rakesh"], ["Ms. Hithashree N"]], //Gaming
+  [["Mr. Charanraj"], ["Ms. Shri Padma"]], //Photo &Video
+  [["Mr. Devkiran Nayak"], ["Ms. Niharika K"]], //Treasure Hunt
+  [["Mr. Manish Raj"], ["Ms. Envita Albuquerque"]], //Mad Ad
 ];
 
 const mcaPhone = [
-  [["9353459119"], ["8123350889"]], //Web design
-  [["9353459119"], ["7019172013"]], //Coding
+  [["9353459119"], ["9567919865"]], //Web design
+  [["8606086464"], ["7019172013"]], //Coding
   [["9880835039"], ["9538581110"]], //It Quiz
   [["9611622784"], ["9148661549"]], //It Manager
-  [["8618779013"], ["9538581110"]], //Gaming changes
+  [["8618779013"], ["6363098288"]], //Gaming
   [["9353649294"], ["6366048729"]], //Photo & Video
   [["8921185809"], ["7795392418"]], //Treasure Hunt
   [["8431657008"], ["6363769284"]], //Mad ad

@@ -3840,6 +3840,9 @@ input {
   font-size: 1.2vw;
   text-align: justify;
 }
+.note-text {
+  color: red;
+}
 .acc-contacts {
   display: flex;
   flex-direction: row;
@@ -3938,7 +3941,7 @@ input {
 
 @media (max-width: 768px) {
   .settings-section {
-    width: 380px;
+    width: 340px;
   }
   .settings-item {
     flex-direction: row;
@@ -4007,7 +4010,7 @@ input {
 }
 
 .rule-text {
-  font-family: "Graduate", serif;
+  font-family: "lt_regular", serif;
   line-height: 2.4rem;
   letter-spacing: 1.5px;
   padding: 2vh 0;
@@ -4025,19 +4028,17 @@ input {
   display: flex;
   align-items: center;
 }
+.list-rules-ul {
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 8vh 2vw;
+}
 
 #set-reg-status {
   font-weight: bold;
   color: white;
   text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px red,
     0 0 40px red, 0 0 55px red, 0 0 70px red;
-}
-.rule-text {
-  font-family: "Graduate", serif;
-  line-height: 2.4rem;
-  letter-spacing: 1.5px;
-  padding: 2vh 0;
-  color: white;
 }
 
 /* Responsive */
@@ -4179,18 +4180,20 @@ input {
   .forms-events,
   .event,
   .event-name,
-  .member,
   .member-name,
   .member-title,
   .error-msg,
-  .member-input,
-  .member-contact,
   .contact-title,
   .contact-input {
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 100%;
+  }
+  .member,
+  .member-input,
+  .member-contact {
+    width: 97%;
   }
   .sanskrit-name {
     font-size: 16px !important;
@@ -4255,6 +4258,7 @@ input {
 
   .acc-nums-div {
     flex-direction: column;
+    font-family: lt_regular, sans-serif;
   }
 
   .acc-num-container {
@@ -4269,14 +4273,20 @@ input {
     font-size: 3vw;
   }
   .acc-check-txt1 {
-    font-size: 10px;
+    font-size: 14px;
     padding: 0 10%;
   }
+  .acc-contacts {
+    flex-direction: column;
+    margin: 2vh 0;
+  }
   .acc-con-name {
-    font-size: 9px;
+    font-size: 12px;
+    margin-top: 2px;
   }
   .acc-con-number {
-    font-size: 9px;
+    font-size: 10px;
+    margin-top: -10px;
   }
   .accom-animated-button {
     font-size: 10px !important;
@@ -4291,18 +4301,18 @@ input {
   .settings-txt {
     font-size: 3vw;
   }
-
+  /* 
   #set-team-name {
     font-size: 3vw;
   }
 
   #set-reg-status {
     font-size: 3vw;
-  }
+  } */
 
   .rule-text {
-    font-size: 3vw;
-    line-height: 2.2rem;
+    font-size: 16px;
+    line-height: 1.6rem;
   }
 
   .contact-sec1,

@@ -12,7 +12,7 @@
                             <a class="btn btn-link" href="#home">Home</a>
                             <a class="btn btn-link" href="#about">About Us</a>
                             <a class="btn btn-link" href="#events">Events</a>
-                            <a class="btn btn-link" href="#teams">Teams</a>
+                            <a class="btn btn-link" href="#teams">Committee</a>
                             <a class="btn btn-link" href="https://www.stagnescollege.edu.in/">more-about-us</a>
                             
                     

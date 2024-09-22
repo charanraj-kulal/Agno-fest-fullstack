@@ -24,19 +24,31 @@ class RazorpayController extends BaseController
             $api = new Api(getenv('RAZORPAY_KEY_ID'), getenv('RAZORPAY_KEY_SECRET'));
             
 
+           // Original amount in paise (e.g., 150000 paise = 1500 INR)
+            $originalAmount = 150000;
+
+            // Calculate the platform fee (2%)
+            $platformFee = $originalAmount * 0.02;
+
+            // Calculate the total amount including the platform fee
+            $totalAmount = $originalAmount + $platformFee;
+
+            // Create the Razorpay order with the total amount
             $orderData = [
                 'receipt'         => 'rcptid_' . time(),
-                'amount'          => 160000, // Amount in paise (1600 INR)
+                'amount'          => $totalAmount, // Total amount with platform fee
                 'currency'        => 'INR'
             ];
 
             $razorpayOrder = $api->order->create($orderData);
 
+            // Prepare data for the Razorpay modal
             $data = [
                 'key'               => getenv('RAZORPAY_KEY_ID'),
-                'amount'            => $orderData['amount'],
-                'name'              => 'Agnisia',
-                'description'       => 'Event Registration Fee',
+                'amount'            => $orderData['amount'], // Total amount with platform fee
+                'name'              => 'aavirbhav',
+                'image'             => 'https://ik.imagekit.io/charanraj/UI/razorpay%20aavirbhav%20logo.png',
+                'description'       => 'Event Registration Fee (Platform Fee: ' . round($platformFee / 100, 2) . ' INR)', // Show platform fee in INR
                 'prefill'           => [
                     'name'              => $session->get('name'),
                     'email'             => $session->get('email'),

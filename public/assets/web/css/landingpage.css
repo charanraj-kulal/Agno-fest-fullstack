@@ -960,15 +960,6 @@ body {
   text-align: center;
 }
 
-/* .environment {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.5;
-  filter: blur(5px);
-} */
 .hero {
   font-size: clamp(40px, 10vw, 100px);
   line-height: 1;
@@ -1847,7 +1838,7 @@ body {
     font-size: 1.8rem;
   }
   .hero {
-    font-size: 4rem !important;
+    font-size: 3.2rem !important;
   }
   .title-text-readmore p {
     font-size: 1.3rem;

@@ -485,14 +485,28 @@ iframe {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-
+  min-width: 2px;
   background: #6a7dfe;
   background: -webkit-linear-gradient(left, #fd2121, #0a0a0a);
   background: -o-linear-gradient(left, #fd2121, #0a0a0a);
   background: -moz-linear-gradient(left, #fd2121, #0a0a0a);
   background: linear-gradient(left, #fd2121, #0a0a0a);
 }
+.focus-input100:focus::before {
+  width: 100%; /* Expands to full width of the input */
+}
 
+@media (max-width: 768px) {
+  .focus-input100:focus::before {
+    width: 90%; /* Adjust to be slightly smaller on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .focus-input100:focus::before {
+    width: 80%; /* Further reduce width on very small screens */
+  }
+}
 .focus-input100::after {
   font-family: Poppins-Regular;
   font-size: 15px;
