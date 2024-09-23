@@ -409,7 +409,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/vice-princi2.png') ?>" alt="Sr Roopa Rodrigues A. C">
                             </div>
-                            <h5 class="mb-0">Sr M. Clera Rodrigues A.C</h5>
+                            <h5 class="mb-0">Sr Roopa Rodrigues A. C.</h5>
                             <small>Vice Principal</small>
                         </div>
                     </div>
@@ -418,7 +418,7 @@
                             <div class="rounded-circle overflow-hidden m-4">
                                 <img class="img-fluid" src="<?= base_url('assets/web/imgs/committee/admin2.jpg') ?>" alt="Sr M. Carmel Rita A.C">
                             </div>
-                            <h5 class="mb-0">Sr M. Carmel Rita A.C</h5>
+                            <h5 class="mb-0">Sr M. Carmel Rita A. C.</h5>
                             <small>Administrator</small>
                         </div>
                     </div>

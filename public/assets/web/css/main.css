@@ -268,6 +268,40 @@ iframe {
   display: none;
   z-index: 9999;
 }
+/* loader  */
+.loader {
+  position: fixed;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 10vw;
+  height: 10vw;
+  max-width: 70px; /* Ensures it doesn't grow too large */
+  max-height: 70px;
+  display: none;
+  z-index: 9999;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .loader {
+    left: 34%;
+    width: 2vw;
+    height: 2vw;
+    max-width: 50px;
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader {
+    left: 29%;
+    width: 5vw;
+    height: 5vw;
+    max-width: 40px;
+    max-height: 40px;
+  }
+}
 .limiter {
   z-index: 1;
   width: 100%;
