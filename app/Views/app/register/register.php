@@ -137,13 +137,13 @@
                             Login
                         </a>
                     </div>
-                    <div class="text-center p-t-5">
+                    <div class="text-center p-t-2">
                         <span class="txt1">
                              <i class="zmdi zmdi-arrow-left"></i>
                             Back to 
                         </span>
                         <a class="txt2" href="<?= base_url('/') ?>">
-                            Home?
+                            Home
                         </a>
                     </div>
                 </form>
