@@ -6,8 +6,8 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
-    public string $fromEmail  = '';
-    public string $fromName   = '';
+    public string $fromEmail  = 'contact@aavirbhav.tech';
+    public string $fromName   = 'Aavirbhav-2k24';
     public string $recipients = '';
 
     /**
@@ -29,25 +29,29 @@ class Email extends BaseConfig
      * SMTP Server Hostname
      */
     // public string $SMTPHost = 'sandbox.smtp.mailtrap.io';
-    public string $SMTPHost = 'smtp.gmail.com';
+    // public string $SMTPHost = 'smtp.gmail.com';
+    public string $SMTPHost = 'smtp.hostinger.com';
 
     /**
      * SMTP Username
      */
     // public string $SMTPUser = '2eb212e102f96a';
-    public string $SMTPUser = 'charanraj9731@gmail.com';
+    // public string $SMTPUser = 'charanraj9731@gmail.com';
+    public string $SMTPUser = 'contact@aavirbhav.tech';
 
     /**
      * SMTP Password
      */
     // public string $SMTPPass = 'e5441cf99e70e1';
-    public string $SMTPPass = 'tqtxrhzrygukftrx';
+    // public string $SMTPPass = 'tqtxrhzrygukftrx';
+    public string $SMTPPass = 'T;h^o!oNb4';
 
     /**
      * SMTP Port
      */
     // public int $SMTPPort = 2525;
-    public int $SMTPPort = 587;
+    // public int $SMTPPort = 587;
+    public int $SMTPPort = 465;
 
     /**
      * SMTP Timeout (in seconds)
@@ -66,7 +70,7 @@ class Email extends BaseConfig
      *             to the server. 'ssl' means implicit SSL. Connection on port
      *             465 should set this to ''.
      */
-    public string $SMTPCrypto = 'tls';
+    public string $SMTPCrypto = 'ssl';
 
     /**
      * Enable word-wrap

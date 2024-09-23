@@ -1565,10 +1565,12 @@
                                           helvetica, sans-serif;
                                         line-height: 21px;
                                         letter-spacing: 0;
-                                        color: #333333;
+                                        color: #090909;
                                         font-size: 14px;
                                       "
                                     >
+                                  
+                                   
                                       © 2024 All Rights Reserved
                                     </p>
                                   </td>
