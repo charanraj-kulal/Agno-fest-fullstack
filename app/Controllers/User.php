@@ -134,7 +134,7 @@ class User extends BaseController
             if ($userId) {
                 //mail integration 
                     $email = \Config\Services::email();
-                    $email->setFrom('c191542709@gmail.com', 'aavirbhav');
+                    $email->setFrom('contact@aavirbhav.tech', 'aavirbhav');
                     $email->setTo($regemail);
                     $email->setSubject('Registration succesfull for AAVIRBHAV-2K24');
                     $viewData['user'] = $user; // Pass data to the view
@@ -174,7 +174,7 @@ class User extends BaseController
                     'otp_created_at' => date('Y-m-d H:i:s', $otpCreatedAt)
                 ]);
                 $email = \Config\Services::email();
-                    $email->setFrom('c191542709@gmail.com', 'Aavirbhav');
+                    $email->setFrom('contact@aavirbhav.tech', 'Aavirbhav');
                     $email->setTo($regemail);
                     $email->setSubject('Registration succesfull for AAVIRBHAV-2K24');
                     $viewData['user'] = $user; // Pass data to the view
