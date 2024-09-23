@@ -46,7 +46,7 @@
           $("#loading-screen").fadeOut("slow", function () {
             $(this).remove();
           });
-        }, 2500); // Adjust this value to control how long the video plays (in milliseconds)
+        }, 3000); // Adjust this value to control how long the video plays (in milliseconds)
       } else {
         // Video is not ready, wait for it
         video.addEventListener(
