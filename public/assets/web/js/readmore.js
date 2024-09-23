@@ -55,7 +55,7 @@ const mcaListRules = [
     "The use of drones is not allowed",
   ], //Rules for Photo and Video
   [
-    " A team of consist 2 members.",
+    " A team must consist of 2 members.",
     "No electronic gadgets are allowed.",
     "Skipping the clue or damage to property leads to disqualification of the team.",
   ], //Rules for Treasure hunt
