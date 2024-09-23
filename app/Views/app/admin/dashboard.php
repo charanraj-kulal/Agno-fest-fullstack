@@ -355,7 +355,7 @@
                                                 <!-- Web design -->
                                                 <div class="event">
                                                     <div class="event-name">
-                                                        <p class="sanskrit-name">Parikalpana</p>
+                                                        <p class="sanskrit-name">Vebkalpana</p>
                                                         <p class="normal-name">(Web Design)</p>
                                                     </div>
 
@@ -482,7 +482,7 @@
                                                     <!-- IT manager -->
                                                     <div class="event">
                                                         <div class="event-name">
-                                                            <p class="sanskrit-name">Shreshta Nirvahak</p>
+                                                            <p class="sanskrit-name">Yantra vimarshak</p>
                                                             <p class="normal-name">(IT Manager)</p>
                                                         </div>
 
@@ -672,8 +672,8 @@
                                                 <!-- Photography -->
                                                 <div class="event">
                                                     <div class="event-name">
-                                                        <p class="sanskrit-name">Rasadarpana</p>
-                                                        <p class="normal-name">(Photography)</p>
+                                                        <p class="sanskrit-name">Tattva chitram</p>
+                                                        <p class="normal-name">(Videography)</p>
                                                     </div>
 
                                                     <div class="member">
