@@ -112,8 +112,16 @@
                                         </button>
                                     </div>
                                 </div>
+                                 <div class="text-center p-t-5">
+                                    <!-- <span class="txt1">
+                                        Don’t have an account?
+                                    </span> -->
             
-                                <div class="text-center p-t-30">
+                                    <a class="txt2"  href="<?= base_url('login/forgot-password') ?>">
+                                        Forgot Password?
+                                    </a>
+                                </div>
+                                <div class="text-center p-t-8">
                                     <span class="txt1">
                                         Don’t have an account?
                                     </span>

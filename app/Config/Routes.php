@@ -18,10 +18,16 @@ $routes->post('register/regenerate-otp', 'User::regenerateOTP');
 //  login routes 
 $routes->post('/login/auth', 'User::login');
 $routes->get('login', 'User::login_view');
+
 // $routes->get('/jwtread', 'User::readUser', ['filter' => 'auth']);
 
+//forgot password routes
+$routes->get('login/forgot-password', 'User::forgotPassword_view');
+$routes->post('login/send-password-email', 'User::sendPasswordEmail');
 
 //landing page routes
+
+
 $routes->get('/', 'LandingPage::index');
 
 
