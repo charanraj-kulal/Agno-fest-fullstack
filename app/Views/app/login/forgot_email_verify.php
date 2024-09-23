@@ -61,7 +61,7 @@
                 <div class="login100-form">
                     <form class="validate-form" id="verifyForm" action="<?= base_url('login/send-password-email') ?>" method="post">
                         <span class="login100-form-title p-b-10">
-                            Send Password via link
+                            Get New Password via Email
                         </span>
                         <span class="login100-form-title p-b-15">
                             <i class="zmdi zmdi-email"></i>
@@ -76,7 +76,7 @@
                             <div class="wrap-login100-form-btn">
                                 <div class="login100-form-bgbtn"></div>
                                 <button class="login100-form-btn" type="submit">
-                                    Send Password
+                                    Get New Password
                                 </button>
                             </div>
                         </div>
