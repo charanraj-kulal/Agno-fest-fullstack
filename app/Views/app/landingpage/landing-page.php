@@ -9,7 +9,7 @@
                         </div>
                         
                         
-                        <h1 class="motivation animated slideInLeft  mb-5 pb-2">WHERE <span class="underlined underline-clip"> TALENT</span> MEETS OPPORTUNITY!!</h1>
+                        <h1 class="motivation animated slideInLeft  mb-5 pb-2">WHERE TALENT MEETS OPPORTUNITY!!</h1>
                         
                         <p class="motivation-sub text-white  animated slideInLeft mb-5 pb-2">National Level IT & Management Fest</p>
                         <?php if (isset($_SESSION['name']) && !empty($_SESSION['name'])): ?>
