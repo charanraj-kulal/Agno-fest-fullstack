@@ -77,7 +77,7 @@
                     <span class="login100-form-title p-b-16">
                         Register
                     </span>
-                    <span class="login100-form-title p-b-20">
+                    <span class="login100-form-title p-b-10">
                         <i class="zmdi zmdi-account"></i>
                     </span>
                     <table>
@@ -137,7 +137,7 @@
                             Login
                         </a>
                     </div>
-                    <div class="text-center p-t-2">
+                    <div class="text-center p-t-4">
                         <span class="txt1">
                              <i class="zmdi zmdi-arrow-left"></i>
                             Back to 
