@@ -512,7 +512,20 @@
                            
                             
                         </ul>
+
+                        
                     </div>
+                    <div class="social-icons-container">
+                         <a href="https://drive.google.com/uc?export=download&id=16iUqitseMy5zKjPYK_BnkyjQDVX7w0um" class="lan-btn py-sm-3 px-sm-5 me-3 " style="--clr:#000000">
+                                <span>Schedule</span><i></i>
+                        </a>
+                        <a href="https://drive.google.com/uc?export=download&id=1-3tGTcSk2i66-qV3_t5n2l4FHYwP1lS5" class="lan-btn py-sm-3 px-sm-5 me-3 " style="--clr:#000000">
+                                    <span>Brocure</span><i></i>
+                        </a>
+                    </div>
+
+
+                   
                 
                 </div>
             </div>
