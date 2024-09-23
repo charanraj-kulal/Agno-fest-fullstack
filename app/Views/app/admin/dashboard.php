@@ -949,7 +949,7 @@
                                                         </li>
                                                         </div>
                                                          <div class="list-rule-group">
-                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants of Shreshta Nirvahak and Tattva Chitram are not allowed to participate in any other events.
+                                                            <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Participants of Yantra Vimarshak and Tattva Chitram are not allowed to participate in any other events.
 
                                                         </li>
                                                         </div>
