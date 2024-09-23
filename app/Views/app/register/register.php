@@ -129,7 +129,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="text-center p-t-10">
+                    <div class="text-center p-t-5">
                         <span class="txt1">
                             Already have an account?
                         </span>
@@ -137,7 +137,7 @@
                             Login
                         </a>
                     </div>
-                    <div class="text-center p-t-10">
+                    <div class="text-center p-t-5">
                         <span class="txt1">
                              <i class="zmdi zmdi-arrow-left"></i>
                             Back to 
