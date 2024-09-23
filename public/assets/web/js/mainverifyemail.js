@@ -242,4 +242,45 @@
       showPass = 0;
     }
   });
+  $(document).ready(function () {
+    $("#verifyForm").submit(function (e) {
+      e.preventDefault();
+
+      $.ajax({
+        url: $(this).attr("action"),
+        type: "post",
+        data: $(this).serialize(),
+        dataType: "json",
+        beforeSend: function () {
+          $("#loader-lottie-div").show();
+        },
+        success: function (response) {
+          if (response.success) {
+            $("#alert-title").text(response.message);
+            $(".info")
+              .addClass("info-success")
+              .removeClass("info-error")
+              .show();
+          } else {
+            $("#alert-title").text(response.message);
+            $(".info")
+              .addClass("info-error")
+              .removeClass("info-success")
+              .show();
+          }
+        },
+        error: function () {
+          $("#alert-title").text("An error occurred. Please try again.");
+          $(".info").addClass("info-error").removeClass("info-success").show();
+        },
+        complete: function () {
+          $("#loader-lottie-div").hide();
+        },
+      });
+    });
+
+    $("#closeAlert").click(function () {
+      $(".info").hide();
+    });
+  });
 })(jQuery);

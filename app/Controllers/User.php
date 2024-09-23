@@ -199,8 +199,78 @@ class User extends BaseController
         }
     }
 
+    public function forgotPassword_view()
+    {
+      return view('app/login/forgot_email_verify');
+    }
 
+    
+    public function sendPasswordEmail()
+    {
+        $email = $this->request->getPost('email');
+        
+        // Validate email
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid email format'
+            ]);
+        }
 
+        $userModel = new UserModel();
+        $user = $userModel->where('email', $email)->first();
+
+        if (!$user) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No user found with this email address'
+            ]);
+        }
+
+        // Generate a new password
+        $newPassword = $this->generateRandomPassword();
+
+        // Update the user's password in the database
+        $userModel->update($user['id'], ['password' => password_hash($newPassword, PASSWORD_DEFAULT)]);
+
+        // Send email with the new password
+        $email = \Config\Services::email();
+        $email->setFrom('contact@aavirbhav.tech', 'Aavirbhav');
+        $email->setTo($user['email']);
+        $email->setSubject('Your New Password for AAVIRBHAV-2K24');
+        
+        $viewData = [
+            'user' => [
+                'name' => $user['name'], // Assuming 'name' is a field in your user table
+                'password' => $newPassword
+            ]
+        ];
+        
+        $message = view('app/email/password_email', $viewData);
+        $email->setMessage($message);
+
+        if ($email->send()) {
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'A new password has been sent to your email'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Failed to send email. Please try again later.'
+            ]);
+        }
+    }
+
+    private function generateRandomPassword($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $password = '';
+        for ($i = 0; $i < $length; $i++) {
+            $password .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $password;
+    }
+    
     //email verification function
     public function verify_email_view(){
         return view('app/register/email_verify');
@@ -255,6 +325,7 @@ class User extends BaseController
         }
     }
     
+
    
     public function deleteUser($id = null)
     {
