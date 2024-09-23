@@ -1,15 +1,71 @@
 (function ($) {
-  "use strict";
+  ("use strict");
 
-  // Spinner
-  var spinner = function () {
-    setTimeout(function () {
-      if ($("#spinner").length > 0) {
-        $("#spinner").removeClass("show");
+  // // Spinner
+  // var spinner = function () {
+  //   setTimeout(function () {
+  //     if ($("#spinner").length > 0) {
+  //       $("#spinner").removeClass("show");
+  //     }
+  //   }, 1);
+  // };
+  // spinner();
+
+  // Loading Video
+  var loadingScreen = function () {
+    var video = document.getElementById("loading-video");
+    var sources = video.getElementsByTagName("source");
+    var selectedSource = null;
+
+    function selectAppropriateSource() {
+      for (var i = 0; i < sources.length; i++) {
+        var media = sources[i].getAttribute("media");
+        if (!media || window.matchMedia(media).matches) {
+          selectedSource = sources[i];
+          break;
+        }
       }
-    }, 1);
+    }
+
+    function loadVideo() {
+      selectAppropriateSource();
+      if (selectedSource) {
+        video.src = selectedSource.src;
+        video.load();
+      }
+    }
+
+    loadVideo();
+
+    window.addEventListener("resize", loadVideo);
+
+    $(window).on("load", function () {
+      if (video.readyState === 4) {
+        // Video is ready to play
+        setTimeout(function () {
+          $("#loading-screen").fadeOut("slow", function () {
+            $(this).remove();
+          });
+        }, 2500); // Adjust this value to control how long the video plays (in milliseconds)
+      } else {
+        // Video is not ready, wait for it
+        video.addEventListener(
+          "canplaythrough",
+          function () {
+            setTimeout(function () {
+              $("#loading-screen").fadeOut("slow", function () {
+                $(this).remove();
+              });
+            }, 2000);
+          },
+          { once: true }
+        );
+      }
+    });
   };
-  spinner();
+
+  // Call the function when the DOM is ready
+  $(document).ready(loadingScreen);
 
   // Initiate the wowjs
   new WOW().init();
