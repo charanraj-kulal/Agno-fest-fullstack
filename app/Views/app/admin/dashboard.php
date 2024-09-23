@@ -310,7 +310,7 @@
                                                 <div class="event">
                                                     <div class="event-name">
                                                         <p class="sanskrit-name">drudavishti</p>
-                                                        <p class="normal-name">CODING</p>
+                                                        <p class="normal-name">(Coding)</p>
                                                     </div>
                                                         <div class="member">
                                                             <div class="member-name">
