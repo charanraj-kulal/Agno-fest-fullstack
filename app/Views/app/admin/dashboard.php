@@ -921,11 +921,11 @@
                                             <h1 align="center" class="h1 mt-1 mb-2 heading enroll-title">RULES</h1>
                                             <div class="ms-2 me-2">
                                                     <ul class="list-rules-ul">
-                                                        <div class="list-rule-group">
+                                                        <!-- <div class="list-rule-group">
                                                             <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The number of participants from each college is limited to 15 students.
 
                                                             </li>
-                                                        </div>
+                                                        </div> -->
                                                          <div class="list-rule-group">
                                                             <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Only one team is allowed to participate from a college.
 
@@ -936,10 +936,10 @@
 
                                                         </li>
                                                         </div>
-                                                         <div class="list-rule-group">
+                                                         <!-- <div class="list-rule-group">
                                                             <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">Teams must confirm their participation through <a href='/' style="color:#4af3ff" id='linktologin'>Website.</a>
                                                         </li>
-                                                        </div>
+                                                        </div> -->
                                                          <div class="list-rule-group">
                                                             <img src="<?= base_url('assets/web/imgs/bullets/bullets.png')?>"  alt="bullets"><li class="rule-text">The fest is open to students from MCA and MSc (Computer Science related branches).</li>
                                                         </div>
