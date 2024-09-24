@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             
-                            <a href="https://www.stagnescollege.edu.in/" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
+                            <a target="_blank" href="https://www.stagnescollege.edu.in/" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
                             
                                     
                             
@@ -507,8 +507,8 @@
                     </div>
                     <div class="social-icons-container">
                         <ul class="social-icon-ul">
-                            <li><a href="https://www.instagram.com/agnesia.aavirbhav"><i class="fa-brands fa-instagram instagram"></i></a></li>
-                            <li><a href="https://wa.me/919481539064?text=Hello%20Aavirbhav%20team!%20I%20would%20like%20to%20know%20more%20about%20the%20event."><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/agnesia.aavirbhav"><i class="fa-brands fa-instagram instagram"></i></a></li>
+                            <li><a target="_blank" href="https://wa.me/919481539064?text=Hello%20Aavirbhav%20team!%20I%20would%20like%20to%20know%20more%20about%20the%20event."><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
                            
                             
                         </ul>

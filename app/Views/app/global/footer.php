@@ -13,7 +13,7 @@
                             <a class="btn btn-link" href="#about">About Us</a>
                             <a class="btn btn-link" href="#events">Events</a>
                             <a class="btn btn-link" href="#teams">Committee</a>
-                            <a class="btn btn-link" href="https://www.stagnescollege.edu.in/">more-about-us</a>
+                            <a class="btn btn-link" target="_blank" href="https://www.stagnescollege.edu.in/">more-about-us</a>
                             
                     
                     </div>
@@ -24,8 +24,8 @@ Bendur, Mangaluru – 575002.</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9449591750 </p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@aavirbhav.tech</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/agnesia.aavirbhav"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://wa.me/919481539064?text=Hello%20Aavirbhav%20team!%20I%20would%20like%20to%20know%20more%20about%20the%20event."><i class="fab fa-whatsapp"></i></a>
+                            <a target="_blank" class="btn btn-outline-light btn-social" href="https://www.instagram.com/agnesia.aavirbhav"><i class="fab fa-instagram"></i></a>
+                            <a target="_blank" class="btn btn-outline-light btn-social" href="https://wa.me/919481539064?text=Hello%20Aavirbhav%20team!%20I%20would%20like%20to%20know%20more%20about%20the%20event."><i class="fab fa-whatsapp"></i></a>
                             
                         </div>
                     </div>
