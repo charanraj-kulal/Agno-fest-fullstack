@@ -112,13 +112,11 @@ const mcaHPhn2List = document.querySelector(
 function toggleOverlayMcaRules(eventIndex = null) {
   var overlay = document.getElementById("readmore-card-overlay");
 
-  // Toggle the overlay visibility
   overlay.style.display =
     overlay.style.display === "none" || overlay.style.display === ""
       ? "flex"
       : "none";
 
-  // If no eventIndex is passed, do nothing else (likely closing the overlay)
   if (eventIndex === null) {
     return;
   }
@@ -127,7 +125,6 @@ function toggleOverlayMcaRules(eventIndex = null) {
 
   const currentEvent = mcaEventList[eventIndex];
 
-  // Check if the event exists
   if (!currentEvent) {
     console.error("Invalid event index:", eventIndex);
     return;
@@ -150,8 +147,21 @@ function toggleOverlayMcaRules(eventIndex = null) {
     mcaRList.appendChild(li);
   });
 }
+// Add this new function to close the overlay when clicked outside
+function closeOverlayOnClickOutside(event) {
+  var overlay = document.getElementById("readmore-card-overlay");
+  var cardContent = document.querySelector(".card-readmore-overlay");
 
-//FOR REGISTRATION POPUP
+  if (event.target === overlay && !cardContent.contains(event.target)) {
+    toggleOverlayMcaRules();
+  }
+}
+
+// Add event listener to the overlay
+document
+  .getElementById("readmore-card-overlay")
+  .addEventListener("click", closeOverlayOnClickOutside);
+
 const overlayPopUp = document.querySelector(".overlay-popup");
 const popupContainer = document.querySelector(".popup-container-main");
 
