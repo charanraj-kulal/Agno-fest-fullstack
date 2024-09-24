@@ -7,7 +7,7 @@
                 <div class="row g-5">
                     
                     <div class="col-lg-4 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Agnesia</h4>
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Aavirbhav</h4>
                        
                             <a class="btn btn-link" href="#home">Home</a>
                             <a class="btn btn-link" href="#about">About Us</a>
@@ -45,7 +45,7 @@ Bendur, Mangaluru – 575002.</p>
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-12 text-center  mb-3 mb-md-0">
-                            &copy; <a  href="#">Agnesia</a>, All Right Reserved. <br> 
+                            &copy; <a  href="https://aavirbhav.tech/">Aavirbhav-2k24</a>, All Right Reserved. <br> 
 							
 							Made with &#x1F90D; by <a href="https://charanraj-portfolio.vercel.app/">CHARANRAJ</a><br><br>
                            

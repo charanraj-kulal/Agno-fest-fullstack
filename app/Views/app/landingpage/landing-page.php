@@ -92,7 +92,7 @@
                         </div>
                         <div class="section col-lg-6">
                             <h5 class="section-title ff-secondary text-start text-light fw-normal">About event</h5>
-                            <h1 class="abt-header display-5 mb-4">Welcome to <span class="sanskrit-name-abt">AAVIRBHAV</span> </h1>
+                            <h1 class="abt-header display-5 mb-4">Welcome to <span class="sanskrit-name-abt">AAVIRBHAV-2k24</span> </h1>
                             <p class="abt-sub display-7 mb-1">DIVE INTO </p>
                             <p class="abt-sub display-7 mb-4">EXCITING COMPETITION TO SHOWCASE YOUR TALENT WITH REWARDS.</p>
                             <div class="row g-4 mb-4">
