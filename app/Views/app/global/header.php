@@ -74,7 +74,7 @@
             <div id="loading-screen" class="show position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="background-color: #000000; z-index: 9999;">
                 <video id="loading-video" class="loader-video" autoplay loop muted playsinline style="max-width: 100%; max-height: 100%;">
                     <source src="<?= base_url('assets/web/bg-video/loader-video-desktop8.mp4') ?>" type="video/mp4" media="(min-width: 768px)">
-                    <source src="<?= base_url('assets/web/bg-video/loader-video-mobile4.mp4') ?>" type="video/mp4" media="(max-width: 767px)">
+                    <source src="<?= base_url('assets/web/bg-video/loader-video-mobile8.mp4') ?>" type="video/mp4" media="(max-width: 767px)">
                     Your browser does not support the video tag.
                 </video>
             </div>
