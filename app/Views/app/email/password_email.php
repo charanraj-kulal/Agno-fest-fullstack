@@ -1320,7 +1320,7 @@
                                             ><img
                                               alt=""
                                               width="30"
-                                              src="https://pixabay.com/get/gc202e07091add3edd8fdb2dd60aefb611253f06207266c1bf868dff2806ac6849137af9794fe7fecf8bd89f4ee3fceec_640.png"
+                                              src="https://ik.imagekit.io/charanraj/instagram-logo-5744708_640.jpg"
                                               class="img-2975"
                                               height="32"
                                               style="
@@ -1565,7 +1565,7 @@
                                           helvetica, sans-serif;
                                         line-height: 21px;
                                         letter-spacing: 0;
-                                        color: #090909;
+                                        color: #ffffff;
                                         font-size: 14px;
                                       "
                                     >

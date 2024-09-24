@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             
-                            <a target="_blank" href="https://www.stagnescollege.edu.in/" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
+                            <a target="_blank" href="https://www.stagnescollege.edu.in/about-college/" class="abt-btn py-sm-3 px-sm-5 me-3 animated slideInLeft"style="--clr:#000000"><span>About us</span><i></i></a>
                             
                                     
                             
