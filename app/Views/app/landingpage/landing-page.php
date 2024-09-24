@@ -520,7 +520,7 @@
                                 <span>Schedule</span><i></i>
                         </a>
                         <a href="https://drive.google.com/uc?export=download&id=1-3tGTcSk2i66-qV3_t5n2l4FHYwP1lS5" class="lan-btn py-sm-3 px-sm-5 me-3 " style="--clr:#000000">
-                                    <span>Brocure</span><i></i>
+                                    <span>Brochure</span><i></i>
                         </a>
                     </div>
 
