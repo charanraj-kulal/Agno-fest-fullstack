@@ -31,6 +31,7 @@ $(document).ready(function () {
       var userType = user.user_type == 2 ? "Admin" : "Student";
       var enrolled = user.isenrolled == 1 ? "Yes" : "No";
       var present = user.isPresent == 1 ? "Yes" : "No";
+      var active = user.active == 1 ? "Yes" : "No";
       var accommodationNeeded = user.accommodation_needed ? "Yes" : "No";
       var newRow =
         "<tr>" +
@@ -51,6 +52,9 @@ $(document).ready(function () {
         "</td>" +
         "<td>" +
         userType +
+        "</td>" +
+        "<td>" +
+        active +
         "</td>" +
         "<td>" +
         enrolled +
@@ -101,6 +105,7 @@ $(document).ready(function () {
       "Team Name",
       "Phone No",
       "User Role",
+      "Verified",
       "Enrolled",
       "Accommodation Needed",
       "Present",
