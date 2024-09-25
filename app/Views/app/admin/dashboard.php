@@ -1205,6 +1205,7 @@
                                                                     <th>Team Name</th>
                                                                     <th>Phone No</th>
                                                                     <th>User Role</th>
+                                                                    <th>Verified</th>
                                                                     <th>Enrolled</th>
                                                                     <th>Accommodation needed</th>
                                                                     <th>Prsent For Fest</th>

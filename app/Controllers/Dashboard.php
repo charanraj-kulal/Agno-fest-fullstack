@@ -51,6 +51,7 @@ class Dashboard extends BaseController
             'team_name' => esc($user['team_name']),
             'phone_number' => esc($user['phone_number']),
             'user_type' => $user['user_type'],
+            'active' => $user['active'],
             'isenrolled' => $this->isEnrolled($user['id']),
             'accommodation_needed' => $this->isAccommodationNeeded($user['id']),
             'isPresent' => $user['present'],
