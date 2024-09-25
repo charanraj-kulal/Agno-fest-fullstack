@@ -39,28 +39,16 @@
 
     window.addEventListener("resize", loadVideo);
 
-    $(window).on("load", function () {
-      if (video.readyState === 4) {
-        // Video is ready to play
-        setTimeout(function () {
-          $("#loading-screen").fadeOut("slow", function () {
-            $(this).remove();
-          });
-        }, 3000); // Adjust this value to control how long the video plays (in milliseconds)
-      } else {
-        // Video is not ready, wait for it
-        video.addEventListener(
-          "canplaythrough",
-          function () {
-            setTimeout(function () {
-              $("#loading-screen").fadeOut("slow", function () {
-                $(this).remove();
-              });
-            }, 2000);
-          },
-          { once: true }
-        );
-      }
+    // Set a timeout to hide the loading screen after 4 seconds
+    setTimeout(function () {
+      $("#loading-screen").fadeOut("slow", function () {
+        $(this).remove();
+      });
+    }, 4000);
+
+    // Start playing the video immediately
+    video.play().catch(function (error) {
+      console.log("Auto-play was prevented: ", error);
     });
   };
 
