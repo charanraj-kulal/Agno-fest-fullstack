@@ -71,14 +71,26 @@
         </div> -->
         <!-- Spinner End -->
          <!-- Loading Video Start -->
-            <div id="loading-screen" class="show position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="background-color: #000000; z-index: 9999;">
+            <!-- <div id="loading-screen" class="show position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="background-color: #000000; z-index: 9999;">
                 <video id="loading-video" class="loader-video" autoplay loop muted playsinline style="max-width: 100%; max-height: 100%;">
                     <source src="<?= base_url('assets/web/bg-video/loader-video-desktop8.mp4') ?>" type="video/mp4" media="(min-width: 768px)">
                     <source src="<?= base_url('assets/web/bg-video/loader-video-mobile8.mp4') ?>" type="video/mp4" media="(max-width: 767px)">
                     Your browser does not support the video tag.
                 </video>
-            </div>
+            </div> -->
         <!-- Loading Video End -->
+         <div id="loader-container" class="loader-container">
+            <div class="loader-pc">
+                <video class="loader-video" autoplay muted loop playsinline>
+                    <source src="<?= base_url('assets/web/bg-video/loader-video-desktop8.mp4') ?>" type="video/mp4">
+                </video>
+            </div>
+            <div class="loader-mobile">
+                <video class="loader-video" autoplay muted loop playsinline>
+                    <source src="<?= base_url('assets/web/bg-video/loader-video-mobile8.mp4') ?>" type="video/mp4">
+                </video>
+            </div>
+        </div>
 
         <!-- popup overlay start -->
         <div class="overlay overlay-popup vh-100 w-100" onclick="closePopup()"></div>

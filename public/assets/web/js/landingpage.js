@@ -11,50 +11,80 @@
   // };
   // spinner();
 
-  // Loading Video
-  var loadingScreen = function () {
-    var video = document.getElementById("loading-video");
-    var sources = video.getElementsByTagName("source");
-    var selectedSource = null;
+  // // Loading Video
+  // var loadingScreen = function () {
+  //   var video = document.getElementById("loading-video");
+  //   var sources = video.getElementsByTagName("source");
+  //   var selectedSource = null;
 
-    function selectAppropriateSource() {
-      for (var i = 0; i < sources.length; i++) {
-        var media = sources[i].getAttribute("media");
-        if (!media || window.matchMedia(media).matches) {
-          selectedSource = sources[i];
-          break;
-        }
-      }
+  //   function selectAppropriateSource() {
+  //     for (var i = 0; i < sources.length; i++) {
+  //       var media = sources[i].getAttribute("media");
+  //       if (!media || window.matchMedia(media).matches) {
+  //         selectedSource = sources[i];
+  //         break;
+  //       }
+  //     }
+  //   }
+
+  //   function loadVideo() {
+  //     selectAppropriateSource();
+  //     if (selectedSource) {
+  //       video.src = selectedSource.src;
+  //       video.load();
+  //     }
+  //   }
+
+  //   loadVideo();
+
+  //   window.addEventListener("resize", loadVideo);
+
+  //   // Set a timeout to hide the loading screen after 4 seconds
+  //   setTimeout(function () {
+  //     $("#loading-screen").fadeOut("slow", function () {
+  //       $(this).remove();
+  //     });
+  //   }, 4000);
+
+  //   // Start playing the video immediately
+  //   video.play().catch(function (error) {
+  //     console.log("Auto-play was prevented: ", error);
+  //   });
+  // };
+
+  // // Call the function when the DOM is ready
+  // $(document).ready(loadingScreen);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const loaderContainer = document.getElementById("loader-container");
+    const videos = document.querySelectorAll(".loader-video");
+
+    function hideLoader() {
+      loaderContainer.classList.add("loader-hidden");
+      setTimeout(() => {
+        loaderContainer.style.display = "none";
+      }, 500);
     }
 
-    function loadVideo() {
-      selectAppropriateSource();
-      if (selectedSource) {
-        video.src = selectedSource.src;
-        video.load();
+    let videosLoaded = 0;
+    const totalVideos = videos.length;
+
+    videos.forEach((video) => {
+      if (video.readyState >= 3) {
+        videosLoaded++;
+      } else {
+        video.addEventListener("canplay", function () {
+          videosLoaded++;
+          if (videosLoaded === totalVideos) {
+            setTimeout(hideLoader, 4000); // Hide loader after 3 seconds
+          }
+        });
       }
-    }
-
-    loadVideo();
-
-    window.addEventListener("resize", loadVideo);
-
-    // Set a timeout to hide the loading screen after 4 seconds
-    setTimeout(function () {
-      $("#loading-screen").fadeOut("slow", function () {
-        $(this).remove();
-      });
-    }, 4000);
-
-    // Start playing the video immediately
-    video.play().catch(function (error) {
-      console.log("Auto-play was prevented: ", error);
     });
-  };
 
-  // Call the function when the DOM is ready
-  $(document).ready(loadingScreen);
-
+    // Fallback in case videos don't load
+    setTimeout(hideLoader, 5000);
+  });
   // Initiate the wowjs
   new WOW().init();
 

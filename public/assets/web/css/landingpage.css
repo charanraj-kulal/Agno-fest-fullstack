@@ -137,20 +137,52 @@ body {
   opacity: 1;
 }
 
+/* .loader-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+} */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 9999;
+}
+
 .loader-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Adjust video within container */
+}
+
+.loader-pc,
+.loader-mobile {
+  width: 100%;
+  height: 100%;
+}
+
+.loader-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .loader-pc {
+    display: none;
+  }
+  .loader-mobile {
+    display: block;
+  }
 }
 
 .loader-hidden {
   opacity: 0;
   visibility: hidden;
-}
-
-.loader-mobile {
-  display: none;
+  transition: opacity 0.5s, visibility 0.5s;
 }
 
 .sanskrit-name {
