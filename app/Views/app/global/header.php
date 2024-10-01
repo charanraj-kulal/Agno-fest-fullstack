@@ -138,14 +138,14 @@
                         <a href="#events" class="nav-item nav-link land-nav">Events</a>
                         <a href="#teams" class="nav-item nav-link land-nav">Committee</a>
                     </div>
-                    <?php if( isset($_SESSION['isLoggedIn']) && !empty($_SESSION['isLoggedIn']) )
+                    <!-- <?php if( isset($_SESSION['isLoggedIn']) && !empty($_SESSION['isLoggedIn']) )
                         {
                         ?>
                             <a href="<?= base_url('dashboard') ?>" class="nav-btn  py-3 px-4" style="--color: #ff1867;"><span>Dashboard</span><i></i></a>
                         <?php }else{ ?>
                             <a href="<?= base_url('login') ?>" class="nav-btn  py-3 px-4" style="--color: #ff1867;"><span>Login</span><i></i></a>
                             
-                        <?php } ?>
+                        <?php } ?> -->
                     
                     
                 </div>
