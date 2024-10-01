@@ -10,11 +10,7 @@
                         
 
                         </div>
-                        <div class="col-lg-6 text-center text-lg-end ">
-                            <img class="img-fluid mandal-1 d-none d-sm-none d-md-block" src="<?= base_url('assets/web/imgs/BADGE.png') ?>" alt="">
-                        
-                   
-                        </div>
+                     
                     </div>
                 </div>
             </div>
