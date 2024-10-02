@@ -11,8 +11,8 @@ class LandingPage extends BaseController
     {
         return view('app/global/header')
         // . view('app/global/sidebar')
-        // . view('app/landingpage/landing-page')
-        . view('app/error/serverdown_fallback')
+        . view('app/landingpage/landing-page')
+        // . view('app/error/serverdown_fallback')
         . view('app/global/footer');
     }
    
