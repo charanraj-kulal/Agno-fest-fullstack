@@ -37,7 +37,7 @@ class RazorpayController extends BaseController
             $orderData = [
                 'receipt'         => 'rcptid_' . time(),
                 // 'amount'          => $totalAmount, // Total amount with platform fee
-                'amount'          => 1, // Total amount with platform fee
+                'amount'          => 100, // Total amount with platform fee
                 'currency'        => 'INR'
             ];
 
