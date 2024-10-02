@@ -770,7 +770,7 @@
 
                                              <!--  <button id="payment-btn" class="animated-button">-->
                                                     <button id="" class="animated-button">
-						    <span>REGISTRATION CLOSED</span>
+						    <span>CLOSED</span>
                                                     <span></span>
                                                 </button>
 
