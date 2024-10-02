@@ -775,10 +775,10 @@
                                                 </button>
 
                                                <!-- <button id="enroll-save-btn" class="animated-button" style="display: none;"> -->
-                                                  <button id="" class="animated-button">
+                                                <!--  <button id="" class="animated-button">
 						    <span>NO MORE UPDATES</span>
                                                     <span></span>
-                                                </button>
+                                                </button> -->
                                        
                                             </div>
                                         </div>
